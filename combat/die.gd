@@ -4,13 +4,15 @@ class_name Die
 # A die must have 6 faces
 const NUM_FACES = 6
 
+var number_icon : Texture
 var faces = []
 var curr_face = null
-var number = 0
 var is_selected = false
 var is_used = false
 
-func _init(f=[]):
+func _init(num_path, f=[]):
+	number_icon = load(num_path)
+	
 	# Set to empty die if is not initialized with correct number of faces
 	if f.size() != NUM_FACES:
 		var face_empty = FaceEmpty.new()

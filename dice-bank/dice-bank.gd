@@ -22,6 +22,9 @@ func update_dice_index(i):
 	var die = _dice_col.get_child(col).get_child(row)
 	var die_faces = die.get_children()
 	
+	# Set dice number
+	die_faces[0].texture = PlayerDiceBank.dice[i].number_icon
+	
 	for j in range(1, die_faces.size()):
 		var face_node = die_faces[j]
 		var face_obj = PlayerDiceBank.dice[i].faces[j - 1]

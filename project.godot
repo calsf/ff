@@ -8,15 +8,49 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "Die",
+"language": "GDScript",
+"path": "res://combat/die.gd"
+}, {
+"base": "Node",
+"class": "DieFace",
+"language": "GDScript",
+"path": "res://combat/die_face.gd"
+}, {
+"base": "DieFace",
+"class": "FaceAttack",
+"language": "GDScript",
+"path": "res://combat/face_attack.gd"
+}, {
+"base": "DieFace",
+"class": "FaceBlock",
+"language": "GDScript",
+"path": "res://combat/face_block.gd"
+}, {
+"base": "DieFace",
+"class": "FaceEmpty",
+"language": "GDScript",
+"path": "res://combat/face_empty.gd"
+} ]
 _global_script_class_icons={
-
+"Die": "",
+"DieFace": "",
+"FaceAttack": "",
+"FaceBlock": "",
+"FaceEmpty": ""
 }
 
 [application]
 
 config/name="ff"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerHealth="*res://combat/player_health.gd"
+PlayerDiceBank="*res://combat/player_dice_bank.gd"
 
 [display]
 

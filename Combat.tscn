@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=176 format=2]
 
 [ext_resource path="res://dice-bank/die-numbers/die-num-6.png" type="Texture" id=1]
 [ext_resource path="res://dice-bar/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -189,6 +189,64 @@ length = 4.0
 loop = true
 step = 0.025
 tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 60 ), ExtResource( 14 ), ExtResource( 33 ), ExtResource( 53 ), ExtResource( 21 ), ExtResource( 31 ), ExtResource( 15 ), ExtResource( 29 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 50 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 19 ), ExtResource( 51 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 55 ), ExtResource( 49 ), ExtResource( 12 ), ExtResource( 43 ), ExtResource( 22 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 28 ), ExtResource( 41 ), ExtResource( 52 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 57 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 54 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 25 ), ExtResource( 56 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 48 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 48 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 45 ), ExtResource( 46 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 60 ), ExtResource( 14 ), ExtResource( 33 ), ExtResource( 53 ), ExtResource( 21 ), ExtResource( 31 ), ExtResource( 15 ), ExtResource( 29 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 27 ), ExtResource( 50 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 19 ), ExtResource( 51 ), ExtResource( 35 ), ExtResource( 34 ), ExtResource( 55 ), ExtResource( 49 ), ExtResource( 12 ), ExtResource( 43 ), ExtResource( 22 ), ExtResource( 38 ), ExtResource( 36 ), ExtResource( 28 ), ExtResource( 41 ), ExtResource( 52 ), ExtResource( 24 ), ExtResource( 16 ), ExtResource( 57 ), ExtResource( 32 ), ExtResource( 13 ), ExtResource( 54 ), ExtResource( 17 ), ExtResource( 20 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 25 ), ExtResource( 56 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 48 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 59 ), ExtResource( 48 ), ExtResource( 30 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 45 ), ExtResource( 46 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -201,13 +259,47 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="Animation" id=6]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=8]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=9]
 length = 4.0
 loop = true
 step = 0.025
@@ -224,7 +316,41 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=10]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
 length = 4.0
 loop = true
 step = 0.025
@@ -265,8 +391,89 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "idle"
+[sub_resource type="Animation" id=27]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 2.14355, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1.27456, 1, 1, 1, 1, 1, 1, 2.46229, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1.46409, 1, 2.92817, 1.18921, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3.03143, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ), ExtResource( 67 ), ExtResource( 11 ), ExtResource( 74 ), ExtResource( 101 ), ExtResource( 79 ), ExtResource( 95 ), ExtResource( 82 ), ExtResource( 68 ), ExtResource( 61 ), ExtResource( 103 ), ExtResource( 94 ), ExtResource( 81 ), ExtResource( 83 ), ExtResource( 69 ), ExtResource( 84 ), ExtResource( 104 ), ExtResource( 86 ), ExtResource( 113 ), ExtResource( 70 ), ExtResource( 92 ), ExtResource( 80 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 72 ), ExtResource( 97 ), ExtResource( 73 ), ExtResource( 85 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 87 ), ExtResource( 98 ), ExtResource( 93 ), ExtResource( 96 ), ExtResource( 102 ), ExtResource( 105 ), ExtResource( 77 ), ExtResource( 88 ), ExtResource( 106 ), ExtResource( 62 ), ExtResource( 78 ), ExtResource( 99 ), ExtResource( 115 ), ExtResource( 2 ), ExtResource( 89 ), ExtResource( 63 ), ExtResource( 90 ), ExtResource( 66 ), ExtResource( 64 ), ExtResource( 91 ), ExtResource( 100 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 114 ), ExtResource( 100 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 114 ), ExtResource( 100 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.075, 0.25, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=28]
+length = 4.0
+loop = true
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 2.14355, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1.27456, 1, 1, 1, 1, 1, 1, 2.46229, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1.46409, 1, 2.92817, 1.18921, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3.03143, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 67 ), ExtResource( 67 ), ExtResource( 11 ), ExtResource( 74 ), ExtResource( 101 ), ExtResource( 79 ), ExtResource( 95 ), ExtResource( 82 ), ExtResource( 68 ), ExtResource( 61 ), ExtResource( 103 ), ExtResource( 94 ), ExtResource( 81 ), ExtResource( 83 ), ExtResource( 69 ), ExtResource( 84 ), ExtResource( 104 ), ExtResource( 86 ), ExtResource( 113 ), ExtResource( 70 ), ExtResource( 92 ), ExtResource( 80 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 72 ), ExtResource( 97 ), ExtResource( 73 ), ExtResource( 85 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 87 ), ExtResource( 98 ), ExtResource( 93 ), ExtResource( 96 ), ExtResource( 102 ), ExtResource( 105 ), ExtResource( 77 ), ExtResource( 88 ), ExtResource( 106 ), ExtResource( 62 ), ExtResource( 78 ), ExtResource( 99 ), ExtResource( 115 ), ExtResource( 2 ), ExtResource( 89 ), ExtResource( 63 ), ExtResource( 90 ), ExtResource( 66 ), ExtResource( 64 ), ExtResource( 91 ), ExtResource( 100 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 114 ), ExtResource( 100 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 114 ), ExtResource( 100 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.075, 0.25, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("DiceRoll/Die:texture")
@@ -317,7 +524,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=16]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -405,58 +612,58 @@ tracks/6/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=17]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 use_filter = true
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=18]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=19]
 size = 10
 outline_color = Color( 1, 0.992157, 0.854902, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=20]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=21]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=22]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=23]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=24]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=25]
 size = 8
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=26]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -611,15 +818,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
 margin_bottom = 10.0
-custom_constants/separation = 64
+custom_constants/separation = 16
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Die" type="TextureRect" parent="CanvasLayer/DiceBar/DiceRoll"]
-margin_left = 160.0
-margin_right = 224.0
+margin_left = 80.0
+margin_right = 144.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 118 )
@@ -630,19 +837,7 @@ __meta__ = {
 [node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceRoll/Die"]
 anims/roll = SubResource( 2 )
 
-[node name="DiceNumbers" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 10.0
-margin_bottom = 10.0
-custom_constants/separation = 64
-alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
-modulate = Color( 1, 1, 1, 0 )
+[node name="Die2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceRoll"]
 margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 80.0
@@ -652,15 +847,78 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceNumbers/Number"]
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceRoll/Die2"]
 anims/roll = SubResource( 3 )
+
+[node name="Die3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceRoll"]
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceRoll/Die3"]
+anims/roll = SubResource( 4 )
+
+[node name="DiceNumbers" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 10.0
+margin_bottom = 10.0
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+margin_left = 80.0
+margin_right = 144.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceNumbers/Number"]
+anims/roll = SubResource( 5 )
+
+[node name="Number2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceNumbers/Number2"]
+anims/roll = SubResource( 6 )
+
+[node name="Number3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceNumbers/Number3"]
+anims/roll = SubResource( 7 )
 
 [node name="DiceFaces" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
 margin_bottom = 10.0
-custom_constants/separation = 64
+custom_constants/separation = 16
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -668,8 +926,8 @@ __meta__ = {
 
 [node name="Face" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFaces"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 160.0
-margin_right = 224.0
+margin_left = 80.0
+margin_right = 144.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 125 )
@@ -684,7 +942,7 @@ margin_left = -37.5
 margin_top = -4.0
 margin_right = 37.5
 margin_bottom = 11.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "NO ACTION"
 align = 1
@@ -694,20 +952,94 @@ __meta__ = {
 }
 
 [node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFaces/Face"]
-anims/roll = SubResource( 5 )
+anims/roll = SubResource( 9 )
+
+[node name="Face2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFaces"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 125 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel" type="Label" parent="CanvasLayer/DiceBar/DiceFaces/Face2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -37.5
+margin_top = -4.0
+margin_right = 37.5
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "NO ACTION"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFaces/Face2"]
+anims/roll = SubResource( 10 )
+
+[node name="Face3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFaces"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 125 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionLabel" type="Label" parent="CanvasLayer/DiceBar/DiceFaces/Face3"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -37.5
+margin_top = -4.0
+margin_right = 37.5
+margin_bottom = 11.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "NO ACTION"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFaces/Face3"]
+anims/roll = SubResource( 11 )
 
 [node name="DiceFlashEffect" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
 margin_bottom = 10.0
-custom_constants/separation = 64
+custom_constants/separation = 16
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Flash" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 80.0
+margin_right = 144.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 67 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFlashEffect/Flash"]
+anims/roll = SubResource( 12 )
+
+[node name="Flash2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 160.0
 margin_right = 224.0
@@ -718,13 +1050,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFlashEffect/Flash"]
-anims/roll = SubResource( 6 )
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFlashEffect/Flash2"]
+anims/roll = SubResource( 27 )
+
+[node name="Flash3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 80.0
+rect_pivot_offset = Vector2( 32, 32 )
+texture = ExtResource( 67 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFlashEffect/Flash3"]
+anims/roll = SubResource( 28 )
 
 [node name="DieAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar"]
 autoplay = "idle"
-anims/idle = SubResource( 7 )
-anims/roll = SubResource( 8 )
+anims/idle = SubResource( 15 )
+anims/roll = SubResource( 16 )
 
 [node name="DiceBank" type="NinePatchRect" parent="CanvasLayer"]
 anchor_left = 0.012
@@ -796,7 +1142,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -818,7 +1164,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -840,7 +1186,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -862,7 +1208,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -884,7 +1230,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -906,7 +1252,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -941,7 +1287,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -963,7 +1309,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -985,7 +1331,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1007,7 +1353,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1029,7 +1375,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1051,7 +1397,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1086,7 +1432,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1108,7 +1454,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1130,7 +1476,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1152,7 +1498,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1174,7 +1520,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1196,7 +1542,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1239,7 +1585,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1261,7 +1607,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1283,7 +1629,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1305,7 +1651,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1327,7 +1673,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1349,7 +1695,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1384,7 +1730,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1406,7 +1752,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1428,7 +1774,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1450,7 +1796,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1472,7 +1818,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1494,7 +1840,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1529,7 +1875,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1551,7 +1897,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1573,7 +1919,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1595,7 +1941,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1617,7 +1963,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1639,7 +1985,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1682,7 +2028,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1704,7 +2050,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1726,7 +2072,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1748,7 +2094,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1770,7 +2116,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1792,7 +2138,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1827,7 +2173,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1849,7 +2195,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1871,7 +2217,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1893,7 +2239,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1915,7 +2261,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1937,7 +2283,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1972,7 +2318,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1994,7 +2340,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2016,7 +2362,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2038,7 +2384,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2060,7 +2406,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2082,7 +2428,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2125,7 +2471,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2147,7 +2493,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2169,7 +2515,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2191,7 +2537,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2213,7 +2559,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2235,7 +2581,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2270,7 +2616,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2292,7 +2638,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2314,7 +2660,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2336,7 +2682,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2358,7 +2704,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2380,7 +2726,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2415,7 +2761,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2437,7 +2783,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2459,7 +2805,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2481,7 +2827,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2503,7 +2849,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2525,7 +2871,7 @@ anchor_bottom = 0.562
 margin_top = -0.00800014
 margin_right = 0.00799942
 margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 17 )
 text = "15"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -4115,7 +4461,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -4149,7 +4495,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"
@@ -4189,7 +4535,7 @@ margin_left = -4.0
 margin_top = 2.0
 margin_right = -7.0
 margin_bottom = 2.016
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "FAVOR"
 align = 1
@@ -4206,7 +4552,7 @@ margin_left = -4.0
 margin_top = -2.0
 margin_right = -3.96001
 margin_bottom = -1.984
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "2"
 align = 1
@@ -4256,7 +4602,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 20 )
 custom_constants/line_spacing = -5
 text = "REROLL ALL
 (-1 FAVOR)
@@ -4277,7 +4623,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "ROLL"
 __meta__ = {
@@ -4297,7 +4643,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "PLAY"
 __meta__ = {
@@ -4336,7 +4682,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  SET  "
@@ -4351,7 +4697,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  DISCARD (+1 FAVOR)  "
 
@@ -4365,7 +4711,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  REROLL (-2 FAVOR)  "
 
@@ -4379,7 +4725,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CANCEL"
 
@@ -4430,7 +4776,7 @@ margin_left = -0.0140018
 margin_top = -0.952
 margin_right = -0.0136414
 margin_bottom = 6.72
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 23 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CHOOSE TARGET"
@@ -4453,7 +4799,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 24 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CANCEL"
 __meta__ = {
@@ -4616,7 +4962,7 @@ margin_left = 33.0
 margin_top = 8.0
 margin_right = 42.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 25 )
 text = "30"
 align = 1
 __meta__ = {
@@ -4687,7 +5033,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
 margin_right = -3.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 26 )
 custom_constants/line_spacing = -4
 text = "ATTACK"
 autowrap = true
@@ -4702,7 +5048,7 @@ margin_left = 4.0
 margin_top = 16.0
 margin_right = -4.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 26 )
 custom_constants/line_spacing = -4
 text = "Deals 30 damage to a target."
 autowrap = true

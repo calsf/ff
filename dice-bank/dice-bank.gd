@@ -2,9 +2,21 @@ extends NinePatchRect
 
 onready var _dice_col = $HBoxDice
 
+onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
+
 func _ready():
-	# NEED TO MAKE SURE PLAYERDICEBANK.DICE HAS BEEN INITIALIZED BEFORE THIS
+	# Set up on click events for each die in the dice bank
+	var dice = []
 	
+	for col in range(_dice_col.get_children().size()):
+		for row in range(_dice_col.get_child(col).get_children().size()):
+			dice.append(_dice_col.get_child(col).get_child(row))
+
+	for i in range(dice.size()):
+		dice[i].connect("gui_input", self, "_on_die_pressed", [PlayerDiceBank.dice[i]])
+	
+	# NEED TO MAKE SURE PLAYERDICEBANK.DICE HAS BEEN INITIALIZED BEFORE THIS
+	# Initialize all the dice UI elements
 	for i in range(PlayerDiceBank.dice.size()):
 		update_dice_index(i)
 			
@@ -40,3 +52,11 @@ func update_dice_index(i):
 			num_value_label.text = ""
 		else:
 			num_value_label.text = str(num_value)
+
+# LMB -> add die to dice bar, RMB -> remove die from dice bar
+func _on_die_pressed(event, die):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			_dice_bar.add_die(die)
+		if event.button_index == BUTTON_RIGHT and event.pressed:
+			_dice_bar.remove_die(die)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=176 format=2]
+[gd_scene load_steps=177 format=2]
 
 [ext_resource path="res://dice/die-numbers/die-num-6.png" type="Texture" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -115,6 +115,7 @@
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash18.png" type="Texture" id=113]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash63.png" type="Texture" id=114]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash48.png" type="Texture" id=115]
+[ext_resource path="res://dice/dice_face_info.gd" type="Script" id=116]
 [ext_resource path="res://dice/die-numbers/die-num-1.png" type="Texture" id=117]
 [ext_resource path="res://dice/die-empty-slot.png" type="Texture" id=118]
 [ext_resource path="res://combat/favor-icon.png" type="Texture" id=119]
@@ -1117,6 +1118,7 @@ __meta__ = {
 [node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice"]
 margin_right = 188.0
 margin_bottom = 32.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
@@ -1262,6 +1264,7 @@ __meta__ = {
 margin_top = 30.0
 margin_right = 188.0
 margin_bottom = 62.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
@@ -1407,6 +1410,7 @@ __meta__ = {
 margin_top = 60.0
 margin_right = 188.0
 margin_bottom = 92.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
@@ -1560,6 +1564,7 @@ __meta__ = {
 [node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2"]
 margin_right = 188.0
 margin_bottom = 32.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
@@ -1705,6 +1710,7 @@ __meta__ = {
 margin_top = 30.0
 margin_right = 188.0
 margin_bottom = 62.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
@@ -1850,6 +1856,7 @@ __meta__ = {
 margin_top = 60.0
 margin_right = 188.0
 margin_bottom = 92.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
@@ -2003,6 +2010,7 @@ __meta__ = {
 [node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3"]
 margin_right = 188.0
 margin_bottom = 32.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
@@ -2148,6 +2156,7 @@ __meta__ = {
 margin_top = 30.0
 margin_right = 188.0
 margin_bottom = 62.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
@@ -2293,6 +2302,7 @@ __meta__ = {
 margin_top = 60.0
 margin_right = 188.0
 margin_bottom = 92.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
@@ -2446,6 +2456,7 @@ __meta__ = {
 [node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4"]
 margin_right = 188.0
 margin_bottom = 32.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
@@ -2591,6 +2602,7 @@ __meta__ = {
 margin_top = 30.0
 margin_right = 188.0
 margin_bottom = 62.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
@@ -2736,6 +2748,7 @@ __meta__ = {
 margin_top = 60.0
 margin_right = 188.0
 margin_bottom = 92.0
+rect_pivot_offset = Vector2( 94, 16 )
 custom_constants/separation = -6
 
 [node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
@@ -4994,6 +5007,9 @@ margin_left = 0.32
 margin_top = -0.0400009
 margin_right = 0.319992
 margin_bottom = 0.159988
+rect_pivot_offset = Vector2( 40, 28 )
+mouse_filter = 2
+script = ExtResource( 116 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -5001,6 +5017,7 @@ __meta__ = {
 [node name="Outline" type="ColorRect" parent="CanvasLayer/DieFaceInfo"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 1, 0.926339, 0.742188, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -5013,6 +5030,7 @@ margin_left = 1.0
 margin_top = 1.0
 margin_right = -1.0
 margin_bottom = -1.0
+mouse_filter = 2
 color = Color( 0.246094, 0.216391, 0.137466, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -5023,6 +5041,7 @@ margin_left = 1.0
 margin_top = 1.0
 margin_right = 79.0
 margin_bottom = 14.0
+mouse_filter = 2
 color = Color( 0.453125, 0.414185, 0.316833, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

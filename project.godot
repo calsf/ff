@@ -12,27 +12,27 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Die",
 "language": "GDScript",
-"path": "res://combat/die.gd"
+"path": "res://dice/die.gd"
 }, {
 "base": "Node",
 "class": "DieFace",
 "language": "GDScript",
-"path": "res://combat/die_face.gd"
+"path": "res://dice/faces/die_face.gd"
 }, {
 "base": "DieFace",
 "class": "FaceAttack",
 "language": "GDScript",
-"path": "res://combat/face_attack.gd"
+"path": "res://dice/faces/face_attack.gd"
 }, {
 "base": "DieFace",
 "class": "FaceBlock",
 "language": "GDScript",
-"path": "res://combat/face_block.gd"
+"path": "res://dice/faces/face_block.gd"
 }, {
 "base": "DieFace",
 "class": "FaceEmpty",
 "language": "GDScript",
-"path": "res://combat/face_empty.gd"
+"path": "res://dice/faces/face_empty.gd"
 } ]
 _global_script_class_icons={
 "Die": "",
@@ -50,7 +50,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerHealth="*res://combat/player_health.gd"
-PlayerDiceBank="*res://combat/player_dice_bank.gd"
+PlayerDiceBank="*res://dice/player_dice_bank.gd"
 
 [display]
 

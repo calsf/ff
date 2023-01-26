@@ -1,6 +1,6 @@
-[gd_scene load_steps=177 format=2]
+[gd_scene load_steps=161 format=2]
 
-[ext_resource path="res://dice/die-numbers/die-num-6.png" type="Texture" id=1]
+[ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
 [ext_resource path="res://dice/die-roll/die-roll1.png" type="Texture" id=3]
 [ext_resource path="res://dice/die-roll/die-roll2.png" type="Texture" id=4]
@@ -115,8 +115,8 @@
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash18.png" type="Texture" id=113]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash63.png" type="Texture" id=114]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash48.png" type="Texture" id=115]
-[ext_resource path="res://dice/dice_face_info.gd" type="Script" id=116]
-[ext_resource path="res://dice/die-numbers/die-num-1.png" type="Texture" id=117]
+[ext_resource path="res://dice/dice-bank/BankDieSelectedOverlay.tscn" type="PackedScene" id=116]
+[ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=117]
 [ext_resource path="res://dice/die-empty-slot.png" type="Texture" id=118]
 [ext_resource path="res://combat/favor-icon.png" type="Texture" id=119]
 [ext_resource path="res://combat/block_icon.png" type="Texture" id=120]
@@ -125,24 +125,10 @@
 [ext_resource path="res://dice/dice-bar/dice-bar.png" type="Texture" id=123]
 [ext_resource path="res://dice/dice-bank/dice-bank.png" type="Texture" id=124]
 [ext_resource path="res://dice/faces/face-attack.png" type="Texture" id=125]
-[ext_resource path="res://dice/faces/face-block.png" type="Texture" id=126]
-[ext_resource path="res://dice/die-numbers/die-num-3.png" type="Texture" id=127]
-[ext_resource path="res://dice/die-numbers/die-num-2.png" type="Texture" id=128]
-[ext_resource path="res://dice/die-numbers/die-num-7.png" type="Texture" id=129]
-[ext_resource path="res://dice/die-numbers/die-num-9.png" type="Texture" id=130]
-[ext_resource path="res://dice/die-numbers/die-num-11.png" type="Texture" id=131]
-[ext_resource path="res://dice/die-numbers/die-num-8.png" type="Texture" id=132]
-[ext_resource path="res://dice/die-numbers/die-num-10.png" type="Texture" id=133]
-[ext_resource path="res://dice/die-numbers/die-num-4.png" type="Texture" id=134]
-[ext_resource path="res://dice/die-numbers/die-num-12.png" type="Texture" id=135]
-[ext_resource path="res://dice/die-numbers/die-num-5.png" type="Texture" id=136]
+[ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=126]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
-[ext_resource path="res://dice/die-face-used.png" type="Texture" id=140]
-[ext_resource path="res://dice/die-numbers/die-num-used.png" type="Texture" id=141]
-[ext_resource path="res://dice/die-numbers/die-num-selected.png" type="Texture" id=142]
-[ext_resource path="res://dice/die-face-selected.png" type="Texture" id=143]
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
 [ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=146]
@@ -614,33 +600,32 @@ tracks/6/keys = {
 }
 
 [sub_resource type="DynamicFont" id=17]
-size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-use_filter = true
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=18]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=18]
 size = 10
 outline_color = Color( 1, 0.992157, 0.854902, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=19]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=20]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=22]
 size = 8
@@ -656,18 +641,6 @@ font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=24]
 size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=25]
-size = 8
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=26]
-size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
 [node name="Node2D" type="Node2D"]
@@ -830,7 +803,7 @@ margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 118 )
+texture = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -876,6 +849,7 @@ __meta__ = {
 }
 
 [node name="Number" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 80.0
@@ -926,7 +900,6 @@ __meta__ = {
 }
 
 [node name="Face" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFaces"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 80.0
@@ -1068,7 +1041,7 @@ __meta__ = {
 [node name="tempAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DiceFlashEffect/Flash3"]
 anims/roll = SubResource( 14 )
 
-[node name="DieAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DiceBar"]
+[node name="DieAnimationPlayer01" type="AnimationPlayer" parent="CanvasLayer/DiceBar"]
 autoplay = "idle"
 anims/idle = SubResource( 15 )
 anims/roll = SubResource( 16 )
@@ -1115,442 +1088,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice"]
-margin_right = 188.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice" instance=ExtResource( 117 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 117 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die001/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die002" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice" instance=ExtResource( 117 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 128 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die002/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die003" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice" instance=ExtResource( 117 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 127 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice/Die003/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxDice2" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
 margin_left = 220.0
@@ -1561,442 +1107,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2"]
-margin_right = 188.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2" instance=ExtResource( 117 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 134 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die001/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die002" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2" instance=ExtResource( 117 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 136 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die002/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die003" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2" instance=ExtResource( 117 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 1 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2/Die003/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxDice3" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
 margin_left = 424.0
@@ -2007,442 +1126,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3"]
-margin_right = 188.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3" instance=ExtResource( 117 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 129 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die001/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die002" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3" instance=ExtResource( 117 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 132 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die002/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die003" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3" instance=ExtResource( 117 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 130 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3/Die003/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="VBoxDice4" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
 margin_left = 628.0
@@ -2453,442 +1145,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4"]
-margin_right = 188.0
-margin_bottom = 32.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4" instance=ExtResource( 117 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 133 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die001/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die002" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4" instance=ExtResource( 117 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 131 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die002/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Die003" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4" instance=ExtResource( 117 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-rect_pivot_offset = Vector2( 94, 16 )
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 135 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003/Face01"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003/Face02"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 125 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003/Face03"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003/Face04"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003/Face05"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 126 )
-expand = true
-
-[node name="NumValue" type="Label" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4/Die003/Face06"]
-anchor_left = 0.25
-anchor_top = 0.094
-anchor_right = 0.531
-anchor_bottom = 0.562
-margin_top = -0.00800014
-margin_right = 0.00799942
-margin_bottom = 0.0159988
-custom_fonts/font = SubResource( 17 )
-text = "15"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxDiceSelectedOverlay" type="HBoxContainer" parent="CanvasLayer/DiceBank"]
 visible = false
@@ -2914,187 +1179,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice" instance=ExtResource( 116 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die001"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die002" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice" instance=ExtResource( 116 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die002"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die003" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice" instance=ExtResource( 116 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice/Die003"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
 
 [node name="VBoxDice2" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
 margin_left = 220.0
@@ -3105,187 +1198,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die004" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2" instance=ExtResource( 116 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die004"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die005" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2" instance=ExtResource( 116 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die005"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die006" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2" instance=ExtResource( 116 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2/Die006"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
 
 [node name="VBoxDice3" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
 margin_left = 424.0
@@ -3296,187 +1217,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die007" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3" instance=ExtResource( 116 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die007"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die008" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3" instance=ExtResource( 116 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die008"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die009" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3" instance=ExtResource( 116 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3/Die009"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
 
 [node name="VBoxDice4" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
 margin_left = 628.0
@@ -3487,187 +1236,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die010" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4" instance=ExtResource( 116 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die010"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die011" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4" instance=ExtResource( 116 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die011"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Die012" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4" instance=ExtResource( 116 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 142 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4/Die012"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 143 )
-expand = true
 
 [node name="HBoxDiceUsedOverlay2" type="HBoxContainer" parent="CanvasLayer/DiceBank"]
 visible = false
@@ -3693,187 +1270,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die001" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice" instance=ExtResource( 126 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die001"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die002" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice" instance=ExtResource( 126 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die002"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die003" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice" instance=ExtResource( 126 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice/Die003"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
 
 [node name="VBoxDice2" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2"]
 margin_left = 220.0
@@ -3884,187 +1289,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die004" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2" instance=ExtResource( 126 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die004"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die005" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2" instance=ExtResource( 126 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die005"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die006" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2" instance=ExtResource( 126 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice2/Die006"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
 
 [node name="VBoxDice3" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2"]
 margin_left = 424.0
@@ -4075,187 +1308,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die007" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3" instance=ExtResource( 126 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die007"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die008" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3" instance=ExtResource( 126 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die008"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die009" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3" instance=ExtResource( 126 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice3/Die009"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
 
 [node name="VBoxDice4" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2"]
 margin_left = 628.0
@@ -4266,187 +1327,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Die010" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4"]
-margin_right = 188.0
-margin_bottom = 32.0
-custom_constants/separation = -6
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4" instance=ExtResource( 126 )]
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die010"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die011" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4"]
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4" instance=ExtResource( 126 )]
 margin_top = 30.0
-margin_right = 188.0
 margin_bottom = 62.0
-custom_constants/separation = -6
 
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die011"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Die012" type="HBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4"]
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4" instance=ExtResource( 126 )]
 margin_top = 60.0
-margin_right = 188.0
 margin_bottom = 92.0
-custom_constants/separation = -6
-
-[node name="Num" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_right = 32.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 141 )
-expand = true
-
-[node name="Face01" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_left = 26.0
-margin_right = 58.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face02" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_left = 52.0
-margin_right = 84.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face03" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_left = 78.0
-margin_right = 110.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face04" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_left = 104.0
-margin_right = 136.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face05" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_left = 130.0
-margin_right = 162.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
-
-[node name="Face06" type="TextureRect" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay2/VBoxDice4/Die012"]
-margin_left = 156.0
-margin_right = 188.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-texture = ExtResource( 140 )
-expand = true
 
 [node name="LMB" type="Control" parent="CanvasLayer/DiceBank"]
 anchor_left = 0.026
@@ -4474,7 +1363,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -4508,7 +1397,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"
@@ -4548,7 +1437,7 @@ margin_left = -4.0
 margin_top = 2.0
 margin_right = -7.0
 margin_bottom = 2.016
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "FAVOR"
 align = 1
@@ -4565,7 +1454,7 @@ margin_left = -4.0
 margin_top = -2.0
 margin_right = -3.96001
 margin_bottom = -1.984
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "2"
 align = 1
@@ -4615,7 +1504,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 19 )
 custom_constants/line_spacing = -5
 text = "REROLL ALL
 (-1 FAVOR)
@@ -4636,7 +1525,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "ROLL"
 __meta__ = {
@@ -4656,7 +1545,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "PLAY"
 __meta__ = {
@@ -4695,7 +1584,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  SET  "
@@ -4710,7 +1599,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  DISCARD (+1 FAVOR)  "
 
@@ -4724,7 +1613,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  REROLL (-2 FAVOR)  "
 
@@ -4738,7 +1627,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CANCEL"
 
@@ -4789,7 +1678,7 @@ margin_left = -0.0140018
 margin_top = -0.952
 margin_right = -0.0136414
 margin_bottom = 6.72
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CHOOSE TARGET"
@@ -4812,7 +1701,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 24 )
+custom_fonts/font = SubResource( 23 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CANCEL"
 __meta__ = {
@@ -4975,7 +1864,7 @@ margin_left = 33.0
 margin_top = 8.0
 margin_right = 42.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 24 )
 text = "30"
 align = 1
 __meta__ = {
@@ -4998,79 +1887,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DieFaceInfo" type="Control" parent="CanvasLayer"]
-anchor_left = 0.012
-anchor_top = 0.289
-anchor_right = 0.137
-anchor_bottom = 0.444
-margin_left = 0.32
-margin_top = -0.0400009
-margin_right = 0.319992
-margin_bottom = 0.159988
-rect_pivot_offset = Vector2( 40, 28 )
-mouse_filter = 2
-script = ExtResource( 116 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Outline" type="ColorRect" parent="CanvasLayer/DieFaceInfo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-color = Color( 1, 0.926339, 0.742188, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG" type="ColorRect" parent="CanvasLayer/DieFaceInfo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 1.0
-margin_right = -1.0
-margin_bottom = -1.0
-mouse_filter = 2
-color = Color( 0.246094, 0.216391, 0.137466, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Name" type="ColorRect" parent="CanvasLayer/DieFaceInfo"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 79.0
-margin_bottom = 14.0
-mouse_filter = 2
-color = Color( 0.453125, 0.414185, 0.316833, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NameLabel" type="Label" parent="CanvasLayer/DieFaceInfo/Name"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 3.0
-margin_right = -3.0
-custom_fonts/font = SubResource( 26 )
-custom_constants/line_spacing = -4
-text = "ATTACK"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Info" type="Label" parent="CanvasLayer/DieFaceInfo"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 16.0
-margin_right = -4.0
-margin_bottom = -2.0
-custom_fonts/font = SubResource( 26 )
-custom_constants/line_spacing = -4
-text = "Deals 30 damage to a target."
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 1 )]

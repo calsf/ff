@@ -11,6 +11,10 @@ func _ready():
 
 # Adds die to the dice bar
 func add_die(die):
+	# Return if die is already selected
+	if die.is_selected:
+		return
+	
 	var index = -1
 	
 	# Get first empty slot
@@ -26,6 +30,7 @@ func add_die(die):
 	# Set slot
 	selected_dice[index] = die
 	_die_numbers.get_child(index).texture = die.number_icon
+	die.is_selected = true
 
 # Removes die from dice bar
 func remove_die(die):
@@ -44,3 +49,4 @@ func remove_die(die):
 	# Remove die if found
 	selected_dice[index] = null
 	_die_numbers.get_child(index).texture = _empty_icon
+	die.is_selected = false

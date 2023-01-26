@@ -51,7 +51,7 @@ func update_dice_index(i):
 		
 		# Reset signal if needed for updated dice
 		if face_node.is_connected("mouse_entered", self, "_on_face_entered"):
-			face_node.disconnect("mouse_entered", self, "_on_face_exited")
+			face_node.disconnect("mouse_entered", self, "_on_face_entered")
 		
 		# Set on hover for die face
 		face_node.connect("mouse_entered", self, "_on_face_entered", [face_node, face_obj])

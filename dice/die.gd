@@ -9,6 +9,7 @@ var faces = []
 var curr_face = null
 var is_selected = false
 var is_used = false
+var is_empty = false
 
 func _init(num_path, f=[]):
 	number_icon = load(num_path)
@@ -17,8 +18,10 @@ func _init(num_path, f=[]):
 	if f.size() != NUM_FACES:
 		var face_empty = FaceEmpty.new()
 		self.faces = [face_empty, face_empty, face_empty, face_empty, face_empty, face_empty]
+		is_empty = true
 		return
 	
+	is_empty = false
 	self.faces = f
 
 func _ready():

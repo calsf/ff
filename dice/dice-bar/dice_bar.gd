@@ -9,11 +9,17 @@ onready var _die_numbers = $DiceNumbers
 func _ready():
 	pass
 
-# Adds die to the dice bar
-func add_die(die):
+# Adds die to the dice bar, return true or false for success/fail
+func add_die(i):
+	var die = PlayerDiceBank.dice[i]
+	
 	# Return if die is already selected
 	if die.is_selected:
-		return
+		return false
+	
+	# Return if die is empty
+	if die.is_empty:
+		return false
 	
 	var index = -1
 	
@@ -25,15 +31,19 @@ func add_die(die):
 	
 	# Return if no empty slots
 	if index == -1:
-		return
+		return false
 	
 	# Set slot
 	selected_dice[index] = die
 	_die_numbers.get_child(index).texture = die.number_icon
 	die.is_selected = true
+	
+	return true
 
-# Removes die from dice bar
-func remove_die(die):
+# Removes die from dice bar, return true or false for success/fail
+func remove_die(i):
+	var die = PlayerDiceBank.dice[i]
+	
 	var index = -1
 	
 	# Look for die to remove
@@ -44,9 +54,11 @@ func remove_die(die):
 	
 	# Return if not found
 	if index == -1:
-		return
+		return false
 	
 	# Remove die if found
 	selected_dice[index] = null
 	_die_numbers.get_child(index).texture = _empty_icon
 	die.is_selected = false
+	
+	return true

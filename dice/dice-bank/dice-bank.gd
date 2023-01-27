@@ -1,6 +1,8 @@
 extends NinePatchRect
 
 onready var _dice_col = $HBoxDice
+onready var _dice_col_selected = $HBoxDiceSelectedOverlay
+onready var _dice_col_used = $HBoxDiceUsedOverlay
 
 onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
@@ -14,33 +16,49 @@ func _ready():
 			dice.append(_dice_col.get_child(col).get_child(row))
 
 	for i in range(dice.size()):
-		dice[i].connect("gui_input", self, "_on_die_pressed", [PlayerDiceBank.dice[i]])
-		dice[i].connect("mouse_entered", self, "_on_die_entered", [dice[i]])
-		dice[i].connect("mouse_exited", self, "_on_die_exited", [dice[i]])
+		dice[i].connect("gui_input", self, "_on_die_pressed", [i])
+		dice[i].connect("mouse_entered", self, "_on_die_entered", [i])
+		dice[i].connect("mouse_exited", self, "_on_die_exited", [i])
+	
+	# Hide selected die overlay
+	for row in _dice_col_selected.get_children():
+		for die in row.get_children():
+			die.set_modulate(Color(1, 1, 1, 0))
+	
+	# Hide used die overlay
+	for row in _dice_col_used.get_children():
+		for die in row.get_children():
+			die.set_modulate(Color(1, 1, 1, 0))
 	
 	# NEED TO MAKE SURE PLAYERDICEBANK.DICE HAS BEEN INITIALIZED BEFORE THIS
 	# Initialize all the dice UI elements
 	for i in range(PlayerDiceBank.dice.size()):
 		update_dice_index(i)
-			
 
-# Get die faces for die of given i index
-func get_die_faces(i):
+# In the children of the given root_node, get node for die of given i index
+# Defaults to _dice_col but can get _dice_col_selected and _die_col_used
+func _get_die_node(i, root_node = _dice_col):
 	# Max index, can only be 12 dice
 	if (i > 11):
-		return
+		return null
 	
 	var col = i / 3
 	var row = ( (i - (col * 3)) * 3) / 3
 	
-	var die = _dice_col.get_child(col).get_child(row)
+	var die = root_node.get_child(col).get_child(row)
+	
+	return die
+
+# Get die faces for die of given i index
+func _get_die_node_faces(i):
+	var die = _get_die_node(i)
 	var die_faces = die.get_children()
 	
 	return die_faces
 
 # Updates the dice UI element based on the dice index
 func update_dice_index(i):
-	var die_faces = get_die_faces(i)
+	var die_faces = _get_die_node_faces(i)
 	
 	# Set dice number
 	die_faces[0].texture = PlayerDiceBank.dice[i].number_icon
@@ -69,13 +87,33 @@ func update_dice_index(i):
 		else:
 			num_value_label.text = str(num_value)
 
+# Show or hide die selected overlay
+func _die_selected_overlay(i, is_selected):
+	var die_selected = _get_die_node(i, _dice_col_selected)
+	
+	if is_selected:
+		die_selected.set_modulate(Color(1, 1, 1, 1))
+	else:
+		die_selected.set_modulate(Color(1, 1, 1, 0))
+
+# Show or hide die used overlay
+func die_used_overlay(i, is_used):
+	var die_used = _get_die_node(i, _dice_col_used)
+	
+	if is_used:
+		die_used.set_modulate(Color(1, 1, 1, 1))
+	else:
+		die_used.set_modulate(Color(1, 1, 1, 0))
+
 # LMB -> add die to dice bar, RMB -> remove die from dice bar
-func _on_die_pressed(event, die):
+func _on_die_pressed(event, i):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			_dice_bar.add_die(die)
+			if _dice_bar.add_die(i):
+				_die_selected_overlay(i, true)
 		if event.button_index == BUTTON_RIGHT and event.pressed:
-			_dice_bar.remove_die(die)
+			if _dice_bar.remove_die(i):
+				_die_selected_overlay(i, false)
 
 # Move info box to position with the corresponding die info
 func _on_face_entered(face_node, face_obj):
@@ -95,9 +133,21 @@ func _on_face_exited():
 	_die_face_info.visible = false
 
 # Scale up dice row on hover
-func _on_die_entered(die_node):
-	die_node.rect_scale = Vector2(1.05, 1.05)
+func _on_die_entered(i):
+	var die = _get_die_node(i)
+	var die_selected = _get_die_node(i, _dice_col_selected)
+	var die_used = _get_die_node(i, _dice_col_used)
+	
+	die.rect_scale = Vector2(1.05, 1.05)
+	die_selected.rect_scale = Vector2(1.05, 1.05)
+	die_used.rect_scale = Vector2(1.05, 1.05)
 
 # Scale back dice row to original on exit
-func _on_die_exited(die_node):
-	die_node.rect_scale = Vector2(1, 1)
+func _on_die_exited(i):
+	var die = _get_die_node(i)
+	var die_selected = _get_die_node(i, _dice_col_selected)
+	var die_used = _get_die_node(i, _dice_col_used)
+	
+	die.rect_scale = Vector2(1, 1)
+	die_selected.rect_scale = Vector2(1, 1)
+	die_used.rect_scale = Vector2(1, 1)

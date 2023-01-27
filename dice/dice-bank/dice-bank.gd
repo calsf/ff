@@ -93,8 +93,10 @@ func _die_selected_overlay(i, is_selected):
 	
 	if is_selected:
 		die_selected.set_modulate(Color(1, 1, 1, 1))
+		PlayerDiceBank.dice[i].is_selected = true
 	else:
 		die_selected.set_modulate(Color(1, 1, 1, 0))
+		PlayerDiceBank.dice[i].is_selected = false
 
 # Show or hide die used overlay
 func die_used_overlay(i, is_used):
@@ -102,8 +104,10 @@ func die_used_overlay(i, is_used):
 	
 	if is_used:
 		die_used.set_modulate(Color(1, 1, 1, 1))
+		PlayerDiceBank.dice[i].is_used = true
 	else:
 		die_used.set_modulate(Color(1, 1, 1, 0))
+		PlayerDiceBank.dice[i].is_used = false
 
 # LMB -> add die to dice bar, RMB -> remove die from dice bar
 func _on_die_pressed(event, i):

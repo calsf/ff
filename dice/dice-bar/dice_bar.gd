@@ -10,9 +10,48 @@ onready var _die_anim_players = $DieAnimationPlayers
 
 onready var _roll_btn = get_tree().current_scene.get_node("CanvasLayer/RollBtn")
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
+onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
 func _ready():
 	_roll_btn.connect("pressed", self, "_on_roll_pressed")
+	
+	# Set on hover for die face
+	var faces = _die_faces.get_children()
+	for i in range(faces.size()):
+		faces[i].connect("mouse_entered", self, "_on_face_entered", [i])
+		faces[i].connect("mouse_exited", self, "_on_face_exited", [i])
+
+# On die face mouse entered
+func _on_face_entered(i):
+	# Move info box to position with the corresponding die info
+	if selected_dice[i] == null:
+		return
+	
+	var die_index = selected_dice[i]
+	var die = PlayerDiceBank.dice[die_index]
+	
+	var face_node = _die_faces.get_child(i)
+	var y_offset = Vector2(0, (face_node.rect_size.y / 2) + 8)
+	
+	_die_face_info.set_face_info(die.curr_face)
+	_die_face_info.set_global_position(face_node.rect_global_position - (face_node.rect_size / 6) - y_offset)
+	
+	_die_face_info.visible = true
+	
+	# Scale up face node
+	face_node.rect_scale = Vector2(1.05, 1.05)
+
+# On die face mouse exited
+func _on_face_exited(i):
+	if selected_dice[i] == null:
+		return
+	
+	# Hide info box after exiting a die face node
+	_die_face_info.visible = false
+	
+	# Scale down face node
+	var face_node = _die_faces.get_child(i)
+	face_node.rect_scale = Vector2(1, 1)
 
 # Rolls all selected dice
 func _on_roll_pressed():

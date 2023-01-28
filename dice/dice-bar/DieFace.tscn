@@ -4,13 +4,13 @@
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=2]
 [ext_resource path="res://dice/faces/face-attack.png" type="Texture" id=3]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=1]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=31]
+[sub_resource type="DynamicFont" id=2]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -20,7 +20,7 @@ font_data = ExtResource( 2 )
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
-margin_bottom = 80.0
+margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 3 )
 __meta__ = {
@@ -34,7 +34,7 @@ margin_left = -37.5
 margin_top = -4.0
 margin_right = 37.5
 margin_bottom = 11.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "NO ACTION"
 align = 1
@@ -50,7 +50,7 @@ anchor_right = 0.75
 anchor_bottom = 0.362
 margin_right = -3.8147e-06
 margin_bottom = 0.039999
-custom_fonts/font = SubResource( 31 )
+custom_fonts/font = SubResource( 2 )
 text = "55"
 __meta__ = {
 "_edit_use_anchors_": false

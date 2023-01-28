@@ -143,7 +143,7 @@ size = 8
 use_filter = true
 font_data = ExtResource( 139 )
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=2]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die1:texture")
@@ -193,8 +193,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFaces/Face1:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=3]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die1:texture")
@@ -280,8 +292,20 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceFaces/Face1:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=4]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die2:texture")
@@ -331,8 +355,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFaces/Face2:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=5]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die2:texture")
@@ -418,8 +454,20 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceFaces/Face2:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die3:texture")
@@ -469,8 +517,20 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFaces/Face3:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=7]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die3:texture")
@@ -556,48 +616,60 @@ tracks/6/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceFaces/Face3:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=8]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=18]
+[sub_resource type="DynamicFont" id=9]
 size = 10
 outline_color = Color( 1, 0.992157, 0.854902, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=19]
+[sub_resource type="DynamicFont" id=10]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=11]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=12]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=22]
+[sub_resource type="DynamicFont" id=13]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=14]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=24]
+[sub_resource type="DynamicFont" id=15]
 size = 8
 font_data = ExtResource( 138 )
 
@@ -750,6 +822,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
 margin_bottom = 10.0
+mouse_filter = 2
 custom_constants/separation = 16
 alignment = 1
 __meta__ = {
@@ -761,7 +834,8 @@ margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 46 )
+mouse_filter = 2
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -771,6 +845,7 @@ margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -781,6 +856,7 @@ margin_left = 240.0
 margin_right = 304.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -791,6 +867,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
 margin_bottom = 10.0
+mouse_filter = 2
 custom_constants/separation = 16
 alignment = 1
 __meta__ = {
@@ -798,11 +875,11 @@ __meta__ = {
 }
 
 [node name="Number1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 118 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -813,6 +890,7 @@ margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 118 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -823,6 +901,7 @@ margin_left = 240.0
 margin_right = 304.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 118 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -840,21 +919,27 @@ __meta__ = {
 }
 
 [node name="Face1" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 127 )]
-modulate = Color( 1, 1, 1, 1 )
+margin_bottom = 80.0
+mouse_filter = 2
 
 [node name="Face2" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 127 )]
 margin_left = 160.0
 margin_right = 224.0
+margin_bottom = 80.0
+mouse_filter = 2
 
 [node name="Face3" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 127 )]
 margin_left = 240.0
 margin_right = 304.0
+margin_bottom = 80.0
+mouse_filter = 2
 
 [node name="DiceFlashEffect" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 10.0
 margin_bottom = 10.0
+mouse_filter = 2
 custom_constants/separation = 16
 alignment = 1
 __meta__ = {
@@ -867,7 +952,8 @@ margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
-texture = ExtResource( 110 )
+mouse_filter = 2
+texture = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -878,6 +964,7 @@ margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -889,6 +976,7 @@ margin_left = 240.0
 margin_right = 304.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
 texture = ExtResource( 67 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -903,18 +991,18 @@ __meta__ = {
 
 [node name="DieAnimationPlayer01" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 25 )
-anims/roll = SubResource( 26 )
+anims/idle = SubResource( 2 )
+anims/roll = SubResource( 3 )
 
 [node name="DieAnimationPlayer02" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 27 )
-anims/roll = SubResource( 28 )
+anims/idle = SubResource( 4 )
+anims/roll = SubResource( 5 )
 
 [node name="DieAnimationPlayer03" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 29 )
-anims/roll = SubResource( 30 )
+anims/idle = SubResource( 6 )
+anims/roll = SubResource( 7 )
 
 [node name="DiceBank" type="NinePatchRect" parent="CanvasLayer"]
 anchor_left = 0.012
@@ -1241,7 +1329,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -1275,7 +1363,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"
@@ -1315,7 +1403,7 @@ margin_left = -4.0
 margin_top = 2.0
 margin_right = -7.0
 margin_bottom = 2.016
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "FAVOR"
 align = 1
@@ -1332,7 +1420,7 @@ margin_left = -4.0
 margin_top = -2.0
 margin_right = -3.96001
 margin_bottom = -1.984
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "2"
 align = 1
@@ -1382,7 +1470,7 @@ __meta__ = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = 8.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 10 )
 custom_constants/line_spacing = -5
 text = "REROLL ALL
 (-1 FAVOR)
@@ -1403,7 +1491,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "ROLL"
 __meta__ = {
@@ -1423,7 +1511,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "PLAY"
 __meta__ = {
@@ -1462,7 +1550,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  SET  "
@@ -1477,7 +1565,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  DISCARD (+1 FAVOR)  "
 
@@ -1491,7 +1579,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "  REROLL (-2 FAVOR)  "
 
@@ -1505,7 +1593,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CANCEL"
 
@@ -1556,7 +1644,7 @@ margin_left = -0.0140018
 margin_top = -0.952
 margin_right = -0.0136414
 margin_bottom = 6.72
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CHOOSE TARGET"
@@ -1579,7 +1667,7 @@ custom_styles/pressed = ExtResource( 137 )
 custom_styles/focus = ExtResource( 137 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 23 )
+custom_fonts/font = SubResource( 14 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "CANCEL"
 __meta__ = {
@@ -1742,7 +1830,7 @@ margin_left = 33.0
 margin_top = 8.0
 margin_right = 42.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 24 )
+custom_fonts/font = SubResource( 15 )
 text = "30"
 align = 1
 __meta__ = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=1]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=2]
@@ -16,11 +16,43 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "selected"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.95, 3 ),
+"transitions": PoolRealArray( 0.25, 0.25, 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.1 ), Vector2( 1, 1 ), Vector2( 1.09, 1.09 ), Vector2( 1.1, 1.1 ) ]
+}
+
 [node name="Face1" type="TextureRect"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0
+rect_scale = Vector2( 1.01679, 1.01679 )
 rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 3 )
 __meta__ = {
@@ -55,3 +87,8 @@ text = "55"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 3 )
+anims/selected = SubResource( 4 )

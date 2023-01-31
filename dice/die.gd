@@ -11,6 +11,9 @@ var is_selected = false
 var is_used = false
 var is_empty = false
 
+var action_set = false
+var action_discard = false
+
 func _init(num_path, f=[]):
 	number_icon = load(num_path)
 	

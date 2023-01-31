@@ -2,6 +2,7 @@ extends NinePatchRect
 
 var selected_dice = [null, null, null] # Index of the dice in PlayerDiceBank.dice
 var has_rolled_once = false
+var selected_face_index = null
 
 onready var _empty_icon = load("res://dice/die-empty-slot.png")
 onready var _die_numbers = $DiceNumbers
@@ -11,6 +12,7 @@ onready var _die_anim_players = $DieAnimationPlayers
 onready var _roll_btn = get_tree().current_scene.get_node("CanvasLayer/RollBtn")
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
+onready var _action_options = get_tree().current_scene.get_node("CanvasLayer/ActionOptions")
 
 func _ready():
 	_roll_btn.connect("pressed", self, "_on_roll_pressed")
@@ -20,13 +22,55 @@ func _ready():
 	for i in range(faces.size()):
 		faces[i].connect("mouse_entered", self, "_on_face_entered", [i])
 		faces[i].connect("mouse_exited", self, "_on_face_exited", [i])
+		faces[i].connect("gui_input", self, "_on_face_pressed", [i])
+
+func _on_face_pressed(event, i):
+	if selected_face_index != null:
+		return
+	
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			if selected_dice[i] == null:
+				return
+			
+			# Set selected face for action options
+			var die_index = selected_dice[i]
+			_action_options.selected_die_index = die_index
+			
+			# Set selected face node index and hide die face info
+			selected_face_index = i
+			_die_face_info.visible = false
+			
+			# Play selected face animation and show action options
+			_die_faces.get_child(i).get_node("AnimationPlayer").play("selected")
+			_action_options.visible = true
+
+# Reset the die face and unassign selected face index
+func deselect_face():
+	var face_node = _die_faces.get_child(selected_face_index)
+	
+	var die_index = selected_dice[selected_face_index]
+	var die = PlayerDiceBank.dice[die_index]
+	
+	# Update action label for die face if needed
+	if die.action_set:
+		face_node.get_node("ActionLabel").text = "SET"
+	elif die.action_discard:
+		face_node.get_node("ActionLabel").text = "DISCARD"
+		
+	face_node.get_node("AnimationPlayer").play("idle")
+	
+	selected_face_index = null
 
 # On die face mouse entered
 func _on_face_entered(i):
-	# Move info box to position with the corresponding die info
 	if selected_dice[i] == null:
 		return
 	
+	if selected_face_index != null:
+		return
+	
+	# Move info box to position with the corresponding die info
 	var die_index = selected_dice[i]
 	var die = PlayerDiceBank.dice[die_index]
 	
@@ -68,7 +112,7 @@ func _on_roll_pressed():
 			_dice_bank.die_used_overlay(selected_dice[i], true)
 			
 			# Play anim
-			_die_anim_players.get_children()[i].play("roll")
+			_die_anim_players.get_child(i).play("roll")
 			
 			# Randomize face
 			randomize()

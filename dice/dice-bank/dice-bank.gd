@@ -128,7 +128,7 @@ func _on_face_entered(face_node, face_obj):
 	var y_offset = Vector2(0, face_node.rect_size.y + 6)
 	
 	_die_face_info.set_face_info(face_obj)
-	_die_face_info.set_global_position(face_node.rect_global_position - (face_node.rect_size / 2) + y_offset)
+	_die_face_info.set_global_position(face_node.get_global_position() - (face_node.rect_size / 2) + y_offset)
 	
 	_die_face_info.visible = true
 

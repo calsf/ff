@@ -7,6 +7,7 @@ var selected_face_index = null
 onready var _empty_icon = load("res://dice/die-empty-slot.png")
 onready var _die_numbers = $DiceNumbers
 onready var _die_faces = $DiceFaces
+onready var _die_action_labels = $DiceFaceActions
 onready var _die_anim_players = $DieAnimationPlayers
 
 onready var _roll_btn = get_tree().current_scene.get_node("CanvasLayer/RollBtn")
@@ -61,9 +62,9 @@ func deselect_face():
 	
 	# Update action label for die face if needed
 	if die.action_set:
-		face_node.get_node("ActionLabel").text = "SET"
+		_die_action_labels.get_child(selected_face_index).text = "SET"
 	elif die.action_discard:
-		face_node.get_node("ActionLabel").text = "DISCARD"
+		_die_action_labels.get_child(selected_face_index).text = "DISCARD"
 		
 	face_node.get_node("AnimationPlayer").play("idle")
 	

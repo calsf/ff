@@ -139,21 +139,25 @@ func _on_roll_pressed():
 			
 			has_rolled_once = true
 
-# Adds die to the dice bar, return true or false for success/fail
-func add_die(i):
+# Adds or removes die to the dice bar, return true or false for success/fail
+func add_or_remove_die(i):
 	# Dice bank should be disabled after first roll
 	if has_rolled_once:
-		return
+		return false
 	
 	var die = PlayerDiceBank.dice[i]
 	
-	# Return if die is already selected or used
-	if die.is_selected or die.is_used:
+		# Return if die is already used
+	if die.is_used:
 		return false
 	
 	# Return if die is empty
 	if die.is_empty:
 		return false
+	
+	# If selected already, attempt to remove die
+	if die.is_selected:
+		return remove_die(i)
 	
 	var index = -1
 	
@@ -171,13 +175,15 @@ func add_die(i):
 	selected_dice[index] = i
 	_die_numbers.get_child(index).texture = die.number_icon
 	
+	die.is_selected = true
+	
 	return true
 
 # Removes die from dice bar, return true or false for success/fail
 func remove_die(i):
 	# Dice bank should be disabled after first roll
 	if has_rolled_once:
-		return
+		return false
 	
 	var die = PlayerDiceBank.dice[i]
 	
@@ -195,7 +201,7 @@ func remove_die(i):
 	for selected_i in range(selected_dice.size()):
 		var die_index = selected_dice[selected_i]
 		
-		if die_index and PlayerDiceBank.dice[die_index] == die:
+		if die_index != null and PlayerDiceBank.dice[die_index] == die:
 			index = selected_i
 			break
 	
@@ -206,5 +212,7 @@ func remove_die(i):
 	# Remove die if found
 	selected_dice[index] = null
 	_die_numbers.get_child(index).texture = _empty_icon
+	
+	die.is_selected = false
 	
 	return true

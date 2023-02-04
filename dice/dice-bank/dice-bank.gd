@@ -88,15 +88,13 @@ func update_dice_index(i):
 			num_value_label.text = str(num_value)
 
 # Show or hide die selected overlay
-func _die_selected_overlay(i, is_selected):
+func _die_selected_overlay(i):
 	var die_selected = _get_die_node(i, _dice_col_selected)
 	
-	if is_selected:
+	if PlayerDiceBank.dice[i].is_selected:
 		die_selected.set_modulate(Color(1, 1, 1, 1))
-		PlayerDiceBank.dice[i].is_selected = true
 	else:
 		die_selected.set_modulate(Color(1, 1, 1, 0))
-		PlayerDiceBank.dice[i].is_selected = false
 
 # Show or hide die used overlay
 func die_used_overlay(i, is_used):
@@ -109,15 +107,12 @@ func die_used_overlay(i, is_used):
 		die_used.set_modulate(Color(1, 1, 1, 0))
 		PlayerDiceBank.dice[i].is_used = false
 
-# LMB -> add die to dice bar, RMB -> remove die from dice bar
+# LMB -> add die to dice bar
 func _on_die_pressed(event, i):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			if _dice_bar.add_die(i):
-				_die_selected_overlay(i, true)
-		if event.button_index == BUTTON_RIGHT and event.pressed:
-			if _dice_bar.remove_die(i):
-				_die_selected_overlay(i, false)
+			if _dice_bar.add_or_remove_die(i):
+				_die_selected_overlay(i)
 
 # Move info box to position with the corresponding die info
 func _on_face_entered(face_node, face_obj):

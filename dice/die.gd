@@ -30,4 +30,8 @@ func _init(num_path, f=[]):
 func _ready():
 	pass
 
+func reset_die():
+	curr_face = null
+	action_set = false
+	action_discard = false
 

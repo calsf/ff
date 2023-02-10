@@ -2,6 +2,7 @@ extends NinePatchRect
 
 var selected_dice = [null, null, null] # Index of the dice in PlayerDiceBank.dice
 var has_rolled_once = false
+var has_played = false
 var selected_face_index = null
 
 onready var _empty_icon = load("res://dice/die-empty-slot.png")
@@ -11,12 +12,16 @@ onready var _die_action_labels = $DiceFaceActions
 onready var _die_anim_players = $DieAnimationPlayers
 
 onready var _roll_btn = get_tree().current_scene.get_node("CanvasLayer/RollBtn")
+onready var _play_btn = get_tree().current_scene.get_node("CanvasLayer/PlayBtn")
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 onready var _action_options = get_tree().current_scene.get_node("CanvasLayer/ActionOptions")
 
+onready var _combat = get_tree().current_scene.get_node("CanvasLayer/Combat")
+
 func _ready():
 	_roll_btn.connect("pressed", self, "_on_roll_pressed")
+	_play_btn.connect("pressed", self, "_on_play_pressed")
 	
 	# Set on hover for die face
 	var faces = _die_faces.get_children()
@@ -25,6 +30,27 @@ func _ready():
 		faces[i].connect("mouse_exited", self, "_on_face_exited", [i])
 		faces[i].connect("gui_input", self, "_on_face_pressed", [i])
 
+# Reset dice bar
+func reset_dice_bar():
+	for i in range(selected_dice.size()):
+		if selected_dice[i] != null:
+			var die_index = selected_dice[i]
+			var die = PlayerDiceBank.dice[die_index]
+			
+			die.reset_die()
+			
+			var anim = _die_anim_players.get_child(i)
+			anim.play("idle")
+	
+	for i in range(_die_action_labels.get_children().size()):
+		_die_action_labels.get_child(i).text = "NO ACTION"
+	
+	selected_dice = [null, null, null]
+	has_rolled_once = false
+	has_played = false
+	selected_face_index = null
+
+# Select die faces
 func _on_face_pressed(event, i):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
@@ -139,6 +165,51 @@ func _on_roll_pressed():
 			
 			has_rolled_once = true
 
+# Plays all dice face
+func _on_play_pressed():
+	# Do not play if has not rolled yet or has already played
+	if not has_rolled_once or has_played:
+		return
+	
+	# Do not play until actions set for all rolled dice
+	for i in range(selected_dice.size()):
+		if selected_dice[i] != null:
+			var die_index = selected_dice[i]
+			var die = PlayerDiceBank.dice[die_index]
+			
+			if not die.action_set and not die.action_discard:
+				print_debug("action not set")
+				return
+	
+	# Only allow play once per turn
+	has_played = true
+	
+	# Play each die face action
+	for i in range(selected_dice.size()):
+		if selected_dice[i] != null:
+			var die_index = selected_dice[i]
+			var die = PlayerDiceBank.dice[die_index]
+			
+			if die.action_set:
+				print_debug("on play")
+				var anim = _die_anim_players.get_child(i)
+				anim.play("play")
+				yield(anim, "animation_finished")
+				
+				die.curr_face.on_play(_combat)
+			elif die.action_discard:
+				print_debug("on discard")
+				var anim = _die_anim_players.get_child(i)
+				anim.play("play")
+				yield(anim, "animation_finished")
+				
+				die.curr_face.on_discard(_combat)
+	
+	# Player turn has finished
+	_combat.player_finished = true
+	#TEMP
+	reset_dice_bar()
+
 # Adds or removes die to the dice bar, return true or false for success/fail
 func add_or_remove_die(i):
 	# Dice bank should be disabled after first roll
@@ -147,7 +218,7 @@ func add_or_remove_die(i):
 	
 	var die = PlayerDiceBank.dice[i]
 	
-		# Return if die is already used
+	# Return if die is already used
 	if die.is_used:
 		return false
 	

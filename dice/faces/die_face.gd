@@ -10,10 +10,9 @@ func _ready():
 	pass
 
 # Plays the die face, does nothing by default
-func on_play():
+func on_play(combat):
 	pass
 
 # Discards the die face, gains favor
-func on_discard():
-	# TODO: Discard for favor
-	pass
+func on_discard(combat):
+	combat.add_favor(1)

@@ -107,7 +107,7 @@ func die_used_overlay(i, is_used):
 		die_used.set_modulate(Color(1, 1, 1, 0))
 		PlayerDiceBank.dice[i].is_used = false
 
-# LMB -> add die to dice bar
+# LMB -> add or remove die to dice bar
 func _on_die_pressed(event, i):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:

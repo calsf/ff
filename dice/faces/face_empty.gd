@@ -8,5 +8,5 @@ func _init():
 	face_info = ""
 	icon = load("res://dice/die-empty-slot.png")
 
-func on_play():
+func on_play(combat):
 	pass

@@ -1,0 +1,87 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://dice/dice_face_info.gd" type="Script" id=1]
+[ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=26]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 2 )
+
+[node name="DieFaceInfo" type="Control"]
+anchor_left = 0.012
+anchor_top = 0.289
+anchor_right = 0.137
+anchor_bottom = 0.444
+margin_left = 0.32
+margin_top = -0.0400009
+margin_right = 0.319992
+margin_bottom = 0.159988
+rect_pivot_offset = Vector2( 40, 28 )
+mouse_filter = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Outline" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 1, 0.926339, 0.742188, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = -1.0
+margin_bottom = -1.0
+mouse_filter = 2
+color = Color( 0.246094, 0.216391, 0.137466, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="ColorRect" parent="."]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 79.0
+margin_bottom = 14.0
+mouse_filter = 2
+color = Color( 0.453125, 0.414185, 0.316833, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameLabel" type="Label" parent="Name"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.0
+margin_right = -3.0
+custom_fonts/font = SubResource( 26 )
+custom_constants/line_spacing = -4
+text = "ATTACK"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Info" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 16.0
+margin_right = -4.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 26 )
+custom_constants/line_spacing = -4
+text = "Deals 30 damage to a target."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

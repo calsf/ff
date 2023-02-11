@@ -13,6 +13,7 @@ onready var _die_anim_players = $DieAnimationPlayers
 
 onready var _roll_btn = get_tree().current_scene.get_node("CanvasLayer/RollBtn")
 onready var _play_btn = get_tree().current_scene.get_node("CanvasLayer/PlayBtn")
+onready var _reroll_btn = get_tree().current_scene.get_node("CanvasLayer/RerollBtn")
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 onready var _action_options = get_tree().current_scene.get_node("CanvasLayer/ActionOptions")
@@ -29,6 +30,10 @@ func _ready():
 		faces[i].connect("mouse_entered", self, "_on_face_entered", [i])
 		faces[i].connect("mouse_exited", self, "_on_face_exited", [i])
 		faces[i].connect("gui_input", self, "_on_face_pressed", [i])
+	
+	_check_can_roll()
+	check_can_play()
+	reset_dice_bar()
 
 # Reset dice bar
 func reset_dice_bar():
@@ -49,6 +54,8 @@ func reset_dice_bar():
 	has_rolled_once = false
 	has_played = false
 	selected_face_index = null
+	
+	set_can_reroll(false)
 
 # Select die faces
 func _on_face_pressed(event, i):
@@ -88,7 +95,13 @@ func deselect_face():
 	
 	# Update action label for die face if needed
 	if die.action_set:
-		_die_action_labels.get_child(selected_face_index).text = "SET"
+		var action = "SET"
+		
+		# Append enemy number identifier if face has a target
+		if die.curr_face.target != null:
+			action += " FACE " + str(die.curr_face.target.enemy_num)
+		
+		_die_action_labels.get_child(selected_face_index).text = action
 	elif die.action_discard:
 		_die_action_labels.get_child(selected_face_index).text = "DISCARD"
 		
@@ -135,6 +148,7 @@ func _on_roll_pressed():
 	if has_rolled_once:
 		return
 	
+	var anim_to_wait_for = null
 	for i in range(selected_dice.size()):
 		if selected_dice[i] != null:
 			var die_index = selected_dice[i]
@@ -145,6 +159,9 @@ func _on_roll_pressed():
 			
 			# Play anim
 			_die_anim_players.get_child(i).play("roll")
+			
+			# Set anim to yield for
+			anim_to_wait_for = _die_anim_players.get_child(i)
 			
 			# Randomize face
 			randomize()
@@ -163,7 +180,11 @@ func _on_roll_pressed():
 			else:
 				num_value_label.text = str(num_value)
 			
-			has_rolled_once = true
+	has_rolled_once = true
+	_check_can_roll()
+	
+	yield(anim_to_wait_for, "animation_finished")
+	set_can_reroll(true)
 
 # Plays all dice face
 func _on_play_pressed():
@@ -171,18 +192,15 @@ func _on_play_pressed():
 	if not has_rolled_once or has_played:
 		return
 	
-	# Do not play until actions set for all rolled dice
-	for i in range(selected_dice.size()):
-		if selected_dice[i] != null:
-			var die_index = selected_dice[i]
-			var die = PlayerDiceBank.dice[die_index]
-			
-			if not die.action_set and not die.action_discard:
-				print_debug("action not set")
-				return
+	# Do not play until an action has been selected for all rolled dice
+	if not _all_actions_selected():
+		print_debug("action not set")
+		return
 	
 	# Only allow play once per turn
 	has_played = true
+	check_can_play()
+	set_can_reroll(false)
 	
 	# Play each die face action
 	for i in range(selected_dice.size()):
@@ -228,6 +246,7 @@ func add_or_remove_die(i):
 	
 	# If selected already, attempt to remove die
 	if die.is_selected:
+		_check_can_roll()
 		return remove_die(i)
 	
 	var index = -1
@@ -248,6 +267,7 @@ func add_or_remove_die(i):
 	
 	die.is_selected = true
 	
+	_check_can_roll()
 	return true
 
 # Removes die from dice bar, return true or false for success/fail
@@ -285,5 +305,51 @@ func remove_die(i):
 	_die_numbers.get_child(index).texture = _empty_icon
 	
 	die.is_selected = false
+	
+	return true
+
+# Check if roll btn should be disabled or not
+func _check_can_roll():
+	var die_selected = false
+	for dice in selected_dice:
+		if dice != null:
+			die_selected = true
+	
+	if not die_selected or has_rolled_once:
+		_roll_btn.disabled = true
+		_roll_btn.set_modulate(Color(.7, .7, .7, 1))
+	else:
+		_roll_btn.disabled = false
+		_roll_btn.set_modulate(Color(1, 1, 1, 1))
+
+# Check if play btn should be disabled or not
+func check_can_play():
+	var actions_selected = _all_actions_selected()
+	
+	if not has_rolled_once or not actions_selected or has_played:
+		_play_btn.disabled = true
+		_play_btn.set_modulate(Color(.7, .7, .7, 1))
+	else:
+		_play_btn.disabled = false
+		_play_btn.set_modulate(Color(1, 1, 1, 1))
+
+# Disable or enable reroll btn
+func set_can_reroll(enabled):
+	if not enabled:
+		_reroll_btn.disabled = true
+		_reroll_btn.set_modulate(Color(.7, .7, .7, 1))
+	else:
+		_reroll_btn.disabled = false
+		_reroll_btn.set_modulate(Color(1, 1, 1, 1))
+
+# Checks if an action has been seelected for all rolled dice
+func _all_actions_selected():
+	for i in range(selected_dice.size()):
+		if selected_dice[i] != null:
+			var die_index = selected_dice[i]
+			var die = PlayerDiceBank.dice[die_index]
+			
+			if not die.action_set and not die.action_discard:
+				return false
 	
 	return true

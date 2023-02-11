@@ -5,6 +5,8 @@ var face_name : String
 var face_info : String
 var icon : Texture
 var num_value : int
+var require_target : bool
+var target : Enemy
 
 func _ready():
 	pass

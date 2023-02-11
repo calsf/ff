@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=2]
+[gd_scene load_steps=166 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -129,6 +129,10 @@
 [ext_resource path="res://dice/dice-bar/DieFace.tscn" type="PackedScene" id=127]
 [ext_resource path="res://dice/action_options.gd" type="Script" id=128]
 [ext_resource path="res://combat/combat.gd" type="Script" id=129]
+[ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=130]
+[ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
+[ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
+[ext_resource path="res://enemies/enemy.gd" type="Script" id=133]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
@@ -250,7 +254,7 @@ tracks/7/keys = {
 "values": [ ExtResource( 118 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=4]
 resource_name = "play"
 length = 0.8
 tracks/0/type = "value"
@@ -290,8 +294,8 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-length = 5.0
+[sub_resource type="Animation" id=5]
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die1:texture")
 tracks/0/interp = 1
@@ -401,7 +405,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die2:texture")
@@ -500,7 +504,7 @@ tracks/7/keys = {
 "values": [ ExtResource( 118 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=7]
 resource_name = "play"
 length = 0.8
 tracks/0/type = "value"
@@ -540,8 +544,8 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-length = 5.0
+[sub_resource type="Animation" id=8]
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die2:texture")
 tracks/0/interp = 1
@@ -651,7 +655,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=9]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die3:texture")
@@ -750,7 +754,7 @@ tracks/7/keys = {
 "values": [ ExtResource( 118 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=10]
 resource_name = "play"
 length = 0.8
 tracks/0/type = "value"
@@ -790,8 +794,8 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-length = 5.0
+[sub_resource type="Animation" id=11]
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die3:texture")
 tracks/0/interp = 1
@@ -901,51 +905,33 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=12]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=13]
 size = 10
 outline_color = Color( 1, 0.992157, 0.854902, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=14]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=15]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=16]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
-
-[sub_resource type="DynamicFont" id=14]
-size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=15]
-size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=16]
-size = 6
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 8
@@ -960,6 +946,24 @@ outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=19]
+size = 6
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 138 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 138 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 138 )
+
+[sub_resource type="DynamicFont" id=22]
 size = 8
 font_data = ExtResource( 138 )
 
@@ -1125,7 +1129,7 @@ margin_right = 144.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 118 )
+texture = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1136,7 +1140,7 @@ margin_right = 224.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 118 )
+texture = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1147,7 +1151,7 @@ margin_right = 304.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 118 )
+texture = ExtResource( 46 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1165,6 +1169,7 @@ __meta__ = {
 }
 
 [node name="Number1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0
@@ -1176,6 +1181,7 @@ __meta__ = {
 }
 
 [node name="Number2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 64.0
@@ -1187,6 +1193,7 @@ __meta__ = {
 }
 
 [node name="Number3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 240.0
 margin_right = 304.0
 margin_bottom = 64.0
@@ -1209,20 +1216,15 @@ __meta__ = {
 }
 
 [node name="Face1" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 127 )]
-modulate = Color( 1, 1, 1, 0 )
-mouse_filter = 2
+rect_scale = Vector2( 1e-05, 1e-05 )
 
 [node name="Face2" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 127 )]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 160.0
 margin_right = 224.0
-mouse_filter = 2
 
 [node name="Face3" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 127 )]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 240.0
 margin_right = 304.0
-mouse_filter = 2
 
 [node name="DiceFlashEffect" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
 anchor_top = 0.125
@@ -1243,7 +1245,7 @@ margin_right = 144.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 67 )
+texture = ExtResource( 110 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1267,7 +1269,7 @@ margin_right = 304.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 67 )
+texture = ExtResource( 110 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1283,7 +1285,6 @@ __meta__ = {
 }
 
 [node name="Label1" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 94.0
 margin_top = 4.0
 margin_right = 131.0
@@ -1299,7 +1300,6 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 173.0
 margin_top = 4.0
 margin_right = 210.0
@@ -1312,7 +1312,6 @@ align = 1
 valign = 1
 
 [node name="Label3" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 252.0
 margin_top = 4.0
 margin_right = 289.0
@@ -1334,20 +1333,20 @@ __meta__ = {
 [node name="DieAnimationPlayer01" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
 anims/idle = SubResource( 3 )
-anims/play = SubResource( 20 )
-anims/roll = SubResource( 4 )
+anims/play = SubResource( 4 )
+anims/roll = SubResource( 5 )
 
 [node name="DieAnimationPlayer02" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 5 )
-anims/play = SubResource( 21 )
-anims/roll = SubResource( 6 )
+anims/idle = SubResource( 6 )
+anims/play = SubResource( 7 )
+anims/roll = SubResource( 8 )
 
 [node name="DieAnimationPlayer03" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 7 )
-anims/play = SubResource( 22 )
-anims/roll = SubResource( 8 )
+anims/idle = SubResource( 9 )
+anims/play = SubResource( 10 )
+anims/roll = SubResource( 11 )
 
 [node name="DiceBank" type="NinePatchRect" parent="CanvasLayer"]
 anchor_left = 0.012
@@ -1674,7 +1673,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -1708,7 +1707,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"
@@ -1748,7 +1747,7 @@ margin_left = -4.0
 margin_top = 2.0
 margin_right = -7.0
 margin_bottom = 2.016
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "FAVOR"
 align = 1
@@ -1765,7 +1764,7 @@ margin_left = -4.0
 margin_top = -2.0
 margin_right = -3.96001
 margin_bottom = -1.984
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "2"
 align = 1
@@ -1802,11 +1801,12 @@ margin_top = 0.159973
 margin_right = 0.319992
 margin_bottom = -0.160004
 rect_pivot_offset = Vector2( 40, 28 )
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
+enabled_focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1814,7 +1814,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/RerollBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 14 )
 custom_constants/line_spacing = -4
 text = "REROLL ALL
 "
@@ -1827,7 +1827,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="CanvasLayer/RerollBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.8
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 15 )
 text = "(-1 FAVOR)
 "
 align = 1
@@ -1841,16 +1841,18 @@ anchor_left = 0.812
 anchor_top = 0.733
 anchor_right = 0.9
 anchor_bottom = 0.833
-margin_left = 0.319946
+margin_left = 0.320007
 margin_top = 0.119995
-margin_bottom = 0.119965
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+margin_bottom = 0.119995
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "ROLL"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1861,16 +1863,18 @@ anchor_left = 0.812
 anchor_top = 0.856
 anchor_right = 0.9
 anchor_bottom = 0.956
-margin_left = 0.319946
-margin_top = -0.160034
+margin_left = 0.320007
+margin_top = -0.160004
 margin_bottom = -0.160004
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1902,16 +1906,17 @@ __meta__ = {
 }
 
 [node name="ButtonDiscard" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
-margin_left = 88.0
-margin_right = 136.0
-margin_bottom = 29.0
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+margin_left = 87.0
+margin_right = 135.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "                "
 
 [node name="Label" type="Label" parent="CanvasLayer/ActionOptions/HBoxContainer/ButtonDiscard"]
@@ -1920,7 +1925,7 @@ anchor_right = 1.0
 anchor_bottom = 0.958
 margin_top = 0.00800014
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 18 )
 custom_constants/line_spacing = -8
 text = "DISCARD
 "
@@ -1935,7 +1940,7 @@ anchor_right = 1.0
 anchor_bottom = 1.179
 margin_right = 3.8147e-06
 margin_bottom = -0.012001
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 19 )
 custom_constants/line_spacing = -8
 text = "
 
@@ -1949,30 +1954,32 @@ __meta__ = {
 }
 
 [node name="ButtonSet" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
-margin_left = 144.0
-margin_right = 180.0
-margin_bottom = 29.0
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+margin_left = 143.0
+margin_right = 179.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "  SET  "
 
 [node name="ButtonReroll" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
-margin_left = 188.0
-margin_right = 232.0
-margin_bottom = 29.0
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+margin_left = 187.0
+margin_right = 231.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "              "
 
 [node name="Label" type="Label" parent="CanvasLayer/ActionOptions/HBoxContainer/ButtonReroll"]
@@ -1981,7 +1988,7 @@ anchor_right = 1.0
 anchor_bottom = 0.958
 margin_top = 0.00800014
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 18 )
 custom_constants/line_spacing = -8
 text = "REROLL
 "
@@ -1996,7 +2003,7 @@ anchor_right = 1.0
 anchor_bottom = 1.179
 margin_right = 3.8147e-06
 margin_bottom = -0.012001
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 19 )
 custom_constants/line_spacing = -8
 text = "
 
@@ -2014,24 +2021,26 @@ visible = false
 margin_left = 269.0
 margin_right = 311.0
 margin_bottom = 28.0
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 17 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "CANCEL"
 
-[node name="SetChooseTarget" type="Control" parent="CanvasLayer"]
+[node name="TargetSelection" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 132 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/SetChooseTarget"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TargetSelection"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.345098, 0.345098, 0.345098, 0.560784 )
@@ -2039,7 +2048,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LMB2" type="Control" parent="CanvasLayer/SetChooseTarget"]
+[node name="LMB2" type="Control" parent="CanvasLayer/TargetSelection"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -2052,7 +2061,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/SetChooseTarget/LMB2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/TargetSelection/LMB2"]
 margin_right = 32.0
 margin_bottom = 32.0
 rect_scale = Vector2( 0.5, 0.5 )
@@ -2061,7 +2070,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/SetChooseTarget/LMB2"]
+[node name="Label" type="Label" parent="CanvasLayer/TargetSelection/LMB2"]
 anchor_left = 0.244
 anchor_top = 0.061
 anchor_right = 1.082
@@ -2070,7 +2079,7 @@ margin_left = -0.0140018
 margin_top = -0.952
 margin_right = -0.0136414
 margin_bottom = 6.72
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CHOOSE TARGET"
@@ -2078,7 +2087,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/SetChooseTarget"]
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/TargetSelection"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -2087,14 +2096,15 @@ margin_left = -21.0
 margin_top = 58.0
 margin_right = 21.0
 margin_bottom = 81.0
+focus_mode = 0
 size_flags_vertical = 0
-custom_styles/hover = ExtResource( 137 )
-custom_styles/pressed = ExtResource( 137 )
-custom_styles/focus = ExtResource( 137 )
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
 text = "CANCEL"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2114,10 +2124,11 @@ __meta__ = {
 }
 
 [node name="Enemy01" type="TextureRect" parent="CanvasLayer/Enemies"]
-margin_left = 224.0
-margin_right = 288.0
+margin_left = 160.0
+margin_right = 224.0
 margin_bottom = 68.0
 texture = ExtResource( 122 )
+script = ExtResource( 133 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2202,13 +2213,12 @@ __meta__ = {
 }
 
 [node name="NextAction" type="Control" parent="CanvasLayer/Enemies/Enemy01"]
-anchor_top = 1.375
-anchor_right = 1.0
-anchor_bottom = 1.625
-margin_left = 16.0
-margin_top = -29.5
-margin_right = 16.0
-margin_bottom = -29.5
+anchor_left = 0.25
+anchor_top = 0.941
+anchor_right = 1.25
+anchor_bottom = 1.191
+margin_top = 0.0119972
+margin_bottom = 0.0119934
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2256,7 +2266,7 @@ margin_left = 33.0
 margin_top = 8.0
 margin_right = 42.0
 margin_bottom = 23.0
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 22 )
 text = "30"
 align = 1
 __meta__ = {
@@ -2270,11 +2280,181 @@ anchor_right = 0.875
 anchor_bottom = 0.794
 margin_top = 1.016
 margin_bottom = 3.008
+focus_mode = 0
 custom_styles/hover = ExtResource( 147 )
 custom_styles/pressed = ExtResource( 147 )
 custom_styles/focus = ExtResource( 147 )
 custom_styles/disabled = ExtResource( 148 )
 custom_styles/normal = ExtResource( 148 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemy02" type="TextureRect" parent="CanvasLayer/Enemies"]
+margin_left = 288.0
+margin_right = 352.0
+margin_bottom = 68.0
+texture = ExtResource( 122 )
+script = ExtResource( 133 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="CanvasLayer/Enemies/Enemy02"]
+anchor_top = -0.175
+anchor_right = 0.625
+anchor_bottom = 0.176
+margin_top = -0.0999994
+margin_bottom = 0.0319986
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Enemies/Enemy02/Health"]
+anchor_left = 0.4
+anchor_top = 0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.12
+margin_bottom = 1.90735e-06
+custom_fonts/font = SubResource( 1 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthIcon" type="TextureRect" parent="CanvasLayer/Enemies/Enemy02/Health"]
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.818
+margin_top = -0.2
+margin_right = 16.0
+margin_bottom = 16.004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block" type="Control" parent="CanvasLayer/Enemies/Enemy02"]
+anchor_left = 0.625
+anchor_top = -0.176
+anchor_right = 1.25
+anchor_bottom = 0.178
+margin_top = -0.0319986
+margin_bottom = -0.104
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Enemies/Enemy02/Block"]
+anchor_left = 0.4
+anchor_top = 0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.12
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 1 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockIcon" type="TextureRect" parent="CanvasLayer/Enemies/Enemy02/Block"]
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.818
+margin_top = -0.2
+margin_right = 16.0
+margin_bottom = 16.004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 120 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextAction" type="Control" parent="CanvasLayer/Enemies/Enemy02"]
+anchor_left = 0.25
+anchor_top = 0.941
+anchor_right = 1.25
+anchor_bottom = 1.191
+margin_top = 0.0119972
+margin_bottom = 0.0119934
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Enemies/Enemy02/NextAction"]
+anchor_left = -0.25
+anchor_top = -0.699
+anchor_right = 0.75
+anchor_bottom = 0.235
+margin_left = 0.999999
+margin_top = 1.883
+margin_right = 0.999996
+margin_bottom = 2.005
+custom_fonts/font = SubResource( 1 )
+text = "INTENT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Enemies/Enemy02/NextAction"]
+anchor_left = 0.25
+anchor_right = 0.258
+anchor_bottom = 1.882
+margin_left = -22.0
+margin_right = 22.488
+margin_bottom = 0.00599861
+custom_constants/separation = -1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Enemies/Enemy02/NextAction/HBoxContainer"]
+margin_left = 2.0
+margin_right = 34.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+texture = ExtResource( 125 )
+expand = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Enemies/Enemy02/NextAction/HBoxContainer"]
+margin_left = 33.0
+margin_top = 8.0
+margin_right = 42.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 22 )
+text = "30"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TargetButton" type="Button" parent="CanvasLayer/Enemies/Enemy02"]
+anchor_left = 0.125
+anchor_top = 0.088
+anchor_right = 0.875
+anchor_bottom = 0.794
+margin_top = 1.016
+margin_bottom = 3.008
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 147 )
+custom_styles/focus = ExtResource( 147 )
+custom_styles/disabled = ExtResource( 148 )
+custom_styles/normal = ExtResource( 148 )
+enabled_focus_mode = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }

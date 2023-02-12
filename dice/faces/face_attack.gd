@@ -11,4 +11,4 @@ func _init(value=0):
 	require_target = true
 
 func on_play(combat):
-	pass
+	target.deal_blockable_damage(num_value)

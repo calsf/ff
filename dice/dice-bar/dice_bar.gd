@@ -224,9 +224,7 @@ func _on_play_pressed():
 				die.curr_face.on_discard(_combat)
 	
 	# Player turn has finished
-	_combat.player_finished = true
-	#TEMP
-	reset_dice_bar()
+	_combat.player_turn_finished()
 
 # Adds or removes die to the dice bar, return true or false for success/fail
 func add_or_remove_die(i):

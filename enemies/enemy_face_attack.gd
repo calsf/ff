@@ -11,4 +11,4 @@ func _init(value=0, enemy=null):
 	enemy_owner = enemy
 
 func on_play(combat):
-	pass
+	combat.deal_blockable_player_damage(num_value)

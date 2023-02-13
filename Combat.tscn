@@ -131,7 +131,7 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=130]
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
 [ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
-[ext_resource path="res://enemies/Minion01.gd" type="Script" id=133]
+[ext_resource path="res://enemies/minion_01.gd" type="Script" id=133]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
@@ -966,7 +966,7 @@ font_data = ExtResource( 138 )
 size = 8
 font_data = ExtResource( 138 )
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=23]
 resource_name = "play"
 tracks/0/type = "value"
 tracks/0/path = NodePath("NextAction/EnemyDieFace/TextureRect:rect_scale")
@@ -1005,7 +1005,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=24]
 resource_name = "roll"
 length = 2.7
 step = 0.025
@@ -1082,7 +1082,7 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=25]
 resource_name = "play"
 tracks/0/type = "value"
 tracks/0/path = NodePath("NextAction/EnemyDieFace/TextureRect:rect_scale")
@@ -1121,7 +1121,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=26]
 resource_name = "roll"
 length = 2.7
 step = 0.025
@@ -2563,8 +2563,8 @@ __meta__ = {
 
 [node name="EnemyAnimPlayer" type="AnimationPlayer" parent="CanvasLayer/Enemies/Enemy01"]
 autoplay = "roll"
-anims/play = SubResource( 24 )
-anims/roll = SubResource( 25 )
+anims/play = SubResource( 23 )
+anims/roll = SubResource( 24 )
 
 [node name="Enemy02" type="TextureRect" parent="CanvasLayer/Enemies"]
 margin_left = 288.0
@@ -2774,8 +2774,8 @@ __meta__ = {
 
 [node name="EnemyAnimPlayer" type="AnimationPlayer" parent="CanvasLayer/Enemies/Enemy02"]
 autoplay = "roll"
-anims/play = SubResource( 26 )
-anims/roll = SubResource( 27 )
+anims/play = SubResource( 25 )
+anims/roll = SubResource( 26 )
 
 [node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 1 )]
 

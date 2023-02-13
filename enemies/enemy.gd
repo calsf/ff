@@ -42,7 +42,7 @@ func add_block(amount):
 
 # Deal blockable damage, damages block first
 func deal_blockable_damage(amount):
-	if block > amount:
+	if block >= amount:
 		add_block(-amount)
 		return
 	else:

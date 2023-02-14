@@ -35,6 +35,21 @@ func _ready():
 	for i in range(PlayerDiceBank.dice.size()):
 		update_dice_index(i)
 
+# Reset all dice in dice bank
+func reset_dice_bank():
+	for i in range(PlayerDiceBank.dice.size()):
+		_die_selected_overlay(i)
+		die_used_overlay(i, false)
+
+# Check if all dice in dice bank has been used or not
+func all_dice_used():
+	# If any die has not been used and is not an empty die, return false
+	for i in range(PlayerDiceBank.dice.size()):
+		if not PlayerDiceBank.dice[i].is_used and not PlayerDiceBank.dice[i].is_empty:
+			return false
+	
+	return true
+
 # In the children of the given root_node, get node for die of given i index
 # Defaults to _dice_col but can get _dice_col_selected and _die_col_used
 func _get_die_node(i, root_node = _dice_col):

@@ -4,7 +4,7 @@ class_name EnemyFaceAttack
 func _init(value=0, enemy=null):
 	num_value = value
 	
-	face_name = "Attack"
+	face_name = "ATTACK"
 	face_info = "Deals " + str(num_value) + " damage."
 	icon = load("res://dice/faces/face-attack.png")
 	

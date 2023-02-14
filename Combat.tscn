@@ -139,13 +139,13 @@
 [ext_resource path="res://dice/dice-bank/dice-bank.gd" type="Script" id=149]
 [ext_resource path="res://dice/dice-bar/dice_bar.gd" type="Script" id=150]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die1:texture")
@@ -244,7 +244,7 @@ tracks/7/keys = {
 "values": [ ExtResource( 118 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "play"
 length = 0.8
 tracks/0/type = "value"
@@ -284,7 +284,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die1:texture")
@@ -395,7 +395,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die2:texture")
@@ -494,7 +494,7 @@ tracks/7/keys = {
 "values": [ ExtResource( 118 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 resource_name = "play"
 length = 0.8
 tracks/0/type = "value"
@@ -534,7 +534,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die2:texture")
@@ -645,7 +645,7 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die3:texture")
@@ -744,7 +744,7 @@ tracks/7/keys = {
 "values": [ ExtResource( 118 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "play"
 length = 0.8
 tracks/0/type = "value"
@@ -784,7 +784,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceRoll/Die3:texture")
@@ -895,13 +895,13 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=12]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -1171,7 +1171,7 @@ margin_right = 131.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 37, 15 )
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "NO ACTION"
 align = 1
 valign = 1
@@ -1186,7 +1186,7 @@ margin_right = 210.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 37, 15 )
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "NO ACTION"
 align = 1
 valign = 1
@@ -1198,7 +1198,7 @@ margin_right = 289.0
 margin_bottom = 19.0
 rect_min_size = Vector2( 37, 15 )
 size_flags_horizontal = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "NO ACTION"
 align = 1
 valign = 1
@@ -1212,21 +1212,21 @@ __meta__ = {
 
 [node name="DieAnimationPlayer01" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 3 )
-anims/play = SubResource( 4 )
-anims/roll = SubResource( 5 )
+anims/idle = SubResource( 2 )
+anims/play = SubResource( 3 )
+anims/roll = SubResource( 4 )
 
 [node name="DieAnimationPlayer02" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 6 )
-anims/play = SubResource( 7 )
-anims/roll = SubResource( 8 )
+anims/idle = SubResource( 5 )
+anims/play = SubResource( 6 )
+anims/roll = SubResource( 7 )
 
 [node name="DieAnimationPlayer03" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
 autoplay = "idle"
-anims/idle = SubResource( 9 )
-anims/play = SubResource( 10 )
-anims/roll = SubResource( 11 )
+anims/idle = SubResource( 8 )
+anims/play = SubResource( 9 )
+anims/roll = SubResource( 10 )
 
 [node name="DiceBank" type="NinePatchRect" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -1557,7 +1557,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -1592,7 +1592,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"
@@ -1634,7 +1634,7 @@ margin_left = -0.0100002
 margin_top = -0.396948
 margin_right = -0.0100021
 margin_bottom = -0.587282
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 text = "100"
 valign = 1
 __meta__ = {
@@ -1677,7 +1677,7 @@ margin_left = -0.0100002
 margin_top = -0.592128
 margin_right = -0.0100021
 margin_bottom = -0.596441
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 12 )
 text = "100"
 valign = 1
 __meta__ = {

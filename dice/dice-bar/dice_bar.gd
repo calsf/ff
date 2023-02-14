@@ -5,6 +5,8 @@ var has_rolled_once = false
 var has_played = false
 var selected_face_index = null
 
+var is_rerolling = false
+
 onready var _empty_icon = load("res://dice/die-empty-slot.png")
 onready var _die_numbers = $DiceNumbers
 onready var _die_faces = $DiceFaces
@@ -17,6 +19,7 @@ onready var _reroll_btn = get_tree().current_scene.get_node("CanvasLayer/RerollB
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 onready var _action_options = get_tree().current_scene.get_node("CanvasLayer/ActionOptions")
+onready var _reroll_action_btn = get_tree().current_scene.get_node("CanvasLayer/ActionOptions/HBoxContainer/ButtonReroll")
 
 onready var _combat = get_tree().current_scene.get_node("CanvasLayer/Combat")
 
@@ -64,6 +67,9 @@ func reset_dice_bar():
 
 # Select die faces
 func _on_face_pressed(event, i):
+	if is_rerolling:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if selected_dice[i] == null:
@@ -90,9 +96,14 @@ func _on_face_pressed(event, i):
 			_die_faces.get_child(i).get_node("AnimationPlayer").play("selected")
 			_action_options.set_global_position(pos)
 			_action_options.visible = true
+			
+			check_can_reroll_selected()
 
 # Reset the die face and unassign selected face index
 func deselect_face():
+	if selected_face_index == null:
+		return
+	
 	var face_node = _die_faces.get_child(selected_face_index)
 	
 	var die_index = selected_dice[selected_face_index]
@@ -301,6 +312,82 @@ func _on_reroll_pressed():
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)
 
+# Reroll current selected die
+func reroll_selected_die():
+	# Do not reroll if has not rolled yet or has already played
+	if not has_rolled_once or has_played:
+		return
+	
+	# Only reroll if have enough favor
+	if _combat.favor < 2:
+		return
+	
+	# Must have a face selected to reroll
+	if selected_face_index == null:
+		return
+	
+	var i = selected_face_index
+	
+	# Take favor
+	_combat.add_favor(-2)
+	
+	# Disable reroll until anim is complete
+	set_can_reroll(false)
+	
+	is_rerolling = true
+	
+	# Reset dice bar as needed
+	if selected_dice[i] != null:
+		var die_index = selected_dice[i]
+		var die = PlayerDiceBank.dice[die_index]
+		
+		die.reset_die()
+		
+		var anim = _die_anim_players.get_child(i)
+		anim.play("idle")
+	
+	_die_action_labels.get_child(i).text = "NO ACTION"
+	
+	if selected_face_index != null:
+		deselect_face()
+	check_can_play()
+	
+	# Reroll
+	var anim_to_wait_for = null
+	if selected_dice[i] != null:
+		var die_index = selected_dice[i]
+		var die = PlayerDiceBank.dice[die_index]
+		
+		# Show used overlay on rolled die
+		_dice_bank.die_used_overlay(selected_dice[i], true)
+		
+		# Play anim
+		_die_anim_players.get_child(i).play("roll")
+		
+		# Set anim to yield for
+		anim_to_wait_for = _die_anim_players.get_child(i)
+		
+		# Randomize face
+		randomize()
+		die.curr_face = die.faces[randi() % die.faces.size()]
+		
+		# Update face icon
+		var face_node = _die_faces.get_child(i)
+		face_node.texture = die.curr_face.icon
+		
+		# Update face num value
+		var num_value = die.curr_face.num_value
+		var num_value_label = face_node.get_node("NumValue")
+	
+		if num_value == null or num_value == 0:
+			num_value_label.text = ""
+		else:
+			num_value_label.text = str(num_value)
+	
+	yield(anim_to_wait_for, "animation_finished")
+	set_can_reroll(true)
+	is_rerolling = false
+
 # Adds or removes die to the dice bar, return true or false for success/fail
 func add_or_remove_die(i):
 	# Dice bank should be disabled after first roll
@@ -405,6 +492,15 @@ func check_can_play():
 	else:
 		_play_btn.disabled = false
 		_play_btn.set_modulate(Color(1, 1, 1, 1))
+
+# Check if reroll action option should be disabled or not
+func check_can_reroll_selected():
+	if _combat.favor < 2:
+		_reroll_action_btn.disabled = true
+		_reroll_action_btn.set_modulate(Color(.7, .7, .7, 1))
+	else:
+		_reroll_action_btn.disabled = false
+		_reroll_action_btn.set_modulate(Color(1, 1, 1, 1))
 
 # Disable or enable reroll btn, always disable if no favor
 func set_can_reroll(enabled):

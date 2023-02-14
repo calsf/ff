@@ -30,7 +30,8 @@ func _on_discard():
 	on_cancel()
 
 func _on_reroll():
-	pass
+	_dice_bar.reroll_selected_die()
+	on_cancel()
 
 func on_cancel():
 	selected_die_index = null

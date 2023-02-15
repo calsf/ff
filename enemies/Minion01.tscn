@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://enemies/minion_01.gd" type="Script" id=1]
 [ext_resource path="res://buttons/selected_outline.tres" type="StyleBox" id=2]
@@ -31,6 +31,7 @@
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash47.png" type="Texture" id=29]
 [ext_resource path="res://combat/block_icon.png" type="Texture" id=30]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash63.png" type="Texture" id=31]
+[ext_resource path="res://enemies/enemy-base.png" type="Texture" id=32]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -159,11 +160,27 @@ tracks/5/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyFace:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Minion01" type="TextureRect"]
 margin_left = 160.0
 margin_right = 224.0
 margin_bottom = 68.0
-texture = ExtResource( 18 )
+texture = ExtResource( 32 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -277,6 +294,7 @@ __meta__ = {
 }
 
 [node name="EnemyDieRoll" type="HBoxContainer" parent="NextAction"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.25
 anchor_right = 0.258
 anchor_bottom = 1.882
@@ -336,6 +354,7 @@ texture = ExtResource( 5 )
 expand = true
 
 [node name="Label" type="Label" parent="NextAction/EnemyDieFace"]
+modulate = Color( 1, 1, 1, 0.333333 )
 margin_left = 33.0
 margin_top = 8.0
 margin_right = 42.0
@@ -343,6 +362,16 @@ margin_bottom = 23.0
 custom_fonts/font = SubResource( 2 )
 text = "30"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyFace" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 0.207002
+margin_bottom = 0.207001
+texture = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -365,7 +394,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EnemyAnimPlayer" type="AnimationPlayer" parent="."]
+[node name="IntentAnimPlayer" type="AnimationPlayer" parent="."]
 autoplay = "roll"
 anims/play = SubResource( 3 )
 anims/roll = SubResource( 4 )
+
+[node name="EnemyAnimPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 5 )

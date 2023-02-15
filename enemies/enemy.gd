@@ -13,7 +13,7 @@ onready var _block_label = $Block/Label
 onready var _intent_icon = $NextAction/EnemyDieFace/TextureRect
 onready var _intent_value_label = $NextAction/EnemyDieFace/Label
 onready var _intent_value_label_roll = $NextAction/EnemyDieRoll/Label
-onready var _anim = $EnemyAnimPlayer
+onready var _anim = $IntentAnimPlayer
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
@@ -39,7 +39,9 @@ func set_next_intent():
 	
 	# Set on hover for die face
 	_intent_icon.connect("mouse_entered", self, "_on_face_entered", [_intent_icon, next_intent])
-	_intent_icon.connect("mouse_exited", self, "_on_face_exited")
+	
+	if not _intent_icon.is_connected("mouse_exited", self, "_on_face_exited"):
+		_intent_icon.connect("mouse_exited", self, "_on_face_exited")
 
 # Set by target selection
 func set_enemy_num(num):

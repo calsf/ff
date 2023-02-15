@@ -53,7 +53,7 @@ func player_turn_finished():
 	
 	# Play each enemy die face
 	for enemy in enemies:
-		var anim = enemy.get_node("EnemyAnimPlayer")
+		var anim = enemy.get_node("IntentAnimPlayer")
 		anim.play("play")
 		yield(anim, "animation_finished")
 		
@@ -65,7 +65,7 @@ func player_turn_finished():
 	# Play anim to reset enemy intents
 	var anim_to_wait_for = null
 	for enemy in enemies:
-		anim_to_wait_for = enemy.get_node("EnemyAnimPlayer")
+		anim_to_wait_for = enemy.get_node("IntentAnimPlayer")
 		anim_to_wait_for.play("roll")
 	
 	yield(anim_to_wait_for, "animation_finished")

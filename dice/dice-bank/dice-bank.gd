@@ -88,7 +88,10 @@ func update_dice_index(i):
 		
 		# Set on hover for die face
 		face_node.connect("mouse_entered", self, "_on_face_entered", [face_node, face_obj])
-		face_node.connect("mouse_exited", self, "_on_face_exited")
+		
+		# Set on exit if not already set
+		if not face_node.is_connected("mouse_exited", self, "_on_face_exited"):
+			face_node.connect("mouse_exited", self, "_on_face_exited")
 		
 		# Set icon
 		face_node.texture = face_obj.icon

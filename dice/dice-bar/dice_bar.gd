@@ -70,6 +70,9 @@ func _on_face_pressed(event, i):
 	if is_rerolling:
 		return
 	
+	if has_played:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if selected_dice[i] == null:
@@ -93,7 +96,7 @@ func _on_face_pressed(event, i):
 			# Play selected face animation and show action options
 			var pos = Vector2(_die_faces.get_child(i).get_global_position().x - (_action_options.rect_size.x / 2.5), _action_options.get_global_position().y)
 			
-			_die_faces.get_child(i).get_node("AnimationPlayer").play("selected")
+			_die_faces.get_child(i).play_anim("selected")
 			_action_options.set_global_position(pos)
 			_action_options.visible = true
 			
@@ -121,7 +124,7 @@ func deselect_face():
 	elif die.action_discard:
 		_die_action_labels.get_child(selected_face_index).text = "DISCARD"
 		
-	face_node.get_node("AnimationPlayer").play("idle")
+	face_node.play_anim("idle")
 	
 	selected_face_index = null
 	_action_options.visible = false
@@ -129,6 +132,9 @@ func deselect_face():
 # On die face mouse entered
 func _on_face_entered(i):
 	if selected_dice[i] == null:
+		return
+	
+	if has_played:
 		return
 	
 	# Move info box to position with the corresponding die info
@@ -186,18 +192,10 @@ func _on_roll_pressed():
 			randomize()
 			die.curr_face = die.faces[randi() % die.faces.size()]
 			
-			# Update face icon
+			# Update face icon and num value
 			var face_node = _die_faces.get_child(i)
-			face_node.texture = die.curr_face.icon
-			
-			# Update face num value
 			var num_value = die.curr_face.num_value
-			var num_value_label = face_node.get_node("NumValue")
-		
-			if num_value == null or num_value == 0:
-				num_value_label.text = ""
-			else:
-				num_value_label.text = str(num_value)
+			face_node.set_face(die.curr_face.icon, num_value)
 			
 	has_rolled_once = true
 	_check_can_roll()
@@ -227,12 +225,16 @@ func _on_play_pressed():
 			var die = PlayerDiceBank.dice[die_index]
 			
 			if die.action_set:
+				_die_faces.get_child(i).play_anim("play")
+				
 				var anim = _die_anim_players.get_child(i)
 				anim.play("play")
 				yield(anim, "animation_finished")
 				
 				die.curr_face.on_play(_combat)
 			elif die.action_discard:
+				_die_faces.get_child(i).play_anim("discard")
+				
 				var anim = _die_anim_players.get_child(i)
 				anim.play("play")
 				yield(anim, "animation_finished")
@@ -296,18 +298,10 @@ func _on_reroll_pressed():
 			randomize()
 			die.curr_face = die.faces[randi() % die.faces.size()]
 			
-			# Update face icon
+			# Update face icon and num value
 			var face_node = _die_faces.get_child(i)
-			face_node.texture = die.curr_face.icon
-			
-			# Update face num value
 			var num_value = die.curr_face.num_value
-			var num_value_label = face_node.get_node("NumValue")
-		
-			if num_value == null or num_value == 0:
-				num_value_label.text = ""
-			else:
-				num_value_label.text = str(num_value)
+			face_node.set_face(die.curr_face.icon, num_value)
 	
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)
@@ -371,18 +365,10 @@ func reroll_selected_die():
 		randomize()
 		die.curr_face = die.faces[randi() % die.faces.size()]
 		
-		# Update face icon
+		# Update face icon and num value
 		var face_node = _die_faces.get_child(i)
-		face_node.texture = die.curr_face.icon
-		
-		# Update face num value
 		var num_value = die.curr_face.num_value
-		var num_value_label = face_node.get_node("NumValue")
-	
-		if num_value == null or num_value == 0:
-			num_value_label.text = ""
-		else:
-			num_value_label.text = str(num_value)
+		face_node.set_face(die.curr_face.icon, num_value)
 	
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)

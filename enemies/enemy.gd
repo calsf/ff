@@ -13,6 +13,9 @@ onready var _block_label = $Block/Label
 onready var _intent_icon = $NextAction/EnemyDieFace/TextureRect
 onready var _intent_value_label = $NextAction/EnemyDieFace/Label
 onready var _intent_value_label_roll = $NextAction/EnemyDieRoll/Label
+onready var _anim = $EnemyAnimPlayer
+
+onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
 func _ready():
 	pass
@@ -27,6 +30,16 @@ func set_next_intent():
 	
 	# Additional label to set to maintain overlay
 	_intent_value_label_roll.text = str(next_intent.num_value)
+	
+	# Reset signal if needed for updated dice
+	if _intent_icon.is_connected("mouse_entered", self, "_on_face_entered"):
+		_intent_icon.disconnect("mouse_entered", self, "_on_face_entered")
+	
+	yield(_anim, "animation_finished")
+	
+	# Set on hover for die face
+	_intent_icon.connect("mouse_entered", self, "_on_face_entered", [_intent_icon, next_intent])
+	_intent_icon.connect("mouse_exited", self, "_on_face_exited")
 
 # Set by target selection
 func set_enemy_num(num):
@@ -62,3 +75,20 @@ func set_health(value):
 func reset_block():
 	block = 0
 	_block_label.text = str(block)
+
+# Move info box to position with the corresponding die info
+func _on_face_entered(face_node, face_obj):
+	# Do nothing if empty face name
+	if face_obj.face_name == "":
+		return
+	
+	var y_offset = Vector2(0, face_node.rect_size.y + 18)
+	
+	_die_face_info.set_face_info(face_obj)
+	_die_face_info.set_global_position(face_node.get_global_position() - (face_node.rect_size / 1.5) + y_offset)
+	
+	_die_face_info.visible = true
+
+# Hide info box after exiting a die face node
+func _on_face_exited():
+	_die_face_info.visible = false

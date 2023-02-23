@@ -117,8 +117,8 @@ func deselect_face():
 		var action = "SET"
 		
 		# Append enemy number identifier if face has a target
-		if die.curr_face.target != null:
-			action += " FACE " + str(die.curr_face.target.enemy_num)
+		if die.target != null:
+			action += " FACE " + str(die.target.enemy_num)
 		
 		_die_action_labels.get_child(selected_face_index).text = action
 	elif die.action_discard:
@@ -231,7 +231,7 @@ func _on_play_pressed():
 				anim.play("play")
 				yield(anim, "animation_finished")
 				
-				die.curr_face.on_play(_combat)
+				die.on_play(_combat)
 			elif die.action_discard:
 				_die_faces.get_child(i).play_anim("discard")
 				
@@ -239,7 +239,7 @@ func _on_play_pressed():
 				anim.play("play")
 				yield(anim, "animation_finished")
 				
-				die.curr_face.on_discard(_combat)
+				die.on_discard(_combat)
 	
 	# Player turn has finished
 	_combat.player_turn_finished()

@@ -13,7 +13,8 @@ onready var _block_label = $Block/Label
 onready var _intent_icon = $NextAction/EnemyDieFace/TextureRect
 onready var _intent_value_label = $NextAction/EnemyDieFace/Label
 onready var _intent_value_label_roll = $NextAction/EnemyDieRoll/Label
-onready var _anim = $IntentAnimPlayer
+onready var _intent_anim = $IntentAnimPlayer
+onready var _enemy_anim = $EnemyAnimPlayer
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
@@ -35,7 +36,7 @@ func set_next_intent():
 	if _intent_icon.is_connected("mouse_entered", self, "_on_face_entered"):
 		_intent_icon.disconnect("mouse_entered", self, "_on_face_entered")
 	
-	yield(_anim, "animation_finished")
+	yield(_intent_anim, "animation_finished")
 	
 	# Set on hover for die face
 	_intent_icon.connect("mouse_entered", self, "_on_face_entered", [_intent_icon, next_intent])
@@ -59,6 +60,11 @@ func add_block(amount):
 func deal_blockable_damage(amount):
 	if block >= amount:
 		add_block(-amount)
+		
+		_enemy_anim.play("blocked")
+		yield(_enemy_anim, "animation_finished")
+		_enemy_anim.play("idle")
+	
 		return
 	else:
 		amount -= block
@@ -69,6 +75,10 @@ func deal_blockable_damage(amount):
 func deal_direct_damage(amount):
 	health -= amount
 	_health_label.text = str(health)
+	
+	_enemy_anim.play("damaged")
+	yield(_enemy_anim, "animation_finished")
+	_enemy_anim.play("idle")
 
 func set_health(value):
 	health = value

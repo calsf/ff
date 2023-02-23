@@ -10,5 +10,5 @@ func _init(value=0):
 	
 	require_target = false
 
-func on_play(combat):
+func on_play(combat, target):
 	combat.add_player_block(num_value)

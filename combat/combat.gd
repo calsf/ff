@@ -47,6 +47,8 @@ func reset_player_block():
 	_block_num.text = str(player_block)
 
 func player_turn_finished():
+	yield(get_tree().create_timer(1.0), "timeout")
+	
 	# Reset enemies as needed before starting their turn
 	for enemy in enemies:
 		enemy.reset_block()

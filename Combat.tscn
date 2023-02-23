@@ -246,6 +246,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "play"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceFaces/Face1:rect_scale")
 tracks/0/interp = 1
@@ -495,6 +496,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "play"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceFaces/Face2:rect_scale")
 tracks/0/interp = 1
@@ -744,6 +746,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id=9]
 resource_name = "play"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("../DiceFaces/Face3:rect_scale")
 tracks/0/interp = 1

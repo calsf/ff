@@ -18,6 +18,8 @@ onready var _enemy_anim = $EnemyAnimPlayer
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
+onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
+
 func _ready():
 	pass
 
@@ -55,11 +57,27 @@ func set_enemy_num(num):
 func add_block(amount):
 	block += amount
 	_block_label.text = str(block)
+	
+	_number_popup_pool.display_number_popup("+" + str(amount), Color("80baff"), _block_label)
+
+# Remove block
+func remove_block(amount):
+	block -= amount
+	_block_label.text = str(block)
+	
+	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_label)
+
+# Add health
+func add_health(amount):
+	health += amount
+	_health_label.text = str(health)
+	
+	_number_popup_pool.display_number_popup("+" + str(amount), Color("1aff00"), _health_label)
 
 # Deal blockable damage, damages block first
 func deal_blockable_damage(amount):
 	if block >= amount:
-		add_block(-amount)
+		remove_block(amount)
 		
 		_enemy_anim.play("blocked")
 		yield(_enemy_anim, "animation_finished")
@@ -67,14 +85,17 @@ func deal_blockable_damage(amount):
 	
 		return
 	else:
-		amount -= block
-		reset_block()
+		if block > 0:
+			amount -= block
+			remove_block(block)
 		deal_direct_damage(amount)
 
 # Deal direct damage, subtract amount from health
 func deal_direct_damage(amount):
 	health -= amount
 	_health_label.text = str(health)
+	
+	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_label)
 	
 	_enemy_anim.play("damaged")
 	yield(_enemy_anim, "animation_finished")

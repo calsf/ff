@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=2]
+[gd_scene load_steps=162 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -123,6 +123,8 @@
 [ext_resource path="res://combat/health_icon.png" type="Texture" id=121]
 [ext_resource path="res://enemies/Minion01.tscn" type="PackedScene" id=122]
 [ext_resource path="res://dice/dice-bar/dice-bar.png" type="Texture" id=123]
+[ext_resource path="res://combat/NumberPopup.tscn" type="PackedScene" id=124]
+[ext_resource path="res://combat/number_popup_pool.gd" type="Script" id=125]
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=126]
 [ext_resource path="res://dice/dice-bar/DieFace.tscn" type="PackedScene" id=127]
 [ext_resource path="res://dice/action_options.gd" type="Script" id=128]
@@ -1725,14 +1727,13 @@ __meta__ = {
 }
 
 [node name="FavorLabel" type="Label" parent="CanvasLayer/Favor"]
-anchor_left = 0.425
-anchor_top = -0.125
-anchor_right = 1.1
-anchor_bottom = 0.437
-margin_left = -4.0
-margin_top = 2.0
-margin_right = -7.0
-margin_bottom = 2.016
+anchor_left = 0.375
+anchor_top = 0.312
+anchor_right = 1.012
+anchor_bottom = 0.875
+margin_top = 0.0159998
+margin_right = 0.0399933
+margin_bottom = -1.90735e-06
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "FAVOR"
@@ -1742,14 +1743,13 @@ __meta__ = {
 }
 
 [node name="FavorNum" type="Label" parent="CanvasLayer/Favor"]
-anchor_left = 0.425
-anchor_top = 0.375
-anchor_right = 1.062
-anchor_bottom = 0.937
-margin_left = -4.0
-margin_top = -2.0
-margin_right = -3.96001
-margin_bottom = -1.984
+anchor_left = 0.375
+anchor_top = -0.062
+anchor_right = 1.012
+anchor_bottom = 0.5
+margin_top = -0.0159999
+margin_right = 0.0399933
+rect_pivot_offset = Vector2( 25, 9 )
 custom_fonts/font = SubResource( 13 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "2"
@@ -2115,3 +2115,26 @@ script = ExtResource( 129 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NumberPopupPool" type="Control" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = -288.0
+margin_bottom = -148.0
+mouse_filter = 2
+script = ExtResource( 125 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number01" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number02" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number03" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number04" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]

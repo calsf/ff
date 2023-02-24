@@ -255,7 +255,7 @@ func _on_reroll_pressed():
 		return
 	
 	# Take favor
-	_combat.add_favor(-1)
+	_combat.remove_favor(1)
 	
 	# Disable reroll until anim is complete
 	set_can_reroll(false)
@@ -323,7 +323,7 @@ func reroll_selected_die():
 	var i = selected_face_index
 	
 	# Take favor
-	_combat.add_favor(-2)
+	_combat.remove_favor(2)
 	
 	# Disable reroll until anim is complete
 	set_can_reroll(false)

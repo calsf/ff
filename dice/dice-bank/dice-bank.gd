@@ -8,6 +8,8 @@ onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
 func _ready():
+	PlayerDiceBank.connect("die_bank_updated", self, "update_dice_index")
+	
 	# Set up on click/hover events for each die in the dice bank
 	var dice = []
 	

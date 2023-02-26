@@ -7,6 +7,7 @@ var health : int
 var block : int
 var intents = []
 var next_intent : EnemyDieFace
+var is_dead = false
 
 onready var _health_label = $Health/Label
 onready var _block_label = $Block/Label
@@ -15,6 +16,7 @@ onready var _intent_value_label = $NextAction/EnemyDieFace/Label
 onready var _intent_value_label_roll = $NextAction/EnemyDieRoll/Label
 onready var _intent_anim = $IntentAnimPlayer
 onready var _enemy_anim = $EnemyAnimPlayer
+onready var _target_btn = $TargetButton
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
@@ -93,6 +95,10 @@ func deal_blockable_damage(amount):
 # Deal direct damage, subtract amount from health
 func deal_direct_damage(amount):
 	health -= amount
+	
+	if health < 0:
+		health = 0
+	
 	_health_label.text = str(health)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_label)
@@ -115,6 +121,9 @@ func _on_face_entered(face_node, face_obj):
 	if face_obj.face_name == "":
 		return
 	
+	if is_dead:
+		return
+	
 	var y_offset = Vector2(0, face_node.rect_size.y + 18)
 	
 	_die_face_info.set_face_info(face_obj)
@@ -125,3 +134,18 @@ func _on_face_entered(face_node, face_obj):
 # Hide info box after exiting a die face node
 func _on_face_exited():
 	_die_face_info.visible = false
+
+# Play face
+func play_face(combat):
+	_intent_anim.play("play")
+	yield(_intent_anim, "animation_finished")
+	
+	next_intent.on_play(combat)
+
+# On death
+func on_death():
+	is_dead = true
+	
+	_target_btn.visible = false
+	_enemy_anim.play("death")
+	yield(_enemy_anim, "animation_finished")

@@ -218,6 +218,9 @@ func _on_play_pressed():
 	check_can_play()
 	set_can_reroll(false)
 	
+	if selected_face_index != null:
+		deselect_face()
+	
 	# Play each die face action
 	for i in range(selected_dice.size()):
 		if selected_dice[i] != null:

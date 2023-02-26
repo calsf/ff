@@ -1,7 +1,7 @@
 extends Enemy
 
 func _ready():
-	max_health = 20
+	max_health = 5
 	
 	set_health(max_health)
 	reset_block()

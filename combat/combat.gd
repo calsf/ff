@@ -75,17 +75,18 @@ func reset_player_block():
 func player_turn_finished():
 	yield(get_tree().create_timer(1.0), "timeout")
 	
+	yield(enemy_death_check(), "completed")
+	
 	# Reset enemies as needed before starting their turn
 	for enemy in enemies:
 		enemy.reset_block()
 	
 	# Play each enemy die face
 	for enemy in enemies:
-		var anim = enemy.get_node("IntentAnimPlayer")
-		anim.play("play")
-		yield(anim, "animation_finished")
+		if enemy.is_dead:
+			continue
 		
-		enemy.next_intent.on_play(self)
+		yield(enemy.play_face(self), "completed")
 		
 		# Set enemy next intent
 		enemy.set_next_intent()
@@ -93,10 +94,15 @@ func player_turn_finished():
 	# Play anim to reset enemy intents
 	var anim_to_wait_for = null
 	for enemy in enemies:
+		if enemy.is_dead:
+			continue
+		
 		anim_to_wait_for = enemy.get_node("IntentAnimPlayer")
 		anim_to_wait_for.play("roll")
 	
-	yield(anim_to_wait_for, "animation_finished")
+	# Only need to wait for one anim since they all play anim at same time
+	if anim_to_wait_for != null:
+		yield(anim_to_wait_for, "animation_finished")
 	
 	enemy_turn_finished()
 
@@ -106,3 +112,10 @@ func enemy_turn_finished():
 	reset_player_block()
 	
 	turn += 1
+
+func enemy_death_check():
+	for enemy in enemies:
+		if not enemy.is_dead and enemy.health <= 0:
+			yield(enemy.on_death(), "completed")
+	
+	yield(get_tree().create_timer(.1), "timeout")

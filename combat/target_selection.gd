@@ -52,6 +52,6 @@ func activate_selection(index):
 
 # Set dice face target and finalize setting action to set
 func on_selection(target):
-	PlayerDiceBank.dice[selected_die_index].curr_face.target = target
+	PlayerDiceBank.dice[selected_die_index].target = target
 	_action_options.set_face()
 	_cancel_selection()

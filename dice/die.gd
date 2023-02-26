@@ -14,6 +14,8 @@ var is_empty = false
 var action_set = false
 var action_discard = false
 
+var target = null
+
 func _init(num_path, f=[]):
 	number_icon = load(num_path)
 	
@@ -34,4 +36,11 @@ func reset_die():
 	curr_face = null
 	action_set = false
 	action_discard = false
+	target = null
+
+func on_play(combat):
+	curr_face.on_play(combat, target)
+
+func on_discard(combat):
+	curr_face.on_discard(combat)
 

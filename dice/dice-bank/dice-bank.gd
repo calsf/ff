@@ -35,6 +35,21 @@ func _ready():
 	for i in range(PlayerDiceBank.dice.size()):
 		update_dice_index(i)
 
+# Reset all dice in dice bank
+func reset_dice_bank():
+	for i in range(PlayerDiceBank.dice.size()):
+		_die_selected_overlay(i)
+		die_used_overlay(i, false)
+
+# Check if all dice in dice bank has been used or not
+func all_dice_used():
+	# If any die has not been used and is not an empty die, return false
+	for i in range(PlayerDiceBank.dice.size()):
+		if not PlayerDiceBank.dice[i].is_used and not PlayerDiceBank.dice[i].is_empty:
+			return false
+	
+	return true
+
 # In the children of the given root_node, get node for die of given i index
 # Defaults to _dice_col but can get _dice_col_selected and _die_col_used
 func _get_die_node(i, root_node = _dice_col):
@@ -73,7 +88,10 @@ func update_dice_index(i):
 		
 		# Set on hover for die face
 		face_node.connect("mouse_entered", self, "_on_face_entered", [face_node, face_obj])
-		face_node.connect("mouse_exited", self, "_on_face_exited")
+		
+		# Set on exit if not already set
+		if not face_node.is_connected("mouse_exited", self, "_on_face_exited"):
+			face_node.connect("mouse_exited", self, "_on_face_exited")
 		
 		# Set icon
 		face_node.texture = face_obj.icon
@@ -121,10 +139,10 @@ func _on_face_entered(face_node, face_obj):
 	if face_obj.face_name == "":
 		return
 	
-	var y_offset = Vector2(0, face_node.rect_size.y + 6)
+	var y_offset = Vector2(0, face_node.rect_size.y + 12)
 	
 	_die_face_info.set_face_info(face_obj)
-	_die_face_info.set_global_position(face_node.get_global_position() - (face_node.rect_size / 2) + y_offset)
+	_die_face_info.set_global_position(face_node.get_global_position() - (face_node.rect_size / 1.5) + y_offset)
 	
 	_die_face_info.visible = true
 

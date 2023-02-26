@@ -49,3 +49,10 @@ func add_die(die):
 			dice[i] = die
 			emit_signal("die_bank_updated", i)
 			return
+
+func replace_die(i, die):
+	var icon = load(number_icon_paths[i])
+	die.number_icon = icon
+	dice[i] = die
+	emit_signal("die_bank_updated", i)
+	return

@@ -11,11 +11,7 @@ func _ready():
 	PlayerDiceBank.connect("die_bank_updated", self, "update_dice_index")
 	
 	# Set up on click/hover events for each die in the dice bank
-	var dice = []
-	
-	for col in range(_dice_col.get_children().size()):
-		for row in range(_dice_col.get_child(col).get_children().size()):
-			dice.append(_dice_col.get_child(col).get_child(row))
+	var dice = get_dice_nodes()
 
 	for i in range(dice.size()):
 		dice[i].connect("gui_input", self, "_on_die_pressed", [i])
@@ -36,6 +32,37 @@ func _ready():
 	# Initialize all the dice UI elements
 	for i in range(PlayerDiceBank.dice.size()):
 		update_dice_index(i)
+
+func get_dice_nodes():
+	var dice = []
+	
+	for col in range(_dice_col.get_children().size()):
+		for row in range(_dice_col.get_child(col).get_children().size()):
+			dice.append(_dice_col.get_child(col).get_child(row))
+	
+	return dice
+
+# Disconnect all signals from dice in dice bank
+func disconnect_dice_bank():
+	var dice = get_dice_nodes()
+	
+	for i in range(dice.size()):
+		if dice[i].is_connected("gui_input", self, "_on_die_pressed"):
+			dice[i].disconnect("gui_input", self, "_on_die_pressed")
+		dice[i].disconnect("mouse_entered", self, "_on_die_entered")
+		dice[i].disconnect("mouse_exited", self, "_on_die_exited")
+		
+		_on_die_exited(i)
+	
+	_on_face_exited()
+
+# Connects mouse entered/die entered and exited for all dice in dice bank
+func connect_dice_entered_exited():
+	var dice = get_dice_nodes()
+
+	for i in range(dice.size()):
+		dice[i].connect("mouse_entered", self, "_on_die_entered", [i])
+		dice[i].connect("mouse_exited", self, "_on_die_exited", [i])
 
 # Reset all dice in dice bank
 func reset_dice_bank():

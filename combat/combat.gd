@@ -9,6 +9,8 @@ onready var _favor_num = get_tree().current_scene.get_node("CanvasLayer/Favor/Fa
 onready var _block_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/Label")
 onready var _health_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Health/Label")
 onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
+onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
+onready var _loot_screen = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
 
 onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
 
@@ -114,8 +116,18 @@ func enemy_turn_finished():
 	turn += 1
 
 func enemy_death_check():
+	var all_dead = true
+	
 	for enemy in enemies:
 		if not enemy.is_dead and enemy.health <= 0:
 			yield(enemy.on_death(), "completed")
+		
+		if not enemy.is_dead:
+			all_dead = false
+	
+	if all_dead:
+		_dice_bank.disconnect_dice_bank()
+		_dice_bank.reset_dice_bank()
+		_loot_screen.visible = true
 	
 	yield(get_tree().create_timer(.1), "timeout")

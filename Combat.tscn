@@ -1,4 +1,4 @@
-[gd_scene load_steps=165 format=2]
+[gd_scene load_steps=167 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -135,9 +135,11 @@
 [ext_resource path="res://loot/LootDie.tscn" type="PackedScene" id=133]
 [ext_resource path="res://loot/LootDieRemove.tscn" type="PackedScene" id=134]
 [ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=135]
+[ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=136]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
+[ext_resource path="res://loot/LootDieFace.tscn" type="PackedScene" id=140]
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
 [ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=146]
@@ -900,34 +902,40 @@ tracks/8/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 use_filter = true
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=12]
 size = 10
 outline_color = Color( 1, 0.992157, 0.854902, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=14]
+[sub_resource type="DynamicFont" id=13]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=14]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=15]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=17]
 size = 8
@@ -936,30 +944,24 @@ outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=18]
-size = 8
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=19]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=19]
 size = 10
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=20]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=21]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -1271,7 +1273,7 @@ margin_left = -0.0100002
 margin_top = -0.396948
 margin_right = -0.0100021
 margin_bottom = -0.587282
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "100"
 valign = 1
 __meta__ = {
@@ -1314,7 +1316,7 @@ margin_left = -0.0100002
 margin_top = -0.592128
 margin_right = -0.0100021
 margin_bottom = -0.596441
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 text = "100"
 valign = 1
 __meta__ = {
@@ -1365,7 +1367,7 @@ anchor_bottom = 0.875
 margin_top = 0.0159998
 margin_right = 0.0399933
 margin_bottom = -1.90735e-06
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "FAVOR"
 align = 1
@@ -1381,7 +1383,7 @@ anchor_bottom = 0.5
 margin_top = -0.0159999
 margin_right = 0.0399933
 rect_pivot_offset = Vector2( 25, 9 )
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "2"
 align = 1
@@ -1431,7 +1433,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="CanvasLayer/RerollBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 14 )
+custom_fonts/font = SubResource( 13 )
 custom_constants/line_spacing = -4
 text = "REROLL ALL
 "
@@ -1444,7 +1446,7 @@ __meta__ = {
 [node name="Label2" type="Label" parent="CanvasLayer/RerollBtn"]
 anchor_right = 1.0
 anchor_bottom = 1.8
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 14 )
 text = "(-1 FAVOR)
 "
 align = 1
@@ -1466,7 +1468,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
@@ -1488,7 +1490,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 15 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
@@ -1531,7 +1533,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
 text = "                "
@@ -1542,7 +1544,7 @@ anchor_right = 1.0
 anchor_bottom = 0.958
 margin_top = 0.00800014
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_constants/line_spacing = -8
 text = "DISCARD
 "
@@ -1557,7 +1559,7 @@ anchor_right = 1.0
 anchor_bottom = 1.179
 margin_right = 3.8147e-06
 margin_bottom = -0.012001
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 custom_constants/line_spacing = -8
 text = "
 
@@ -1579,7 +1581,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
@@ -1594,7 +1596,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
 text = "              "
@@ -1605,7 +1607,7 @@ anchor_right = 1.0
 anchor_bottom = 0.958
 margin_top = 0.00800014
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 18 )
+custom_fonts/font = SubResource( 17 )
 custom_constants/line_spacing = -8
 text = "REROLL
 "
@@ -1620,7 +1622,7 @@ anchor_right = 1.0
 anchor_bottom = 1.179
 margin_right = 3.8147e-06
 margin_bottom = -0.012001
-custom_fonts/font = SubResource( 19 )
+custom_fonts/font = SubResource( 18 )
 custom_constants/line_spacing = -8
 text = "
 
@@ -1643,7 +1645,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
 text = "CANCEL"
@@ -1687,7 +1689,7 @@ margin_left = -35.0
 margin_top = -9.0
 margin_right = 35.0
 margin_bottom = 9.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CHOOSE TARGET"
@@ -1710,7 +1712,7 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
 text = "CANCEL"
@@ -1770,6 +1772,12 @@ margin_top = -68.0
 margin_right = 128.0
 margin_bottom = 68.0
 texture = ExtResource( 123 )
+
+[node name="LootDieFace" parent="CanvasLayer/LootScreen" instance=ExtResource( 140 )]
+margin_left = 176.0
+margin_top = 136.0
+margin_right = 208.0
+margin_bottom = 168.0
 
 [node name="Loot" type="VBoxContainer" parent="CanvasLayer/LootScreen"]
 anchor_left = 0.5
@@ -1834,7 +1842,7 @@ margin_left = -52.0
 margin_top = -9.0
 margin_right = 52.0
 margin_bottom = 9.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 19 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "CHOOSE DIE TO REMOVE"
@@ -1857,7 +1865,77 @@ custom_styles/hover = ExtResource( 130 )
 custom_styles/pressed = ExtResource( 131 )
 custom_styles/disabled = ExtResource( 137 )
 custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 21 )
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "CANCEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceFaceSelection" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 136 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DiceFaceSelection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.345098, 0.345098, 0.345098, 0.560784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LMB2" type="Control" parent="CanvasLayer/DiceFaceSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -108.0
+margin_right = 34.0
+margin_bottom = -76.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/DiceFaceSelection/LMB2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -9.0
+margin_right = 52.0
+margin_bottom = 9.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "CHOOSE DIE TO REMOVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/DiceFaceSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = -86.0
+margin_right = 21.0
+margin_bottom = -63.0
+focus_mode = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 130 )
+custom_styles/pressed = ExtResource( 131 )
+custom_styles/disabled = ExtResource( 137 )
+custom_styles/normal = ExtResource( 137 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
 text = "CANCEL"
@@ -2194,7 +2272,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -2229,7 +2307,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"

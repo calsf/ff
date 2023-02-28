@@ -56,3 +56,7 @@ func replace_die(i, die):
 	dice[i] = die
 	emit_signal("die_bank_updated", i)
 	return
+
+func replace_face(die_index, face_index, new_face):
+	dice[die_index].faces[face_index] = new_face
+	emit_signal("die_bank_updated", die_index)

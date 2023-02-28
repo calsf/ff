@@ -43,4 +43,3 @@ func _on_die_pressed(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			_dice_bank_selection.activate_selection(self)
-			print_debug("pressed")

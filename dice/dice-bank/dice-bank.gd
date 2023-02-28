@@ -64,6 +64,25 @@ func connect_dice_entered_exited():
 		dice[i].connect("mouse_entered", self, "_on_die_entered", [i])
 		dice[i].connect("mouse_exited", self, "_on_die_exited", [i])
 
+# Connects mouse enter/exit signals for face selection
+func connect_face_entered_exited():
+	var dice = get_dice_nodes()
+	for die_index in range(dice.size()):
+		var faces = dice[die_index].get_children()
+		for face_index in range(1, faces.size()):
+			faces[face_index].connect("mouse_entered", self, "_on_only_face_entered", [faces[face_index], PlayerDiceBank.dice[die_index].faces[face_index - 1]])
+			faces[face_index].connect("mouse_exited", self, "_on_only_face_exited", [faces[face_index]])
+
+# Disconnects mouse enter/exit signals for face selection	
+func disconnect_face_entered_exited():
+	var dice = get_dice_nodes()
+	for die_index in range(dice.size()):
+		var faces = dice[die_index].get_children()
+		for face_index in range(1, faces.size()):
+			faces[face_index].disconnect("mouse_entered", self, "_on_only_face_entered")
+			faces[face_index].disconnect("mouse_exited", self, "_on_only_face_exited")
+			_on_only_face_exited(faces[face_index])
+
 # Reset all dice in dice bank
 func reset_dice_bank():
 	for i in range(PlayerDiceBank.dice.size()):
@@ -198,3 +217,13 @@ func _on_die_exited(i):
 	die.rect_scale = Vector2(1, 1)
 	die_selected.rect_scale = Vector2(1, 1)
 	die_used.rect_scale = Vector2(1, 1)
+
+# On face entered + scale up face node only
+func _on_only_face_entered(face_node, face_obj):
+	_on_face_entered(face_node, face_obj)
+	face_node.rect_scale = Vector2(1.1, 1.1)
+
+# On face exited + scale down face node only
+func _on_only_face_exited(face_node):
+	_on_face_exited()
+	face_node.rect_scale = Vector2(1, 1)

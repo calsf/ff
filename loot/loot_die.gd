@@ -4,6 +4,8 @@ var die = null
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 
+onready var _loot = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var possible_faces = [FaceAttack.new(5), FaceBlock.new(5)]
@@ -100,4 +102,4 @@ func _on_die_pressed(event):
 			PlayerDiceBank.add_die(die)
 			
 			_on_face_exited()
-			queue_free()
+			_loot.remove_loot(self)

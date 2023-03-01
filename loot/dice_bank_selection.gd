@@ -5,6 +5,7 @@ var original_loot = null
 onready var _btn_cancel = $ButtonCancel
 
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
+onready var _loot = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
 
 func _ready():
 	_btn_cancel.connect("pressed", self, "_on_cancel")
@@ -42,5 +43,5 @@ func _on_die_pressed(event, i):
 			var empty_die = Die.new("res://dice/die-numbers/die-num-remove.png")
 			PlayerDiceBank.replace_die(i, empty_die)
 			
-			original_loot.queue_free()
+			_loot.remove_loot(original_loot)
 			_on_cancel()

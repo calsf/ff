@@ -13,8 +13,9 @@ func _ready():
 func set_display():
 	var die_faces = self.get_children()
 	
-	die_faces[0].connect("mouse_entered", self, "_on_face_num_entered", [die_faces[0]])
-	die_faces[0].connect("mouse_exited", self, "_on_face_exited")
+	for face in die_faces:
+		face.connect("mouse_entered", self, "_on_face_num_entered", [face])
+		face.connect("mouse_exited", self, "_on_face_exited")
 
 # Scale up dice row on hover
 func _on_die_entered():

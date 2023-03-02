@@ -316,7 +316,7 @@ func reroll_selected_die():
 		return
 	
 	# Only reroll if have enough favor
-	if _combat.favor < 2:
+	if _combat.favor < 1:
 		return
 	
 	# Must have a face selected to reroll
@@ -326,7 +326,7 @@ func reroll_selected_die():
 	var i = selected_face_index
 	
 	# Take favor
-	_combat.remove_favor(2)
+	_combat.remove_favor(1)
 	
 	# Disable reroll until anim is complete
 	set_can_reroll(false)
@@ -484,7 +484,7 @@ func check_can_play():
 
 # Check if reroll action option should be disabled or not
 func check_can_reroll_selected():
-	if _combat.favor < 2:
+	if _combat.favor < 1:
 		_reroll_action_btn.disabled = true
 		_reroll_action_btn.set_modulate(Color(.7, .7, .7, 1))
 	else:

@@ -128,6 +128,8 @@ func enemy_death_check():
 	if all_dead:
 		_dice_bank.disconnect_dice_bank()
 		_dice_bank.reset_dice_bank()
-		_loot_screen.visible = true
+		
+		yield(get_tree().create_timer(.3), "timeout")
+		yield(_loot_screen.activate(), "completed")
 	
 	yield(get_tree().create_timer(.1), "timeout")

@@ -9,6 +9,9 @@ var enemies = []
 var dodge = false
 var replay = false
 
+var extra_faces = []
+var extra_faces_target = []
+
 onready var _favor_num = get_tree().current_scene.get_node("CanvasLayer/Favor/FavorNum")
 onready var _block_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/Label")
 onready var _health_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Health/Label")
@@ -157,3 +160,12 @@ func enemy_death_check():
 		yield(_loot_screen.activate(), "completed")
 	
 	yield(get_tree().create_timer(.1), "timeout")
+
+# Clear extra faces
+func clear_extra_faces():
+	extra_faces.clear()
+	extra_faces_target.clear()
+
+# For RELOAD face
+func reload_dice():
+	_dice_bank.reset_dice_bank()

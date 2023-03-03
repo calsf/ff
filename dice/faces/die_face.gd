@@ -17,3 +17,6 @@ func on_play(combat, target, parent_die=0):
 # Discards the die face, gains favor
 func on_discard(combat):
 	combat.add_favor(1)
+
+func on_extra_play(combat, target):
+	pass

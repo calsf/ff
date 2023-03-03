@@ -221,6 +221,15 @@ func _on_play_pressed():
 	if selected_face_index != null:
 		deselect_face()
 	
+	# Play any extra faces before playing selected die faces
+	for i in range(_combat.extra_faces.size()):
+		yield(_combat.extra_faces[i].on_extra_play(_combat, _combat.extra_faces_target[i]), "completed")
+		yield(get_tree().create_timer(.3), "timeout")
+	
+	_combat.clear_extra_faces()
+	
+	yield(get_tree().create_timer(.5), "timeout")
+	
 	# Play each die face action
 	for i in range(selected_dice.size()):
 		if selected_dice[i] != null:

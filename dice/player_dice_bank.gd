@@ -30,6 +30,9 @@ func _init():
 	var replay = FaceReplay.new()
 	var scramble = FaceScramble.new()
 	var unload = FaceUnload.new()
+	var attack_charge = FaceChargeAttack.new(2)
+	var block_charge = FaceChargeBlock.new(5)
+	var reload = FaceReload.new()
 	
 	# Start with 6 die
 	dice.append(Die.new(number_icon_paths[0], [attack, attack, attack, block, block, block]))
@@ -41,12 +44,15 @@ func _init():
 	
 	# TEMP TESTING
 	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, block]))
+	dice.append(Die.new(number_icon_paths[7], [attack_charge,attack_charge,attack_charge,attack_charge,attack_charge,attack_charge]))
+	dice.append(Die.new(number_icon_paths[8], [block_charge,block_charge,block_charge,block_charge,block_charge,block_charge]))
+	dice.append(Die.new(number_icon_paths[9], [reload,reload,reload,reload,reload,reload]))
 	
 	# Empty dice slots
 	#dice.append(Die.new(number_icon_paths[6]))
-	dice.append(Die.new(number_icon_paths[7]))
-	dice.append(Die.new(number_icon_paths[8]))
-	dice.append(Die.new(number_icon_paths[9]))
+	#dice.append(Die.new(number_icon_paths[7]))
+	#dice.append(Die.new(number_icon_paths[8]))
+	#dice.append(Die.new(number_icon_paths[9]))
 	dice.append(Die.new(number_icon_paths[10]))
 	dice.append(Die.new(number_icon_paths[11]))
 
@@ -70,3 +76,11 @@ func replace_die(i, die):
 func replace_face(die_index, face_index, new_face):
 	dice[die_index].faces[face_index] = new_face
 	emit_signal("die_bank_updated", die_index)
+
+# Returns number of used dice
+func get_used_dice():
+	var num = 0
+	for i in range(dice.size()):
+		if not dice[i].is_empty and dice[i].is_used:
+			num += 1
+	return num

@@ -234,7 +234,7 @@ func _on_play_pressed():
 				anim.play("play")
 				yield(anim, "animation_finished")
 				
-				die.on_play(_combat)
+				yield(die.on_play(_combat, die_index), "completed")
 			elif die.action_discard:
 				_die_faces.get_child(i).play_anim("discard")
 				
@@ -454,6 +454,8 @@ func remove_die(i):
 	_die_numbers.get_child(index).texture = _empty_icon
 	
 	die.is_selected = false
+	
+	_check_can_roll()
 	
 	return true
 

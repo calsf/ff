@@ -976,7 +976,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 139 )
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=23]
 resource_name = "close"
 length = 0.4
 tracks/0/type = "value"
@@ -1004,8 +1004,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=23]
-resource_name = "open"
+[sub_resource type="Animation" id=24]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -1032,7 +1031,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=24]
+[sub_resource type="DynamicFont" id=25]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -1923,8 +1922,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/LootScreen"]
-anims/close = SubResource( 25 )
-anims/open = SubResource( 23 )
+anims/close = SubResource( 23 )
+anims/open = SubResource( 24 )
 
 [node name="DiceBankSelection" type="Control" parent="CanvasLayer"]
 visible = false
@@ -2395,7 +2394,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -2430,7 +2429,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 24 )
+custom_fonts/font = SubResource( 25 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"
@@ -2462,3 +2461,19 @@ __meta__ = {
 [node name="Number03" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
 
 [node name="Number04" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number05" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number06" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number07" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number08" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number09" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number10" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number11" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Number12" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]

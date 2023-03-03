@@ -85,12 +85,12 @@ func deal_blockable_damage(amount):
 		yield(_enemy_anim, "animation_finished")
 		_enemy_anim.play("idle")
 	
-		return
+		return 0
 	else:
 		if block > 0:
 			amount -= block
 			remove_block(block)
-		deal_direct_damage(amount)
+		return deal_direct_damage(amount)
 
 # Deal direct damage, subtract amount from health
 func deal_direct_damage(amount):
@@ -106,6 +106,8 @@ func deal_direct_damage(amount):
 	_enemy_anim.play("damaged")
 	yield(_enemy_anim, "animation_finished")
 	_enemy_anim.play("idle")
+	
+	return amount
 
 func set_health(value):
 	health = value

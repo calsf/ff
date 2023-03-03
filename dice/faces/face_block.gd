@@ -10,5 +10,6 @@ func _init(value=0):
 	
 	require_target = false
 
-func on_play(combat, target):
+func on_play(combat, target, parent_die=0):
 	combat.add_player_block(num_value)
+	yield(combat.get_tree(), "idle_frame")

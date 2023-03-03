@@ -23,6 +23,13 @@ func _init():
 	
 	var attack = FaceAttack.new(5)
 	var block = FaceBlock.new(5)
+	var attack_brutal = FaceAttackBrutal.new(5)
+	var dodge = FaceDodge.new()
+	var drain = FaceDrain.new(5)
+	var heal = FaceHeal.new(5)
+	var replay = FaceReplay.new()
+	var scramble = FaceScramble.new()
+	var unload = FaceUnload.new()
 	
 	# Start with 6 die
 	dice.append(Die.new(number_icon_paths[0], [attack, attack, attack, block, block, block]))
@@ -32,8 +39,11 @@ func _init():
 	dice.append(Die.new(number_icon_paths[4], [attack, attack, attack, block, block, block]))
 	dice.append(Die.new(number_icon_paths[5], [attack, attack, attack, block, block, block]))
 	
+	# TEMP TESTING
+	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, block]))
+	
 	# Empty dice slots
-	dice.append(Die.new(number_icon_paths[6]))
+	#dice.append(Die.new(number_icon_paths[6]))
 	dice.append(Die.new(number_icon_paths[7]))
 	dice.append(Die.new(number_icon_paths[8]))
 	dice.append(Die.new(number_icon_paths[9]))

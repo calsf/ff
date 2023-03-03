@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 # Plays the die face, does nothing by default
-func on_play(combat, target):
+func on_play(combat, target, parent_die=0):
 	pass
 
 # Discards the die face, gains favor

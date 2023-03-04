@@ -1,13 +1,14 @@
 extends Node
+class_name LootDieFace
 
 var loot_face = null
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 onready var _dice_face_selection = get_tree().current_scene.get_node("CanvasLayer/DiceFaceSelection")
 
+var possible_faces = [FaceAttack.new(5), FaceBlock.new(5)]
+
 func _ready():
-	var possible_faces = [FaceAttack.new(5), FaceBlock.new(5)]
-	
 	randomize()
 	loot_face = possible_faces[randi() % possible_faces.size()]
 	

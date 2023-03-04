@@ -1,4 +1,5 @@
 extends HBoxContainer
+class_name LootDieRemove
 
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 onready var _dice_bank_selection = get_tree().current_scene.get_node("CanvasLayer/DiceBankSelection")

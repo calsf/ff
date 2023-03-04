@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=2]
+[gd_scene load_steps=170 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -132,15 +132,12 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=130]
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
 [ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
-[ext_resource path="res://loot/LootDie.tscn" type="PackedScene" id=133]
-[ext_resource path="res://loot/LootDieRemove.tscn" type="PackedScene" id=134]
 [ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=135]
 [ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=136]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
 [ext_resource path="res://loot/loot_bg.png" type="Texture" id=140]
-[ext_resource path="res://loot/LootDieFace.tscn" type="PackedScene" id=141]
 [ext_resource path="res://loot/loot.gd" type="Script" id=142]
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
@@ -1863,22 +1860,6 @@ custom_constants/separation = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="LootDie001" parent="CanvasLayer/LootScreen/Loot" instance=ExtResource( 133 )]
-
-[node name="LootDie002" parent="CanvasLayer/LootScreen/Loot" instance=ExtResource( 133 )]
-margin_top = 32.0
-margin_bottom = 64.0
-
-[node name="LootDieRemove" parent="CanvasLayer/LootScreen/Loot" instance=ExtResource( 134 )]
-margin_top = 64.0
-margin_bottom = 96.0
-
-[node name="LootDieFace" parent="CanvasLayer/LootScreen/Loot" instance=ExtResource( 141 )]
-margin_left = 78.0
-margin_top = 96.0
-margin_right = 110.0
-margin_bottom = 128.0
 
 [node name="Label" type="Label" parent="CanvasLayer/LootScreen"]
 anchor_left = 0.5

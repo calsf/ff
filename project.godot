@@ -103,6 +103,21 @@ _global_script_classes=[ {
 "class": "FaceUnload",
 "language": "GDScript",
 "path": "res://dice/faces/face_unload.gd"
+}, {
+"base": "HBoxContainer",
+"class": "LootDie",
+"language": "GDScript",
+"path": "res://loot/loot_die.gd"
+}, {
+"base": "Node",
+"class": "LootDieFace",
+"language": "GDScript",
+"path": "res://loot/loot_die_face.gd"
+}, {
+"base": "HBoxContainer",
+"class": "LootDieRemove",
+"language": "GDScript",
+"path": "res://loot/loot_die_remove.gd"
 } ]
 _global_script_class_icons={
 "Die": "",
@@ -123,7 +138,10 @@ _global_script_class_icons={
 "FaceReload": "",
 "FaceReplay": "",
 "FaceScramble": "",
-"FaceUnload": ""
+"FaceUnload": "",
+"LootDie": "",
+"LootDieFace": "",
+"LootDieRemove": ""
 }
 
 [application]

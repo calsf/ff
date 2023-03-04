@@ -14,6 +14,8 @@ func _ready():
 	_btn_set.connect("pressed", self, "_on_set")
 	_btn_discard.connect("pressed", self, "_on_discard")
 	_btn_reroll.connect("pressed", self, "_on_reroll")
+	_btn_reroll.connect("mouse_entered", self, "_on_reroll_entered")
+	_btn_reroll.connect("mouse_exited", self, "_on_reroll_exited")
 	_btn_cancel.connect("pressed", self, "_on_cancel")
 
 func _on_set():
@@ -32,6 +34,12 @@ func _on_discard():
 func _on_reroll():
 	_dice_bar.reroll_selected_die()
 	on_cancel()
+
+func _on_reroll_entered():
+	_dice_bar.on_action_reroll_entered()
+
+func _on_reroll_exited():
+	_dice_bar.on_action_reroll_exited()
 
 func on_cancel():
 	selected_die_index = null

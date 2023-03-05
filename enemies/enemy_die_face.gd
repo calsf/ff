@@ -1,4 +1,3 @@
-extends Node
 class_name EnemyDieFace
 
 var face_name : String

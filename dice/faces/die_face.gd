@@ -1,4 +1,3 @@
-extends Node
 class_name DieFace
 
 var face_name : String

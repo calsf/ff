@@ -1,4 +1,3 @@
-extends Node
 class_name Die
 
 # A die must have 6 faces

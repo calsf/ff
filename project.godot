@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Reference",
 "class": "Die",
 "language": "GDScript",
 "path": "res://dice/die.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "DieFace",
 "language": "GDScript",
 "path": "res://dice/faces/die_face.gd"
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/enemy.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "EnemyDieFace",
 "language": "GDScript",
 "path": "res://enemies/enemy_die_face.gd"

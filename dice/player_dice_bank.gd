@@ -42,7 +42,7 @@ func _init():
 	dice.append(Die.new(number_icon_paths[5], [attack, attack, attack, block, block, block]))
 	
 	# TEMP TESTING
-	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, block]))
+	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, dodge]))
 	dice.append(Die.new(number_icon_paths[7], [attack_charge,attack_charge,attack_charge,attack_charge,attack_charge,attack_charge]))
 	dice.append(Die.new(number_icon_paths[8], [block_charge,block_charge,block_charge,block_charge,block_charge,block_charge]))
 	dice.append(Die.new(number_icon_paths[9], [reload,reload,reload,reload,reload,reload]))

@@ -7,15 +7,12 @@ onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieF
 
 onready var _loot = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
 
-var possible_faces = [FaceAttack.new(5), FaceBlock.new(5)]
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Requiures 6 faces
 	var faces = [null, null, null, null, null, null]
 	for i in range(faces.size()):
-		randomize()
-		faces[i] = possible_faces[randi() % possible_faces.size()]
+		faces[i] = LootFaceRandomizer.get_random_face()
 	
 	die = Die.new("res://dice/die-numbers/die-num-new.png", faces)
 	

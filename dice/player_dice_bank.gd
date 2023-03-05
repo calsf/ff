@@ -20,7 +20,6 @@ func _init():
 	number_icon_paths.append("res://dice/die-numbers/die-num-11.png")
 	number_icon_paths.append("res://dice/die-numbers/die-num-12.png")
 	
-	
 	var attack = FaceAttack.new(5)
 	var block = FaceBlock.new(5)
 	var attack_brutal = FaceAttackBrutal.new(5)

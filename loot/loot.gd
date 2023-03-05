@@ -5,6 +5,8 @@ const LOOT_DIE = "res://loot/LootDie.tscn"
 const LOOT_DIE_FACE = "res://loot/LootDieFace.tscn"
 const LOOT_DIE_REMOVE = "res://loot/LootDieRemove.tscn"
 
+const MAX_DROPS = 4
+
 onready var _skip_btn = $SkipBtn
 onready var _anim = $AnimationPlayer
 onready var _loot = $Loot
@@ -30,17 +32,17 @@ func _on_skip_loot():
 func _get_drops():
 	# 1 -4 total number of loot possible
 	randomize()
-	_loot_count = randi() % 4 + 1
+	_loot_count = randi() % MAX_DROPS + 1
 	
 	# Randomize each loot drop
 	for i in range(_loot_count):
 		randomize()
 		var num = randi() % 100
 		
-		if num > 0 and num < 30:	# Die
+		if num > 0 and num < 25:	# Die
 			var loot_drop = load(LOOT_DIE).instance()
 			_loot.add_child(loot_drop)
-		elif num > 30 and num < 90:	# Die face
+		elif num > 25 and num < 90:	# Die face
 			var loot_drop = load(LOOT_DIE_FACE).instance()
 			_loot.add_child(loot_drop)
 		elif num > 90 and num < 100:	# Remove die

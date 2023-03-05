@@ -6,11 +6,8 @@ var loot_face = null
 onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
 onready var _dice_face_selection = get_tree().current_scene.get_node("CanvasLayer/DiceFaceSelection")
 
-var possible_faces = [FaceAttack.new(5), FaceBlock.new(5)]
-
 func _ready():
-	randomize()
-	loot_face = possible_faces[randi() % possible_faces.size()]
+	loot_face = LootFaceRandomizer.get_random_face()
 	
 	self.connect("gui_input", self, "_on_face_pressed")
 	self.connect("mouse_entered", self, "_on_face_entered", [self])
@@ -37,9 +34,7 @@ func set_display():
 func _on_face_entered(face_node):
 	var y_offset = Vector2(0, face_node.rect_size.y + 18)
 	
-	var info = "Select and replace any die face."
-	
-	_die_face_info.set_face_info_directly("REPLACE FACE", info)
+	_die_face_info.set_face_info(loot_face)
 	_die_face_info.set_global_position(face_node.get_global_position() - (face_node.rect_size / 1.5) + y_offset)
 	
 	_die_face_info.visible = true

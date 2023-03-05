@@ -153,6 +153,7 @@ config/icon="res://icon.png"
 
 PlayerHealth="*res://combat/player_health.gd"
 PlayerDiceBank="*res://dice/player_dice_bank.gd"
+LootFaceRandomizer="*res://loot/loot_face_randomizer.gd"
 
 [display]
 

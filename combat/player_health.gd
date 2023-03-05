@@ -12,8 +12,15 @@ func _ready():
 
 # Add to health, avoid going over
 func add_health(gain):
+	var diff = (curr_hp + gain) - MAX_HP
+	
 	curr_hp = min(curr_hp + gain, MAX_HP)
 	emit_signal("health_updated")
+
+	if diff >= 0:
+		return gain - diff
+	else:
+		return gain
 
 # Subtract from health, avoid going below 0
 func lose_health(loss):

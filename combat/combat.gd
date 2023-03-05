@@ -5,10 +5,19 @@ var player_block = 0
 var turn = 0
 var enemies = []
 
+# Face statuses
+var dodge = false
+var replay = false
+
+var extra_faces = []
+var extra_faces_target = []
+
 onready var _favor_num = get_tree().current_scene.get_node("CanvasLayer/Favor/FavorNum")
 onready var _block_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/Label")
 onready var _health_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Health/Label")
 onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
+onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
+onready var _loot_screen = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
 
 onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
 
@@ -23,26 +32,38 @@ func _on_health_updated():
 	_health_num.text = str(PlayerHealth.curr_hp)
 
 func add_health(amount):
-	PlayerHealth.add_health(amount)
+	var amount_added = PlayerHealth.add_health(amount)
 	
-	_number_popup_pool.display_number_popup("+" + str(amount), Color("1aff00"), _health_num)
+	_number_popup_pool.display_number_popup("+" + str(amount_added), Color("1aff00"), _health_num)
 
 # Deal blockable damage, damages block first
 func deal_blockable_player_damage(amount):
+	if player_block <= 0:
+		deal_direct_player_damage(amount)
+		return 0
+	
+	if dodge:
+		amount = 0
+	
 	if player_block >= amount:
 		remove_player_block(amount)
-		return
+		return 0
 	else:
 		if player_block > 0:
 			amount -= player_block
 			remove_player_block(player_block)
-		deal_direct_player_damage(amount)
+		return deal_direct_player_damage(amount)
 
 # Deal direct damage, subtract amount from health
 func deal_direct_player_damage(amount):
+	if dodge:
+		amount = 0
+	
 	PlayerHealth.lose_health(amount)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_num)
+	
+	return amount
 
 func add_favor(amount):
 	favor += amount
@@ -76,6 +97,10 @@ func player_turn_finished():
 	yield(get_tree().create_timer(1.0), "timeout")
 	
 	yield(enemy_death_check(), "completed")
+	
+	if replay:
+		enemy_turn_finished()
+		return
 	
 	# Reset enemies as needed before starting their turn
 	for enemy in enemies:
@@ -111,11 +136,36 @@ func enemy_turn_finished():
 	
 	reset_player_block()
 	
+	# Reset face statuses
+	dodge = false
+	replay = false
+	
 	turn += 1
 
 func enemy_death_check():
+	var all_dead = true
+	
 	for enemy in enemies:
 		if not enemy.is_dead and enemy.health <= 0:
 			yield(enemy.on_death(), "completed")
+		
+		if not enemy.is_dead:
+			all_dead = false
+	
+	if all_dead:
+		_dice_bank.disconnect_dice_bank()
+		_dice_bank.reset_dice_bank()
+		
+		yield(get_tree().create_timer(.3), "timeout")
+		yield(_loot_screen.activate(), "completed")
 	
 	yield(get_tree().create_timer(.1), "timeout")
+
+# Clear extra faces
+func clear_extra_faces():
+	extra_faces.clear()
+	extra_faces_target.clear()
+
+# For RELOAD face
+func reload_dice():
+	_dice_bank.reset_dice_bank()

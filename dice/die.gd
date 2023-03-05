@@ -1,4 +1,3 @@
-extends Node
 class_name Die
 
 # A die must have 6 faces
@@ -38,8 +37,8 @@ func reset_die():
 	action_discard = false
 	target = null
 
-func on_play(combat):
-	curr_face.on_play(combat, target)
+func on_play(combat, dice_index):
+	yield(curr_face.on_play(combat, target, dice_index), "completed")
 
 func on_discard(combat):
 	curr_face.on_discard(combat)

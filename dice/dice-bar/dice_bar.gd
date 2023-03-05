@@ -26,7 +26,10 @@ onready var _combat = get_tree().current_scene.get_node("CanvasLayer/Combat")
 func _ready():
 	_roll_btn.connect("pressed", self, "_on_roll_pressed")
 	_play_btn.connect("pressed", self, "_on_play_pressed")
+	
 	_reroll_btn.connect("pressed", self, "_on_reroll_pressed")
+	_reroll_btn.connect("mouse_entered", self, "_on_reroll_entered")
+	_reroll_btn.connect("mouse_exited", self, "_on_reroll_exited")
 	
 	# Set on hover for die face
 	var faces = _die_faces.get_children()
@@ -221,6 +224,15 @@ func _on_play_pressed():
 	if selected_face_index != null:
 		deselect_face()
 	
+	# Play any extra faces before playing selected die faces
+	for i in range(_combat.extra_faces.size()):
+		yield(_combat.extra_faces[i].on_extra_play(_combat, _combat.extra_faces_target[i]), "completed")
+		yield(get_tree().create_timer(.3), "timeout")
+	
+	_combat.clear_extra_faces()
+	
+	yield(get_tree().create_timer(.5), "timeout")
+	
 	# Play each die face action
 	for i in range(selected_dice.size()):
 		if selected_dice[i] != null:
@@ -234,7 +246,7 @@ func _on_play_pressed():
 				anim.play("play")
 				yield(anim, "animation_finished")
 				
-				die.on_play(_combat)
+				yield(die.on_play(_combat, die_index), "completed")
 			elif die.action_discard:
 				_die_faces.get_child(i).play_anim("discard")
 				
@@ -309,6 +321,50 @@ func _on_reroll_pressed():
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)
 
+# Show die num on selected die faces
+func _on_reroll_entered():
+	for i in range(selected_dice.size()):
+		if selected_dice[i] != null:
+			var die_index = selected_dice[i]
+			var die = PlayerDiceBank.dice[die_index]
+			
+			# Update face icon and num value
+			var face_node = _die_faces.get_child(i)
+			var num_value = 0
+			face_node.set_face(die.number_icon, num_value)
+
+# Revert to curr die face
+func _on_reroll_exited():
+	for i in range(selected_dice.size()):
+		if selected_dice[i] != null:
+			var die_index = selected_dice[i]
+			var die = PlayerDiceBank.dice[die_index]
+			
+			# Update face icon and num value
+			var face_node = _die_faces.get_child(i)
+			var num_value = die.curr_face.num_value
+			face_node.set_face(die.curr_face.icon, num_value)
+
+# Show die num on selected face index only
+func on_action_reroll_entered():
+	var die_index = selected_dice[selected_face_index]
+	var die = PlayerDiceBank.dice[die_index]
+	
+	# Update face icon and num value
+	var face_node = _die_faces.get_child(selected_face_index)
+	var num_value = 0
+	face_node.set_face(die.number_icon, num_value)
+
+# Revert to curr die face for selected face index only
+func on_action_reroll_exited():
+	var die_index = selected_dice[selected_face_index]
+	var die = PlayerDiceBank.dice[die_index]
+	
+	# Update face icon and num value
+	var face_node = _die_faces.get_child(selected_face_index)
+	var num_value = die.curr_face.num_value
+	face_node.set_face(die.curr_face.icon, num_value)
+
 # Reroll current selected die
 func reroll_selected_die():
 	# Do not reroll if has not rolled yet or has already played
@@ -316,7 +372,7 @@ func reroll_selected_die():
 		return
 	
 	# Only reroll if have enough favor
-	if _combat.favor < 2:
+	if _combat.favor < 1:
 		return
 	
 	# Must have a face selected to reroll
@@ -326,7 +382,7 @@ func reroll_selected_die():
 	var i = selected_face_index
 	
 	# Take favor
-	_combat.remove_favor(2)
+	_combat.remove_favor(1)
 	
 	# Disable reroll until anim is complete
 	set_can_reroll(false)
@@ -455,6 +511,8 @@ func remove_die(i):
 	
 	die.is_selected = false
 	
+	_check_can_roll()
+	
 	return true
 
 # Check if roll btn should be disabled or not
@@ -484,7 +542,7 @@ func check_can_play():
 
 # Check if reroll action option should be disabled or not
 func check_can_reroll_selected():
-	if _combat.favor < 2:
+	if _combat.favor < 1:
 		_reroll_action_btn.disabled = true
 		_reroll_action_btn.set_modulate(Color(.7, .7, .7, 1))
 	else:

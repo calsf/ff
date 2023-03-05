@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
+"base": "Reference",
 "class": "Die",
 "language": "GDScript",
 "path": "res://dice/die.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "DieFace",
 "language": "GDScript",
 "path": "res://dice/faces/die_face.gd"
@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/enemy.gd"
 }, {
-"base": "Node",
+"base": "Reference",
 "class": "EnemyDieFace",
 "language": "GDScript",
 "path": "res://enemies/enemy_die_face.gd"
@@ -45,14 +45,79 @@ _global_script_classes=[ {
 "path": "res://dice/faces/face_attack.gd"
 }, {
 "base": "DieFace",
+"class": "FaceAttackBrutal",
+"language": "GDScript",
+"path": "res://dice/faces/face_attack_brutal.gd"
+}, {
+"base": "DieFace",
 "class": "FaceBlock",
 "language": "GDScript",
 "path": "res://dice/faces/face_block.gd"
 }, {
 "base": "DieFace",
+"class": "FaceChargeAttack",
+"language": "GDScript",
+"path": "res://dice/faces/face_charge_attack.gd"
+}, {
+"base": "DieFace",
+"class": "FaceChargeBlock",
+"language": "GDScript",
+"path": "res://dice/faces/face_charge_block.gd"
+}, {
+"base": "DieFace",
+"class": "FaceDodge",
+"language": "GDScript",
+"path": "res://dice/faces/face_dodge.gd"
+}, {
+"base": "DieFace",
+"class": "FaceDrain",
+"language": "GDScript",
+"path": "res://dice/faces/face_drain.gd"
+}, {
+"base": "DieFace",
 "class": "FaceEmpty",
 "language": "GDScript",
 "path": "res://dice/faces/face_empty.gd"
+}, {
+"base": "DieFace",
+"class": "FaceHeal",
+"language": "GDScript",
+"path": "res://dice/faces/face_heal.gd"
+}, {
+"base": "DieFace",
+"class": "FaceReload",
+"language": "GDScript",
+"path": "res://dice/faces/face_reload.gd"
+}, {
+"base": "DieFace",
+"class": "FaceReplay",
+"language": "GDScript",
+"path": "res://dice/faces/face_replay.gd"
+}, {
+"base": "DieFace",
+"class": "FaceScramble",
+"language": "GDScript",
+"path": "res://dice/faces/face_scramble.gd"
+}, {
+"base": "DieFace",
+"class": "FaceUnload",
+"language": "GDScript",
+"path": "res://dice/faces/face_unload.gd"
+}, {
+"base": "HBoxContainer",
+"class": "LootDie",
+"language": "GDScript",
+"path": "res://loot/loot_die.gd"
+}, {
+"base": "Node",
+"class": "LootDieFace",
+"language": "GDScript",
+"path": "res://loot/loot_die_face.gd"
+}, {
+"base": "HBoxContainer",
+"class": "LootDieRemove",
+"language": "GDScript",
+"path": "res://loot/loot_die_remove.gd"
 } ]
 _global_script_class_icons={
 "Die": "",
@@ -62,8 +127,21 @@ _global_script_class_icons={
 "EnemyFaceAttack": "",
 "EnemyFaceBlock": "",
 "FaceAttack": "",
+"FaceAttackBrutal": "",
 "FaceBlock": "",
-"FaceEmpty": ""
+"FaceChargeAttack": "",
+"FaceChargeBlock": "",
+"FaceDodge": "",
+"FaceDrain": "",
+"FaceEmpty": "",
+"FaceHeal": "",
+"FaceReload": "",
+"FaceReplay": "",
+"FaceScramble": "",
+"FaceUnload": "",
+"LootDie": "",
+"LootDieFace": "",
+"LootDieRemove": ""
 }
 
 [application]
@@ -75,6 +153,7 @@ config/icon="res://icon.png"
 
 PlayerHealth="*res://combat/player_health.gd"
 PlayerDiceBank="*res://dice/player_dice_bank.gd"
+LootFaceRandomizer="*res://loot/loot_face_randomizer.gd"
 
 [display]
 

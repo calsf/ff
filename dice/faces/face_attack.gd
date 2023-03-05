@@ -10,5 +10,6 @@ func _init(value=0):
 	
 	require_target = true
 
-func on_play(combat, target):
+func on_play(combat, target, parent_die=0):
 	target.deal_blockable_damage(num_value)
+	yield(combat.get_tree(), "idle_frame")

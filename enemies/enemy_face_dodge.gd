@@ -11,4 +11,4 @@ func _init(value=0, enemy=null):
 	enemy_owner = enemy
 
 func on_play(combat):
-	enemy_owner.dodge = true
+	enemy_owner.set_dodge(true)

@@ -6,15 +6,16 @@ var turn = 0
 var enemies = []
 
 # Face statuses
-var dodge = false
-var replay = false
-var reflect = false
+var _dodge = false
+var _replay = false
+var _reflect = false
 
 var extra_faces = []
 var extra_faces_target = []
 
 onready var _favor_num = get_tree().current_scene.get_node("CanvasLayer/Favor/FavorNum")
 onready var _block_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/Label")
+onready var _block_icon = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/BlockIcon")
 onready var _health_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Health/Label")
 onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
@@ -42,7 +43,7 @@ func deal_blockable_player_damage(amount, attacker=null):
 	if player_block <= 0:
 		return deal_direct_player_damage(amount)
 	
-	if dodge:
+	if _dodge:
 		amount = 0
 	
 	if player_block >= amount:
@@ -56,7 +57,7 @@ func deal_blockable_player_damage(amount, attacker=null):
 
 # Deal direct damage, subtract amount from health
 func deal_direct_player_damage(amount, undodgable=false):
-	if dodge and not undodgable:
+	if _dodge and not undodgable:
 		amount = 0
 	
 	PlayerHealth.lose_health(amount)
@@ -87,7 +88,7 @@ func remove_player_block(amount, attacker=null):
 	player_block -= amount
 	_block_num.text = str(player_block)
 	
-	if attacker != null and reflect:
+	if attacker != null and _reflect:
 		attacker.deal_blockable_damage(amount / 2)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_num)
@@ -101,7 +102,7 @@ func player_turn_finished():
 	
 	yield(enemy_death_check(), "completed")
 	
-	if replay:
+	if _replay:
 		enemy_turn_finished()
 		return
 	
@@ -164,10 +165,33 @@ func enemy_death_check():
 	
 	yield(get_tree().create_timer(.1), "timeout")
 
+# Statuses
 func reset_statuses():
-	dodge = false
-	replay = false
-	reflect = false
+	_dodge = false
+	_replay = false
+	_reflect = false
+	
+	update_player_status_icons()
+
+func set_dodge(val):
+	_dodge = val
+	update_player_status_icons()
+
+func set_replay(val):
+	_replay = val
+	update_player_status_icons()
+
+func set_reflect(val):
+	_reflect = val
+	update_player_status_icons()
+
+func update_player_status_icons():
+	if _dodge:
+		_block_icon.texture = load("res://combat/dodge_icon.png")
+	elif _reflect:
+		_block_icon.texture = load("res://combat/reflect_icon.png")
+	else:
+		_block_icon.texture = load("res://combat/block_icon.png")
 
 # Clear extra faces
 func clear_extra_faces():

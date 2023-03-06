@@ -12,5 +12,5 @@ func _init(value=0, enemy=null):
 
 func on_play(combat):
 	enemy_owner.add_block(num_value)
-	enemy_owner.reflect = true
+	enemy_owner.set_reflect(true)
 

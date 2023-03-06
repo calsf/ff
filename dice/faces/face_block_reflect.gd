@@ -12,5 +12,5 @@ func _init(value=0):
 
 func on_play(combat, target, parent_die=0):
 	combat.add_player_block(num_value)
-	combat.reflect = true
+	combat.set_reflect(true)
 	yield(combat.get_tree(), "idle_frame")

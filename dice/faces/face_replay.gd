@@ -11,5 +11,5 @@ func _init(value=0):
 	require_target = false
 
 func on_play(combat, target, parent_die=0):
-	combat.replay = true
+	combat.set_replay(true)
 	yield(combat.get_tree(), "idle_frame")

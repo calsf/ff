@@ -49,7 +49,7 @@ func _init():
 	# TEMP TESTING
 	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, dodge]))
 	dice.append(Die.new(number_icon_paths[7], [attack_charge,attack_charge,attack_charge,attack_charge,attack_charge,attack_charge]))
-	dice.append(Die.new(number_icon_paths[8], [block_charge,block_charge,block_charge,block_charge,block_charge,block_charge]))
+	dice.append(Die.new(number_icon_paths[8], [block_reflect, block_reflect, block_reflect, block_charge, block_charge, block_charge]))
 	dice.append(Die.new(number_icon_paths[9], [dodge, dodge, dodge, dodge, dodge, dodge]))
 	
 	# Empty dice slots

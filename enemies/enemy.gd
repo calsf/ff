@@ -10,11 +10,12 @@ var next_intent : EnemyDieFace
 var is_dead = false
 
 # Face statuses
-var dodge = false
-var reflect = false
+var _dodge = false
+var _reflect = false
 
 onready var _health_label = $Health/Label
 onready var _block_label = $Block/Label
+onready var _block_icon = $Block/BlockIcon
 onready var _intent_icon = $NextAction/EnemyDieFace/TextureRect
 onready var _intent_value_label = $NextAction/EnemyDieFace/Label
 onready var _intent_value_label_roll = $NextAction/EnemyDieRoll/Label
@@ -71,7 +72,7 @@ func remove_block(amount, combat=null):
 	block -= amount
 	_block_label.text = str(block)
 	
-	if combat != null and reflect:
+	if combat != null and _reflect:
 		combat.deal_blockable_player_damage(amount / 2)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_label)
@@ -106,7 +107,7 @@ func deal_blockable_damage(amount, combat):
 
 # Deal direct damage, subtract amount from health
 func deal_direct_damage(amount, undodgable=false):
-	if dodge and not undodgable:
+	if _dodge and not undodgable:
 		amount = 0
 	
 	health -= amount
@@ -167,6 +168,25 @@ func on_death():
 	_enemy_anim.play("death")
 	yield(_enemy_anim, "animation_finished")
 
+# Statuses
 func reset_statuses():
-	dodge = false
-	reflect = false
+	_dodge = false
+	_reflect = false
+	
+	update_status_icons()
+
+func set_dodge(val):
+	_dodge = val
+	update_status_icons()
+
+func set_reflect(val):
+	_reflect = val
+	update_status_icons()
+
+func update_status_icons():
+	if _dodge:
+		_block_icon.texture = load("res://combat/dodge_icon.png")
+	elif _reflect:
+		_block_icon.texture = load("res://combat/reflect_icon.png")
+	else:
+		_block_icon.texture = load("res://combat/block_icon.png")

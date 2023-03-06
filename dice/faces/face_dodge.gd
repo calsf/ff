@@ -11,5 +11,5 @@ func _init(value=0):
 	require_target = false
 
 func on_play(combat, target, parent_die=0):
-	combat.dodge = true
+	combat.set_dodge(true)
 	yield(combat.get_tree(), "idle_frame")

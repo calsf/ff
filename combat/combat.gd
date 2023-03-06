@@ -21,6 +21,8 @@ onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
 onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
 onready var _loot_screen = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
 
+onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
+
 onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
 
 func _ready():
@@ -29,6 +31,8 @@ func _ready():
 	reset_player_block()
 	
 	PlayerHealth.connect("health_updated", self, "_on_health_updated")
+	_block_icon.connect("mouse_entered", self, "_on_block_icon_entered")
+	_block_icon.connect("mouse_exited", self, "_on_block_icon_exited")
 
 func _on_health_updated():
 	_health_num.text = str(PlayerHealth.curr_hp)
@@ -192,6 +196,32 @@ func update_player_status_icons():
 		_block_icon.texture = load("res://combat/reflect_icon.png")
 	else:
 		_block_icon.texture = load("res://combat/block_icon.png")
+
+# Use die face info to show info if block has a special status
+func _on_block_icon_entered():
+	if _dodge:
+		var name_label = "DODGE"
+		var info = "Avoids all incoming damage."
+		
+		_die_face_info.set_face_info_directly(name_label, info)
+	elif _reflect:
+		var name_label = "BLOCK REFLECT"
+		var info = "Block will reflect half of damage blocked."
+		
+		_die_face_info.set_face_info_directly(name_label, info)
+	else:
+		return
+	
+	var target = _block_icon
+	var y_offset = Vector2(0, (target.rect_size.y / 1.6) + target.rect_size.y)
+	
+	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x / 1.25), 0) - y_offset)
+	
+	_die_face_info.visible = true
+
+# Hide die face info
+func _on_block_icon_exited():
+	_die_face_info.visible = false
 
 # Clear extra faces
 func clear_extra_faces():

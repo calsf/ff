@@ -28,7 +28,8 @@ onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieF
 onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
 
 func _ready():
-	pass
+	_block_icon.connect("mouse_entered", self, "_on_block_icon_entered")
+	_block_icon.connect("mouse_exited", self, "_on_block_icon_exited")
 
 # Set next intent
 func set_next_intent():
@@ -167,6 +168,32 @@ func on_death():
 	_target_btn.visible = false
 	_enemy_anim.play("death")
 	yield(_enemy_anim, "animation_finished")
+
+# Use die face info to show info if block has a special status
+func _on_block_icon_entered():
+	if _dodge:
+		var name_label = "DODGE"
+		var info = "Avoids all incoming damage."
+		
+		_die_face_info.set_face_info_directly(name_label, info)
+	elif _reflect:
+		var name_label = "BLOCK REFLECT"
+		var info = "Block will reflect half of damage blocked."
+		
+		_die_face_info.set_face_info_directly(name_label, info)
+	else:
+		return
+	
+	var target = _block_icon
+	var y_offset = Vector2(0, (target.rect_size.y / 1.4) + target.rect_size.y)
+	
+	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x / 1.1), 0) - y_offset)
+	
+	_die_face_info.visible = true
+
+# Hide die face info
+func _on_block_icon_exited():
+	_die_face_info.visible = false
 
 # Statuses
 func reset_statuses():

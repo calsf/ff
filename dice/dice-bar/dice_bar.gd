@@ -323,6 +323,9 @@ func _on_reroll_pressed():
 
 # Show die num on selected die faces
 func _on_reroll_entered():
+	if _reroll_btn.disabled:
+		return
+	
 	for i in range(selected_dice.size()):
 		if selected_dice[i] != null:
 			var die_index = selected_dice[i]
@@ -335,6 +338,9 @@ func _on_reroll_entered():
 
 # Revert to curr die face
 func _on_reroll_exited():
+	if _reroll_btn.disabled:
+		return
+	
 	for i in range(selected_dice.size()):
 		if selected_dice[i] != null:
 			var die_index = selected_dice[i]

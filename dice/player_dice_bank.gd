@@ -32,6 +32,11 @@ func _init():
 	var attack_charge = FaceChargeAttack.new(2)
 	var block_charge = FaceChargeBlock.new(5)
 	var reload = FaceReload.new()
+	var attack_block = FaceAttackBlock.new(5)
+	var multi_attack = FaceMultiAttack.new(5)
+	var block_reflect = FaceBlockReflect.new(5)
+	var sacrifice = FaceSacrifice.new()
+	var rage = FaceRage.new()
 	
 	# Start with 6 die
 	dice.append(Die.new(number_icon_paths[0], [attack, attack, attack, block, block, block]))
@@ -45,7 +50,7 @@ func _init():
 	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, dodge]))
 	dice.append(Die.new(number_icon_paths[7], [attack_charge,attack_charge,attack_charge,attack_charge,attack_charge,attack_charge]))
 	dice.append(Die.new(number_icon_paths[8], [block_charge,block_charge,block_charge,block_charge,block_charge,block_charge]))
-	dice.append(Die.new(number_icon_paths[9], [reload,reload,reload,reload,reload,reload]))
+	dice.append(Die.new(number_icon_paths[9], [dodge, dodge, dodge, dodge, dodge, dodge]))
 	
 	# Empty dice slots
 	#dice.append(Die.new(number_icon_paths[6]))

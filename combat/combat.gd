@@ -8,6 +8,7 @@ var enemies = []
 # Face statuses
 var dodge = false
 var replay = false
+var reflect = false
 
 var extra_faces = []
 var extra_faces_target = []
@@ -37,26 +38,25 @@ func add_health(amount):
 	_number_popup_pool.display_number_popup("+" + str(amount_added), Color("1aff00"), _health_num)
 
 # Deal blockable damage, damages block first
-func deal_blockable_player_damage(amount):
+func deal_blockable_player_damage(amount, attacker=null):
 	if player_block <= 0:
-		deal_direct_player_damage(amount)
-		return 0
+		return deal_direct_player_damage(amount)
 	
 	if dodge:
 		amount = 0
 	
 	if player_block >= amount:
-		remove_player_block(amount)
+		remove_player_block(amount, attacker)
 		return 0
 	else:
 		if player_block > 0:
 			amount -= player_block
-			remove_player_block(player_block)
+			remove_player_block(player_block, attacker)
 		return deal_direct_player_damage(amount)
 
 # Deal direct damage, subtract amount from health
-func deal_direct_player_damage(amount):
-	if dodge:
+func deal_direct_player_damage(amount, undodgable=false):
+	if dodge and not undodgable:
 		amount = 0
 	
 	PlayerHealth.lose_health(amount)
@@ -83,9 +83,12 @@ func add_player_block(amount):
 	
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("80baff"), _block_num)
 
-func remove_player_block(amount):
+func remove_player_block(amount, attacker=null):
 	player_block -= amount
 	_block_num.text = str(player_block)
+	
+	if attacker != null and reflect:
+		attacker.deal_blockable_damage(amount / 2)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_num)
 
@@ -105,6 +108,7 @@ func player_turn_finished():
 	# Reset enemies as needed before starting their turn
 	for enemy in enemies:
 		enemy.reset_block()
+		enemy.reset_statuses()
 	
 	# Play each enemy die face
 	for enemy in enemies:
@@ -137,8 +141,7 @@ func enemy_turn_finished():
 	reset_player_block()
 	
 	# Reset face statuses
-	dodge = false
-	replay = false
+	reset_statuses()
 	
 	turn += 1
 
@@ -160,6 +163,11 @@ func enemy_death_check():
 		yield(_loot_screen.activate(), "completed")
 	
 	yield(get_tree().create_timer(.1), "timeout")
+
+func reset_statuses():
+	dodge = false
+	replay = false
+	reflect = false
 
 # Clear extra faces
 func clear_extra_faces():

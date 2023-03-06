@@ -9,6 +9,10 @@ var intents = []
 var next_intent : EnemyDieFace
 var is_dead = false
 
+# Face statuses
+var dodge = false
+var reflect = false
+
 onready var _health_label = $Health/Label
 onready var _block_label = $Block/Label
 onready var _intent_icon = $NextAction/EnemyDieFace/TextureRect
@@ -63,23 +67,31 @@ func add_block(amount):
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("80baff"), _block_label)
 
 # Remove block
-func remove_block(amount):
+func remove_block(amount, combat=null):
 	block -= amount
 	_block_label.text = str(block)
+	
+	if combat != null and reflect:
+		combat.deal_blockable_player_damage(amount / 2)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_label)
 
 # Add health
 func add_health(amount):
+	var diff = (health + amount) - max_health
+	
+	if diff >= 0:
+		amount = amount - diff
+	
 	health += amount
 	_health_label.text = str(health)
 	
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("1aff00"), _health_label)
 
 # Deal blockable damage, damages block first
-func deal_blockable_damage(amount):
+func deal_blockable_damage(amount, combat):
 	if block >= amount:
-		remove_block(amount)
+		remove_block(amount, combat)
 		
 		_enemy_anim.play("blocked")
 		yield(_enemy_anim, "animation_finished")
@@ -89,11 +101,14 @@ func deal_blockable_damage(amount):
 	else:
 		if block > 0:
 			amount -= block
-			remove_block(block)
+			remove_block(block, combat)
 		return deal_direct_damage(amount)
 
 # Deal direct damage, subtract amount from health
-func deal_direct_damage(amount):
+func deal_direct_damage(amount, undodgable=false):
+	if dodge and not undodgable:
+		amount = 0
+	
 	health -= amount
 	
 	if health < 0:
@@ -151,3 +166,7 @@ func on_death():
 	_target_btn.visible = false
 	_enemy_anim.play("death")
 	yield(_enemy_anim, "animation_finished")
+
+func reset_statuses():
+	dodge = false
+	reflect = false

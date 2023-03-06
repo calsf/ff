@@ -11,11 +11,11 @@ func _init(value=0):
 	require_target = true
 
 func on_play(combat, target, parent_die=0):
-	target.deal_blockable_damage(num_value)
+	target.deal_blockable_damage(num_value, combat)
 	combat.extra_faces.append(self)
 	combat.extra_faces_target.append(target)
 	yield(combat.get_tree(), "idle_frame")
 
 func on_extra_play(combat, target):
-	target.deal_blockable_damage(num_value * 2)
+	target.deal_blockable_damage(num_value * 2, combat)
 	yield(combat.get_tree(), "idle_frame")

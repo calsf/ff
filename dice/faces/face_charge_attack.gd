@@ -1,6 +1,8 @@
 extends DieFace
 class_name FaceChargeAttack
 
+var status_icon = "res://combat/StatusIconChargeAttack.tscn"
+
 func _init(value=0):
 	num_value = value
 	
@@ -12,8 +14,7 @@ func _init(value=0):
 
 func on_play(combat, target, parent_die=0):
 	target.deal_blockable_damage(num_value, combat)
-	combat.extra_faces.append(self)
-	combat.extra_faces_target.append(target)
+	combat.add_extra_face(self, target, status_icon)
 	yield(combat.get_tree(), "idle_frame")
 
 func on_extra_play(combat, target):

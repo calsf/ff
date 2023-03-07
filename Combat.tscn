@@ -1404,6 +1404,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Statuses" type="HBoxContainer" parent="CanvasLayer/PlayerInfo"]
+anchor_top = -0.354
+anchor_right = 9.6
+anchor_bottom = -0.021
+margin_top = -1.008
+margin_right = 384.0
+margin_bottom = 15.008
+rect_scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Favor" type="Control" parent="CanvasLayer"]
 margin_left = 40.0
 margin_top = 270.0

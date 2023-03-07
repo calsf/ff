@@ -9,9 +9,15 @@ var enemies = []
 var _dodge = false
 var _replay = false
 var _reflect = false
+var _status_icons = []
+
+onready var _status_list = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Statuses")
+onready var _icon_replay = load("res://combat/StatusIconReplay.tscn")
+onready var _icon_charge_block = load("res://combat/StatusIconChargeBlock.tscn")
 
 var extra_faces = []
 var extra_faces_target = []
+var _extra_faces_icons = []
 
 onready var _favor_num = get_tree().current_scene.get_node("CanvasLayer/Favor/FavorNum")
 onready var _block_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/Label")
@@ -175,6 +181,10 @@ func reset_statuses():
 	_replay = false
 	_reflect = false
 	
+	for icon in _status_icons:
+		icon.queue_free()
+	_status_icons.clear()
+	
 	update_player_status_icons()
 
 func set_dodge(val):
@@ -184,6 +194,10 @@ func set_dodge(val):
 func set_replay(val):
 	_replay = val
 	update_player_status_icons()
+	
+	var icon = _icon_replay.instance()
+	_status_list.add_child(icon)
+	_status_icons.append(icon)
 
 func set_reflect(val):
 	_reflect = val
@@ -196,6 +210,16 @@ func update_player_status_icons():
 		_block_icon.texture = load("res://combat/reflect_icon.png")
 	else:
 		_block_icon.texture = load("res://combat/block_icon.png")
+
+func add_extra_face(face, target, status_icon=null):
+	extra_faces.append(face)
+	extra_faces_target.append(target)
+	
+	if status_icon != null:
+		var icon = load(status_icon).instance()
+		icon.set_info(face, target)
+		_status_list.add_child(icon)
+		_extra_faces_icons.append(icon)
 
 # Use die face info to show info if block has a special status
 func _on_block_icon_entered():
@@ -227,6 +251,9 @@ func _on_block_icon_exited():
 func clear_extra_faces():
 	extra_faces.clear()
 	extra_faces_target.clear()
+	for icon in _extra_faces_icons:
+		icon.queue_free()
+	_extra_faces_icons.clear()
 
 # For RELOAD face
 func reload_dice():

@@ -173,6 +173,26 @@ _global_script_classes=[ {
 "class": "LootDieRemove",
 "language": "GDScript",
 "path": "res://loot/loot_die_remove.gd"
+}, {
+"base": "TextureRect",
+"class": "StatusIcon",
+"language": "GDScript",
+"path": "res://combat/status_icon.gd"
+}, {
+"base": "StatusIcon",
+"class": "StatusIconChargeAttack",
+"language": "GDScript",
+"path": "res://combat/status_icon_charge_attack.gd"
+}, {
+"base": "StatusIcon",
+"class": "StatusIconChargeBlock",
+"language": "GDScript",
+"path": "res://combat/status_icon_charge_block.gd"
+}, {
+"base": "StatusIcon",
+"class": "StatusIconReplay",
+"language": "GDScript",
+"path": "res://combat/status_icon_replay.gd"
 } ]
 _global_script_class_icons={
 "Die": "",
@@ -207,7 +227,11 @@ _global_script_class_icons={
 "FaceUnload": "",
 "LootDie": "",
 "LootDieFace": "",
-"LootDieRemove": ""
+"LootDieRemove": "",
+"StatusIcon": "",
+"StatusIconChargeAttack": "",
+"StatusIconChargeBlock": "",
+"StatusIconReplay": ""
 }
 
 [application]

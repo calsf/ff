@@ -1,6 +1,8 @@
 extends DieFace
 class_name FaceChargeBlock
 
+var status_icon = "res://combat/StatusIconChargeBlock.tscn"
+
 func _init(value=0):
 	num_value = value
 	
@@ -12,8 +14,7 @@ func _init(value=0):
 
 func on_play(combat, target, parent_die=0):
 	combat.add_player_block(num_value)
-	combat.extra_faces.append(self)
-	combat.extra_faces_target.append(target)
+	combat.add_extra_face(self, target, status_icon)
 	yield(combat.get_tree(), "idle_frame")
 
 func on_extra_play(combat, target):

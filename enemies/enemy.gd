@@ -185,7 +185,7 @@ func _on_block_icon_entered():
 		return
 	
 	var target = _block_icon
-	var y_offset = Vector2(0, (target.rect_size.y / 1.4) + target.rect_size.y)
+	var y_offset = Vector2(0, target.rect_size.y * 2)
 	
 	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x / 1.1), 0) - y_offset)
 	

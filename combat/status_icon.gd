@@ -15,7 +15,7 @@ func _on_icon_entered():
 	_die_face_info.set_face_info_directly(status_name, status_info)
 	
 	var target = self
-	var y_offset = Vector2(0, (target.rect_size.y / 1.2) + target.rect_size.y)
+	var y_offset = Vector2(0, (target.rect_size.y * 2) + 4)
 	
 	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x / 1.1), 0) - y_offset)
 	

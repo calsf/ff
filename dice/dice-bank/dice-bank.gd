@@ -192,6 +192,9 @@ func _on_face_entered(face_node, face_obj):
 	_die_face_info.set_face_info(face_obj)
 	_die_face_info.set_global_position(face_node.get_global_position() - (face_node.rect_size / 1.5) + y_offset)
 	
+	# Set min x position to avoid displaying outside screen
+	_die_face_info.rect_global_position.x = min(_die_face_info.rect_global_position.x, 555)
+	
 	_die_face_info.visible = true
 
 # Hide info box after exiting a die face node

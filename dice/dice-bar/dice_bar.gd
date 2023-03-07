@@ -145,7 +145,7 @@ func _on_face_entered(i):
 	var die = PlayerDiceBank.dice[die_index]
 	
 	var face_node = _die_faces.get_child(i)
-	var y_offset = Vector2(0, (face_node.rect_size.y / 2) + 8)
+	var y_offset = Vector2(0, (face_node.rect_size.y / 2) + 16)
 	
 	_die_face_info.set_face_info(die.curr_face)
 	_die_face_info.set_global_position(face_node.rect_global_position - (face_node.rect_size / 6) - y_offset)

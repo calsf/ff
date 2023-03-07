@@ -114,6 +114,12 @@ func player_turn_finished():
 	
 	if _replay:
 		enemy_turn_finished()
+		
+		# Reset enemies
+		for enemy in enemies:
+			enemy.reset_block()
+			enemy.reset_statuses()
+		
 		return
 	
 	# Reset enemies as needed before starting their turn
@@ -237,9 +243,9 @@ func _on_block_icon_entered():
 		return
 	
 	var target = _block_icon
-	var y_offset = Vector2(0, (target.rect_size.y / 1.6) + target.rect_size.y)
+	var y_offset = Vector2(0, (target.rect_size.y / 1.2) + target.rect_size.y)
 	
-	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x / 1.25), 0) - y_offset)
+	_die_face_info.set_global_position(target.rect_global_position - Vector2(target.rect_size.x, 0) - y_offset)
 	
 	_die_face_info.visible = true
 

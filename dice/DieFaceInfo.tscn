@@ -3,7 +3,7 @@
 [ext_resource path="res://dice/dice_face_info.gd" type="Script" id=1]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=1]
 size = 8
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -27,7 +27,9 @@ __meta__ = {
 
 [node name="Outline" type="ColorRect" parent="."]
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.161
+margin_right = 1.52588e-05
+margin_bottom = -0.0159836
 mouse_filter = 2
 color = Color( 1, 0.926339, 0.742188, 1 )
 __meta__ = {
@@ -36,11 +38,11 @@ __meta__ = {
 
 [node name="BG" type="ColorRect" parent="."]
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 1.143
 margin_left = 1.0
 margin_top = 1.0
-margin_right = -1.0
-margin_bottom = -1.0
+margin_right = -0.999985
+margin_bottom = -0.00798035
 mouse_filter = 2
 color = Color( 0.246094, 0.216391, 0.137466, 1 )
 __meta__ = {
@@ -63,7 +65,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.0
 margin_right = -3.0
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 1 )
 custom_constants/line_spacing = -4
 text = "ATTACK"
 autowrap = true
@@ -78,7 +80,7 @@ margin_left = 4.0
 margin_top = 16.0
 margin_right = -4.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 1 )
 custom_constants/line_spacing = -4
 text = "Deals 30 damage to a target."
 autowrap = true

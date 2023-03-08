@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elite-001.png-35e6200abdb4faa69d145883cc68e678.stex"
+path="res://.import/elite-999-death.png-7472f72496efb360699b3d95bdf6c1f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/elite-001.png"
-dest_files=[ "res://.import/elite-001.png-35e6200abdb4faa69d145883cc68e678.stex" ]
+source_file="res://enemies/elite-999-death.png"
+dest_files=[ "res://.import/elite-999-death.png-7472f72496efb360699b3d95bdf6c1f9.stex" ]
 
 [params]
 

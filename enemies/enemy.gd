@@ -33,8 +33,7 @@ func _ready():
 
 # Set next intent
 func set_next_intent():
-	randomize()
-	next_intent = intents[randi() % intents.size()]
+	next_intent = randomize_intent()
 	
 	_intent_icon.texture = next_intent.icon
 	_intent_value_label.text = str(next_intent.num_value)
@@ -53,6 +52,10 @@ func set_next_intent():
 	
 	if not _intent_icon.is_connected("mouse_exited", self, "_on_face_exited"):
 		_intent_icon.connect("mouse_exited", self, "_on_face_exited")
+
+func randomize_intent():
+	randomize()
+	return intents[randi() % intents.size()]
 
 # Set by target selection
 func set_enemy_num(num):

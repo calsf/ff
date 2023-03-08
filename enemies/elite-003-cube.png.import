@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elite-005.png-4ae131166a7625e1bcec409a9825b41d.stex"
+path="res://.import/elite-003-cube.png-ea952fe56d8700f5900031b87e3548bb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/elite-005.png"
-dest_files=[ "res://.import/elite-005.png-4ae131166a7625e1bcec409a9825b41d.stex" ]
+source_file="res://enemies/elite-003-cube.png"
+dest_files=[ "res://.import/elite-003-cube.png-ea952fe56d8700f5900031b87e3548bb.stex" ]
 
 [params]
 

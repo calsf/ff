@@ -1,0 +1,478 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash46.png" type="Texture" id=1]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash43.png" type="Texture" id=2]
+[ext_resource path="res://enemies/elite-999-death.png" type="Texture" id=3]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash48.png" type="Texture" id=4]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash54.png" type="Texture" id=5]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash55.png" type="Texture" id=6]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash63.png" type="Texture" id=7]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash52.png" type="Texture" id=8]
+[ext_resource path="res://enemies/enemy-base.png" type="Texture" id=9]
+[ext_resource path="res://dice/die-roll/die-roll1.png" type="Texture" id=10]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash44.png" type="Texture" id=11]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash57.png" type="Texture" id=12]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash42.png" type="Texture" id=13]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash60.png" type="Texture" id=14]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash53.png" type="Texture" id=15]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash56.png" type="Texture" id=16]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash59.png" type="Texture" id=17]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash50.png" type="Texture" id=18]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash58.png" type="Texture" id=19]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash45.png" type="Texture" id=20]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=21]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash62.png" type="Texture" id=22]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash47.png" type="Texture" id=23]
+[ext_resource path="res://combat/block_icon.png" type="Texture" id=24]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash51.png" type="Texture" id=25]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash61.png" type="Texture" id=26]
+[ext_resource path="res://combat/health_icon.png" type="Texture" id=27]
+[ext_resource path="res://buttons/selected_outline.tres" type="StyleBox" id=28]
+[ext_resource path="res://buttons/empty.tres" type="StyleBox" id=29]
+[ext_resource path="res://enemies/elite_death.gd" type="Script" id=30]
+[ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=31]
+[ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=32]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+use_filter = true
+font_data = ExtResource( 32 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 31 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "play"
+tracks/0/type = "value"
+tracks/0/path = NodePath("NextAction/EnemyDieFace/TextureRect:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NextAction/EnemyDieFace/Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NextAction/EnemyDieRoll:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "roll"
+length = 2.7
+step = 0.025
+tracks/0/type = "value"
+tracks/0/path = NodePath("NextAction/EnemyDieRoll/TextureRect:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.95 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("NextAction/EnemyDieRoll/TextureRect:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.425, 0.475, 0.525, 0.575, 0.625, 0.675, 0.725, 0.775, 0.825, 0.875, 0.925, 1, 1.1, 1.2, 1.3, 1.45, 1.625, 1.825, 2.075 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1.41421, 1, 1, 1.46409, 1, 2.92817, 1.18921, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3.03143, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ), ExtResource( 2 ), ExtResource( 11 ), ExtResource( 20 ), ExtResource( 1 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 25 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 14 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 12 ), ExtResource( 19 ), ExtResource( 17 ), ExtResource( 14 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("NextAction/EnemyDieFace/TextureRect:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("NextAction/EnemyDieFace/Label:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2.075, 2.575 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("NextAction/EnemyDieFace/TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.075, 2.575 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("NextAction/EnemyDieRoll:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "blocked"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyFace:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.478431, 0.560784, 0.713726, 1 ), Color( 0.807843, 0.87451, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyFace:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0.814706, 0.0970588, 0.0970588, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("EnemyFace:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( -1, 0 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( -1, 0 ), Vector2( 0, 1 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "death"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("EnemyFace:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="EliteDeath" type="TextureRect"]
+modulate = Color( 1, 1, 1, 0.2 )
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 68.0
+texture = ExtResource( 9 )
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="."]
+anchor_top = -0.175
+anchor_right = 0.625
+anchor_bottom = 0.176
+margin_top = -0.0999994
+margin_bottom = 0.0319986
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Health"]
+anchor_left = 0.4
+anchor_top = 0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.12
+margin_bottom = 1.90735e-06
+custom_fonts/font = SubResource( 1 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthIcon" type="TextureRect" parent="Health"]
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.818
+margin_top = -0.2
+margin_right = 16.0
+margin_bottom = 16.004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block" type="Control" parent="."]
+anchor_left = 0.625
+anchor_top = -0.176
+anchor_right = 1.25
+anchor_bottom = 0.178
+margin_top = -0.0319986
+margin_bottom = -0.104
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Block"]
+anchor_left = 0.4
+anchor_top = 0.005
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.12
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 1 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockIcon" type="TextureRect" parent="Block"]
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.818
+margin_top = -0.2
+margin_right = 16.0
+margin_bottom = 16.004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextAction" type="Control" parent="."]
+anchor_left = 0.25
+anchor_top = 0.941
+anchor_right = 1.25
+anchor_bottom = 1.191
+margin_top = 0.0119972
+margin_bottom = 0.0119934
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NextAction"]
+anchor_left = -0.234
+anchor_top = -0.588
+anchor_right = 0.766
+anchor_bottom = 0.471
+margin_left = -0.0240002
+margin_top = -0.00399971
+margin_right = -0.0240059
+margin_bottom = -2.007
+custom_fonts/font = SubResource( 1 )
+text = "FACE 1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyDieRoll" type="HBoxContainer" parent="NextAction"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.25
+anchor_right = 0.258
+anchor_bottom = 1.882
+margin_left = -22.0
+margin_right = 22.488
+margin_bottom = 0.00600815
+rect_pivot_offset = Vector2( 22, 16 )
+custom_constants/separation = -1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="NextAction/EnemyDieRoll"]
+margin_left = 2.0
+margin_right = 34.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="Label" type="Label" parent="NextAction/EnemyDieRoll"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 33.0
+margin_top = 8.0
+margin_right = 42.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+text = "30"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyDieFace" type="HBoxContainer" parent="NextAction"]
+anchor_left = 0.25
+anchor_right = 0.258
+anchor_bottom = 1.882
+margin_left = -22.0
+margin_right = 22.488
+margin_bottom = 0.00599861
+rect_pivot_offset = Vector2( 22, 16 )
+custom_constants/separation = -1
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="NextAction/EnemyDieFace"]
+margin_left = 2.0
+margin_right = 34.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+rect_pivot_offset = Vector2( 16, 16 )
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="NextAction/EnemyDieFace"]
+modulate = Color( 1, 1, 1, 0.333333 )
+margin_left = 33.0
+margin_top = 8.0
+margin_right = 42.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+text = "30"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnemyFace" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TargetButton" type="Button" parent="."]
+anchor_left = 0.125
+anchor_top = 0.088
+anchor_right = 0.875
+anchor_bottom = 0.794
+margin_top = 1.016
+margin_bottom = 3.008
+focus_mode = 0
+custom_styles/hover = ExtResource( 28 )
+custom_styles/pressed = ExtResource( 28 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/disabled = ExtResource( 29 )
+custom_styles/normal = ExtResource( 29 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IntentAnimPlayer" type="AnimationPlayer" parent="."]
+autoplay = "roll"
+anims/play = SubResource( 3 )
+anims/roll = SubResource( 4 )
+
+[node name="EnemyAnimPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/blocked = SubResource( 5 )
+anims/damaged = SubResource( 6 )
+anims/death = SubResource( 7 )
+anims/idle = SubResource( 8 )

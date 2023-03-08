@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elite-002.png-904137bc2edaca4e23b8230e8f38f0f4.stex"
+path="res://.import/elite-002-jester.png-372f89014f3916560b4f4b5f44259d0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/elite-002.png"
-dest_files=[ "res://.import/elite-002.png-904137bc2edaca4e23b8230e8f38f0f4.stex" ]
+source_file="res://enemies/elite-002-jester.png"
+dest_files=[ "res://.import/elite-002-jester.png-372f89014f3916560b4f4b5f44259d0d.stex" ]
 
 [params]
 

@@ -35,6 +35,11 @@ _global_script_classes=[ {
 "path": "res://enemies/enemy_face_attack.gd"
 }, {
 "base": "EnemyDieFace",
+"class": "EnemyFaceAttackBlock",
+"language": "GDScript",
+"path": "res://enemies/enemy_face_attack_block.gd"
+}, {
+"base": "EnemyDieFace",
 "class": "EnemyFaceAttackBrutal",
 "language": "GDScript",
 "path": "res://enemies/enemy_face_attack_brutal.gd"
@@ -200,6 +205,7 @@ _global_script_class_icons={
 "Enemy": "",
 "EnemyDieFace": "",
 "EnemyFaceAttack": "",
+"EnemyFaceAttackBlock": "",
 "EnemyFaceAttackBrutal": "",
 "EnemyFaceBlock": "",
 "EnemyFaceBlockReflect": "",

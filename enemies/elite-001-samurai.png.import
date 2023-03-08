@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elite-004.png-a7298bc6d372dba09db426c005b6090c.stex"
+path="res://.import/elite-001-samurai.png-cffe0b5afba0677c5fb84e390c705aa3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/elite-004.png"
-dest_files=[ "res://.import/elite-004.png-a7298bc6d372dba09db426c005b6090c.stex" ]
+source_file="res://enemies/elite-001-samurai.png"
+dest_files=[ "res://.import/elite-001-samurai.png-cffe0b5afba0677c5fb84e390c705aa3.stex" ]
 
 [params]
 

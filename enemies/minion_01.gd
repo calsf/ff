@@ -6,8 +6,8 @@ func _ready():
 	set_health(max_health)
 	reset_block()
 	
-	var attack = EnemyFaceBlockReflect.new(5, self)
-	var block = EnemyFaceDodge.new(5, self)
+	var attack = EnemyFaceDodge.new(5, self)
+	var block = EnemyFaceAttackPerfect.new(5, self)
 
 	intents = [
 		attack,
@@ -15,5 +15,3 @@ func _ready():
 	]
 	
 	set_next_intent()
-
-

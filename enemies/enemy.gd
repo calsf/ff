@@ -123,9 +123,11 @@ func deal_direct_damage(amount, undodgable=false):
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_label)
 	
-	_enemy_anim.play("damaged")
-	yield(_enemy_anim, "animation_finished")
-	_enemy_anim.play("idle")
+	if amount > 0:
+		_enemy_anim.play("damaged")
+		yield(_enemy_anim, "animation_finished")
+		if health > 0:
+			_enemy_anim.play("idle")
 	
 	return amount
 

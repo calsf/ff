@@ -4,6 +4,8 @@ var favor = 2
 var player_block = 0
 var turn = 0
 var enemies = []
+var enemy_fled = false
+var combat_ended = false
 
 # Face statuses
 var _dodge = false
@@ -99,7 +101,7 @@ func remove_player_block(amount, attacker=null):
 	_block_num.text = str(player_block)
 	
 	if attacker != null and _reflect:
-		attacker.deal_blockable_damage(amount / 2)
+		attacker.deal_blockable_damage(amount / 2, self)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_num)
 
@@ -111,6 +113,8 @@ func player_turn_finished():
 	yield(get_tree().create_timer(1.0), "timeout")
 	
 	yield(enemy_death_check(), "completed")
+	if combat_ended:
+		return
 	
 	if _replay:
 		enemy_turn_finished()
@@ -136,6 +140,11 @@ func player_turn_finished():
 		
 		# Set enemy next intent
 		enemy.set_next_intent()
+	
+	# Check for deaths before enemy intent reset
+	yield(enemy_death_check(), "completed")
+	if combat_ended:
+		return
 	
 	# Play anim to reset enemy intents
 	var anim_to_wait_for = null
@@ -166,7 +175,7 @@ func enemy_death_check():
 	var all_dead = true
 	
 	for enemy in enemies:
-		if not enemy.is_dead and enemy.health <= 0:
+		if enemy_fled or (not enemy.is_dead and enemy.health <= 0):
 			yield(enemy.on_death(), "completed")
 		
 		if not enemy.is_dead:
@@ -177,7 +186,11 @@ func enemy_death_check():
 		_dice_bank.reset_dice_bank()
 		
 		yield(get_tree().create_timer(.3), "timeout")
-		yield(_loot_screen.activate(), "completed")
+		
+		if not enemy_fled:
+			yield(_loot_screen.activate(), "completed")
+		
+		combat_ended = true
 	
 	yield(get_tree().create_timer(.1), "timeout")
 

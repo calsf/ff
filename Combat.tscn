@@ -132,7 +132,7 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=130]
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
 [ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
-[ext_resource path="res://enemies/Minion02.tscn" type="PackedScene" id=133]
+[ext_resource path="res://enemies/Minion05.tscn" type="PackedScene" id=133]
 [ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=135]
 [ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=136]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
@@ -1814,9 +1814,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Minion02" parent="CanvasLayer/Enemies" instance=ExtResource( 133 )]
-
 [node name="Minion01" parent="CanvasLayer/Enemies" instance=ExtResource( 122 )]
+
+[node name="Minion05" parent="CanvasLayer/Enemies" instance=ExtResource( 133 )]
 margin_left = 288.0
 margin_right = 352.0
 

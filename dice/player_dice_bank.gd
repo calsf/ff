@@ -89,3 +89,11 @@ func get_used_dice():
 		if not dice[i].is_empty and dice[i].is_used:
 			num += 1
 	return num
+
+# Returns number of non empty dice
+func get_owned_dice():
+	var num = 0
+	for i in range(dice.size()):
+		if not dice[i].is_empty:
+			num += 1
+	return num

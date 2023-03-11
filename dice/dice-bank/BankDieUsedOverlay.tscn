@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://dice/die-numbers/die-num-used.png" type="Texture" id=1]
 [ext_resource path="res://dice/die-face-used.png" type="Texture" id=2]
 
 [node name="Die001" type="HBoxContainer"]
@@ -18,7 +17,6 @@ margin_right = 32.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 1 )
 expand = true
 
 [node name="Face01" type="TextureRect" parent="."]

@@ -12,6 +12,8 @@ onready var _anim = $AnimationPlayer
 onready var _loot = $Loot
 onready var _loot_count = 0
 
+onready var _fade = get_tree().current_scene.get_node("CanvasLayer/Fade")
+
 func _ready():
 	_skip_btn.connect("pressed", self, "_on_skip_loot")
 
@@ -28,6 +30,9 @@ func _on_skip_loot():
 	
 	yield(_anim, "animation_finished")
 	self.visible = false
+	
+	yield(get_tree().create_timer(.6), "timeout")
+	_fade.go_to_scene("res://Map.tscn")
 
 func _get_drops():
 	# 1 -4 total number of loot possible

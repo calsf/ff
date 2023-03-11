@@ -1,4 +1,4 @@
-[gd_scene load_steps=171 format=2]
+[gd_scene load_steps=172 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -121,7 +121,7 @@
 [ext_resource path="res://combat/favor-icon.png" type="Texture" id=119]
 [ext_resource path="res://combat/block_icon.png" type="Texture" id=120]
 [ext_resource path="res://combat/health_icon.png" type="Texture" id=121]
-[ext_resource path="res://enemies/Minion08.tscn" type="PackedScene" id=122]
+[ext_resource path="res://Fade.tscn" type="PackedScene" id=122]
 [ext_resource path="res://dice/dice-bar/dice-bar.png" type="Texture" id=123]
 [ext_resource path="res://combat/NumberPopup.tscn" type="PackedScene" id=124]
 [ext_resource path="res://combat/number_popup_pool.gd" type="Script" id=125]
@@ -133,6 +133,7 @@
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
 [ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
 [ext_resource path="res://enemies/Minion07.tscn" type="PackedScene" id=133]
+[ext_resource path="res://combat/background-01.png" type="Texture" id=134]
 [ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=135]
 [ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=136]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
@@ -143,7 +144,7 @@
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
 [ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=146]
-[ext_resource path="res://dice/dice-bank/dice-bank.gd" type="Script" id=149]
+[ext_resource path="res://dice/dice-bank/dice_bank.gd" type="Script" id=149]
 [ext_resource path="res://dice/dice-bar/dice_bar.gd" type="Script" id=150]
 
 [sub_resource type="DynamicFont" id=1]
@@ -1040,13 +1041,11 @@ font_data = ExtResource( 138 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Background" type="ColorRect" parent="CanvasLayer"]
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.721569, 0.992157, 0.47451, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.290196, 0.262745, 0.219608, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 134 )
 
 [node name="DiceBar" type="NinePatchRect" parent="CanvasLayer"]
 anchor_left = 0.2
@@ -1815,10 +1814,8 @@ __meta__ = {
 }
 
 [node name="Minion07" parent="CanvasLayer/Enemies" instance=ExtResource( 133 )]
-
-[node name="Minion08" parent="CanvasLayer/Enemies" instance=ExtResource( 122 )]
-margin_left = 288.0
-margin_right = 352.0
+margin_left = 224.0
+margin_right = 288.0
 
 [node name="Combat" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
@@ -1838,6 +1835,7 @@ margin_left = -192.0
 margin_top = -76.0
 margin_right = 192.0
 margin_bottom = 92.0
+rect_scale = Vector2( 1, 1e-05 )
 rect_pivot_offset = Vector2( 192, 93 )
 mouse_filter = 2
 script = ExtResource( 142 )
@@ -2472,3 +2470,5 @@ __meta__ = {
 [node name="Number11" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
 
 [node name="Number12" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource( 122 )]

@@ -121,7 +121,7 @@
 [ext_resource path="res://combat/favor-icon.png" type="Texture" id=119]
 [ext_resource path="res://combat/block_icon.png" type="Texture" id=120]
 [ext_resource path="res://combat/health_icon.png" type="Texture" id=121]
-[ext_resource path="res://enemies/Minion01.tscn" type="PackedScene" id=122]
+[ext_resource path="res://enemies/Minion08.tscn" type="PackedScene" id=122]
 [ext_resource path="res://dice/dice-bar/dice-bar.png" type="Texture" id=123]
 [ext_resource path="res://combat/NumberPopup.tscn" type="PackedScene" id=124]
 [ext_resource path="res://combat/number_popup_pool.gd" type="Script" id=125]
@@ -132,7 +132,7 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=130]
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
 [ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
-[ext_resource path="res://enemies/Minion05.tscn" type="PackedScene" id=133]
+[ext_resource path="res://enemies/Minion07.tscn" type="PackedScene" id=133]
 [ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=135]
 [ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=136]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
@@ -1814,9 +1814,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Minion01" parent="CanvasLayer/Enemies" instance=ExtResource( 122 )]
+[node name="Minion07" parent="CanvasLayer/Enemies" instance=ExtResource( 133 )]
 
-[node name="Minion05" parent="CanvasLayer/Enemies" instance=ExtResource( 133 )]
+[node name="Minion08" parent="CanvasLayer/Enemies" instance=ExtResource( 122 )]
 margin_left = 288.0
 margin_right = 352.0
 
@@ -1829,6 +1829,7 @@ __meta__ = {
 }
 
 [node name="LootScreen" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1837,7 +1838,6 @@ margin_left = -192.0
 margin_top = -76.0
 margin_right = 192.0
 margin_bottom = 92.0
-rect_scale = Vector2( 1, 1e-05 )
 rect_pivot_offset = Vector2( 192, 93 )
 mouse_filter = 2
 script = ExtResource( 142 )

@@ -35,11 +35,18 @@ func _ready():
 func set_next_intent():
 	next_intent = randomize_intent()
 	
+	_intent_icon.set_modulate(Color(1, 1, 1, 0))
 	_intent_icon.texture = next_intent.icon
-	_intent_value_label.text = str(next_intent.num_value)
-	
-	# Additional label to set to maintain overlay
-	_intent_value_label_roll.text = str(next_intent.num_value)
+	var num = next_intent.num_value
+	if num > 0:
+		_intent_value_label.text = str(next_intent.num_value)
+		
+		# Additional label to set to maintain overlay
+		_intent_value_label_roll.text = str(next_intent.num_value)
+	else:
+		_intent_value_label.text = ""
+		# Additional label to set to maintain overlay
+		_intent_value_label_roll.text = ""
 	
 	# Reset signal if needed for updated dice
 	if _intent_icon.is_connected("mouse_entered", self, "_on_face_entered"):

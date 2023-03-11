@@ -1,17 +1,15 @@
 extends Enemy
+class_name MinionOne
 
 func _ready():
 	max_health = 5
 	
 	set_health(max_health)
 	reset_block()
-	
-	var attack = EnemyFaceDodge.new(5, self)
-	var block = EnemyFaceAttackPerfect.new(5, self)
 
 	intents = [
-		attack,
-		block
+		EnemyFaceAttack.new(5, self),
+		EnemyFaceBlock.new(5, self)
 	]
 	
 	set_next_intent()

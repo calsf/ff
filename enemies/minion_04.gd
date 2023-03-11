@@ -1,4 +1,5 @@
 extends Enemy
+class_name MinionFour
 
 func _ready():
 	max_health = 5
@@ -7,9 +8,8 @@ func _ready():
 	reset_block()
 
 	intents = [
-		EnemyFaceBlockReflect.new(5, self),
-		EnemyFaceAttackBlock.new(5, self),
 		EnemyFaceAttack.new(5, self),
+		EnemyFaceBlock.new(5, self),
 		EnemyFaceAttackBrutal.new(5, self)
 	]
 	

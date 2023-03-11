@@ -1,9 +1,10 @@
 extends Enemy
+class_name MinionFive
 
 var curr_intent = 0
 
 func _ready():
-	max_health = 30
+	max_health = 40
 	
 	set_health(max_health)
 	reset_block()
@@ -18,6 +19,7 @@ func _ready():
 	set_next_intent()
 
 func randomize_intent():
+	# Go through countdown and self destruct
 	var next_intent = intents[curr_intent]
 	curr_intent += 1
 	

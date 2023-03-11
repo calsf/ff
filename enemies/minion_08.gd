@@ -1,15 +1,14 @@
 extends Enemy
-class_name MinionTwo
+class_name MinionEight
 
 func _ready():
-	max_health = 5
+	max_health = 25
 	
 	set_health(max_health)
 	reset_block()
 
 	intents = [
-		EnemyFaceAttack.new(5, self),
-		EnemyFaceAttack.new(7, self)
+		EnemyFaceAttackCombo.new(2, self)
 	]
 	
 	set_next_intent()

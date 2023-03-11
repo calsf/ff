@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/minion07.png-d4a6500252762acb5aef272cc7ed0098.stex"
+path="res://.import/minion-08.png-d09df6e729e9a673bd7ed046ebd872be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://enemies/minion07.png"
-dest_files=[ "res://.import/minion07.png-d4a6500252762acb5aef272cc7ed0098.stex" ]
+source_file="res://enemies/minion-08.png"
+dest_files=[ "res://.import/minion-08.png-d09df6e729e9a673bd7ed046ebd872be.stex" ]
 
 [params]
 

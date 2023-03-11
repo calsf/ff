@@ -7,8 +7,9 @@ func _ready():
 	reset_block()
 
 	intents = [
-		EnemyFaceHeal.new(5, self),
-		EnemyFaceBlock.new(5, self)
+		EnemyFaceAttack.new(1, self),
+		EnemyFaceHealAll.new(5, self),
+		EnemyFaceBlockAll.new(5, self)
 	]
 	
 	set_next_intent()

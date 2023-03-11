@@ -137,9 +137,6 @@ func player_turn_finished():
 			continue
 		
 		yield(enemy.play_face(self), "completed")
-		
-		# Set enemy next intent
-		enemy.set_next_intent()
 	
 	# Check for deaths before enemy intent reset
 	yield(enemy_death_check(), "completed")
@@ -152,6 +149,8 @@ func player_turn_finished():
 		if enemy.is_dead:
 			continue
 		
+		# Set enemy next intent
+		enemy.set_next_intent()
 		anim_to_wait_for = enemy.get_node("IntentAnimPlayer")
 		anim_to_wait_for.play("roll")
 	

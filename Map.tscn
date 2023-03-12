@@ -1,14 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/dice-bank/dice_bank_view_only.gd" type="Script" id=2]
 [ext_resource path="res://Fade.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map/path.gd" type="Script" id=4]
+[ext_resource path="res://map/PathFace.tscn" type="PackedScene" id=6]
 [ext_resource path="res://dice/dice-bank/BankDieSelectedOverlay.tscn" type="PackedScene" id=116]
 [ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=117]
-[ext_resource path="res://combat/block_icon.png" type="Texture" id=120]
 [ext_resource path="res://combat/health_icon.png" type="Texture" id=121]
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=126]
-[ext_resource path="res://combat/background-01.png" type="Texture" id=134]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
@@ -27,24 +27,47 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 80 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 16, 36 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 16, 36 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 16, 16 )
+
+[node name="Map" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Background" type="TextureRect" parent="CanvasLayer"]
-modulate = Color( 0.721569, 0.992157, 0.47451, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource( 134 )
-
 [node name="PlayerInfo" type="Control" parent="CanvasLayer"]
-anchor_left = 0.2
-anchor_top = 0.822
-anchor_right = 0.262
-anchor_bottom = 0.956
-margin_top = -31.92
-margin_right = 0.319977
-margin_bottom = -32.16
+anchor_top = 0.222
+anchor_right = 0.062
+anchor_bottom = 0.356
+margin_top = 0.0799942
+margin_right = 0.319969
+margin_bottom = -0.160004
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -87,49 +110,6 @@ margin_right = 16.0
 margin_bottom = 16.004
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 121 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Block" type="Control" parent="CanvasLayer/PlayerInfo"]
-anchor_left = 0.125
-anchor_top = 0.417
-anchor_right = 0.875
-anchor_bottom = 1.0
-margin_top = -0.0160007
-margin_right = -3.8147e-06
-margin_bottom = 0.248001
-size_flags_horizontal = 3
-size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/PlayerInfo/Block"]
-anchor_left = 0.567
-anchor_top = -0.064
-anchor_right = 1.167
-anchor_bottom = 0.9
-margin_left = -0.0100002
-margin_top = -0.592128
-margin_right = -0.0100021
-margin_bottom = -0.596441
-custom_fonts/font = SubResource( 1 )
-text = "100"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BlockIcon" type="TextureRect" parent="CanvasLayer/PlayerInfo/Block"]
-anchor_top = 0.1
-anchor_right = 0.4
-anchor_bottom = 0.818
-margin_top = -0.2
-margin_right = 16.0
-margin_bottom = 16.004
-rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 120 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -521,3 +501,155 @@ __meta__ = {
 [node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 1 )]
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="MapArea" type="Node2D" parent="."]
+
+[node name="PathOne" type="Node2D" parent="MapArea"]
+
+[node name="Path" type="Area2D" parent="MapArea/PathOne"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFaces" type="Node2D" parent="MapArea/PathOne/Path"]
+
+[node name="PathFace" parent="MapArea/PathOne/Path/PathFaces" instance=ExtResource( 6 )]
+
+[node name="PathFace2" parent="MapArea/PathOne/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 40, 0 )
+
+[node name="PathFace3" parent="MapArea/PathOne/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( -40, 0 )
+
+[node name="PathFace4" parent="MapArea/PathOne/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 0, -40 )
+
+[node name="PathFace5" parent="MapArea/PathOne/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 0, -80 )
+
+[node name="PathFace6" parent="MapArea/PathOne/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 0, 40 )
+
+[node name="PathCollision" type="CollisionShape2D" parent="MapArea/PathOne/Path"]
+position = Vector2( 0, -20 )
+shape = SubResource( 3 )
+
+[node name="PathCollision2" type="CollisionShape2D" parent="MapArea/PathOne/Path"]
+position = Vector2( -40, 0 )
+shape = SubResource( 4 )
+
+[node name="PathCollision3" type="CollisionShape2D" parent="MapArea/PathOne/Path"]
+position = Vector2( 40, 0 )
+shape = SubResource( 5 )
+
+[node name="OutsideArea" type="Area2D" parent="MapArea/PathOne"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OutsideCollision" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( -40, -60 )
+shape = SubResource( 6 )
+
+[node name="OutsideCollision2" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( 40, -60 )
+shape = SubResource( 7 )
+
+[node name="OutsideCollision3" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( 40, 40 )
+shape = SubResource( 8 )
+
+[node name="OutsideCollision4" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( -40, 40 )
+shape = SubResource( 9 )
+
+[node name="OutsideCollision5" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( 0, -120 )
+shape = SubResource( 10 )
+
+[node name="OutsideCollision6" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( -80, 0 )
+shape = SubResource( 11 )
+
+[node name="OutsideCollision7" type="CollisionShape2D" parent="MapArea/PathOne/OutsideArea"]
+position = Vector2( 80, 0 )
+shape = SubResource( 12 )
+
+[node name="PathOne2" type="Node2D" parent="MapArea"]
+position = Vector2( 400, 200 )
+
+[node name="Path" type="Area2D" parent="MapArea/PathOne2"]
+scale = Vector2( 0.5, 0.5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PathFaces" type="Node2D" parent="MapArea/PathOne2/Path"]
+
+[node name="PathFace" parent="MapArea/PathOne2/Path/PathFaces" instance=ExtResource( 6 )]
+
+[node name="PathFace2" parent="MapArea/PathOne2/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 40, 0 )
+
+[node name="PathFace3" parent="MapArea/PathOne2/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( -40, 0 )
+
+[node name="PathFace4" parent="MapArea/PathOne2/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 0, -40 )
+
+[node name="PathFace5" parent="MapArea/PathOne2/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 0, -80 )
+
+[node name="PathFace6" parent="MapArea/PathOne2/Path/PathFaces" instance=ExtResource( 6 )]
+position = Vector2( 0, 40 )
+
+[node name="PathCollision" type="CollisionShape2D" parent="MapArea/PathOne2/Path"]
+position = Vector2( 0, -20 )
+shape = SubResource( 3 )
+
+[node name="PathCollision2" type="CollisionShape2D" parent="MapArea/PathOne2/Path"]
+position = Vector2( -40, 0 )
+shape = SubResource( 4 )
+
+[node name="PathCollision3" type="CollisionShape2D" parent="MapArea/PathOne2/Path"]
+position = Vector2( 40, 0 )
+shape = SubResource( 5 )
+
+[node name="OutsideArea" type="Area2D" parent="MapArea/PathOne2"]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="OutsideCollision" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( -40, -60 )
+shape = SubResource( 6 )
+
+[node name="OutsideCollision2" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( 40, -60 )
+shape = SubResource( 7 )
+
+[node name="OutsideCollision3" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( 40, 40 )
+shape = SubResource( 8 )
+
+[node name="OutsideCollision4" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( -40, 40 )
+shape = SubResource( 9 )
+
+[node name="OutsideCollision5" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( 0, -120 )
+shape = SubResource( 10 )
+
+[node name="OutsideCollision6" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( -80, 0 )
+shape = SubResource( 11 )
+
+[node name="OutsideCollision7" type="CollisionShape2D" parent="MapArea/PathOne2/OutsideArea"]
+position = Vector2( 80, 0 )
+shape = SubResource( 12 )

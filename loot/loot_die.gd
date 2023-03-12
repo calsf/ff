@@ -3,9 +3,9 @@ class_name LootDie
 
 var die = null
 
-onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
 
-onready var _loot = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
+onready var _loot = get_tree().get_root().get_node("Combat/CanvasLayer/LootScreen")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

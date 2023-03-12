@@ -1037,7 +1037,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Combat" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1826,7 +1826,6 @@ __meta__ = {
 }
 
 [node name="LootScreen" type="Control" parent="CanvasLayer"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1835,7 +1834,6 @@ margin_left = -192.0
 margin_top = -76.0
 margin_right = 192.0
 margin_bottom = 92.0
-rect_scale = Vector2( 1, 1e-05 )
 rect_pivot_offset = Vector2( 192, 93 )
 mouse_filter = 2
 script = ExtResource( 142 )
@@ -1908,6 +1906,7 @@ __meta__ = {
 }
 
 [node name="MouseBlocker" type="Control" parent="CanvasLayer/LootScreen"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

@@ -23,9 +23,9 @@ onready var _intent_anim = $IntentAnimPlayer
 onready var _enemy_anim = $EnemyAnimPlayer
 onready var _target_btn = $TargetButton
 
-onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
 
-onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
+onready var _number_popup_pool = get_tree().get_root().get_node("Combat/CanvasLayer/NumberPopupPool")
 
 func _ready():
 	_block_icon.connect("mouse_entered", self, "_on_block_icon_entered")

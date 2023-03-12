@@ -61,6 +61,13 @@ func _physics_process(delta):
 		self.set_modulate(Color(1, 1, 1, 1))
 
 func _unhandled_input(event):
+	# TEMP!!!
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			print_debug("boom")
+			var _fade = get_tree().get_root().get_node("Map/CanvasLayer/Fade")
+			_fade.go_to_scene("res://Combat.tscn")
+	
 	if is_set:
 		return
 	

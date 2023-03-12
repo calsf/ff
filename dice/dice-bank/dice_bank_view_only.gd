@@ -4,7 +4,7 @@ onready var _dice_col = $HBoxDice
 onready var _dice_col_selected = $HBoxDiceSelectedOverlay
 onready var _dice_col_used = $HBoxDiceUsedOverlay
 
-onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Map/CanvasLayer/DieFaceInfo")
 
 func _ready():
 	PlayerDiceBank.connect("die_bank_updated", self, "update_dice_index")

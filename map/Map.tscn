@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://combat/health_icon.png" type="Texture" id=11]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=12]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=13]
+[ext_resource path="res://map/map.gd" type="Script" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -58,6 +59,7 @@ extents = Vector2( 16, 16 )
 extents = Vector2( 16, 16 )
 
 [node name="Map" type="Node2D"]
+script = ExtResource( 14 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

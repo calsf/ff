@@ -32,18 +32,22 @@ func fade_in():
 func fade_out():
 	$AnimationPlayer.play("FadeOut")
 
-# Remove all nodes in root other than autoloaded nodes and the level scene
+# Remove all nodes in root other than autoloaded nodes
 # Should be done before reloading/changing scenes
-func _remove_root_nodes():
+func _remove_root_nodes(persist_map=true):
 	_map_persisted = false
 	var root_nodes = get_tree().get_root().get_children()
 	for i in range(PERSISTENT_NODES, root_nodes.size()):
-		if root_nodes[i].name == MAP_SCENE_NAME and get_tree().current_scene.name == MAP_SCENE_NAME:
-			root_nodes[i].visible = false
-			print_debug(root_nodes[i].visible)
+		# Persist map if conditions are met
+		if root_nodes[i].name == MAP_SCENE_NAME and get_tree().current_scene.name == MAP_SCENE_NAME and persist_map:
 			_map_persisted = true
 			continue
+		
 		root_nodes[i].queue_free()
+
+func reset_fade():
+	_next_scene = ""
+	_in_transition = false
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match (anim_name):
@@ -53,27 +57,27 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				get_tree().reload_current_scene()
 			else:
 				if get_tree().current_scene.name == MAP_SCENE_NAME and _next_scene != MAP_SCENE_PATH:
-					print_debug("first")
+					print_debug("Persisting Map")
 					_remove_root_nodes()
 					var new_scene = load(_next_scene).instance()
 					get_tree().get_root().add_child(new_scene)
-
-					_next_scene = ""
-					_in_transition = false
-					get_tree().get_root().get_node("Map/CanvasLayer/Fade").hide()
+					
+					# Hide map
+					get_tree().get_root().get_node("Map").hide_map()
 				elif _next_scene == MAP_SCENE_PATH:
-					print_debug("sec")
 					_remove_root_nodes()
 					if _map_persisted:
-						get_tree().get_root().get_node("Map").visible = true
-						get_tree().get_root().get_node("Map/CanvasLayer/Fade").fade_out()
+						print_debug("Going to map, map already exists.")
+						
+						# Show map
+						get_tree().get_root().get_node("Map").show_map()
 					else:
+						print_debug("Going to map, map does not exist.")
+						
 						_remove_root_nodes()
 						get_tree().change_scene(_next_scene)
-					_next_scene = ""
-					_in_transition = false
 				else:
-					print_debug("thir")
+					print_debug("Changing scenes.")
 					_remove_root_nodes()
 					get_tree().change_scene(_next_scene)
 			

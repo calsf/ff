@@ -17,19 +17,44 @@ var is_set = false
 var is_overlapping_path = false
 var is_valid = false
 
+var rotation_count = 0
+
 onready var _path_faces = $PathFaces
 
 func _ready():
+	_calc_offsets()
+
+func _calc_offsets():
 	# Get offsets from center face
 	min_x_offset = 0
 	max_x_offset = 0
 	min_y_offset = 0
 	max_y_offset = 0
-	for face in _path_faces.get_children():
-		max_x_offset = max(face.get_position().x, max_x_offset)
-		min_x_offset = min(face.get_position().x, min_x_offset)
-		min_y_offset = max(face.get_position().y, min_y_offset)
-		max_y_offset = max(face.get_position().y, max_y_offset)
+	
+	if rotation_count == 1: # 90
+		for face in _path_faces.get_children():
+			max_x_offset = min(face.get_position().y, max_x_offset)
+			min_x_offset = max(face.get_position().y, min_x_offset)
+			max_y_offset = max(face.get_position().x, max_y_offset)
+			min_y_offset = min(face.get_position().x, min_y_offset)
+	elif rotation_count == 2: # 180
+		for face in _path_faces.get_children():
+			max_x_offset = max(face.get_position().x, max_x_offset)
+			min_x_offset = min(face.get_position().x, min_x_offset)
+			max_y_offset = min(face.get_position().y, max_y_offset)
+			min_y_offset = max(face.get_position().y, min_y_offset)
+	elif rotation_count == 3: # 270
+		for face in _path_faces.get_children():
+			max_x_offset = max(face.get_position().y, max_x_offset)
+			min_x_offset = min(face.get_position().y, min_x_offset)
+			max_y_offset = max(face.get_position().x, max_y_offset)
+			min_y_offset = min(face.get_position().x, min_y_offset)
+	else: # 0/360
+		for face in _path_faces.get_children():
+			max_x_offset = max(face.get_position().x, max_x_offset)
+			min_x_offset = min(face.get_position().x, min_x_offset)
+			max_y_offset = max(face.get_position().y, max_y_offset)
+			min_y_offset = min(face.get_position().y, min_y_offset)
 	
 	min_x_offset = abs(min_x_offset)
 	max_x_offset = abs(max_x_offset)
@@ -95,4 +120,10 @@ func _unhandled_input(event):
 			# Maintain original children rotation
 			for face in _path_faces.get_children():
 				face.rotate(deg2rad(-90))
+			
+			rotation_count += 1
+			if rotation_count > 3:
+				rotation_count = 0
+			
+			_calc_offsets()
 		

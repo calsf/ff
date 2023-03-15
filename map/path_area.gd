@@ -19,7 +19,7 @@ var is_valid = false
 
 var rotation_count = 0
 
-onready var _path_faces = $PathFaces
+onready var path_faces = $PathFaces
 
 func _ready():
 	_calc_offsets()
@@ -32,25 +32,25 @@ func _calc_offsets():
 	max_y_offset = 0
 	
 	if rotation_count == 1: # 90
-		for face in _path_faces.get_children():
+		for face in path_faces.get_children():
 			max_x_offset = min(face.get_position().y, max_x_offset)
 			min_x_offset = max(face.get_position().y, min_x_offset)
 			max_y_offset = max(face.get_position().x, max_y_offset)
 			min_y_offset = min(face.get_position().x, min_y_offset)
 	elif rotation_count == 2: # 180
-		for face in _path_faces.get_children():
+		for face in path_faces.get_children():
 			max_x_offset = max(face.get_position().x, max_x_offset)
 			min_x_offset = min(face.get_position().x, min_x_offset)
 			max_y_offset = min(face.get_position().y, max_y_offset)
 			min_y_offset = max(face.get_position().y, min_y_offset)
 	elif rotation_count == 3: # 270
-		for face in _path_faces.get_children():
+		for face in path_faces.get_children():
 			max_x_offset = max(face.get_position().y, max_x_offset)
 			min_x_offset = min(face.get_position().y, min_x_offset)
 			max_y_offset = max(face.get_position().x, max_y_offset)
 			min_y_offset = min(face.get_position().x, min_y_offset)
 	else: # 0/360
-		for face in _path_faces.get_children():
+		for face in path_faces.get_children():
 			max_x_offset = max(face.get_position().x, max_x_offset)
 			min_x_offset = min(face.get_position().x, min_x_offset)
 			max_y_offset = max(face.get_position().y, max_y_offset)
@@ -111,7 +111,7 @@ func _unhandled_input(event):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if not is_overlapping_path and is_valid:
 				is_set = true
-				for face in _path_faces.get_children():
+				for face in path_faces.get_children():
 					face.set_face()
 				self.set_modulate(Color(1, 1, 1, 1))
 		
@@ -120,7 +120,7 @@ func _unhandled_input(event):
 			self.rotate(deg2rad(90))
 			
 			# Maintain original children rotation
-			for face in _path_faces.get_children():
+			for face in path_faces.get_children():
 				face.rotate(deg2rad(-90))
 			
 			rotation_count += 1

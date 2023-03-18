@@ -20,6 +20,7 @@ var is_valid = false
 var rotation_count = 0
 
 onready var path_faces = $PathFaces
+onready var _outside_area = get_parent().get_node("OutsideArea")
 
 func _ready():
 	_calc_offsets()
@@ -104,7 +105,7 @@ func _unhandled_input(event):
 	x = clamp(x, MIN_X + (min_x_offset / 2), MAX_X - (max_x_offset / 2))
 	y = clamp(y, MIN_Y + (min_y_offset / 2), MAX_Y - (max_y_offset / 2))
 	
-	self.position = Vector2(x, y)
+	_move_path_area(Vector2(x, y))
 	
 	if event is InputEventMouseButton:
 		# Set
@@ -117,15 +118,35 @@ func _unhandled_input(event):
 		
 		# Rotate
 		if event.button_index == BUTTON_RIGHT and event.pressed:
-			self.rotate(deg2rad(90))
-			
-			# Maintain original children rotation
-			for face in path_faces.get_children():
-				face.rotate(deg2rad(-90))
-			
+			# Re-calc offsets for the nextrotation and set position to account for new offsets
 			rotation_count += 1
 			if rotation_count > 3:
 				rotation_count = 0
 			
 			_calc_offsets()
-		
+			var updated_x = stepify(mouse_pos.x, STEP)
+			var updated_y = stepify(mouse_pos.y, STEP)
+
+			updated_x = clamp(updated_x, MIN_X + (min_x_offset / 2), MAX_X - (max_x_offset / 2))
+			updated_y = clamp(updated_y, MIN_Y + (min_y_offset / 2), MAX_Y - (max_y_offset / 2))
+			
+			# Reset position only if re-calculated offsets updated position
+			if x != updated_x or y != updated_y:
+				_move_path_area(Vector2(updated_x, updated_y))
+			
+			# Rotate
+			_rotate_path_area(90)
+			
+			# Maintain original children rotation
+			for face in path_faces.get_children():
+				face.rotate(deg2rad(-90))
+
+# Need to move both self and outside area
+func _move_path_area(pos):
+	self.set_global_position(pos)
+	_outside_area.set_global_position(pos)
+
+# Need to rotate both self and outside area
+func _rotate_path_area(rot_deg):
+	self.rotate(deg2rad(rot_deg))
+	_outside_area.rotate(deg2rad(rot_deg))

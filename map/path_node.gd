@@ -48,7 +48,7 @@ func set_face():
 	_is_set = true
 	
 	randomize()
-	curr_face = _possible_faces[randi() % _possible_faces.size()]
+	curr_face = _possible_faces_full[randi() % _possible_faces_full.size()]
 	
 	_face.texture = curr_face.icon
 	

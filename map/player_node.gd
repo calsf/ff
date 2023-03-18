@@ -8,4 +8,5 @@ func _physics_process(delta):
 	if overlapping_areas:
 		for area in overlapping_areas:
 			# TODO: Detect face node
-			print_debug(area.get_collision_layer())
+			#print_debug(area.get_collision_layer())
+			pass

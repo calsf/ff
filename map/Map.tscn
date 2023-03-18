@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=2]
@@ -14,11 +14,14 @@
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=12]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=13]
 [ext_resource path="res://map/map.gd" type="Script" id=14]
+[ext_resource path="res://map/MoveNode.tscn" type="PackedScene" id=15]
 [ext_resource path="res://map/PlayerNode.tscn" type="PackedScene" id=16]
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=17]
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=18]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=19]
 [ext_resource path="res://map/set_path.gd" type="Script" id=20]
+[ext_resource path="res://map/move_options.gd" type="Script" id=21]
+[ext_resource path="res://map/move.gd" type="Script" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -481,10 +484,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 6 )]
-
-[node name="Fade" parent="CanvasLayer" instance=ExtResource( 4 )]
-
 [node name="MoveBtn" type="Button" parent="CanvasLayer"]
 anchor_left = 0.912
 anchor_top = 0.222
@@ -504,6 +503,7 @@ custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
 text = "MOVE"
+script = ExtResource( 22 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -531,6 +531,10 @@ script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 6 )]
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [node name="MapCanvas" type="CanvasLayer" parent="."]
 layer = -10
@@ -1139,3 +1143,21 @@ z_index = 1
 
 [node name="PathStart" parent="MapArea" instance=ExtResource( 8 )]
 position = Vector2( 320, 240 )
+
+[node name="MoveOptions" type="Node2D" parent="."]
+script = ExtResource( 21 )
+
+[node name="Faces" type="Node2D" parent="MoveOptions"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MoveNode" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( -40, 0 )
+
+[node name="MoveNode2" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( 40, 0 )
+
+[node name="MoveNode3" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( 0, -40 )
+
+[node name="MoveNode4" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( 0, 40 )

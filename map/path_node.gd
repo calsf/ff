@@ -54,10 +54,10 @@ func set_face():
 	
 	if curr_face.face_name == EMPTY:
 		set_face_used()
-	else:
-		# Enable collision
-		_area.monitorable = true
-		_area.monitoring = true
+	
+	# Enable collision
+	_area.monitorable = true
+	_area.monitoring = true
 
 func set_face_to(face):
 	_is_set = true
@@ -66,12 +66,10 @@ func set_face_to(face):
 	
 	if face.face_name == EMPTY:
 		set_face_used()
-	else:
-		# Enable collision
-		_area.monitorable = true
-		_area.monitoring = true
+	
+	# Enable collision
+	_area.monitorable = true
+	_area.monitoring = true
 
 func set_face_used():
 	is_used = true
-	_area.monitorable = false
-	_area.monitoring = false

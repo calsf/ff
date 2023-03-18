@@ -1,6 +1,7 @@
 extends Area2D
 
-enum {EMPTY, PATH_COLL, OUTER_COLL}
+const PATH_COLL = 1
+const OUTER_COLL = 2
 
 const STEP = 20
 const MIN_X = 20

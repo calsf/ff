@@ -5,13 +5,13 @@
 [ext_resource path="res://map/path.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 36 )
+extents = Vector2( 16, 34 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 36, 16 )
+extents = Vector2( 34, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 36, 16 )
+extents = Vector2( 34, 16 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 36, 16 )

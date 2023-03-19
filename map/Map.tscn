@@ -45,6 +45,34 @@ font_data = ExtResource( 13 )
 [node name="Map" type="Node2D"]
 script = ExtResource( 14 )
 
+[node name="MapArea" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="PlayerNode" parent="MapArea" instance=ExtResource( 16 )]
+position = Vector2( 320, 240 )
+z_index = 1
+
+[node name="PathStart" parent="MapArea" instance=ExtResource( 8 )]
+position = Vector2( 320, 240 )
+
+[node name="MoveOptions" type="Node2D" parent="."]
+script = ExtResource( 21 )
+
+[node name="Faces" type="Node2D" parent="MoveOptions"]
+scale = Vector2( 0.5, 0.5 )
+
+[node name="MoveNode" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( -40, 0 )
+
+[node name="MoveNode2" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( 40, 0 )
+
+[node name="MoveNode3" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( 0, -40 )
+
+[node name="MoveNode4" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
+position = Vector2( 0, 40 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerInfo" type="Control" parent="CanvasLayer"]
@@ -1133,31 +1161,3 @@ margin_right = 631.0
 margin_bottom = 351.0
 mouse_filter = 2
 color = Color( 0.313726, 0.427451, 0.521569, 1 )
-
-[node name="MapArea" type="Node2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="PlayerNode" parent="MapArea" instance=ExtResource( 16 )]
-position = Vector2( 320, 240 )
-z_index = 1
-
-[node name="PathStart" parent="MapArea" instance=ExtResource( 8 )]
-position = Vector2( 320, 240 )
-
-[node name="MoveOptions" type="Node2D" parent="."]
-script = ExtResource( 21 )
-
-[node name="Faces" type="Node2D" parent="MoveOptions"]
-scale = Vector2( 0.5, 0.5 )
-
-[node name="MoveNode" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
-position = Vector2( -40, 0 )
-
-[node name="MoveNode2" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
-position = Vector2( 40, 0 )
-
-[node name="MoveNode3" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
-position = Vector2( 0, -40 )
-
-[node name="MoveNode4" parent="MoveOptions/Faces" instance=ExtResource( 15 )]
-position = Vector2( 0, 40 )

@@ -7,6 +7,8 @@ onready var _anim = $AnimationPlayer
 onready var _timer = $Timer
 onready var _area = $Area2D
 
+onready var _fade = get_tree().get_root().get_node("Map/CanvasLayer/Fade")
+
 var _is_set = false
 var _possible_faces_full = [
 		PathFaceCombat.new(),
@@ -62,9 +64,11 @@ func set_face():
 func set_face_to(face):
 	_is_set = true
 	
-	_face.texture = face.icon
+	curr_face = face
 	
-	if face.face_name == EMPTY:
+	_face.texture = curr_face.icon
+	
+	if curr_face.face_name == EMPTY:
 		set_face_used()
 	
 	# Enable collision
@@ -73,3 +77,16 @@ func set_face_to(face):
 
 func set_face_used():
 	is_used = true
+
+func activate_node():
+	# If node already used/activated, ignore
+	if is_used:
+		return
+	
+	set_face_used()
+	_anim.play("use")
+	
+	# Delay before going to next scene
+	yield(get_tree().create_timer(.9), "timeout")
+
+	_fade.go_to_scene(curr_face.next_scene)

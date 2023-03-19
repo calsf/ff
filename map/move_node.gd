@@ -32,6 +32,13 @@ func check_moveable():
 		moveable = false
 		self.set_modulate(Color(1, 1, 1, 0))
 
+func get_node_target():
+	var overlapping_areas = _area.get_overlapping_areas()
+	
+	if overlapping_areas:
+		for area in overlapping_areas:
+			return area.get_parent()
+
 func _area_entered():
 	_area_entered = true
 

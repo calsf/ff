@@ -1,4 +1,5 @@
 extends Area2D
+class_name PathArea
 
 const PATH_COLL = 1
 const OUTER_COLL = 2
@@ -15,6 +16,7 @@ var min_y_offset = 0
 var max_y_offset = 0
 
 var is_set = false
+var is_disabled = false
 var is_overlapping_path = false
 var is_valid = false
 
@@ -22,6 +24,7 @@ var rotation_count = 0
 
 onready var path_faces = $PathFaces
 onready var _outside_area = get_parent().get_node("OutsideArea")
+onready var _set_path_btn = get_tree().get_root().get_node("Map/CanvasLayer/SetPathBtn")
 
 func _ready():
 	_calc_offsets()
@@ -64,7 +67,7 @@ func _calc_offsets():
 	max_y_offset = abs(max_y_offset)
 
 func _physics_process(delta):
-	if is_set:
+	if is_set or is_disabled:
 		return
 	
 	var overlapping_areas = get_overlapping_areas()
@@ -88,7 +91,7 @@ func _physics_process(delta):
 		self.set_modulate(Color(1, 1, 1, 1))
 
 func _unhandled_input(event):
-	if is_set:
+	if is_set or is_disabled:
 		return
 	
 	var mouse_pos = get_global_mouse_position()
@@ -109,6 +112,7 @@ func _unhandled_input(event):
 				for face in path_faces.get_children():
 					face.set_face()
 				self.set_modulate(Color(1, 1, 1, 1))
+				_set_path_btn.finished_set_path()
 		
 		# Rotate
 		if event.button_index == BUTTON_RIGHT and event.pressed:

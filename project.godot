@@ -274,6 +274,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://enemies/minion_02.gd"
 }, {
+"base": "Area2D",
+"class": "PathArea",
+"language": "GDScript",
+"path": "res://map/path_area.gd"
+}, {
 "base": "Reference",
 "class": "PathFace",
 "language": "GDScript",
@@ -388,6 +393,7 @@ _global_script_class_icons={
 "MinionSix": "",
 "MinionThree": "",
 "MinionTwo": "",
+"PathArea": "",
 "PathFace": "",
 "PathFaceBlessing": "",
 "PathFaceChest": "",

@@ -13,6 +13,11 @@ func activate():
 	self.set_global_position(_player_node.get_global_position())
 	self.set_modulate(Color(1, 1, 1, 1))
 
+# Deactivate move options
+func deactivate():
+	self.set_modulate(Color(1, 1, 1, 0))
+	self.set_global_position(Vector2.ZERO)
+
 func _on_moved(path_node):
 	# Move player to selected path node
 	_player_node.set_global_position(path_node.get_global_position())
@@ -28,6 +33,5 @@ func _on_moved(path_node):
 		self.set_modulate(Color(1, 1, 1, 1))
 		return
 	else:
-		self.set_modulate(Color(1, 1, 1, 0))
-		self.set_global_position(Vector2.ZERO)
+		deactivate()
 	

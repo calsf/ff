@@ -9,10 +9,11 @@ onready var _area = $Area2D
 
 onready var _fade = get_tree().get_root().get_node("Map/CanvasLayer/Fade")
 
+var boss_face = PathFaceCombatBoss.new()
+
 var _is_set = false
 var _possible_faces_full = [
 		PathFaceCombat.new(),
-		PathFaceCombatBoss.new(),
 		PathFaceChest.new(),
 		PathFaceBlessing.new(),
 		PathFaceHazard.new(),
@@ -36,6 +37,10 @@ func _process(delta):
 	# While not set, flash random face
 	if not _is_set:
 		yield(_timer, "timeout")
+		
+		# Check again after timer to avoid overwriting
+		if _is_set:
+			return
 		
 		# If faces are empty, duplicate and re-shuffle
 		if _possible_faces.empty():

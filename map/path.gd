@@ -17,3 +17,6 @@ func disable_path():
 func enable_path():
 	_path_area.is_disabled = false
 	self.visible = true
+
+func set_as_boss_path():
+	_path_area.set_as_boss_path()

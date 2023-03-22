@@ -22,6 +22,8 @@ var is_valid = false
 
 var rotation_count = 0
 
+var is_boss_path = false
+
 onready var path_faces = $PathFaces
 onready var _outside_area = get_parent().get_node("OutsideArea")
 onready var _set_path_btn = get_tree().get_root().get_node("Map/CanvasLayer/SetPathBtn")
@@ -109,8 +111,27 @@ func _unhandled_input(event):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			if not is_overlapping_path and is_valid:
 				is_set = true
-				for face in path_faces.get_children():
-					face.set_face()
+
+				if is_boss_path: # Boss path
+					var faces = path_faces.get_children()
+					
+					# Determine which face will be boss
+					randomize()
+					var index = randi() % faces.size()
+					var boss_face = faces[index]
+					
+					for face in faces:
+						# Set boss face and continue
+						if face == boss_face:
+							face.set_face_to(boss_face.boss_face)
+							continue
+						
+						# Set other faces randomly
+						face.set_face()
+				else: # Normal path, set faces randomly
+					for face in path_faces.get_children():
+						face.set_face()
+				
 				self.set_modulate(Color(1, 1, 1, 1))
 				_set_path_btn.finished_set_path()
 		
@@ -148,3 +169,6 @@ func _move_path_area(pos):
 func _rotate_path_area(rot_deg):
 	self.rotate(deg2rad(rot_deg))
 	_outside_area.rotate(deg2rad(rot_deg))
+
+func set_as_boss_path():
+	is_boss_path = true

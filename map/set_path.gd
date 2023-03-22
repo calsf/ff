@@ -18,6 +18,10 @@ func _on_pressed():
 	if next_path == null:
 		next_path = _paths_info.get_next_path_avail()
 	
+	# Check if next path should be boss path
+	if _paths_info.next_is_boss():
+		next_path.set_as_boss_path()
+	
 	# Enable next path
 	next_path.enable_path()
 	

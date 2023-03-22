@@ -13,7 +13,7 @@ var _replay = false
 var _reflect = false
 var _status_icons = []
 
-onready var _status_list = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Statuses")
+onready var _status_list = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Statuses")
 onready var _icon_replay = load("res://combat/StatusIconReplay.tscn")
 onready var _icon_charge_block = load("res://combat/StatusIconChargeBlock.tscn")
 
@@ -21,20 +21,20 @@ var extra_faces = []
 var extra_faces_target = []
 var _extra_faces_icons = []
 
-onready var _favor_num = get_tree().current_scene.get_node("CanvasLayer/Favor/FavorNum")
-onready var _block_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/Label")
-onready var _block_icon = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Block/BlockIcon")
-onready var _health_num = get_tree().current_scene.get_node("CanvasLayer/PlayerInfo/Health/Label")
-onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
-onready var _dice_bank = get_tree().current_scene.get_node("CanvasLayer/DiceBank")
-onready var _loot_screen = get_tree().current_scene.get_node("CanvasLayer/LootScreen")
+onready var _favor_num = get_tree().get_root().get_node("Combat/CanvasLayer/Favor/FavorNum")
+onready var _block_num = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Block/Label")
+onready var _block_icon = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Block/BlockIcon")
+onready var _health_num = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Health/Label")
+onready var _dice_bar = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBar")
+onready var _dice_bank = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBank")
+onready var _loot_screen = get_tree().get_root().get_node("Combat/CanvasLayer/LootScreen")
 
-onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
 
-onready var _number_popup_pool = get_tree().current_scene.get_node("CanvasLayer/NumberPopupPool")
+onready var _number_popup_pool = get_tree().get_root().get_node("Combat/CanvasLayer/NumberPopupPool")
 
 func _ready():
-	enemies = get_tree().current_scene.get_node("CanvasLayer/Enemies").get_children()
+	enemies = get_tree().get_root().get_node("Combat/CanvasLayer/Enemies").get_children()
 	_favor_num.text = str(favor)
 	reset_player_block()
 	

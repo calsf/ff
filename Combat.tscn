@@ -1,4 +1,4 @@
-[gd_scene load_steps=172 format=2]
+[gd_scene load_steps=167 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -139,8 +139,7 @@
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=137]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
-[ext_resource path="res://loot/loot_bg.png" type="Texture" id=140]
-[ext_resource path="res://loot/loot.gd" type="Script" id=142]
+[ext_resource path="res://loot/LootScreen.tscn" type="PackedScene" id=140]
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
 [ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=146]
@@ -964,80 +963,12 @@ outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
 [sub_resource type="DynamicFont" id=21]
-size = 12
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-extra_spacing_char = 2
-font_data = ExtResource( 138 )
-
-[sub_resource type="DynamicFont" id=22]
-size = 12
-outline_size = 1
-outline_color = Color( 0, 0, 0, 0.431373 )
-font_data = ExtResource( 139 )
-
-[sub_resource type="Animation" id=23]
-resource_name = "close"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MouseBlocker:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="Animation" id=24]
-length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("MouseBlocker:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ true, false ]
-}
-
-[sub_resource type="DynamicFont" id=25]
 size = 6
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Combat" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1825,98 +1756,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LootScreen" type="Control" parent="CanvasLayer"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -192.0
-margin_top = -76.0
-margin_right = 192.0
-margin_bottom = 92.0
-rect_scale = Vector2( 1, 1e-05 )
-rect_pivot_offset = Vector2( 192, 93 )
-mouse_filter = 2
-script = ExtResource( 142 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="BG" type="NinePatchRect" parent="CanvasLayer/LootScreen"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -112.0
-margin_top = -95.0
-margin_right = 112.0
-margin_bottom = 64.0
-texture = ExtResource( 140 )
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 24
-patch_margin_bottom = 24
-
-[node name="Loot" type="VBoxContainer" parent="CanvasLayer/LootScreen"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -94.0
-margin_top = -70.0
-margin_right = 94.0
-margin_bottom = 64.0
-size_flags_horizontal = 0
-custom_constants/separation = 0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="CanvasLayer/LootScreen"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -20.0
-margin_top = -8.0
-margin_right = 20.0
-margin_bottom = 13.0
-custom_fonts/font = SubResource( 21 )
-text = "LOOT"
-align = 1
-
-[node name="SkipBtn" type="Button" parent="CanvasLayer/LootScreen"]
-anchor_left = 0.812
-anchor_top = 0.714
-anchor_right = 0.99
-anchor_bottom = 0.887
-margin_left = 0.191986
-margin_top = 0.0479889
-margin_right = -0.160034
-margin_bottom = -0.0160065
-focus_mode = 0
-custom_styles/hover = ExtResource( 130 )
-custom_styles/pressed = ExtResource( 131 )
-custom_styles/disabled = ExtResource( 137 )
-custom_styles/normal = ExtResource( 137 )
-custom_fonts/font = SubResource( 22 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-enabled_focus_mode = 0
-text = "SKIP LOOT"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="MouseBlocker" type="Control" parent="CanvasLayer/LootScreen"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/LootScreen"]
-anims/close = SubResource( 23 )
-anims/open = SubResource( 24 )
+[node name="LootScreen" parent="CanvasLayer" instance=ExtResource( 140 )]
 
 [node name="DiceBankSelection" type="Control" parent="CanvasLayer"]
 visible = false
@@ -2387,7 +2227,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SELECT DIE"
@@ -2422,7 +2262,7 @@ anchor_right = 1.0
 anchor_bottom = 0.937
 margin_top = 4.0
 margin_bottom = 0.00799942
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "REMOVE DIE"

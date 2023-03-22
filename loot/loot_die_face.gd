@@ -3,8 +3,8 @@ class_name LootDieFace
 
 var loot_face = null
 
-onready var _die_face_info = get_tree().current_scene.get_node("CanvasLayer/DieFaceInfo")
-onready var _dice_face_selection = get_tree().current_scene.get_node("CanvasLayer/DiceFaceSelection")
+onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
+onready var _dice_face_selection = get_tree().get_root().get_node("Combat/CanvasLayer/DiceFaceSelection")
 
 func _ready():
 	loot_face = LootFaceRandomizer.get_random_face()

@@ -4,8 +4,8 @@ var selected_die_index = null
 
 onready var _btn_cancel = $ButtonCancel
 
-onready var _action_options = get_tree().current_scene.get_node("CanvasLayer/ActionOptions")
-onready var _enemies = get_tree().current_scene.get_node("CanvasLayer/Enemies")
+onready var _action_options = get_tree().get_root().get_node("Combat/CanvasLayer/ActionOptions")
+onready var _enemies = get_tree().get_root().get_node("Combat/CanvasLayer/Enemies")
 
 func _ready():
 	_btn_cancel.connect("pressed", self, "_on_cancel")

@@ -7,8 +7,8 @@ onready var _btn_discard = $HBoxContainer/ButtonDiscard
 onready var _btn_reroll = $HBoxContainer/ButtonReroll
 onready var _btn_cancel = $HBoxContainer/ButtonCancel
 
-onready var _dice_bar = get_tree().current_scene.get_node("CanvasLayer/DiceBar")
-onready var _target_selection = get_tree().current_scene.get_node("CanvasLayer/TargetSelection")
+onready var _dice_bar = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBar")
+onready var _target_selection = get_tree().get_root().get_node("Combat/CanvasLayer/TargetSelection")
 
 func _ready():
 	_btn_set.connect("pressed", self, "_on_set")

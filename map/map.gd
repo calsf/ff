@@ -36,7 +36,7 @@ func reset_map():
 	_map_fade_anim.play("FadeInAndOut")
 	
 	# Wait amount of time until fade fills map area, then reset behind the scenes
-	yield(get_tree().create_timer(.5), "timeout")
+	yield(get_tree().create_timer(.6), "timeout")
 	
 	# Re-initialize map
 	_map_area.initialize_start()

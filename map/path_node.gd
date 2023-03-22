@@ -97,5 +97,6 @@ func activate_node():
 	_fade.go_to_scene(curr_face.next_scene)
 
 func reset_node():
+	_anim.play("init")
 	_is_set = false
 	is_used = false

@@ -3,8 +3,14 @@ extends Node2D
 const START_FACE_COUNT = 3
 
 onready var _path_start = $PathStart
+onready var _player = $PlayerNode
 
 func _ready():
+	initialize_start()
+
+func initialize_start():
+	_player.set_global_position(_path_start.get_global_position())
+	
 	var combat = PathFaceCombat.new()
 	var empty = PathFaceEmpty.new()
 	var path_faces = _path_start.get_path_faces()
@@ -19,6 +25,9 @@ func _ready():
 	
 	var set_count = 0
 	for face in path_faces:
+		# Reset node
+		face.reset_node()
+		
 		if set_count < START_FACE_COUNT:
 			face.set_face_to(combat)
 			set_count += 1

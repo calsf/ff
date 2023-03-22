@@ -95,3 +95,7 @@ func activate_node():
 	yield(get_tree().create_timer(.9), "timeout")
 
 	_fade.go_to_scene(curr_face.next_scene)
+
+func reset_node():
+	_is_set = false
+	is_used = false

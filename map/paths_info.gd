@@ -80,3 +80,8 @@ func _on_paths_entered():
 
 func _on_paths_exited():
 	_die_face_info.visible = false
+
+func reset_paths():
+	_paths_avail.clear()
+	_paths_used = 0
+	update_paths_label()

@@ -265,6 +265,7 @@ func add_strengthen(val):
 	
 	# Update strengthen amount
 	_strengthen_icon.set_status_info("Add " + str(_strengthen_amount) + " damage to all damage sources for this combat.")
+	_strengthen_icon.set_num_value_text(str(_strengthen_amount))
 
 func update_player_status_icons():
 	if _dodge:

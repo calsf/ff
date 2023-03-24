@@ -200,6 +200,9 @@ func _on_roll_pressed():
 			var num_value = die.curr_face.num_value
 			face_node.set_face(die.curr_face.icon, num_value)
 			
+			# To reset face node properties
+			face_node.play_anim("idle")
+			
 	has_rolled_once = true
 	_check_can_roll()
 	

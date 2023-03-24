@@ -11,7 +11,10 @@ func _init(value=0):
 	require_target = false
 
 func on_play(combat, target, parent_die=0):
+	# Apply any strengthen amount first
+	var val = num_value + combat.get_strengthen_amount()
+	
 	for enemy in combat.enemies:
-		enemy.deal_blockable_damage(num_value, combat)
+		enemy.deal_blockable_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")
 

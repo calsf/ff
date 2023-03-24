@@ -102,9 +102,6 @@ func add_health(amount):
 
 # Deal blockable damage, damages block first
 func deal_blockable_damage(amount, combat):
-	# First apply strengthen amount
-	amount += combat.get_strengthen_amount()
-	
 	if block >= amount:
 		remove_block(amount, combat)
 		
@@ -121,9 +118,6 @@ func deal_blockable_damage(amount, combat):
 
 # Deal direct damage, subtract amount from health
 func deal_direct_damage(amount, combat, undodgable=false):
-	# First apply strengthen amount
-	amount += combat.get_strengthen_amount()
-	
 	if _dodge and not undodgable:
 		amount = 0
 	

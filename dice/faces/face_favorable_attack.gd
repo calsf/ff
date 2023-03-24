@@ -13,5 +13,12 @@ func _init(value=0):
 func on_play(combat, target, parent_die=0):
 	var num = combat.favor
 	combat.remove_favor(num)
-	target.deal_blockable_damage(num * 2, combat)
+	
+	# Apply double damage first
+	var val = num * 2
+	
+	# Apply any strengthen amount after
+	val += combat.get_strengthen_amount()
+	
+	target.deal_blockable_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")

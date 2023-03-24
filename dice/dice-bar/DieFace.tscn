@@ -11,7 +11,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "discard"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Face:rect_scale")
@@ -74,8 +74,7 @@ tracks/4/keys = {
 "values": [ Vector2( 16, 6.4 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -200,8 +199,7 @@ tracks/4/keys = {
 "values": [ ExtResource( 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "selected"
+[sub_resource type="Animation" id=5]
 loop = true
 step = 0.05
 tracks/0/type = "value"
@@ -221,6 +219,7 @@ tracks/0/keys = {
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0
+rect_scale = Vector2( 1.1, 1.1 )
 rect_pivot_offset = Vector2( 32, 32 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
@@ -253,7 +252,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/discard = SubResource( 5 )
-anims/idle = SubResource( 2 )
+anims/discard = SubResource( 2 )
+anims/idle = SubResource( 3 )
 anims/play = SubResource( 4 )
-anims/selected = SubResource( 3 )
+anims/selected = SubResource( 5 )

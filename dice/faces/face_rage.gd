@@ -12,5 +12,9 @@ func _init(value=0):
 
 func on_play(combat, target, parent_die=0):
 	var num = (PlayerHealth.MAX_HP - PlayerHealth.curr_hp) / 2
-	target.deal_blockable_damage(num, combat)
+	
+	# Apply any strengthen amount after
+	var val = num + combat.get_strengthen_amount()
+	
+	target.deal_blockable_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")

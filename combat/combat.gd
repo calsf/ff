@@ -6,6 +6,7 @@ var turn = 0
 var enemies = []
 var enemy_fled = false
 var combat_ended = false
+var enemy_replay = false
 
 # Face statuses
 var _dodge = false
@@ -175,14 +176,18 @@ func player_turn_finished():
 	enemy_turn_finished()
 
 func enemy_turn_finished():
-	_dice_bar.reset_dice_bar()
-	
 	reset_player_block()
 	
 	# Reset face statuses
 	reset_statuses()
 	
 	turn += 1
+	
+	if enemy_replay:	# Repeat enemy turn and reset enemy_replay
+		enemy_replay = false
+		player_turn_finished()
+	else: # Reset turn normally
+		_dice_bar.reset_dice_bar()
 
 func enemy_death_check():
 	var all_dead = true
@@ -320,3 +325,9 @@ func reload_dice():
 # To apply to damage on enemies
 func get_strengthen_amount():
 	return _strengthen_amount
+
+func set_enemy_replay(val):
+	enemy_replay = val
+	
+func enemy_exhaust_face():
+	_dice_bank.exhaust_dice();

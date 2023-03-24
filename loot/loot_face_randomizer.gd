@@ -23,11 +23,16 @@ var rare_face_pool = [
 	FaceReplay.new(),
 	FaceUnload.new(),
 	FaceReload.new(),
+	FaceAttackPerfect.new(5),
+	FaceCheapFavor.new(3),
+	FaceStrengthen.new(3)
 ]
 
 var legendary_face_pool = [
 	FaceRage.new(),
-	FaceSacrifice.new()
+	FaceSacrifice.new(),
+	FaceGuardian.new(),
+	FaceFavorableAttack.new()
 ]
 
 var face_pools = [

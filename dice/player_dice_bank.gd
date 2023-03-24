@@ -101,3 +101,12 @@ func get_owned_dice():
 		if not dice[i].is_empty:
 			num += 1
 	return num
+
+# Returns a list of indices where die slot is not empty
+func get_owned_dice_slots():
+	var slots = []
+	for i in range(dice.size()):
+		if not dice[i].is_empty:
+			slots.append(i)
+	return slots
+	

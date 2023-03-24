@@ -89,6 +89,27 @@ func reset_dice_bank():
 		_die_selected_overlay(i)
 		die_used_overlay(i, false)
 
+# For enemy exhaust face
+func exhaust_dice():
+	# Reset all die
+	reset_dice_bank()
+	
+	# Get list of indices for owned die
+	var slots = PlayerDiceBank.get_owned_dice_slots()
+	
+	# Randomly pick 1 unexhausted die slot
+	randomize()
+	var unexhausted_slot = randi() % slots.size()
+	
+	# Exhaust/use all other die
+	for i in slots:
+		if i == unexhausted_slot:
+			continue
+		
+		_die_selected_overlay(i)
+		die_used_overlay(i, true)
+
+
 # Check if all dice in dice bank has been used or not
 func all_dice_used():
 	# If any die has not been used and is not an empty die, return false

@@ -14,6 +14,7 @@ func _ready():
 	reset_block()
 
 	intents = [
+		EnemyFaceExhaust.new(0, self),
 		EnemyFaceAttack.new(5, self),
 		EnemyFaceBlock.new(5, self),
 	]

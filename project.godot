@@ -165,6 +165,11 @@ _global_script_classes=[ {
 "path": "res://dice/faces/face_charge_block.gd"
 }, {
 "base": "DieFace",
+"class": "FaceCheapFavor",
+"language": "GDScript",
+"path": "res://dice/faces/face_cheap_favor.gd"
+}, {
+"base": "DieFace",
 "class": "FaceDodge",
 "language": "GDScript",
 "path": "res://dice/faces/face_dodge.gd"
@@ -178,6 +183,16 @@ _global_script_classes=[ {
 "class": "FaceEmpty",
 "language": "GDScript",
 "path": "res://dice/faces/face_empty.gd"
+}, {
+"base": "DieFace",
+"class": "FaceFavorableAttack",
+"language": "GDScript",
+"path": "res://dice/faces/face_favorable_attack.gd"
+}, {
+"base": "DieFace",
+"class": "FaceGuardian",
+"language": "GDScript",
+"path": "res://dice/faces/face_guardian.gd"
 }, {
 "base": "DieFace",
 "class": "FaceHeal",
@@ -213,6 +228,11 @@ _global_script_classes=[ {
 "class": "FaceScramble",
 "language": "GDScript",
 "path": "res://dice/faces/face_scramble.gd"
+}, {
+"base": "DieFace",
+"class": "FaceStrengthen",
+"language": "GDScript",
+"path": "res://dice/faces/face_strengthen.gd"
 }, {
 "base": "DieFace",
 "class": "FaceUnload",
@@ -327,12 +347,17 @@ _global_script_classes=[ {
 "base": "StatusIcon",
 "class": "StatusIconChargeAttack",
 "language": "GDScript",
-"path": "res://combat/status_icon_charge_attack.gd"
+"path": "res://combat/status_icon_strengthen.gd"
 }, {
 "base": "StatusIcon",
 "class": "StatusIconChargeBlock",
 "language": "GDScript",
 "path": "res://combat/status_icon_charge_block.gd"
+}, {
+"base": "StatusIcon",
+"class": "StatusIconGuardian",
+"language": "GDScript",
+"path": "res://combat/status_icon_guardian.gd"
 }, {
 "base": "StatusIcon",
 "class": "StatusIconReplay",
@@ -371,9 +396,12 @@ _global_script_class_icons={
 "FaceBlockReflect": "",
 "FaceChargeAttack": "",
 "FaceChargeBlock": "",
+"FaceCheapFavor": "",
 "FaceDodge": "",
 "FaceDrain": "",
 "FaceEmpty": "",
+"FaceFavorableAttack": "",
+"FaceGuardian": "",
 "FaceHeal": "",
 "FaceMultiAttack": "",
 "FaceRage": "",
@@ -381,6 +409,7 @@ _global_script_class_icons={
 "FaceReplay": "",
 "FaceSacrifice": "",
 "FaceScramble": "",
+"FaceStrengthen": "",
 "FaceUnload": "",
 "LootDie": "",
 "LootDieFace": "",
@@ -405,6 +434,7 @@ _global_script_class_icons={
 "StatusIcon": "",
 "StatusIconChargeAttack": "",
 "StatusIconChargeBlock": "",
+"StatusIconGuardian": "",
 "StatusIconReplay": ""
 }
 

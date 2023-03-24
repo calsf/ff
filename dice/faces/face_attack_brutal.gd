@@ -11,5 +11,5 @@ func _init(value=0):
 	require_target = true
 
 func on_play(combat, target, parent_die=0):
-	target.deal_direct_damage(num_value)
+	target.deal_direct_damage(num_value, combat)
 	yield(combat.get_tree(), "idle_frame")

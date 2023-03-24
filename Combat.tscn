@@ -1757,6 +1757,7 @@ __meta__ = {
 }
 
 [node name="LootScreen" parent="CanvasLayer" instance=ExtResource( 140 )]
+visible = false
 
 [node name="DiceBankSelection" type="Control" parent="CanvasLayer"]
 visible = false

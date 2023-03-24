@@ -38,6 +38,10 @@ func _init():
 	var sacrifice = FaceSacrifice.new()
 	var rage = FaceRage.new()
 	var attack_perfect = FaceAttackPerfect.new(5)
+	var cheap_favor = FaceCheapFavor.new(3)
+	var favorable_attack = FaceFavorableAttack.new()
+	var guardian = FaceGuardian.new()
+	var strengthen = FaceStrengthen.new(5)
 	
 	# Start with 6 die
 	dice.append(Die.new(number_icon_paths[0], [attack, attack, attack, block, block, block]))
@@ -49,7 +53,7 @@ func _init():
 	
 	# TEMP TESTING
 	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, dodge]))
-	dice.append(Die.new(number_icon_paths[7], [attack_charge,attack_charge,attack_charge,block_charge,block_charge,block_charge]))
+	dice.append(Die.new(number_icon_paths[7], [guardian,guardian,guardian,strengthen,strengthen,strengthen]))
 	dice.append(Die.new(number_icon_paths[8], [block_reflect, block_reflect, block_reflect, block_charge, block_charge, block_charge]))
 	dice.append(Die.new(number_icon_paths[9], [attack_perfect, attack_perfect,attack_perfect,dodge,dodge,dodge]))
 	

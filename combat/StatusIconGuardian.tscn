@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://combat/guardian-icon.png" type="Texture" id=1]
+[ext_resource path="res://combat/status_icon_guardian.gd" type="Script" id=2]
+
+[node name="StatusGuardian" type="TextureRect"]
+margin_left = 72.0
+margin_right = 104.0
+margin_bottom = 32.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

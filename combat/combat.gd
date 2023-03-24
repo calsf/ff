@@ -11,11 +11,16 @@ var combat_ended = false
 var _dodge = false
 var _replay = false
 var _reflect = false
+var _guardian = false
+var _guardian_icon = null # To reference the instanced icon node
+var _strengthen_amount = 0
+var _strengthen_icon = null	# To reference the instanced icon node
 var _status_icons = []
 
 onready var _status_list = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Statuses")
 onready var _icon_replay = load("res://combat/StatusIconReplay.tscn")
-onready var _icon_charge_block = load("res://combat/StatusIconChargeBlock.tscn")
+onready var _icon_guardian = load("res://combat/StatusIconGuardian.tscn")
+onready var _icon_strengthen = load("res://combat/StatusIconStrengthen.tscn")
 
 var extra_faces = []
 var extra_faces_target = []
@@ -41,6 +46,8 @@ func _ready():
 	PlayerHealth.connect("health_updated", self, "_on_health_updated")
 	_block_icon.connect("mouse_entered", self, "_on_block_icon_entered")
 	_block_icon.connect("mouse_exited", self, "_on_block_icon_exited")
+	
+	_on_health_updated()
 
 func _on_health_updated():
 	_health_num.text = str(PlayerHealth.curr_hp)
@@ -70,6 +77,13 @@ func deal_blockable_player_damage(amount, attacker=null):
 # Deal direct damage, subtract amount from health
 func deal_direct_player_damage(amount, undodgable=false):
 	if _dodge and not undodgable:
+		amount = 0
+	
+	# If guardian and hit will be fatal, use guardian
+	if _guardian and amount >= PlayerHealth.curr_hp:
+		_guardian = false
+		_guardian_icon.queue_free()
+		
 		amount = 0
 	
 	PlayerHealth.lose_health(amount)
@@ -210,8 +224,11 @@ func set_dodge(val):
 	update_player_status_icons()
 
 func set_replay(val):
+	# If already set, do not reset to avoid dupe icons
+	if _replay == val:
+		return
+	
 	_replay = val
-	update_player_status_icons()
 	
 	var icon = _icon_replay.instance()
 	_status_list.add_child(icon)
@@ -220,6 +237,29 @@ func set_replay(val):
 func set_reflect(val):
 	_reflect = val
 	update_player_status_icons()
+
+func set_guardian(val):
+	# If already set, do not reset to avoid dupe icons
+	if _guardian == val:
+		return
+	
+	_guardian = val
+	
+	_guardian_icon = _icon_guardian.instance()
+	_status_list.add_child(_guardian_icon)
+	# Do not add to _status_icon list, should not be cleared after turn
+
+func add_strengthen(val):
+	# Only add icon on first strengthen
+	if _strengthen_amount == 0 and val > 0:
+		_strengthen_icon = _icon_strengthen.instance()
+		_status_list.add_child(_strengthen_icon)
+		# Do not add to _status_icon list, should not be cleared after turn
+	
+	_strengthen_amount += 5
+	
+	# Update strengthen amount
+	_strengthen_icon.set_status_info("Add " + str(_strengthen_amount) + " damage to all damage sources for this combat.")
 
 func update_player_status_icons():
 	if _dodge:
@@ -276,3 +316,7 @@ func clear_extra_faces():
 # For RELOAD face
 func reload_dice():
 	_dice_bank.reset_dice_bank()
+
+# To apply to damage on enemies
+func get_strengthen_amount():
+	return _strengthen_amount

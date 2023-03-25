@@ -3,7 +3,7 @@ extends ColorRect
 # Number of nodes that should persist in root tree
 # Includes autoloaded nodes
 # Should free all objects after (free root_nodes[PERSISTENT_NODES + 1] and onwards)
-const PERSISTENT_NODES = 3
+const PERSISTENT_NODES = 4
 const MAP_SCENE_NAME = "Map"
 const MAP_SCENE_PATH = "res://map/Map.tscn"
 

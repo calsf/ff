@@ -8,7 +8,7 @@ var flee_intents = [
 var flee_intent_count = 0
 
 func _ready():
-	max_health = 6
+	set_max_health(6)
 	
 	set_health(max_health)
 	reset_block()

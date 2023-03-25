@@ -3,9 +3,9 @@ class_name LootDie
 
 var die = null
 
-onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
 
-onready var _loot = get_tree().get_root().get_node("Combat/CanvasLayer/LootScreen")
+onready var _loot = get_tree().get_root().get_node("Encounter/CanvasLayer/LootScreen")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -97,7 +97,10 @@ func _on_face_num_entered(face_node):
 func _on_die_pressed(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
-			PlayerDiceBank.add_die(die)
+			var added = PlayerDiceBank.add_die(die)
 			
-			_on_face_exited()
-			_loot.remove_loot(self)
+			if added:
+				_on_face_exited()
+				_loot.remove_loot(self)
+			else:
+				return

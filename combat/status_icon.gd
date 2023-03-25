@@ -4,7 +4,7 @@ class_name StatusIcon
 var status_name : String
 var status_info : String
 
-onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
 
 func _ready():
 	_init_info()

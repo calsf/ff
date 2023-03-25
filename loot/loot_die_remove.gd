@@ -1,8 +1,8 @@
 extends HBoxContainer
 class_name LootDieRemove
 
-onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
-onready var _dice_bank_selection = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBankSelection")
+onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
+onready var _dice_bank_selection = get_tree().get_root().get_node("Encounter/CanvasLayer/DiceBankSelection")
 
 func _ready():
 	self.connect("gui_input", self, "_on_die_pressed")

@@ -3,6 +3,7 @@ class_name Enemy
 
 var enemy_num : int
 var max_health : int
+var health_scaling = 1
 var health : int
 var block : int
 var intents = []
@@ -23,13 +24,20 @@ onready var _intent_anim = $IntentAnimPlayer
 onready var _enemy_anim = $EnemyAnimPlayer
 onready var _target_btn = $TargetButton
 
-onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
 
-onready var _number_popup_pool = get_tree().get_root().get_node("Combat/CanvasLayer/NumberPopupPool")
+onready var _number_popup_pool = get_tree().get_root().get_node("Encounter/CanvasLayer/NumberPopupPool")
 
 func _ready():
 	_block_icon.connect("mouse_entered", self, "_on_block_icon_entered")
 	_block_icon.connect("mouse_exited", self, "_on_block_icon_exited")
+
+# Called before added to scene to set values
+func init_enemy(h_s):
+	health_scaling = h_s
+
+func set_max_health(val):
+	max_health = val * health_scaling
 
 # Set next intent
 func set_next_intent():

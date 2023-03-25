@@ -4,7 +4,7 @@ class_name MinionFive
 var curr_intent = 0
 
 func _ready():
-	max_health = 40
+	set_max_health(40)
 	
 	set_health(max_health)
 	reset_block()

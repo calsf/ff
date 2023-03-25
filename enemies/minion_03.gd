@@ -2,7 +2,7 @@ extends Enemy
 class_name MinionThree
 
 func _ready():
-	max_health = 5
+	set_max_health(5)
 	
 	set_health(max_health)
 	reset_block()

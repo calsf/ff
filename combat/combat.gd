@@ -18,7 +18,7 @@ var _strengthen_amount = 0
 var _strengthen_icon = null	# To reference the instanced icon node
 var _status_icons = []
 
-onready var _status_list = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Statuses")
+onready var _status_list = get_tree().get_root().get_node("Encounter/CanvasLayer/PlayerInfo/Statuses")
 onready var _icon_replay = load("res://combat/StatusIconReplay.tscn")
 onready var _icon_guardian = load("res://combat/StatusIconGuardian.tscn")
 onready var _icon_strengthen = load("res://combat/StatusIconStrengthen.tscn")
@@ -27,20 +27,20 @@ var extra_faces = []
 var extra_faces_target = []
 var _extra_faces_icons = []
 
-onready var _favor_num = get_tree().get_root().get_node("Combat/CanvasLayer/Favor/FavorNum")
-onready var _block_num = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Block/Label")
-onready var _block_icon = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Block/BlockIcon")
-onready var _health_num = get_tree().get_root().get_node("Combat/CanvasLayer/PlayerInfo/Health/Label")
-onready var _dice_bar = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBar")
-onready var _dice_bank = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBank")
-onready var _loot_screen = get_tree().get_root().get_node("Combat/CanvasLayer/LootScreen")
+onready var _favor_num = get_tree().get_root().get_node("Encounter/CanvasLayer/Favor/FavorNum")
+onready var _block_num = get_tree().get_root().get_node("Encounter/CanvasLayer/PlayerInfo/Block/Label")
+onready var _block_icon = get_tree().get_root().get_node("Encounter/CanvasLayer/PlayerInfo/Block/BlockIcon")
+onready var _health_num = get_tree().get_root().get_node("Encounter/CanvasLayer/PlayerInfo/Health/Label")
+onready var _dice_bar = get_tree().get_root().get_node("Encounter/CanvasLayer/DiceBar")
+onready var _dice_bank = get_tree().get_root().get_node("Encounter/CanvasLayer/DiceBank")
+onready var _loot_screen = get_tree().get_root().get_node("Encounter/CanvasLayer/LootScreen")
 
-onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
+onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
 
-onready var _number_popup_pool = get_tree().get_root().get_node("Combat/CanvasLayer/NumberPopupPool")
+onready var _number_popup_pool = get_tree().get_root().get_node("Encounter/CanvasLayer/NumberPopupPool")
 
 func _ready():
-	enemies = get_tree().get_root().get_node("Combat/CanvasLayer/Enemies").get_children()
+	enemies = get_tree().get_root().get_node("Encounter/CanvasLayer/Enemies").get_children()
 	_favor_num.text = str(favor)
 	reset_player_block()
 	
@@ -100,7 +100,7 @@ func add_favor(amount):
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("fff000"), _favor_num)
 
 func remove_favor(amount):
-	favor -= amount
+	favor = max(favor - amount, 0) # Cannot go below 0 favor
 	_favor_num.text = str(favor)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _favor_num)
@@ -261,7 +261,7 @@ func add_strengthen(val):
 		_status_list.add_child(_strengthen_icon)
 		# Do not add to _status_icon list, should not be cleared after turn
 	
-	_strengthen_amount += 5
+	_strengthen_amount += val
 	
 	# Update strengthen amount
 	_strengthen_icon.set_status_info("Add " + str(_strengthen_amount) + " damage to all damage sources for this combat.")

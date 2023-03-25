@@ -362,7 +362,7 @@ _global_script_classes=[ {
 "base": "StatusIcon",
 "class": "StatusIconChargeAttack",
 "language": "GDScript",
-"path": "res://combat/status_icon_strengthen.gd"
+"path": "res://combat/status_icon_charge_attack.gd"
 }, {
 "base": "StatusIcon",
 "class": "StatusIconChargeBlock",
@@ -378,6 +378,11 @@ _global_script_classes=[ {
 "class": "StatusIconReplay",
 "language": "GDScript",
 "path": "res://combat/status_icon_replay.gd"
+}, {
+"base": "StatusIcon",
+"class": "StatusIconStrengthen",
+"language": "GDScript",
+"path": "res://combat/status_icon_strengthen.gd"
 } ]
 _global_script_class_icons={
 "Die": "",
@@ -453,7 +458,8 @@ _global_script_class_icons={
 "StatusIconChargeAttack": "",
 "StatusIconChargeBlock": "",
 "StatusIconGuardian": "",
-"StatusIconReplay": ""
+"StatusIconReplay": "",
+"StatusIconStrengthen": ""
 }
 
 [application]

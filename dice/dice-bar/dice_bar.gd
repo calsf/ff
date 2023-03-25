@@ -13,15 +13,15 @@ onready var _die_faces = $DiceFaces
 onready var _die_action_labels = $DiceFaceActions
 onready var _die_anim_players = $DieAnimationPlayers
 
-onready var _roll_btn = get_tree().get_root().get_node("Combat/CanvasLayer/RollBtn")
-onready var _play_btn = get_tree().get_root().get_node("Combat/CanvasLayer/PlayBtn")
-onready var _reroll_btn = get_tree().get_root().get_node("Combat/CanvasLayer/RerollBtn")
-onready var _dice_bank = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBank")
-onready var _die_face_info = get_tree().get_root().get_node("Combat/CanvasLayer/DieFaceInfo")
-onready var _action_options = get_tree().get_root().get_node("Combat/CanvasLayer/ActionOptions")
-onready var _reroll_action_btn = get_tree().get_root().get_node("Combat/CanvasLayer/ActionOptions/HBoxContainer/ButtonReroll")
+onready var _roll_btn = get_tree().get_root().get_node("Encounter/CanvasLayer/RollBtn")
+onready var _play_btn = get_tree().get_root().get_node("Encounter/CanvasLayer/PlayBtn")
+onready var _reroll_btn = get_tree().get_root().get_node("Encounter/CanvasLayer/RerollBtn")
+onready var _dice_bank = get_tree().get_root().get_node("Encounter/CanvasLayer/DiceBank")
+onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
+onready var _action_options = get_tree().get_root().get_node("Encounter/CanvasLayer/ActionOptions")
+onready var _reroll_action_btn = get_tree().get_root().get_node("Encounter/CanvasLayer/ActionOptions/HBoxContainer/ButtonReroll")
 
-onready var _combat = get_tree().get_root().get_node("Combat/CanvasLayer/Combat")
+onready var _combat = get_tree().get_root().get_node("Encounter/CanvasLayer/Combat")
 
 func _ready():
 	_roll_btn.connect("pressed", self, "_on_roll_pressed")

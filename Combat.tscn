@@ -132,7 +132,6 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=130]
 [ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=131]
 [ext_resource path="res://combat/target_selection.gd" type="Script" id=132]
-[ext_resource path="res://enemies/Minion07.tscn" type="PackedScene" id=133]
 [ext_resource path="res://combat/background-01.png" type="Texture" id=134]
 [ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=135]
 [ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=136]
@@ -140,6 +139,7 @@
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=138]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
 [ext_resource path="res://loot/LootScreen.tscn" type="PackedScene" id=140]
+[ext_resource path="res://combat/enemies.gd" type="Script" id=141]
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
 [ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=146]
@@ -968,7 +968,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 138 )
 
-[node name="Combat" type="Node2D"]
+[node name="Encounter" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -1743,13 +1743,10 @@ margin_top = -12.12
 margin_bottom = -9.96002
 custom_constants/separation = 64
 alignment = 1
+script = ExtResource( 141 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Minion07" parent="CanvasLayer/Enemies" instance=ExtResource( 133 )]
-margin_left = 224.0
-margin_right = 288.0
 
 [node name="Combat" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
@@ -2316,3 +2313,4 @@ __meta__ = {
 [node name="Number12" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 122 )]
+visible = false

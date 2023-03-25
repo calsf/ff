@@ -4,8 +4,8 @@ var original_loot = null
 
 onready var _btn_cancel = $ButtonCancel
 
-onready var _dice_bank = get_tree().get_root().get_node("Combat/CanvasLayer/DiceBank")
-onready var _loot = get_tree().get_root().get_node("Combat/CanvasLayer/LootScreen")
+onready var _dice_bank = get_tree().get_root().get_node("Encounter/CanvasLayer/DiceBank")
+onready var _loot = get_tree().get_root().get_node("Encounter/CanvasLayer/LootScreen")
 
 func _ready():
 	_btn_cancel.connect("pressed", self, "_on_cancel")

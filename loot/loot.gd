@@ -12,7 +12,8 @@ onready var _anim = $AnimationPlayer
 onready var _loot = $Loot
 onready var _loot_count = 0
 
-onready var _fade = get_tree().get_root().get_node("Combat/CanvasLayer/Fade")
+onready var _paths_info = get_tree().get_root().get_node("Map/CanvasLayer/PathsInfo")
+onready var _fade = get_tree().get_root().get_node("Encounter/CanvasLayer/Fade")
 
 func _ready():
 	_skip_btn.connect("pressed", self, "_on_skip_loot")
@@ -30,6 +31,9 @@ func _on_skip_loot():
 	
 	yield(_anim, "animation_finished")
 	self.visible = false
+	
+	# On loot skip/finish, combat has been cleared, add a new path
+	_paths_info.add_paths_avail()
 	
 	yield(get_tree().create_timer(.6), "timeout")
 	_fade.go_to_scene("res://map/Map.tscn")

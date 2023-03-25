@@ -2,7 +2,7 @@ extends Enemy
 class_name MinionEight
 
 func _ready():
-	max_health = 25
+	set_max_health(25)
 	
 	set_health(max_health)
 	reset_block()

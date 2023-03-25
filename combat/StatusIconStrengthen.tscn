@@ -15,14 +15,11 @@ margin_right = 104.0
 margin_bottom = 32.0
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="NumValue" type="Label" parent="."]
-anchor_top = -0.5
+[node name="StrengthenNumValue" type="Label" parent="."]
+anchor_top = -0.375
 anchor_right = 0.5
-anchor_bottom = 0.375
+anchor_bottom = 0.5
 margin_bottom = -9.53674e-07
 custom_fonts/font = SubResource( 1 )
 text = "99"

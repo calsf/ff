@@ -1,7 +1,7 @@
 extends StatusIcon
-class_name StatusIconChargeAttack
+class_name StatusIconStrengthen
 
-onready var _num_value = $NumValue
+onready var _num_value = $StrengthenNumValue
 
 func _init_info():
 	status_name = "STRENGTHEN"

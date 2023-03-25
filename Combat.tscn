@@ -1341,11 +1341,10 @@ __meta__ = {
 [node name="Statuses" type="HBoxContainer" parent="CanvasLayer/PlayerInfo"]
 anchor_top = -0.354
 anchor_right = 9.6
-anchor_bottom = -0.021
+anchor_bottom = 0.042
 margin_top = -1.008
-margin_right = 384.0
-margin_bottom = 15.008
-rect_scale = Vector2( 0.5, 0.5 )
+margin_right = 0.000274658
+margin_bottom = -0.0160003
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -2313,4 +2312,3 @@ __meta__ = {
 [node name="Number12" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 124 )]
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 122 )]
-visible = false

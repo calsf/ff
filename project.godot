@@ -354,7 +354,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://map/path_face_random.gd"
 }, {
-"base": "TextureRect",
+"base": "Control",
 "class": "StatusIcon",
 "language": "GDScript",
 "path": "res://combat/status_icon.gd"

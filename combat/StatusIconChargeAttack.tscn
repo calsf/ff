@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://combat/charge_attack_icon.png" type="Texture" id=1]
 [ext_resource path="res://combat/status_icon_charge_attack.gd" type="Script" id=2]
+[ext_resource path="res://combat/StatusNumValue.tscn" type="PackedScene" id=3]
 
-[node name="StatusChargeAttack" type="TextureRect"]
-margin_right = 32.0
-margin_bottom = 32.0
-texture = ExtResource( 1 )
+[node name="StatusChargeAttack" type="Control"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Icon" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="NumValue" parent="." instance=ExtResource( 3 )]
+anchor_top = -0.313
+anchor_right = 0.8
+anchor_bottom = 0.437
+margin_top = 0.00400019
+margin_bottom = 0.00400162

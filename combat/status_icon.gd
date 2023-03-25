@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 class_name StatusIcon
 
 var status_name : String
@@ -15,9 +15,9 @@ func _on_icon_entered():
 	_die_face_info.set_face_info_directly(status_name, status_info)
 	
 	var target = self
-	var y_offset = Vector2(0, (target.rect_size.y * 2) + 4)
+	var y_offset = Vector2(0, (target.rect_size.y * 3.5))
 	
-	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x / 1.1), 0) - y_offset)
+	_die_face_info.set_global_position(target.rect_global_position - Vector2((target.rect_size.x * 1.5), 0) - y_offset)
 	
 	_die_face_info.visible = true
 

@@ -3,6 +3,8 @@ extends Node
 
 var depth = 0
 
+signal depth_updated()
+
 # Class to hold enemy instance/initialization data
 class EnemyData:
 	var enemy : Object
@@ -21,3 +23,7 @@ func get_enemies():
 	if depth <= 2:
 		randomize()
 		return t1_minions[randi() % t1_minions.size()]
+
+func increase_depth():
+	depth += 1
+	emit_signal("depth_updated")

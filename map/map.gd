@@ -57,6 +57,9 @@ func reset_map():
 			continue
 		child.queue_free()
 	
+	# Update level depth
+	LevelDepth.increase_depth()
+	
 	# Reset buttons after anim is done
 	yield(_map_fade_anim, "animation_finished")
 	_move_btn.enable_move()

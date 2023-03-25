@@ -1,7 +1,7 @@
 extends Enemy
 
 var enrage_intents = [
-	EnemyFaceDrain.new(5, self),
+	EnemyFaceDrain.new(10, self),
 	EnemyFaceHeal.new(10, self),
 ]
 
@@ -12,8 +12,8 @@ func _ready():
 	reset_block()
 
 	intents = [
-		EnemyFaceAttack.new(5, self),
-		EnemyFaceBlock.new(5, self)
+		EnemyFaceAttack.new(10, self),
+		EnemyFaceBlock.new(7, self)
 	]
 	
 	set_next_intent()

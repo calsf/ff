@@ -8,8 +8,8 @@ func _ready():
 
 	intents = [
 		EnemyFaceAttack.new(1, self),
-		EnemyFaceHealAll.new(5, self),
-		EnemyFaceBlockAll.new(5, self)
+		EnemyFaceHealAll.new(10, self),
+		EnemyFaceBlockAll.new(15, self)
 	]
 	
 	set_next_intent()

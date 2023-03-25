@@ -21,6 +21,28 @@ var _possible_faces_full = [
 		PathFaceEmpty.new()
 	]
 var _possible_faces = [] # Copy of faces to flash random faces while unset
+
+var _common_faces = [
+	PathFaceCombat.new(),
+	PathFaceEmpty.new()
+]
+
+var _uncommon_faces = [
+	PathFaceHazard.new(),
+	PathFaceRandom.new()
+]
+
+var _rare_faces = [
+	PathFaceBlessing.new(),
+	PathFaceChest.new()
+]
+
+var _face_pools = [
+	_common_faces,
+	_uncommon_faces,
+	_rare_faces
+]
+
 var curr_face = null
 var is_used = false
 
@@ -54,8 +76,22 @@ func _process(delta):
 func set_face():
 	_is_set = true
 	
+	# Randomize for face pool
 	randomize()
-	curr_face = _possible_faces_full[randi() % _possible_faces_full.size()]
+	var num = randi() % 100
+	
+	var face_pool_num = 0
+	if num > 0 and num < 70:	# Common
+		face_pool_num = 0
+	elif num > 70 and num < 90:	# Uncommon
+		face_pool_num = 1
+	elif num > 90 and num < 100: # Rare
+		face_pool_num = 2
+	
+	# Randomize selection from face pool
+	randomize()
+	var selected_pool = _face_pools[face_pool_num]
+	curr_face = selected_pool[randi() % selected_pool.size()]
 	
 	_face.texture = curr_face.icon
 	

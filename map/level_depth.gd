@@ -13,7 +13,7 @@ class EnemyData:
 		health_scaling = h_s
 
 var t1_minions = [
-	[EnemyData.new(load("res://enemies/Minion01.tscn")), EnemyData.new(load("res://enemies/Minion01.tscn"))],
+	[EnemyData.new(load("res://enemies/Minion13.tscn")), EnemyData.new(load("res://enemies/Minion13.tscn"))],
 	[EnemyData.new(load("res://enemies/Minion01.tscn"), 1.5)]
 ]
 

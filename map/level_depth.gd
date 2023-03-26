@@ -9,14 +9,27 @@ signal depth_updated()
 class EnemyData:
 	var enemy : Object
 	var health_scaling : float
+	var offensive_scaling : float
+	var defensive_scaling : float
 	
-	func _init(e, h_s=1):
+	func _init(e, h_s=1, o_s=1, d_s=1):
 		enemy = e
 		health_scaling = h_s
+		offensive_scaling = o_s
+		defensive_scaling = d_s
+	
+	func get_health_scaling():
+		return health_scaling
+	
+	func get_offensive_scaling():
+		return offensive_scaling
+	
+	func get_defensive_scaling():
+		return defensive_scaling
 
 var t1_minions = [
 	[EnemyData.new(load("res://enemies/Minion13.tscn")), EnemyData.new(load("res://enemies/Minion13.tscn"))],
-	[EnemyData.new(load("res://enemies/Minion01.tscn"), 1.5)]
+	[EnemyData.new(load("res://enemies/Minion01.tscn"), 1.5, 1.5, 1.2)]
 ]
 
 func get_enemies():

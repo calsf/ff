@@ -15,8 +15,8 @@ func _ready():
 
 	intents = [
 		EnemyFaceExhaust.new(0, self),
-		EnemyFaceAttack.new(5, self),
-		EnemyFaceBlock.new(5, self),
+		EnemyFaceAttack.new(5 * offensive_scaling, self),
+		EnemyFaceBlock.new(5 * defensive_scaling, self),
 	]
 	
 	set_next_intent()

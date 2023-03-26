@@ -9,11 +9,11 @@ func _ready():
 	reset_block()
 
 	intents = [
-		EnemyFaceAttack.new(10, self),
-		EnemyFaceBlock.new(15, self),
-		EnemyFaceAttackBrutal.new(10, self),
-		EnemyFaceBlockReflect.new(10, self),
-		EnemyFaceAttackPerfect.new(10, self)
+		EnemyFaceAttack.new(10 * offensive_scaling, self),
+		EnemyFaceBlock.new(15 * defensive_scaling, self),
+		EnemyFaceAttackBrutal.new(10 * offensive_scaling, self),
+		EnemyFaceBlockReflect.new(10 * defensive_scaling, self),
+		EnemyFaceAttackPerfect.new(10 * offensive_scaling, self)
 	]
 	
 	set_next_intent()

@@ -3,12 +3,15 @@ class_name Enemy
 
 var enemy_num : int
 var max_health : int
-var health_scaling = 1
 var health : int
 var block : int
 var intents = []
 var next_intent : EnemyDieFace
 var is_dead = false
+
+var health_scaling = 1
+var offensive_scaling = 1
+var defensive_scaling = 1
 
 # Face statuses
 var _dodge = false
@@ -33,8 +36,10 @@ func _ready():
 	_block_icon.connect("mouse_exited", self, "_on_block_icon_exited")
 
 # Called before added to scene to set values
-func init_enemy(h_s):
+func init_enemy(h_s, o_s, d_s):
 	health_scaling = h_s
+	offensive_scaling = o_s
+	defensive_scaling = d_s
 
 func set_max_health(val):
 	max_health = val * health_scaling

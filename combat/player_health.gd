@@ -5,6 +5,7 @@ var MAX_HP = 100
 var curr_hp : int
 
 signal health_updated()
+signal health_lost()
 signal player_died()
 
 func _ready():
@@ -27,6 +28,7 @@ func lose_health(loss):
 	if curr_hp > 0:
 		curr_hp = max(curr_hp - loss, 0)
 		emit_signal("health_updated")
+		emit_signal("health_lost")
 		
 		# If hp hits 0, player has died
 		if curr_hp <= 0:

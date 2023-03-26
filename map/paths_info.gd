@@ -18,7 +18,7 @@ onready var _possible_paths = [
 	load("res://map/PathFive.tscn")
 ]
 
-var _random = RandomNumberGenerator.new()
+onready var _random = RandomNumberGenerator.new()
 
 var _paths_avail = []
 var _paths_used = 0

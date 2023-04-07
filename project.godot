@@ -515,6 +515,9 @@ PlayerHealth="*res://combat/player_health.gd"
 PlayerDiceBank="*res://dice/player_dice_bank.gd"
 LootFaceRandomizer="*res://loot/loot_face_randomizer.gd"
 LevelDepth="*res://map/level_depth.gd"
+SaveLoadManager="*res://save/save_load_manager.gd"
+GlobalMusic="*res://audio/GlobalMusic.tscn"
+GlobalSounds="*res://audio/GlobalSounds.tscn"
 
 [display]
 

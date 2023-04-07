@@ -1,4 +1,4 @@
-[gd_scene load_steps=168 format=2]
+[gd_scene load_steps=169 format=2]
 
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=2]
@@ -141,6 +141,7 @@
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=139]
 [ext_resource path="res://loot/LootScreen.tscn" type="PackedScene" id=140]
 [ext_resource path="res://combat/enemies.gd" type="Script" id=141]
+[ext_resource path="res://save/SettingsContainer.tscn" type="PackedScene" id=142]
 [ext_resource path="res://combat/info-box.png" type="Texture" id=144]
 [ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=145]
 [ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=146]
@@ -2271,6 +2272,8 @@ text = "REMOVE DIE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SettingsContainer" parent="CanvasLayer" instance=ExtResource( 142 )]
 
 [node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 1 )]
 

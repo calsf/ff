@@ -6,6 +6,7 @@ extends ColorRect
 const PERSISTENT_NODES = 7
 const MAP_SCENE_NAME = "Map"
 const MAP_SCENE_PATH = "res://map/Map.tscn"
+const TITLE_SCENE_PATH = "res://title/Title.tscn"
 
 signal fade_in_finished
 signal fade_out_finished
@@ -51,12 +52,11 @@ func reset_fade():
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match (anim_name):
-		"FadeIn":	# Reload current scene if no next scene specified
+		"FadeIn":	# Do nothing if no scene specified
 			if _next_scene == "":
-				_remove_root_nodes()
-				get_tree().reload_current_scene()
+				pass
 			else:
-				if get_tree().current_scene.name == MAP_SCENE_NAME and _next_scene != MAP_SCENE_PATH:
+				if get_tree().current_scene.name == MAP_SCENE_NAME and _next_scene != MAP_SCENE_PATH and _next_scene != TITLE_SCENE_PATH:
 					print_debug("Persisting Map")
 					_remove_root_nodes()
 					var new_scene = load(_next_scene).instance()

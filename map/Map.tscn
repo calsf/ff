@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://map/paths_info.gd" type="Script" id=24]
 [ext_resource path="res://map/depth_icon.png" type="Texture" id=25]
 [ext_resource path="res://map/depth_info.gd" type="Script" id=26]
+[ext_resource path="res://save/SettingsContainer.tscn" type="PackedScene" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
@@ -552,10 +553,10 @@ anchor_left = 0.912
 anchor_top = 0.222
 anchor_right = 0.987
 anchor_bottom = 0.286
-margin_left = 0.319946
-margin_top = 0.0799942
-margin_right = 0.319946
-margin_bottom = 0.0399933
+margin_left = -255.68
+margin_top = 0.0800095
+margin_right = -255.68
+margin_bottom = 0.0400085
 focus_mode = 0
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 17 )
@@ -576,10 +577,10 @@ anchor_left = 0.812
 anchor_top = 0.222
 anchor_right = 0.887
 anchor_bottom = 0.286
-margin_left = 0.319946
-margin_top = 0.0799942
-margin_right = 0.320007
-margin_bottom = 0.0399933
+margin_left = -255.68
+margin_top = 0.0800095
+margin_right = -255.68
+margin_bottom = 0.0400085
 focus_mode = 0
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 17 )
@@ -600,10 +601,10 @@ anchor_left = 0.812
 anchor_top = 0.222
 anchor_right = 0.887
 anchor_bottom = 0.286
-margin_left = -159.68
-margin_top = 0.0800095
-margin_right = -159.68
-margin_bottom = 0.0400085
+margin_left = 72.32
+margin_top = 256.08
+margin_right = 72.32
+margin_bottom = 256.04
 focus_mode = 0
 custom_styles/hover = ExtResource( 18 )
 custom_styles/pressed = ExtResource( 17 )
@@ -623,10 +624,10 @@ anchor_left = 0.742
 anchor_top = 0.222
 anchor_right = 0.805
 anchor_bottom = 0.289
-margin_left = 0.119995
-margin_top = 0.0799942
-margin_right = -0.200073
-margin_bottom = -0.0400009
+margin_left = -381.88
+margin_top = 2.08001
+margin_right = -382.2
+margin_bottom = 1.96001
 script = ExtResource( 24 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -682,10 +683,10 @@ anchor_left = 0.742
 anchor_top = 0.222
 anchor_right = 0.805
 anchor_bottom = 0.289
-margin_left = -47.88
-margin_top = 0.0800018
-margin_right = -48.2
-margin_bottom = -0.0399933
+margin_left = -424.88
+margin_top = 2.08001
+margin_right = -425.2
+margin_bottom = 1.96001
 script = ExtResource( 26 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -734,6 +735,8 @@ texture = ExtResource( 25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SettingsContainer" parent="CanvasLayer" instance=ExtResource( 27 )]
 
 [node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 6 )]
 

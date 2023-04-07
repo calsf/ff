@@ -40,3 +40,6 @@ func get_enemies():
 func increase_depth():
 	depth += 1
 	emit_signal("depth_updated")
+
+func reset_level_depth():
+	depth = 0

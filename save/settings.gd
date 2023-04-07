@@ -21,6 +21,8 @@ func _ready():
 	_sound_btn.connect("pressed", self, "_on_sound_toggled")
 	_music_btn.connect("pressed", self, "_on_music_toggled")
 	_back_btn.connect("pressed", self, "_on_back_pressed")
+	
+	self.visible = false
 
 func _on_fast_mode_toggled():
 	var save_data = SaveLoadManager.load_data()

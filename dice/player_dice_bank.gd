@@ -7,6 +7,11 @@ var number_icon_paths = []
 signal die_bank_updated(i)
 
 func _init():
+	reset_dice_bank()
+
+func reset_dice_bank():
+	dice = []
+	number_icon_paths = []
 	number_icon_paths.append("res://dice/die-numbers/die-num-1.png")
 	number_icon_paths.append("res://dice/die-numbers/die-num-2.png")
 	number_icon_paths.append("res://dice/die-numbers/die-num-3.png")

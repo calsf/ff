@@ -16,6 +16,13 @@ onready var _paths_info = $CanvasLayer/PathsInfo
 func _ready():
 	_canvas.layer = 0
 	
+	# Initialize fast mode from save since Map is main entry point
+	var save_data = SaveLoadManager.load_data()
+	if save_data["fast_mode"]:
+		Engine.time_scale = 2.0
+	else:
+		Engine.time_scale = 1.0
+	
 	# TEMP
 	$CanvasLayer/TEMPRESETBTN.connect("pressed", self, "reset_map")
 

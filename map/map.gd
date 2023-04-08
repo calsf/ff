@@ -23,6 +23,9 @@ func _ready():
 	else:
 		Engine.time_scale = 1.0
 	
+	yield(get_tree().create_timer(.3), "timeout")
+	GlobalMusic.play("Main")
+	
 	# TEMP
 	$CanvasLayer/TEMPRESETBTN.connect("pressed", self, "reset_map")
 

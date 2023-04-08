@@ -7,6 +7,13 @@ func play(music):
 	if (not SaveLoadManager.check_save() or SaveLoadManager.load_data()["music_on"]):
 		get_node(music).play()
 
+func stop(music):
+	get_node(music).stop()
+
+func stop_all():
+	for player in get_children():
+		player.stop()
+
 # Should be called when music is toggled on/off
 func update_player_volumes(music_on):
 	if music_on:

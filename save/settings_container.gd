@@ -35,6 +35,7 @@ func _on_quit_yes_pressed():
 		fade.fade_in()
 	
 	_fade.go_to_scene(TITLE_SCENE_PATH)
+	GlobalMusic.stop_all()
 
 func _on_quit_no_pressed():
 	_quit_confirmation.visible = false

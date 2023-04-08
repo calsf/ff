@@ -1,7 +1,7 @@
 # Level depth singleton
 extends Node
 
-var depth = 0
+var depth = 1
 
 signal depth_updated()
 
@@ -42,4 +42,4 @@ func increase_depth():
 	emit_signal("depth_updated")
 
 func reset_level_depth():
-	depth = 0
+	depth = 1

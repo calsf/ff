@@ -39,6 +39,8 @@ onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLay
 
 onready var _number_popup_pool = get_tree().get_root().get_node("Encounter/CanvasLayer/NumberPopupPool")
 
+onready var _death_screen = get_tree().get_root().get_node("Encounter/CanvasLayer/DeathScreen")
+
 func _ready():
 	enemies = get_tree().get_root().get_node("Encounter/CanvasLayer/Enemies").get_children()
 	_favor_num.text = str(favor)
@@ -127,6 +129,12 @@ func reset_player_block():
 func player_turn_finished():
 	yield(get_tree().create_timer(1.0), "timeout")
 	
+	# Check player death
+	if PlayerHealth.curr_hp <= 0:
+		_death_screen.on_death()
+		_dice_bank.reset_dice_bank()
+		return
+	
 	yield(enemy_death_check(), "completed")
 	if combat_ended:
 		return
@@ -169,10 +177,6 @@ func player_turn_finished():
 		anim_to_wait_for = enemy.get_node("IntentAnimPlayer")
 		anim_to_wait_for.play("roll")
 	
-	# Only need to wait for one anim since they all play anim at same time
-	if anim_to_wait_for != null:
-		yield(anim_to_wait_for, "animation_finished")
-	
 	enemy_turn_finished()
 
 func enemy_turn_finished():
@@ -182,6 +186,12 @@ func enemy_turn_finished():
 	reset_statuses()
 	
 	turn += 1
+	
+	# Check player death
+	if PlayerHealth.curr_hp <= 0:
+		_death_screen.on_death()
+		_dice_bank.reset_dice_bank()
+		return
 	
 	if enemy_replay:	# Repeat enemy turn and reset enemy_replay
 		enemy_replay = false
@@ -331,4 +341,4 @@ func set_enemy_replay(val):
 	enemy_replay = val
 	
 func enemy_exhaust_face():
-	_dice_bank.exhaust_dice();
+	_dice_bank.exhaust_dice()

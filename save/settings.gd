@@ -30,6 +30,12 @@ func _on_fast_mode_toggled():
 	SaveLoadManager.save_data(save_data)
 	
 	_set_toggled_label(_fast_mode_btn, _fast_mode_btn.is_pressed(), "Fast Mode")
+	
+	# Also update time scale
+	if _fast_mode_btn.is_pressed():
+		Engine.time_scale = 2.0
+	else:
+		Engine.time_scale = 1.0
 
 func _on_sound_toggled():
 	var save_data = SaveLoadManager.load_data()

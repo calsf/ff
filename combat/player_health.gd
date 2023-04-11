@@ -25,6 +25,9 @@ func add_health(gain):
 
 # Subtract from health, avoid going below 0
 func lose_health(loss):
+	if loss <= 0:
+		return
+	
 	if curr_hp > 0:
 		curr_hp = max(curr_hp - loss, 0)
 		emit_signal("health_updated")

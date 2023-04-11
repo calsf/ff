@@ -102,5 +102,7 @@ func _on_die_pressed(event):
 			if added:
 				_on_face_exited()
 				_loot.remove_loot(self)
+				
+				GlobalSounds.play("Loot")
 			else:
 				return

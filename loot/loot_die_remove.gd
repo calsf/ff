@@ -49,3 +49,4 @@ func _on_die_pressed(event):
 				return
 			
 			_dice_bank_selection.activate_selection(self)
+			GlobalSounds.play("Loot")

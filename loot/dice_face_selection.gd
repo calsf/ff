@@ -46,5 +46,7 @@ func _on_face_pressed(event, die_index, face_index):
 			
 			PlayerDiceBank.replace_face(die_index, face_index, original_loot.loot_face)
 			
+			GlobalSounds.play("Loot")
+			
 			_loot.remove_loot(original_loot)
 			_on_cancel()

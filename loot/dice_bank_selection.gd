@@ -43,5 +43,7 @@ func _on_die_pressed(event, i):
 			var empty_die = Die.new("res://dice/die-numbers/die-num-remove.png")
 			PlayerDiceBank.replace_die(i, empty_die)
 			
+			GlobalSounds.play("Loot")
+			
 			_loot.remove_loot(original_loot)
 			_on_cancel()

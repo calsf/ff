@@ -17,6 +17,9 @@ func on_death():
 	_depth_label.text = str(LevelDepth.depth)
 	self.visible = true
 	_anim.play("fade_in")
+	
+	GlobalMusic.stop_all()
+	GlobalMusic.play("Death")
 
 func _on_return_pressed():
 	_fade.go_to_scene(TITLE_SCENE_PATH)

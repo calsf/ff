@@ -202,9 +202,12 @@ func _on_roll_pressed():
 			
 			# To reset face node properties
 			face_node.play_anim("idle")
-			
+	
 	has_rolled_once = true
 	_check_can_roll()
+	
+	yield(get_tree().create_timer(.3), "timeout")
+	GlobalSounds.play("RollMulti")
 	
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)
@@ -320,6 +323,9 @@ func _on_reroll_pressed():
 			var face_node = _die_faces.get_child(i)
 			var num_value = die.curr_face.num_value
 			face_node.set_face(die.curr_face.icon, num_value)
+	
+	yield(get_tree().create_timer(.3), "timeout")
+	GlobalSounds.play("RollMulti")
 	
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)
@@ -437,6 +443,9 @@ func reroll_selected_die():
 		var face_node = _die_faces.get_child(i)
 		var num_value = die.curr_face.num_value
 		face_node.set_face(die.curr_face.icon, num_value)
+	
+	yield(get_tree().create_timer(.3), "timeout")
+	GlobalSounds.play("RollMulti")
 	
 	yield(anim_to_wait_for, "animation_finished")
 	set_can_reroll(true)

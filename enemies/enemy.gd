@@ -115,6 +115,9 @@ func add_health(amount):
 
 # Deal blockable damage, damages block first
 func deal_blockable_damage(amount, combat):
+	if amount > 0 and block > 0:
+		GlobalSounds.play("Blocked")
+	
 	if block >= amount:
 		remove_block(amount, combat)
 		
@@ -142,6 +145,9 @@ func deal_direct_damage(amount, combat, undodgable=false):
 	_health_label.text = str(health)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_label)
+	
+	if amount > 0:
+		GlobalSounds.play("Hit")
 	
 	if amount > 0:
 		_enemy_anim.play("damaged")

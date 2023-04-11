@@ -50,3 +50,4 @@ func _on_face_pressed(event):
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			_dice_face_selection.activate_selection(self)
+			GlobalSounds.play("Loot")

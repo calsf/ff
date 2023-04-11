@@ -68,6 +68,9 @@ func deal_blockable_player_damage(amount, attacker=null):
 	if _dodge:
 		amount = 0
 	
+	if amount > 0 and player_block > 0:
+		GlobalSounds.play("Blocked")
+	
 	if player_block >= amount:
 		remove_player_block(amount, attacker)
 		return 0
@@ -92,6 +95,9 @@ func deal_direct_player_damage(amount, undodgable=false):
 	PlayerHealth.lose_health(amount)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_num)
+	
+	if amount > 0:
+		GlobalSounds.play("Hit")
 	
 	return amount
 
@@ -131,6 +137,7 @@ func player_turn_finished():
 	
 	# Check player death
 	if PlayerHealth.curr_hp <= 0:
+		yield(get_tree().create_timer(.5), "timeout")
 		_death_screen.on_death()
 		_dice_bank.reset_dice_bank()
 		return
@@ -167,15 +174,14 @@ func player_turn_finished():
 		return
 	
 	# Play anim to reset enemy intents
-	var anim_to_wait_for = null
 	for enemy in enemies:
 		if enemy.is_dead:
 			continue
 		
 		# Set enemy next intent
 		enemy.set_next_intent()
-		anim_to_wait_for = enemy.get_node("IntentAnimPlayer")
-		anim_to_wait_for.play("roll")
+		var anim = enemy.get_node("IntentAnimPlayer")
+		anim.play("roll")
 	
 	enemy_turn_finished()
 
@@ -189,6 +195,7 @@ func enemy_turn_finished():
 	
 	# Check player death
 	if PlayerHealth.curr_hp <= 0:
+		yield(get_tree().create_timer(.5), "timeout")
 		_death_screen.on_death()
 		_dice_bank.reset_dice_bank()
 		return

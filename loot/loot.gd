@@ -59,8 +59,8 @@ func _get_drops():
 			_loot.add_child(loot_drop)
 
 func remove_loot(loot):
-	loot.queue_free()
 	_loot_count -= 1
+	loot.queue_free()
 	
 	if _loot_count <= 0:
 		_on_skip_loot()

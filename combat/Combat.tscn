@@ -1041,6 +1041,9 @@ modulate = Color( 0.721569, 0.992157, 0.47451, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 122 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DiceBar" type="NinePatchRect" parent="CanvasLayer"]
 anchor_left = 0.2
@@ -1078,7 +1081,7 @@ margin_right = 144.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 120 )
+texture = ExtResource( 47 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1193,7 +1196,7 @@ __meta__ = {
 }
 
 [node name="Flash1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.142857 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0

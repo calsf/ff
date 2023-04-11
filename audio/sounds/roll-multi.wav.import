@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/roll-multi.wav-441f0323bd93e00293026c34c69130f7.sample"
+
+[deps]
+
+source_file="res://audio/sounds/roll-multi.wav"
+dest_files=[ "res://.import/roll-multi.wav-441f0323bd93e00293026c34c69130f7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

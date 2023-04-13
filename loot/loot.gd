@@ -51,11 +51,14 @@ func _get_drops():
 		if num >= 0 and num < 25:	# Die
 			var loot_drop = load(LOOT_DIE).instance()
 			_loot.add_child(loot_drop)
-		elif num > 25 and num < 90:	# Die face
+		elif num >= 25 and num < 90:	# Die face
 			var loot_drop = load(LOOT_DIE_FACE).instance()
 			_loot.add_child(loot_drop)
-		elif num > 90 and num <= 100:	# Remove die
+		elif num >= 90 and num <= 100:	# Remove die
 			var loot_drop = load(LOOT_DIE_REMOVE).instance()
+			_loot.add_child(loot_drop)
+		else:	# Default drop
+			var loot_drop = load(LOOT_DIE_FACE).instance()
 			_loot.add_child(loot_drop)
 
 func remove_loot(loot):

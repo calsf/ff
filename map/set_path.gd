@@ -31,6 +31,8 @@ func _on_pressed():
 	# Re-enable move button and cancel move options
 	_move.enable_move()
 	_move.cancel_move_options()
+	
+	GlobalSounds.play("ButtonPressed")
 
 # Remove the path from path info's pool and reset next_path
 func _use_path():

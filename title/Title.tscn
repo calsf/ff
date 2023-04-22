@@ -8,7 +8,7 @@
 [ext_resource path="res://buttons/title-button-quit-normal.tres" type="StyleBox" id=6]
 [ext_resource path="res://buttons/title-button-play-normal.tres" type="StyleBox" id=7]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 2.5
 loop = true
@@ -183,7 +183,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Buttons"]
 autoplay = "idle"
-anims/idle = SubResource( 4 )
+anims/idle = SubResource( 1 )
 
 [node name="Settings" parent="CanvasLayer" instance=ExtResource( 2 )]
 

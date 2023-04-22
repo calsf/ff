@@ -15,6 +15,8 @@ func _on_pressed():
 	# Re-enable set path button and cancel set path
 	_set_path.enable_set_path()
 	_set_path.cancel_set_path()
+	
+	GlobalSounds.play("ButtonPressed")
 
 func disable_move():
 	self.disabled = true

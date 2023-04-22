@@ -90,6 +90,8 @@ func add_block(amount):
 	_block_label.text = str(block)
 	
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("80baff"), _block_label)
+	
+	GlobalSounds.play("BlockEquip")
 
 # Remove block
 func remove_block(amount, combat=null):
@@ -112,6 +114,8 @@ func add_health(amount):
 	_health_label.text = str(health)
 	
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("1aff00"), _health_label)
+	
+	GlobalSounds.play("Heal")
 
 # Deal blockable damage, damages block first
 func deal_blockable_damage(amount, combat):
@@ -187,6 +191,8 @@ func _on_face_exited():
 
 # Play face
 func play_face(combat):
+	GlobalSounds.play("Set")
+	
 	_intent_anim.play("play")
 	yield(_intent_anim, "animation_finished")
 	
@@ -236,6 +242,9 @@ func reset_statuses():
 func set_dodge(val):
 	_dodge = val
 	update_status_icons()
+	
+	if val:
+		GlobalSounds.play("DodgeEquip")
 
 func set_reflect(val):
 	_reflect = val

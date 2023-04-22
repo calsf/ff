@@ -39,6 +39,8 @@ func play_title_music():
 func _on_play_pressed():
 	_fade.go_to_scene(MAP_SCENE_PATH)
 	GlobalMusic.stop_all()
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_option_entered(option):
 	hovered_option = option

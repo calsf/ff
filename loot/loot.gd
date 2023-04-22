@@ -16,7 +16,7 @@ onready var _paths_info = get_tree().get_root().get_node("Map/CanvasLayer/PathsI
 onready var _fade = get_tree().get_root().get_node("Encounter/CanvasLayer/Fade")
 
 func _ready():
-	_skip_btn.connect("pressed", self, "_on_skip_loot")
+	_skip_btn.connect("pressed", self, "_on_skip_loot_pressed")
 
 func activate():
 	_get_drops()
@@ -37,6 +37,10 @@ func _on_skip_loot():
 	
 	yield(get_tree().create_timer(.6), "timeout")
 	_fade.go_to_scene("res://map/Map.tscn")
+
+func _on_skip_loot_pressed():
+	_on_skip_loot()
+	GlobalSounds.play("ButtonPressed")
 
 func _get_drops():
 	# 1 -4 total number of loot possible

@@ -15,3 +15,9 @@ func set_face(icon, num_value):
 		_num_value_label.text = ""
 	else:
 		_num_value_label.text = str(num_value)
+
+func play_set_sound():
+	GlobalSounds.play("Set")
+
+func play_discard_sound():
+	GlobalSounds.play("Discard")

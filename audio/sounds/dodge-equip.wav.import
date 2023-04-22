@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dodge-equip.wav-8c4d00c009ed2cd95b1d187169d498c4.sample"
+
+[deps]
+
+source_file="res://audio/sounds/dodge-equip.wav"
+dest_files=[ "res://.import/dodge-equip.wav-8c4d00c009ed2cd95b1d187169d498c4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

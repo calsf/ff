@@ -24,16 +24,22 @@ func _on_set():
 		visible = false
 	else:
 		set_face()
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_discard():
 	PlayerDiceBank.dice[selected_die_index].action_set = false
 	PlayerDiceBank.dice[selected_die_index].action_discard = true
 	_dice_bar.check_can_play()
 	on_cancel()
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_reroll():
 	_dice_bar.reroll_selected_die()
 	on_cancel()
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_reroll_entered():
 	_dice_bar.on_action_reroll_entered()

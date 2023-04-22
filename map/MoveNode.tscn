@@ -3,7 +3,7 @@
 [ext_resource path="res://map/move_node.gd" type="Script" id=1]
 [ext_resource path="res://map/path-faces/path-moveable.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "idle"
 loop = true
 tracks/0/type = "value"
@@ -19,7 +19,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.0784314 ), Color( 1, 1, 1, 0.313726 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14, 14 )
 
 [node name="MoveNode" type="Sprite"]
@@ -31,11 +31,11 @@ texture = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/idle = SubResource( 2 )
+anims/idle = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2147483652
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )

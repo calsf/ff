@@ -59,6 +59,8 @@ func add_health(amount):
 	var amount_added = PlayerHealth.add_health(amount)
 	
 	_number_popup_pool.display_number_popup("+" + str(amount_added), Color("1aff00"), _health_num)
+	
+	GlobalSounds.play("Heal")
 
 # Deal blockable damage, damages block first
 func deal_blockable_player_damage(amount, attacker=null):
@@ -118,6 +120,8 @@ func add_player_block(amount):
 	_block_num.text = str(player_block)
 	
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("80baff"), _block_num)
+	
+	GlobalSounds.play("BlockEquip")
 
 func remove_player_block(amount, attacker=null):
 	player_block -= amount
@@ -167,6 +171,7 @@ func player_turn_finished():
 			continue
 		
 		yield(enemy.play_face(self), "completed")
+		yield(get_tree().create_timer(.3), "timeout")
 	
 	# Check for deaths before enemy intent reset
 	yield(enemy_death_check(), "completed")
@@ -244,6 +249,9 @@ func reset_statuses():
 func set_dodge(val):
 	_dodge = val
 	update_player_status_icons()
+	
+	if val:
+		GlobalSounds.play("DodgeEquip")
 
 func set_replay(val):
 	# If already set, do not reset to avoid dupe icons

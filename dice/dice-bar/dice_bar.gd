@@ -206,6 +206,8 @@ func _on_roll_pressed():
 	has_rolled_once = true
 	_check_can_roll()
 	
+	GlobalSounds.play("ButtonPressed")
+	
 	yield(get_tree().create_timer(.3), "timeout")
 	GlobalSounds.play("RollMulti")
 	
@@ -226,6 +228,8 @@ func _on_play_pressed():
 	has_played = true
 	check_can_play()
 	set_can_reroll(false)
+	
+	GlobalSounds.play("ButtonPressed")
 	
 	if selected_face_index != null:
 		deselect_face()
@@ -261,6 +265,7 @@ func _on_play_pressed():
 				yield(anim, "animation_finished")
 				
 				die.on_discard(_combat)
+		yield(get_tree().create_timer(.3), "timeout")
 	
 	# Player turn has finished
 	_combat.player_turn_finished()
@@ -280,6 +285,8 @@ func _on_reroll_pressed():
 	
 	# Disable reroll until anim is complete
 	set_can_reroll(false)
+	
+	GlobalSounds.play("ButtonPressed")
 	
 	# Reset dice bar as needed
 	for i in range(selected_dice.size()):

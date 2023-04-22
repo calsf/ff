@@ -36,6 +36,8 @@ func _on_fast_mode_toggled():
 		Engine.time_scale = 2.0
 	else:
 		Engine.time_scale = 1.0
+		
+	GlobalSounds.play("ButtonPressed")
 
 func _on_sound_toggled():
 	var save_data = SaveLoadManager.load_data()
@@ -43,6 +45,8 @@ func _on_sound_toggled():
 	SaveLoadManager.save_data(save_data)
 	
 	_set_toggled_label(_sound_btn, _sound_btn.is_pressed(), "Sounds")
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_music_toggled():
 	var save_data = SaveLoadManager.load_data()
@@ -53,9 +57,13 @@ func _on_music_toggled():
 	
 	# Also update music player volumes when music button is toggled
 	GlobalMusic.update_player_volumes(_music_btn.is_pressed())
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_back_pressed():
 	self.visible = false
+	
+	GlobalSounds.play("ButtonPressed")
 
 # Set a button's text based on base label + toggle state
 func _set_toggled_label(button, toggled, base_label):

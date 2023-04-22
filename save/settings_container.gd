@@ -23,9 +23,13 @@ func _ready():
 # Toggle settings visibility
 func _on_settings_pressed():
 	_settings.visible = !_settings.visible
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_quit_pressed():
 	_quit_confirmation.visible = true
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_quit_yes_pressed():
 	if get_tree().get_root().has_node("Encounter/CanvasLayer/Fade"):
@@ -36,6 +40,10 @@ func _on_quit_yes_pressed():
 	
 	_fade.go_to_scene(TITLE_SCENE_PATH)
 	GlobalMusic.stop_all()
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_quit_no_pressed():
 	_quit_confirmation.visible = false
+	
+	GlobalSounds.play("ButtonPressed")

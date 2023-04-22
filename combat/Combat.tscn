@@ -1081,7 +1081,7 @@ margin_right = 144.0
 margin_bottom = 64.0
 rect_pivot_offset = Vector2( 32, 32 )
 mouse_filter = 2
-texture = ExtResource( 47 )
+texture = ExtResource( 120 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1196,7 +1196,7 @@ __meta__ = {
 }
 
 [node name="Flash1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
-modulate = Color( 1, 1, 1, 0.142857 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 80.0
 margin_right = 144.0
 margin_bottom = 64.0
@@ -1258,7 +1258,6 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 173.0
 margin_top = 4.0
 margin_right = 210.0

@@ -47,6 +47,7 @@ func reset_dice_bank():
 	var favorable_attack = FaceFavorableAttack.new()
 	var guardian = FaceGuardian.new()
 	var strengthen = FaceStrengthen.new(10)
+	var fortify = FaceFortify.new(10)
 	
 	# Start with 6 die
 	dice.append(Die.new(number_icon_paths[0], [attack, attack, attack, block, block, block]))
@@ -58,7 +59,7 @@ func reset_dice_bank():
 	
 	# TEMP TESTING
 	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, dodge]))
-	dice.append(Die.new(number_icon_paths[7], [strengthen, strengthen, strengthen,strengthen,strengthen,strengthen]))
+	dice.append(Die.new(number_icon_paths[7], [fortify, fortify, fortify, fortify, strengthen, strengthen]))
 	dice.append(Die.new(number_icon_paths[8], [block_reflect, block_reflect, block_reflect, block_charge, block_charge, block_charge]))
 	dice.append(Die.new(number_icon_paths[9], [attack_perfect, attack_perfect,attack_perfect,dodge,dodge,dodge]))
 	

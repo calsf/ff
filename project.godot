@@ -215,6 +215,11 @@ _global_script_classes=[ {
 "path": "res://dice/faces/face_favorable_attack.gd"
 }, {
 "base": "DieFace",
+"class": "FaceFortify",
+"language": "GDScript",
+"path": "res://dice/faces/face_fortify.gd"
+}, {
+"base": "DieFace",
 "class": "FaceGuardian",
 "language": "GDScript",
 "path": "res://dice/faces/face_guardian.gd"
@@ -405,6 +410,11 @@ _global_script_classes=[ {
 "path": "res://combat/status_icon_charge_block.gd"
 }, {
 "base": "StatusIcon",
+"class": "StatusIconFortify",
+"language": "GDScript",
+"path": "res://combat/status_icon_fortify.gd"
+}, {
+"base": "StatusIcon",
 "class": "StatusIconGuardian",
 "language": "GDScript",
 "path": "res://combat/status_icon_guardian.gd"
@@ -461,6 +471,7 @@ _global_script_class_icons={
 "FaceDrain": "",
 "FaceEmpty": "",
 "FaceFavorableAttack": "",
+"FaceFortify": "",
 "FaceGuardian": "",
 "FaceHeal": "",
 "FaceMultiAttack": "",
@@ -499,6 +510,7 @@ _global_script_class_icons={
 "StatusIcon": "",
 "StatusIconChargeAttack": "",
 "StatusIconChargeBlock": "",
+"StatusIconFortify": "",
 "StatusIconGuardian": "",
 "StatusIconReplay": "",
 "StatusIconStrengthen": ""

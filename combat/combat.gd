@@ -16,12 +16,15 @@ var _guardian = false
 var _guardian_icon = null # To reference the instanced icon node
 var _strengthen_amount = 0
 var _strengthen_icon = null	# To reference the instanced icon node
+var _fortify_amount = 0
+var _fortify_icon =  null # To reference the instanced icon node
 var _status_icons = []
 
 onready var _status_list = get_tree().get_root().get_node("Encounter/CanvasLayer/PlayerInfo/Statuses")
 onready var _icon_replay = load("res://combat/StatusIconReplay.tscn")
 onready var _icon_guardian = load("res://combat/StatusIconGuardian.tscn")
 onready var _icon_strengthen = load("res://combat/StatusIconStrengthen.tscn")
+onready var _icon_fortify = load("res://combat/StatusIconFortify.tscn")
 
 var extra_faces = []
 var extra_faces_target = []
@@ -296,6 +299,19 @@ func add_strengthen(val):
 	_strengthen_icon.set_status_info("Add " + str(_strengthen_amount) + " damage to all damage sources for this combat.")
 	_strengthen_icon.set_num_value_text(str(_strengthen_amount))
 
+func add_fortify(val):
+	# Only add icon on first fortify
+	if _fortify_amount == 0 and val > 0:
+		_fortify_icon = _icon_fortify.instance()
+		_status_list.add_child(_fortify_icon)
+		# Do not add to _status_icon list, should not be cleared after turn
+	
+	_fortify_amount += val
+	
+	# Update fortify amount
+	_fortify_icon.set_status_info("Add " + str(_fortify_amount) + " block to all block sources for this combat.")
+	_fortify_icon.set_num_value_text(str(_fortify_amount))
+
 func update_player_status_icons():
 	if _dodge:
 		_block_icon.texture = load("res://combat/dodge_icon.png")
@@ -355,6 +371,10 @@ func reload_dice():
 # To apply to damage on enemies
 func get_strengthen_amount():
 	return _strengthen_amount
+
+# To apply to block on block actions
+func get_fortify_amount():
+	return _fortify_amount
 
 func set_enemy_replay(val):
 	enemy_replay = val

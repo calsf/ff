@@ -11,6 +11,9 @@ func _init(value=0):
 	require_target = false
 
 func on_play(combat, target, parent_die=0):
-	combat.add_player_block(num_value)
+	# Apply any fortify amount first
+	var val = num_value + combat.get_fortify_amount()
+	
+	combat.add_player_block(val)
 	combat.set_reflect(true)
 	yield(combat.get_tree(), "idle_frame")

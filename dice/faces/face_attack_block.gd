@@ -14,6 +14,9 @@ func on_play(combat, target, parent_die=0):
 	# Apply any strengthen amount first
 	var val = num_value + combat.get_strengthen_amount()
 	
+	# Apply any fortify amount first
+	var fortified_val = num_value + combat.get_fortify_amount()
+	
 	target.deal_blockable_damage(val, combat)
-	combat.add_player_block(num_value)
+	combat.add_player_block(fortified_val)
 	yield(combat.get_tree(), "idle_frame")

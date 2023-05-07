@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/encounter.wav-2dc558cc0a5624d6c2a1a3761b20c8ba.sample"
+
+[deps]
+
+source_file="res://audio/sounds/encounter.wav"
+dest_files=[ "res://.import/encounter.wav-2dc558cc0a5624d6c2a1a3761b20c8ba.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

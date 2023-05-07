@@ -201,6 +201,7 @@ func _on_die_pressed(event, i):
 			if _dice_bar.add_or_remove_die(i):
 				_die_selected_overlay(i)
 				_on_face_exited()
+				GlobalSounds.play("Loot")
 
 # Move info box to position with the corresponding die info
 func _on_face_entered(face_node, face_obj):

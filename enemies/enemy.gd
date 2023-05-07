@@ -202,6 +202,8 @@ func play_face(combat):
 func on_death():
 	is_dead = true
 	
+	GlobalSounds.play("EnemyDeath")
+	
 	_target_btn.visible = false
 	_enemy_anim.play("death")
 	yield(_enemy_anim, "animation_finished")

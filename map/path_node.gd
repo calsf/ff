@@ -127,6 +127,8 @@ func activate_node():
 	set_face_used()
 	_anim.play("use")
 	
+	GlobalSounds.play("Encounter")
+	
 	# Delay before going to next scene
 	yield(get_tree().create_timer(.9), "timeout")
 

@@ -29,6 +29,8 @@ func _ready():
 func _on_cancel():
 	_cancel_selection()
 	
+	GlobalSounds.play("ButtonPressed")
+	
 	# Also cancel action options
 	_action_options.on_cancel()
 
@@ -55,3 +57,5 @@ func on_selection(target):
 	PlayerDiceBank.dice[selected_die_index].target = target
 	_action_options.set_face()
 	_cancel_selection()
+	
+	GlobalSounds.play("ButtonPressed")

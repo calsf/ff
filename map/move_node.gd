@@ -6,6 +6,8 @@ onready var _face = $Face
 var moveable = false
 var _area_entered = false
 
+var move_sound_count = 0
+
 signal moved(path_node)
 
 func _ready():
@@ -49,3 +51,13 @@ func _area_pressed(v, event, s):
 	if event is InputEventMouseButton:
 		if moveable and event.button_index == BUTTON_LEFT and event.pressed and _area_entered:
 			emit_signal("moved", self)
+			
+			# Alternate sounds
+			if move_sound_count == 0:
+				GlobalSounds.play("Move01")
+			else:
+				GlobalSounds.play("Move02")
+				
+			move_sound_count += 1
+			if move_sound_count > 1:
+				move_sound_count = 0

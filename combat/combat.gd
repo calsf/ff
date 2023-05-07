@@ -108,12 +108,16 @@ func add_favor(amount):
 	_favor_num.text = str(favor)
 	
 	_number_popup_pool.display_number_popup("+" + str(amount), Color("fff000"), _favor_num)
+	
+	GlobalSounds.play("FavorGain")
 
 func remove_favor(amount):
 	favor = max(favor - amount, 0) # Cannot go below 0 favor
 	_favor_num.text = str(favor)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _favor_num)
+	
+	GlobalSounds.play("FavorLoss")
 
 func add_player_block(amount):
 	player_block += amount

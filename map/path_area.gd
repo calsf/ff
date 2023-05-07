@@ -134,6 +134,10 @@ func _unhandled_input(event):
 				
 				self.set_modulate(Color(1, 1, 1, 1))
 				_set_path_btn.finished_set_path()
+				
+				GlobalSounds.play("ButtonPressed")
+			else:
+				GlobalSounds.play("Invalid")
 		
 		# Rotate
 		if event.button_index == BUTTON_RIGHT and event.pressed:
@@ -159,6 +163,8 @@ func _unhandled_input(event):
 			# Maintain original children rotation
 			for face in path_faces.get_children():
 				face.rotate(deg2rad(-90))
+			
+			GlobalSounds.play("ButtonPressed")
 
 # Need to move both self and outside area
 func _move_path_area(pos):

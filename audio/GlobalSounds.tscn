@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://audio/global_sounds.gd" type="Script" id=1]
 [ext_resource path="res://audio/sounds/roll-multi.wav" type="AudioStream" id=2]
@@ -11,6 +11,13 @@
 [ext_resource path="res://audio/sounds/block-equip.wav" type="AudioStream" id=9]
 [ext_resource path="res://audio/sounds/button-pressed.wav" type="AudioStream" id=10]
 [ext_resource path="res://audio/sounds/heal.wav" type="AudioStream" id=11]
+[ext_resource path="res://audio/sounds/enemy-death.wav" type="AudioStream" id=12]
+[ext_resource path="res://audio/sounds/encounter.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/sounds/invalid.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/sounds/move02.wav" type="AudioStream" id=15]
+[ext_resource path="res://audio/sounds/move01.wav" type="AudioStream" id=16]
+[ext_resource path="res://audio/sounds/favor-gain.wav" type="AudioStream" id=17]
+[ext_resource path="res://audio/sounds/favor-loss.wav" type="AudioStream" id=18]
 
 [node name="GlobalSounds" type="Node"]
 script = ExtResource( 1 )
@@ -44,3 +51,24 @@ stream = ExtResource( 6 )
 
 [node name="Discard" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
+
+[node name="Encounter" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[node name="EnemyDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="Invalid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="Move01" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
+
+[node name="Move02" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
+[node name="FavorGain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+
+[node name="FavorLoss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )

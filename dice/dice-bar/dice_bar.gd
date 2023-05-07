@@ -104,6 +104,8 @@ func _on_face_pressed(event, i):
 			_action_options.visible = true
 			
 			check_can_reroll_selected()
+			
+			GlobalSounds.play("Loot")
 
 # Reset the die face and unassign selected face index
 func deselect_face():

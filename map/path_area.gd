@@ -129,8 +129,23 @@ func _unhandled_input(event):
 						# Set other faces randomly
 						face.set_face()
 				else: # Normal path, set faces randomly
-					for face in path_faces.get_children():
+					var faces = path_faces.get_children()
+					
+					# Randomize faces
+					for face in faces:
 						face.set_face()
+					
+					# New path requires clearing one combat encounter
+					# Ensure each path has at least one combat
+					var has_combat = false
+					for face in faces:
+						if face.curr_face is PathFaceCombat:
+							has_combat = true
+					
+					if not has_combat:
+						var index = randi() % faces.size()
+						var combat_face = faces[index]
+						combat_face = combat_face.set_face_to(combat_face.combat_face)
 				
 				self.set_modulate(Color(1, 1, 1, 1))
 				_set_path_btn.finished_set_path()

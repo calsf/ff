@@ -189,6 +189,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+die_face_info_path = "Map/CanvasLayer/DieFaceInfo"
 
 [node name="ColorBG" type="ColorRect" parent="CanvasLayer/DiceBank"]
 anchor_right = 1.0

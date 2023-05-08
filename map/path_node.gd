@@ -10,6 +10,7 @@ onready var _area = $Area2D
 onready var _fade = get_tree().get_root().get_node("Map/CanvasLayer/Fade")
 
 var boss_face = PathFaceCombatBoss.new()
+var combat_face = PathFaceCombat.new()
 
 var _is_set = false
 var _possible_faces_full = [

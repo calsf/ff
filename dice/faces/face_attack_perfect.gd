@@ -2,6 +2,7 @@ extends DieFace
 class_name FaceAttackPerfect
 
 const DEFAULT_VAL = 5
+const SCALING = 2
 
 func _init(value=DEFAULT_VAL):
 	num_value = value

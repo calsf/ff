@@ -2,6 +2,7 @@ extends DieFace
 class_name FaceChargeAttack
 
 const DEFAULT_VAL = 5
+const SCALING = 2
 
 var status_icon = "res://combat/StatusIconChargeAttack.tscn"
 

@@ -2,6 +2,7 @@ extends DieFace
 class_name FaceReload
 
 const DEFAULT_VAL = 0
+const SCALING = 0
 
 func _init(value=DEFAULT_VAL):
 	num_value = value

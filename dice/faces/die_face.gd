@@ -19,3 +19,8 @@ func on_discard(combat):
 
 func on_extra_play(combat, target):
 	pass
+
+# Scale num value based on depth 
+func scale_num_val(scaling):
+	# Scale every 2 depths
+	num_value += scaling * ((LevelDepth.depth - 1) / 2)

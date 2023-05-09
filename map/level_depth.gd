@@ -28,12 +28,12 @@ class EnemyData:
 		return defensive_scaling
 
 var t1_minions = [
-	[EnemyData.new(load("res://enemies/Minion13.tscn")), EnemyData.new(load("res://enemies/Minion13.tscn"))],
+	[EnemyData.new(load("res://enemies/Minion13.tscn"), .5, .5, .5)],
 	[EnemyData.new(load("res://enemies/Minion01.tscn"), 1.5, 1.5, 1.2)]
 ]
 
 func get_enemies():
-	if depth <= 2:
+	if depth <= 5:
 		randomize()
 		return t1_minions[randi() % t1_minions.size()]
 

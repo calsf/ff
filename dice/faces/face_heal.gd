@@ -2,6 +2,7 @@ extends DieFace
 class_name FaceHeal
 
 const DEFAULT_VAL = 10
+const SCALING = 5
 
 func _init(value=DEFAULT_VAL):
 	num_value = value

@@ -1,9 +1,11 @@
 extends DieFace
 class_name FaceChargeAttack
 
+const DEFAULT_VAL = 5
+
 var status_icon = "res://combat/StatusIconChargeAttack.tscn"
 
-func _init(value=0):
+func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "CHARGED ATTACK"

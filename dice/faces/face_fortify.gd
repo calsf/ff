@@ -1,7 +1,9 @@
 extends DieFace
 class_name FaceFortify
 
-func _init(value=0):
+const DEFAULT_VAL = 3
+
+func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "FORTIFY"

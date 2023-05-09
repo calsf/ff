@@ -1,7 +1,9 @@
 extends DieFace
 class_name FaceSacrifice
 
-func _init(value=0):
+const DEFAULT_VAL = 0
+
+func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "SACRIFICE"

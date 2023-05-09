@@ -2,38 +2,38 @@
 extends Node
 
 var common_face_pool = [
-	FaceAttack.new(5),
-	FaceBlock.new(5),
-	FaceAttackBrutal.new(5),
-	FaceMultiAttack.new(3)
+	FaceAttack,
+	FaceBlock,
+	FaceAttackBrutal,
+	FaceMultiAttack
 ]
 
 var uncommon_face_pool = [
-	FaceDrain.new(5),
-	FaceHeal.new(10),
-	FaceDodge.new(),
-	FaceScramble.new(),
-	FaceBlockReflect.new(5),
-	FaceAttackBlock.new(5)
+	FaceDrain,
+	FaceHeal,
+	FaceDodge,
+	FaceScramble,
+	FaceBlockReflect,
+	FaceAttackBlock
 ]
 
 var rare_face_pool = [
-	FaceChargeAttack.new(4),
-	FaceChargeBlock.new(5),
-	FaceReplay.new(),
-	FaceUnload.new(),
-	FaceReload.new(),
-	FaceAttackPerfect.new(5),
-	FaceCheapFavor.new(3),
-	FaceStrengthen.new(3),
-	FaceFortify.new(3)
+	FaceChargeAttack,
+	FaceChargeBlock,
+	FaceReplay,
+	FaceUnload,
+	FaceReload,
+	FaceAttackPerfect,
+	FaceCheapFavor,
+	FaceStrengthen,
+	FaceFortify
 ]
 
 var legendary_face_pool = [
-	FaceRage.new(),
-	FaceSacrifice.new(),
-	FaceGuardian.new(),
-	FaceFavorableAttack.new()
+	FaceRage,
+	FaceSacrifice,
+	FaceGuardian,
+	FaceFavorableAttack
 ]
 
 var face_pools = [
@@ -59,4 +59,4 @@ func get_random_face():
 		face_pool_num = 3
 	
 	var face_pool = face_pools[face_pool_num]
-	return face_pool[randi() % face_pool.size()]
+	return face_pool[randi() % face_pool.size()].new()

@@ -25,43 +25,43 @@ func reset_dice_bank():
 	number_icon_paths.append("res://dice/die-numbers/die-num-11.png")
 	number_icon_paths.append("res://dice/die-numbers/die-num-12.png")
 	
-	var attack = FaceAttack.new(5)
-	var block = FaceBlock.new(5)
-	var attack_brutal = FaceAttackBrutal.new(5)
-	var dodge = FaceDodge.new()
-	var drain = FaceDrain.new(5)
-	var heal = FaceHeal.new(5)
-	var replay = FaceReplay.new()
-	var scramble = FaceScramble.new()
-	var unload = FaceUnload.new()
-	var attack_charge = FaceChargeAttack.new(2)
-	var block_charge = FaceChargeBlock.new(5)
-	var reload = FaceReload.new()
-	var attack_block = FaceAttackBlock.new(5)
-	var multi_attack = FaceMultiAttack.new(5)
-	var block_reflect = FaceBlockReflect.new(5)
-	var sacrifice = FaceSacrifice.new()
-	var rage = FaceRage.new()
-	var attack_perfect = FaceAttackPerfect.new(5)
-	var cheap_favor = FaceCheapFavor.new(3)
-	var favorable_attack = FaceFavorableAttack.new()
-	var guardian = FaceGuardian.new()
-	var strengthen = FaceStrengthen.new(10)
-	var fortify = FaceFortify.new(10)
+	var attack = FaceAttack
+	var block = FaceBlock
+	var attack_brutal = FaceAttackBrutal
+	var dodge = FaceDodge
+	var drain = FaceDrain
+	var heal = FaceHeal
+	var replay = FaceReplay
+	var scramble = FaceScramble
+	var unload = FaceUnload
+	var attack_charge = FaceChargeAttack
+	var block_charge = FaceChargeBlock
+	var reload = FaceReload
+	var attack_block = FaceAttackBlock
+	var multi_attack = FaceMultiAttack
+	var block_reflect = FaceBlockReflect
+	var sacrifice = FaceSacrifice
+	var rage = FaceRage
+	var attack_perfect = FaceAttackPerfect
+	var cheap_favor = FaceCheapFavor
+	var favorable_attack = FaceFavorableAttack
+	var guardian = FaceGuardian
+	var strengthen = FaceStrengthen
+	var fortify = FaceFortify
 	
 	# Start with 6 die
-	dice.append(Die.new(number_icon_paths[0], [attack, attack, attack, block, block, block]))
-	dice.append(Die.new(number_icon_paths[1], [attack, attack, attack, block, block, block]))
-	dice.append(Die.new(number_icon_paths[2], [attack, attack, attack, block, block, block]))
-	dice.append(Die.new(number_icon_paths[3], [attack, attack, attack, block, block, block]))
-	dice.append(Die.new(number_icon_paths[4], [attack, attack, attack, block, block, block]))
-	dice.append(Die.new(number_icon_paths[5], [attack, attack, attack, block, block, block]))
+	dice.append(Die.new(number_icon_paths[0], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
+	dice.append(Die.new(number_icon_paths[1], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
+	dice.append(Die.new(number_icon_paths[2], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
+	dice.append(Die.new(number_icon_paths[3], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
+	dice.append(Die.new(number_icon_paths[4], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
+	dice.append(Die.new(number_icon_paths[5], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
 	
 	# TEMP TESTING
-	dice.append(Die.new(number_icon_paths[6], [unload, drain, replay, scramble, heal, dodge]))
-	dice.append(Die.new(number_icon_paths[7], [fortify, fortify, fortify, fortify, strengthen, strengthen]))
-	dice.append(Die.new(number_icon_paths[8], [block_reflect, block_reflect, block_reflect, block_charge, block_charge, block_charge]))
-	dice.append(Die.new(number_icon_paths[9], [attack_perfect, attack_perfect,attack_perfect,dodge,dodge,dodge]))
+	dice.append(Die.new(number_icon_paths[6], [unload.new(), drain.new(), replay.new(), scramble.new(), heal.new(), dodge.new()]))
+	dice.append(Die.new(number_icon_paths[7], [fortify.new(), fortify.new(), fortify.new(), fortify.new(), strengthen.new(), strengthen.new()]))
+	dice.append(Die.new(number_icon_paths[8], [block_reflect.new(), block_reflect.new(), block_reflect.new(), block_charge.new(), block_charge.new(), block_charge.new()]))
+	dice.append(Die.new(number_icon_paths[9], [attack_perfect.new(), attack_perfect.new(),attack_perfect.new(),dodge.new(),dodge.new(),dodge.new()]))
 	
 	# Empty dice slots
 	#dice.append(Die.new(number_icon_paths[6]))

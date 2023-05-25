@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://combat/Combat.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/dice-bank/dice_bank_view_only.gd" type="Script" id=2]
@@ -9,14 +9,47 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=7]
 [ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=8]
 [ext_resource path="res://blessing/BlessingFaceUpgrade.tscn" type="PackedScene" id=9]
+[ext_resource path="res://blessing/blessing_container.gd" type="Script" id=10]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="Animation" id=3]
+resource_name = "close"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "open"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1e-05 ), Vector2( 1, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 4 )
@@ -59,23 +92,20 @@ script = null
 script = ExtResource( 2 )
 die_face_info_path = "Encounter/CanvasLayer/DieFaceInfo"
 
-[node name="DeathScreen" parent="CanvasLayer" index="18"]
-visible = false
-
-[node name="SkipBtn" type="Button" parent="CanvasLayer" index="20"]
+[node name="SkipBtn" type="Button" parent="CanvasLayer" index="15"]
 anchor_left = 0.9
 anchor_top = 0.889
 anchor_right = 0.987
 anchor_bottom = 0.969
 margin_top = -0.0400085
 margin_right = 0.319946
-margin_bottom = 0.159973
+margin_bottom = 0.160004
 focus_mode = 0
 custom_styles/hover = ExtResource( 7 )
 custom_styles/pressed = ExtResource( 6 )
 custom_styles/disabled = ExtResource( 8 )
 custom_styles/normal = ExtResource( 8 )
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 enabled_focus_mode = 0
@@ -84,51 +114,61 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" index="21"]
+[node name="BlessingContainer" type="HBoxContainer" parent="CanvasLayer" index="16"]
 anchor_left = 0.142
 anchor_top = 0.344
 anchor_right = 0.858
 anchor_bottom = 0.833
 margin_left = 0.120003
 margin_top = 0.160004
-margin_right = -0.119995
-margin_bottom = 0.119995
+margin_right = -0.119934
+margin_bottom = 0.120026
+rect_pivot_offset = Vector2( 229, 88 )
 custom_constants/separation = 48
 alignment = 1
+script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BlessingHealth" parent="CanvasLayer/HBoxContainer" index="0" instance=ExtResource( 5 )]
+[node name="BlessingHealth" parent="CanvasLayer/BlessingContainer" index="0" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 7.0
 margin_right = 123.0
 margin_bottom = 176.0
 
-[node name="BlessingFavor" parent="CanvasLayer/HBoxContainer" index="1" instance=ExtResource( 3 )]
+[node name="BlessingFavor" parent="CanvasLayer/BlessingContainer" index="1" instance=ExtResource( 3 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 171.0
 margin_right = 287.0
 margin_bottom = 176.0
 
-[node name="BlessingFaceUpgrade" parent="CanvasLayer/HBoxContainer" index="2" instance=ExtResource( 9 )]
+[node name="BlessingFaceUpgrade" parent="CanvasLayer/BlessingContainer" index="2" instance=ExtResource( 9 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 335.0
 margin_right = 451.0
 margin_bottom = 176.0
 
-[node name="SelectLabel" type="Label" parent="CanvasLayer" index="22"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/BlessingContainer" index="3"]
+autoplay = "open"
+anims/close = SubResource( 3 )
+anims/open = SubResource( 4 )
+
+[node name="SelectLabel" type="Label" parent="CanvasLayer" index="17"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -75.5
 margin_top = 84.0
 margin_right = 75.5
 margin_bottom = 112.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "SELECT ONE BLESSING"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="DeathScreen" parent="CanvasLayer" index="21"]
+visible = false

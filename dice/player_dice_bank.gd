@@ -1,6 +1,9 @@
 # Player dice bank singleton
 extends Node
 
+const DEFAULT_STARTING_FAVOR = 2
+
+var starting_favor = DEFAULT_STARTING_FAVOR
 var dice = []
 var number_icon_paths = []
 
@@ -118,4 +121,12 @@ func get_owned_dice_slots():
 		if not dice[i].is_empty:
 			slots.append(i)
 	return slots
+
+func upgrade_dice_faces():
+	for i in range(dice.size()):
+		var die = dice[i]
+		for face in die.faces:
+			if face.num_value > 0:
+				face.num_value += 1
+		emit_signal("die_bank_updated", i)
 	

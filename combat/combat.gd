@@ -1,6 +1,6 @@
 extends Node
 
-var favor = 2
+var favor = PlayerDiceBank.starting_favor
 var player_block = 0
 var turn = 0
 var enemies = []

@@ -1,7 +1,9 @@
 # Player health singleton
 extends Node
 
-var MAX_HP = 2
+const DEFAULT_MAX_HP = 2
+
+var MAX_HP = DEFAULT_MAX_HP
 var curr_hp : int
 
 signal health_updated()

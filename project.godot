@@ -9,6 +9,26 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "BlessingOption",
+"class": "BlessingFaceUpgrade",
+"language": "GDScript",
+"path": "res://blessing/blessing_face_upgrade.gd"
+}, {
+"base": "BlessingOption",
+"class": "BlessingFavor",
+"language": "GDScript",
+"path": "res://blessing/blessing_favor.gd"
+}, {
+"base": "BlessingOption",
+"class": "BlessingHealth",
+"language": "GDScript",
+"path": "res://blessing/blessing_health.gd"
+}, {
+"base": "Control",
+"class": "BlessingOption",
+"language": "GDScript",
+"path": "res://blessing/blessing_option.gd"
+}, {
 "base": "Reference",
 "class": "Die",
 "language": "GDScript",
@@ -430,6 +450,10 @@ _global_script_classes=[ {
 "path": "res://combat/status_icon_strengthen.gd"
 } ]
 _global_script_class_icons={
+"BlessingFaceUpgrade": "",
+"BlessingFavor": "",
+"BlessingHealth": "",
+"BlessingOption": "",
 "Die": "",
 "DieFace": "",
 "Enemy": "",

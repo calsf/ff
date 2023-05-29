@@ -40,8 +40,9 @@ func show_map():
 	_fade.fade_out()
 	_fade.reset_fade()
 	
-	# Make sure to enable move button upon showing map
+	# Make sure to enable buttons upon showing map
 	_move_btn.enable_move()
+	_set_path_btn.enable_set_path()
 
 func reset_map():
 	_move_btn.disable_move()

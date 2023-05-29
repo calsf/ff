@@ -8,3 +8,5 @@ func _on_blessing_pressed(event):
 			
 			_on_blessing_exited()
 			blessing_container.close_blessings()
+			
+			GlobalSounds.play("ButtonPressed")

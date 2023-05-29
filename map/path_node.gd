@@ -123,7 +123,7 @@ func set_face_used():
 func activate_node():
 	# If node already used/activated, ignore
 	if is_used:
-		return
+		return false
 	
 	set_face_used()
 	_anim.play("use")

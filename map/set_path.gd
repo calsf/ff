@@ -4,10 +4,12 @@ const START_POS = Vector2(320, 240)
 
 onready var _move = get_tree().get_root().get_node("Map/CanvasLayer/MoveBtn")
 onready var _paths_info = get_tree().get_root().get_node("Map/CanvasLayer/PathsInfo")
+onready var _paths_controls = get_tree().get_root().get_node("Map/CanvasLayer/PathsControls")
 
 var next_path = null
 
 func _ready():
+	_paths_controls.visible = false
 	self.connect("pressed", self, "_on_pressed")
 
 func _on_pressed():
@@ -31,6 +33,8 @@ func _on_pressed():
 	# Re-enable move button and cancel move options
 	_move.enable_move()
 	_move.cancel_move_options()
+	
+	_paths_controls.visible = true
 	
 	GlobalSounds.play("ButtonPressed")
 
@@ -57,6 +61,8 @@ func cancel_set_path():
 	
 	# Disable the next path node
 	next_path.disable_path()
+	
+	_paths_controls.visible = false
 
 func finished_set_path():
 	# Path has been used
@@ -66,3 +72,5 @@ func finished_set_path():
 	_move.enable_move()
 	
 	enable_set_path()
+	
+	_paths_controls.visible = false

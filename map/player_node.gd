@@ -4,6 +4,7 @@ onready var _area = $Area2D
 
 onready var _move_btn = get_tree().get_root().get_node("Map/CanvasLayer/MoveBtn")
 onready var _set_path_btn = get_tree().get_root().get_node("Map/CanvasLayer/SetPathBtn")
+onready var anim = $AnimationPlayer
 
 func _physics_process(delta):
 	var overlapping_areas = _area.get_overlapping_areas()

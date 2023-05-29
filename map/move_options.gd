@@ -22,9 +22,9 @@ func _on_moved(path_node):
 	# Move player to selected path node
 	_player_node.set_global_position(path_node.get_global_position())
 	
-	# Keep moving if path node already used or is empty, else cancel and reset move options
+	# Keep moving if path node already used, is empty, or has no scene transition, else cancel and reset move options
 	var curr_node = path_node.get_node_target()
-	if curr_node == null or curr_node.is_used:
+	if curr_node == null or curr_node.is_used or curr_node.has_no_transition():
 		self.set_modulate(Color(1, 1, 1, 0))
 		self.set_global_position(_player_node.get_global_position())
 		

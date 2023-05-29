@@ -8,6 +8,7 @@ onready var _timer = $Timer
 onready var _area = $Area2D
 
 onready var _fade = get_tree().get_root().get_node("Map/CanvasLayer/Fade")
+onready var _map = get_tree().get_root().get_node("Map")
 
 var boss_face = PathFaceCombatBoss.new()
 var combat_face = PathFaceCombat.new()
@@ -18,6 +19,7 @@ var _possible_faces_full = [
 		PathFaceChest.new(),
 		PathFaceBlessing.new(),
 		PathFaceHazard.new(),
+		PathFaceRest.new(),
 		PathFaceRandom.new(),
 		PathFaceEmpty.new()
 	]
@@ -30,6 +32,7 @@ var _common_faces = [
 
 var _uncommon_faces = [
 	PathFaceHazard.new(),
+	PathFaceRest.new(),
 	PathFaceRandom.new()
 ]
 
@@ -130,10 +133,17 @@ func activate_node():
 	
 	GlobalSounds.play("Encounter")
 	
+	if curr_face.no_transition:
+		curr_face.activate()
+		return
+	
 	# Delay before going to next scene
 	yield(get_tree().create_timer(.9), "timeout")
 
 	_fade.go_to_scene(curr_face.next_scene)
+
+func has_no_transition():
+	return curr_face.no_transition
 
 func reset_node():
 	_anim.play("init")

@@ -10,7 +10,7 @@ var shake = 0.0
 func _ready():
 	PlayerHealth.connect("health_lost", self, "shake")
 
-func shake():
+func shake(i):
 	shake = SHAKE_RANGE
 	
 func _process(delta):

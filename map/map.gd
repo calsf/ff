@@ -12,8 +12,14 @@ onready var _move_btn = $CanvasLayer/MoveBtn
 onready var _set_path_btn = $CanvasLayer/SetPathBtn
 
 onready var _paths_info = $CanvasLayer/PathsInfo
+onready var _player_node = $MapArea/PlayerNode
+
+onready var _health_num = $CanvasLayer/PlayerInfo/Health/Label
+
+onready var _number_popup_pool = $CanvasLayer/NumberPopupPool
 
 func _ready():
+	_on_health_updated()
 	_canvas.layer = 0
 	
 	# Initialize fast mode from save since Map is main entry point
@@ -26,8 +32,33 @@ func _ready():
 	yield(get_tree().create_timer(.3), "timeout")
 	GlobalMusic.play("Main")
 	
+	PlayerHealth.connect("health_updated", self, "_on_health_updated")
+	PlayerHealth.connect("health_lost", self, "_on_health_lost")
+	PlayerHealth.connect("health_gain", self, "_on_health_gain")
+	
 	# TEMP
 	$CanvasLayer/TEMPRESETBTN.connect("pressed", self, "reset_map")
+
+func _on_health_updated():
+	_health_num.text = str(PlayerHealth.curr_hp)
+
+func _on_health_lost(amount):
+	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_num)
+	
+	GlobalSounds.play("Hit")
+	
+	_player_node.anim.play("hit")
+	yield(_player_node.anim, "animation_finished")
+	_player_node.anim.play("idle")
+
+func _on_health_gain(amount):
+	_number_popup_pool.display_number_popup("+" + str(amount), Color("1aff00"), _health_num)
+	
+	GlobalSounds.play("Heal")
+	
+	_player_node.anim.play("heal")
+	yield(_player_node.anim, "animation_finished")
+	_player_node.anim.play("idle")
 
 func hide_map():
 	self.visible = false
@@ -41,6 +72,9 @@ func show_map():
 	_fade.reset_fade()
 	
 	# Make sure to enable buttons upon showing map
+	enable_buttons()
+
+func enable_buttons():
 	_move_btn.enable_move()
 	_set_path_btn.enable_set_path()
 

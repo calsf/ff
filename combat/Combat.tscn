@@ -1,9 +1,9 @@
-[gd_scene load_steps=175 format=2]
+[gd_scene load_steps=174 format=2]
 
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://save/SettingsContainer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=3]
-[ext_resource path="res://combat/NumberPopup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://combat/NumberPopupPool.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fade.tscn" type="PackedScene" id=5]
 [ext_resource path="res://dice/dice-bank/BankDieSelectedOverlay.tscn" type="PackedScene" id=6]
 [ext_resource path="res://loot/LootScreen.tscn" type="PackedScene" id=7]
@@ -22,7 +22,6 @@
 [ext_resource path="res://dice/die-roll/die-roll16.png" type="Texture" id=20]
 [ext_resource path="res://dice/die-roll/die-roll56.png" type="Texture" id=21]
 [ext_resource path="res://dice/die-roll/die-roll14.png" type="Texture" id=22]
-[ext_resource path="res://combat/number_popup_pool.gd" type="Script" id=23]
 [ext_resource path="res://dice/die-roll/die-roll8.png" type="Texture" id=24]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash2.png" type="Texture" id=25]
 [ext_resource path="res://dice/die-roll/die-roll35.png" type="Texture" id=26]
@@ -2340,44 +2339,7 @@ __meta__ = {
 
 [node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 3 )]
 
-[node name="NumberPopupPool" type="Control" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -320.0
-margin_top = -180.0
-margin_right = -288.0
-margin_bottom = -148.0
-mouse_filter = 2
-script = ExtResource( 23 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Number01" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number02" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number03" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number04" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number05" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number06" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number07" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number08" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number09" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number10" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number11" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
-
-[node name="Number12" parent="CanvasLayer/NumberPopupPool" instance=ExtResource( 4 )]
+[node name="NumberPopupPool" parent="CanvasLayer" instance=ExtResource( 4 )]
 
 [node name="DeathScreen" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0

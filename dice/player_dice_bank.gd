@@ -8,6 +8,7 @@ var dice = []
 var number_icon_paths = []
 
 signal die_bank_updated(i)
+signal starting_favor_updated()
 
 func _init():
 	reset_dice_bank()
@@ -129,4 +130,9 @@ func upgrade_dice_faces():
 			if face.num_value > 0:
 				face.num_value += 1
 		emit_signal("die_bank_updated", i)
+
+# Increase starting favor
+func increase_starting_favor():
+	starting_favor += 1
+	emit_signal("starting_favor_updated")
 	

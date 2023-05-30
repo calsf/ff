@@ -32,8 +32,9 @@ func _on_skip_loot():
 	yield(_anim, "animation_finished")
 	self.visible = false
 	
-	# On loot skip/finish, combat has been cleared, add a new path
-	_paths_info.add_paths_avail()
+	# On loot skip/finish, add new path only if Combat encounter was cleared
+	if get_tree().get_root().get_node("Encounter") is CombatScene:
+		_paths_info.add_paths_avail()
 	
 	yield(get_tree().create_timer(.6), "timeout")
 	_fade.go_to_scene("res://map/Map.tscn")

@@ -44,6 +44,10 @@ var face_pools = [
 ]
 
 func get_random_face():
+	var face_type = get_random_face_type()
+	return create_new_face(face_type)
+
+func get_random_face_type():
 	var face_pool_num = -1
 	
 	randomize()
@@ -59,6 +63,10 @@ func get_random_face():
 		face_pool_num = 3
 	
 	var face_pool = face_pools[face_pool_num]
-	var face = face_pool[randi() % face_pool.size()].new()
+	var face = face_pool[randi() % face_pool.size()]
+	return face
+
+func create_new_face(face_type):
+	var face = face_type.new()
 	face.scale_num_val(face.SCALING)
 	return face

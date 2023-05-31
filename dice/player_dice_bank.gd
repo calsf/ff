@@ -2,6 +2,7 @@
 extends Node
 
 const DEFAULT_STARTING_FAVOR = 2
+const MAX_OWNED_DICE = 12
 
 var starting_favor = DEFAULT_STARTING_FAVOR
 var dice = []

@@ -61,8 +61,10 @@ func connect_dice_entered_exited():
 	var dice = get_dice_nodes()
 
 	for i in range(dice.size()):
-		dice[i].connect("mouse_entered", self, "_on_die_entered", [i])
-		dice[i].connect("mouse_exited", self, "_on_die_exited", [i])
+		if not dice[i].is_connected("mouse_entered", self, "_on_die_entered"):
+			dice[i].connect("mouse_entered", self, "_on_die_entered", [i])
+		if not dice[i].is_connected("mouse_exited", self, "_on_die_exited"):
+			dice[i].connect("mouse_exited", self, "_on_die_exited", [i])
 
 # Connects mouse enter/exit signals for face selection
 func connect_face_entered_exited():

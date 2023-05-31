@@ -2,6 +2,7 @@ extends Node
 class_name LootDieFace
 
 var loot_face = null
+var multi_face_container = null
 
 onready var _die_face_info = get_tree().get_root().get_node("Encounter/CanvasLayer/DieFaceInfo")
 onready var _dice_face_selection = get_tree().get_root().get_node("Encounter/CanvasLayer/DiceFaceSelection")
@@ -12,6 +13,12 @@ func _ready():
 	self.connect("gui_input", self, "_on_face_pressed")
 	self.connect("mouse_entered", self, "_on_face_entered", [self])
 	self.connect("mouse_exited", self, "_on_face_exited")
+	
+	# Used for dice face selection for loot die face multi
+	# Check for parent LootDieFaceMulti marker
+	# Need to check if there are any remaining faces before decrementing loot count
+	if get_parent() != null and get_parent() is LootDieFaceMulti:
+		multi_face_container = get_parent()
 	
 	set_display()
 

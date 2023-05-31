@@ -48,5 +48,18 @@ func _on_face_pressed(event, die_index, face_index):
 			
 			GlobalSounds.play("Loot")
 			
-			_loot.remove_loot(original_loot)
+			var loot_claimed = true
+			
+			# If is multi face drop and there is more than 1 die face, loot has not been fully claimed
+			# Set to false to avoid decrementing loot count
+			var multi_face_container = original_loot.multi_face_container
+			if multi_face_container != null and multi_face_container.get_children().size() > 1:
+				loot_claimed = false
+			
+			_loot.remove_loot(original_loot, loot_claimed)
+			
+			# Free the parent container once loot is fully claimed
+			if multi_face_container != null and loot_claimed:
+				multi_face_container.queue_free()
+			
 			_on_cancel()

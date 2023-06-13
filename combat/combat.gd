@@ -157,6 +157,7 @@ func player_turn_finished():
 	if combat_ended:
 		return
 	
+	# Repeat player turn
 	if _replay:
 		enemy_turn_finished()
 		
@@ -164,6 +165,8 @@ func player_turn_finished():
 		for enemy in enemies:
 			enemy.reset_block()
 			enemy.reset_statuses()
+		
+		GlobalSounds.play("Replay")
 		
 		return
 	
@@ -215,6 +218,8 @@ func enemy_turn_finished():
 	if enemy_replay:	# Repeat enemy turn and reset enemy_replay
 		enemy_replay = false
 		player_turn_finished()
+		
+		GlobalSounds.play("Replay")
 	else: # Reset turn normally
 		_dice_bar.reset_dice_bar()
 

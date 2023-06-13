@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://audio/global_sounds.gd" type="Script" id=1]
 [ext_resource path="res://audio/sounds/roll-multi.wav" type="AudioStream" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://audio/sounds/move01.wav" type="AudioStream" id=16]
 [ext_resource path="res://audio/sounds/favor-gain.wav" type="AudioStream" id=17]
 [ext_resource path="res://audio/sounds/favor-loss.wav" type="AudioStream" id=18]
+[ext_resource path="res://audio/sounds/replay.wav" type="AudioStream" id=19]
 
 [node name="GlobalSounds" type="Node"]
 script = ExtResource( 1 )
@@ -72,3 +73,6 @@ stream = ExtResource( 17 )
 
 [node name="FavorLoss" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 18 )
+
+[node name="Replay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )

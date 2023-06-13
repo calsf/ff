@@ -41,6 +41,15 @@ var _rare_faces = [
 	PathFaceChest.new()
 ]
 
+# For selecting a random face to PathFaceRandom
+var _random_face_pool = [
+	PathFaceCombat.new(),
+	PathFaceChest.new(),
+	PathFaceBlessing.new(),
+	PathFaceHazard.new(),
+	PathFaceRest.new()
+]
+
 var _face_pools = [
 	_common_faces,
 	_uncommon_faces,
@@ -99,6 +108,11 @@ func set_face():
 	
 	_face.texture = curr_face.icon
 	
+	# If random, select a random face (texture will remain random path face)
+	if curr_face is PathFaceRandom:
+		randomize()
+		curr_face = _random_face_pool[randi() % _random_face_pool.size()]
+	
 	if curr_face.face_name == EMPTY:
 		set_face_used()
 	
@@ -106,6 +120,8 @@ func set_face():
 	_area.monitorable = true
 	_area.monitoring = true
 
+# Set face explicitly to provided face arg
+# Should only be used when initializing path node since it may unset face used
 func set_face_to(face):
 	_is_set = true
 	
@@ -115,6 +131,9 @@ func set_face_to(face):
 	
 	if curr_face.face_name == EMPTY:
 		set_face_used()
+	else:
+		# Face may have been set to used before, unsets face used
+		unset_face_used()
 	
 	# Enable collision
 	_area.monitorable = true
@@ -122,6 +141,9 @@ func set_face_to(face):
 
 func set_face_used():
 	is_used = true
+
+func unset_face_used():
+	is_used = false
 
 func activate_node():
 	# If node already used/activated, ignore

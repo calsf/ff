@@ -1,0 +1,2435 @@
+[gd_scene load_steps=175 format=2]
+
+[ext_resource path="res://dice/action_options.gd" type="Script" id=1]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash1.png" type="Texture" id=2]
+[ext_resource path="res://dice/die-roll/die-roll46.png" type="Texture" id=3]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash26.png" type="Texture" id=4]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash36.png" type="Texture" id=5]
+[ext_resource path="res://dice/dice-bank/dice_bank.gd" type="Script" id=6]
+[ext_resource path="res://dice/dice-bar/dice_bar.gd" type="Script" id=7]
+[ext_resource path="res://combat/combat.gd" type="Script" id=8]
+[ext_resource path="res://combatboss/combat_boss_scene.gd" type="Script" id=9]
+[ext_resource path="res://combat/death_screen.gd" type="Script" id=10]
+[ext_resource path="res://loot/dice_face_selection.gd" type="Script" id=11]
+[ext_resource path="res://loot/dice_bank_selection.gd" type="Script" id=12]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash43.png" type="Texture" id=13]
+[ext_resource path="res://combatboss/enemies_boss.gd" type="Script" id=14]
+[ext_resource path="res://map/depth_icon.png" type="Texture" id=15]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash57.png" type="Texture" id=16]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash44.png" type="Texture" id=17]
+[ext_resource path="res://combat/favor-icon.png" type="Texture" id=18]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash5.png" type="Texture" id=19]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash38.png" type="Texture" id=20]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash54.png" type="Texture" id=21]
+[ext_resource path="res://dice/die-roll/die-roll41.png" type="Texture" id=22]
+[ext_resource path="res://dice/die-roll/die-roll61.png" type="Texture" id=23]
+[ext_resource path="res://dice/die-roll/die-roll38.png" type="Texture" id=24]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash51.png" type="Texture" id=25]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash35.png" type="Texture" id=26]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash37.png" type="Texture" id=27]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash60.png" type="Texture" id=28]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash18.png" type="Texture" id=29]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash56.png" type="Texture" id=30]
+[ext_resource path="res://dice/die-roll/die-roll59.png" type="Texture" id=31]
+[ext_resource path="res://dice/die-roll/die-roll62.png" type="Texture" id=32]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash12.png" type="Texture" id=33]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash46.png" type="Texture" id=34]
+[ext_resource path="res://dice/die-roll/die-roll42.png" type="Texture" id=35]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash11.png" type="Texture" id=36]
+[ext_resource path="res://dice/die-roll/die-roll60.png" type="Texture" id=37]
+[ext_resource path="res://dice/die-roll/die-roll27.png" type="Texture" id=38]
+[ext_resource path="res://dice/die-roll/die-roll52.png" type="Texture" id=39]
+[ext_resource path="res://dice/die-roll/die-roll12.png" type="Texture" id=40]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash17.png" type="Texture" id=41]
+[ext_resource path="res://dice/die-roll/die-roll57.png" type="Texture" id=42]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash7.png" type="Texture" id=43]
+[ext_resource path="res://dice/die-roll/die-roll58.png" type="Texture" id=44]
+[ext_resource path="res://dice/die-roll/die-roll51.png" type="Texture" id=45]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash34.png" type="Texture" id=46]
+[ext_resource path="res://dice/die-roll/die-roll26.png" type="Texture" id=47]
+[ext_resource path="res://dice/die-roll/die-roll63.png" type="Texture" id=48]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash22.png" type="Texture" id=49]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash42.png" type="Texture" id=50]
+[ext_resource path="res://combat/background-01.png" type="Texture" id=51]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash20.png" type="Texture" id=52]
+[ext_resource path="res://dice/die-roll/die-roll21.png" type="Texture" id=53]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash53.png" type="Texture" id=54]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash48.png" type="Texture" id=55]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash47.png" type="Texture" id=56]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash15.png" type="Texture" id=57]
+[ext_resource path="res://dice/die-roll/die-roll11.png" type="Texture" id=58]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash45.png" type="Texture" id=59]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash8.png" type="Texture" id=60]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash21.png" type="Texture" id=61]
+[ext_resource path="res://dice/die-roll/die-roll48.png" type="Texture" id=62]
+[ext_resource path="res://dice/die-roll/die-roll25.png" type="Texture" id=63]
+[ext_resource path="res://dice/die-roll/die-roll24.png" type="Texture" id=64]
+[ext_resource path="res://dice/die-roll/die-roll39.png" type="Texture" id=65]
+[ext_resource path="res://dice/die-roll/die-roll34.png" type="Texture" id=66]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash6.png" type="Texture" id=67]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash55.png" type="Texture" id=68]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash52.png" type="Texture" id=69]
+[ext_resource path="res://dice/die-roll/die-roll36.png" type="Texture" id=70]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash13.png" type="Texture" id=71]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash19.png" type="Texture" id=72]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash23.png" type="Texture" id=73]
+[ext_resource path="res://combat/block_icon.png" type="Texture" id=74]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash25.png" type="Texture" id=75]
+[ext_resource path="res://combat/info-box.png" type="Texture" id=76]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash41.png" type="Texture" id=77]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash62.png" type="Texture" id=78]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash27.png" type="Texture" id=79]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash3.png" type="Texture" id=80]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash61.png" type="Texture" id=81]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash4.png" type="Texture" id=82]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash10.png" type="Texture" id=83]
+[ext_resource path="res://dice/dice-bank/lmb.png" type="Texture" id=84]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash40.png" type="Texture" id=85]
+[ext_resource path="res://dice/dice-bank/rmb.png" type="Texture" id=86]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash63.png" type="Texture" id=87]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash39.png" type="Texture" id=88]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash16.png" type="Texture" id=89]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash58.png" type="Texture" id=90]
+[ext_resource path="res://combat/health_icon.png" type="Texture" id=91]
+[ext_resource path="res://dice/dice-bar/dice-bar.png" type="Texture" id=92]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash59.png" type="Texture" id=93]
+[ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=94]
+[ext_resource path="res://dice/dice-bar/DieFace.tscn" type="PackedScene" id=95]
+[ext_resource path="res://save/SettingsContainer.tscn" type="PackedScene" id=96]
+[ext_resource path="res://dice/dice-bank/BankDieSelectedOverlay.tscn" type="PackedScene" id=97]
+[ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=98]
+[ext_resource path="res://Fade.tscn" type="PackedScene" id=99]
+[ext_resource path="res://loot/LootScreen.tscn" type="PackedScene" id=100]
+[ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=101]
+[ext_resource path="res://combat/NumberPopupPool.tscn" type="PackedScene" id=102]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash50.png" type="Texture" id=103]
+[ext_resource path="res://combat/target_selection.gd" type="Script" id=104]
+[ext_resource path="res://combat/screen_shake.gd" type="Script" id=105]
+[ext_resource path="res://dice/die-roll/die-roll50.png" type="Texture" id=106]
+[ext_resource path="res://dice/die-roll/die-roll13.png" type="Texture" id=107]
+[ext_resource path="res://dice/die-roll/die-roll18.png" type="Texture" id=108]
+[ext_resource path="res://dice/die-roll/die-roll8.png" type="Texture" id=109]
+[ext_resource path="res://dice/die-roll/die-roll10.png" type="Texture" id=110]
+[ext_resource path="res://dice/die-roll/die-roll2.png" type="Texture" id=111]
+[ext_resource path="res://dice/die-roll/die-roll16.png" type="Texture" id=112]
+[ext_resource path="res://dice/die-roll/die-roll15.png" type="Texture" id=113]
+[ext_resource path="res://dice/die-roll/die-roll5.png" type="Texture" id=114]
+[ext_resource path="res://dice/die-roll/die-roll55.png" type="Texture" id=115]
+[ext_resource path="res://dice/die-roll/die-roll44.png" type="Texture" id=116]
+[ext_resource path="res://dice/die-roll/die-roll3.png" type="Texture" id=117]
+[ext_resource path="res://dice/die-roll/die-roll19.png" type="Texture" id=118]
+[ext_resource path="res://dice/die-roll/die-roll35.png" type="Texture" id=119]
+[ext_resource path="res://dice/die-roll/die-roll40.png" type="Texture" id=120]
+[ext_resource path="res://dice/die-empty-slot.png" type="Texture" id=121]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash49.png" type="Texture" id=122]
+[ext_resource path="res://dice/die-roll/die-roll17.png" type="Texture" id=123]
+[ext_resource path="res://dice/die-roll/die-roll14.png" type="Texture" id=124]
+[ext_resource path="res://dice/die-roll/die-roll47.png" type="Texture" id=125]
+[ext_resource path="res://dice/die-roll/die-roll56.png" type="Texture" id=126]
+[ext_resource path="res://dice/die-roll/die-roll6.png" type="Texture" id=127]
+[ext_resource path="res://dice/die-roll/die-roll49.png" type="Texture" id=128]
+[ext_resource path="res://dice/die-roll/die-roll23.png" type="Texture" id=129]
+[ext_resource path="res://dice/die-roll/die-roll43.png" type="Texture" id=130]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash2.png" type="Texture" id=131]
+[ext_resource path="res://dice/die-roll/die-roll37.png" type="Texture" id=132]
+[ext_resource path="res://dice/die-roll/die-roll45.png" type="Texture" id=133]
+[ext_resource path="res://dice/die-roll/die-roll9.png" type="Texture" id=134]
+[ext_resource path="res://dice/die-roll/die-roll53.png" type="Texture" id=135]
+[ext_resource path="res://dice/die-roll/die-roll54.png" type="Texture" id=136]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash9.png" type="Texture" id=137]
+[ext_resource path="res://dice/die-roll/die-roll22.png" type="Texture" id=138]
+[ext_resource path="res://dice/die-roll/die-roll20.png" type="Texture" id=139]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash14.png" type="Texture" id=140]
+[ext_resource path="res://dice/die-roll-flash/die-roll-flash24.png" type="Texture" id=141]
+[ext_resource path="res://dice/die-roll/die-roll4.png" type="Texture" id=142]
+[ext_resource path="res://dice/die-roll/die-roll7.png" type="Texture" id=143]
+[ext_resource path="res://dice/die-roll/die-roll1.png" type="Texture" id=144]
+[ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=145]
+[ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=146]
+[ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=147]
+[ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=148]
+[ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=149]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="Animation" id=2]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceRoll/Die1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceFlashEffect/Flash1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceNumbers/Number1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../DiceFaces/Face1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFaces/Face1:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../DiceFaceActions/Label1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DiceFaces/Face1:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceNumbers/Number1:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "play"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceFaces/Face1:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceRoll/Die1:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceFaceActions/Label1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceRoll/Die1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 144 ), ExtResource( 144 ), ExtResource( 111 ), ExtResource( 117 ), ExtResource( 142 ), ExtResource( 114 ), ExtResource( 127 ), ExtResource( 143 ), ExtResource( 109 ), ExtResource( 134 ), ExtResource( 110 ), ExtResource( 58 ), ExtResource( 40 ), ExtResource( 107 ), ExtResource( 124 ), ExtResource( 113 ), ExtResource( 112 ), ExtResource( 123 ), ExtResource( 108 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 53 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 64 ), ExtResource( 63 ), ExtResource( 47 ), ExtResource( 38 ), ExtResource( 66 ), ExtResource( 119 ), ExtResource( 70 ), ExtResource( 132 ), ExtResource( 24 ), ExtResource( 65 ), ExtResource( 120 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 130 ), ExtResource( 116 ), ExtResource( 133 ), ExtResource( 3 ), ExtResource( 125 ), ExtResource( 62 ), ExtResource( 128 ), ExtResource( 106 ), ExtResource( 45 ), ExtResource( 39 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 115 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceRoll/Die1:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceNumbers/Number1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../DiceFaces/Face1:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFlashEffect/Flash1:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 2.14355, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1.27456, 1, 1, 1, 1, 1, 1, 2.46229, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1.46409, 1, 2.92817, 1.18921, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3.03143, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 131 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 19 ), ExtResource( 67 ), ExtResource( 43 ), ExtResource( 60 ), ExtResource( 137 ), ExtResource( 83 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 71 ), ExtResource( 140 ), ExtResource( 57 ), ExtResource( 89 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 72 ), ExtResource( 52 ), ExtResource( 61 ), ExtResource( 49 ), ExtResource( 73 ), ExtResource( 141 ), ExtResource( 75 ), ExtResource( 4 ), ExtResource( 79 ), ExtResource( 46 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 88 ), ExtResource( 85 ), ExtResource( 77 ), ExtResource( 50 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 59 ), ExtResource( 34 ), ExtResource( 56 ), ExtResource( 55 ), ExtResource( 122 ), ExtResource( 103 ), ExtResource( 25 ), ExtResource( 69 ), ExtResource( 54 ), ExtResource( 21 ), ExtResource( 68 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 87 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 87 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../DiceFlashEffect/Flash1:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.075, 0.25, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DiceFlashEffect/Flash1:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceFaces/Face1:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../DiceFaceActions/Label1:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceRoll/Die2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceFlashEffect/Flash2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceNumbers/Number2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../DiceFaces/Face2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFaces/Face2:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../DiceFaceActions/Label2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DiceFaces/Face2:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceNumbers/Number2:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "play"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceFaces/Face2:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceRoll/Die2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceFaceActions/Label2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceRoll/Die2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 144 ), ExtResource( 144 ), ExtResource( 111 ), ExtResource( 117 ), ExtResource( 142 ), ExtResource( 114 ), ExtResource( 127 ), ExtResource( 143 ), ExtResource( 109 ), ExtResource( 134 ), ExtResource( 110 ), ExtResource( 58 ), ExtResource( 40 ), ExtResource( 107 ), ExtResource( 124 ), ExtResource( 113 ), ExtResource( 112 ), ExtResource( 123 ), ExtResource( 108 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 53 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 64 ), ExtResource( 63 ), ExtResource( 47 ), ExtResource( 38 ), ExtResource( 66 ), ExtResource( 119 ), ExtResource( 70 ), ExtResource( 132 ), ExtResource( 24 ), ExtResource( 65 ), ExtResource( 120 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 130 ), ExtResource( 116 ), ExtResource( 133 ), ExtResource( 3 ), ExtResource( 125 ), ExtResource( 62 ), ExtResource( 128 ), ExtResource( 106 ), ExtResource( 45 ), ExtResource( 39 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 115 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceRoll/Die2:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceNumbers/Number2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../DiceFaces/Face2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFlashEffect/Flash2:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 2.14355, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1.27456, 1, 1, 1, 1, 1, 1, 2.46229, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1.46409, 1, 2.92817, 1.18921, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3.03143, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 131 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 19 ), ExtResource( 67 ), ExtResource( 43 ), ExtResource( 60 ), ExtResource( 137 ), ExtResource( 83 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 71 ), ExtResource( 140 ), ExtResource( 57 ), ExtResource( 89 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 72 ), ExtResource( 52 ), ExtResource( 61 ), ExtResource( 49 ), ExtResource( 73 ), ExtResource( 141 ), ExtResource( 75 ), ExtResource( 4 ), ExtResource( 79 ), ExtResource( 46 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 88 ), ExtResource( 85 ), ExtResource( 77 ), ExtResource( 50 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 59 ), ExtResource( 34 ), ExtResource( 56 ), ExtResource( 55 ), ExtResource( 122 ), ExtResource( 103 ), ExtResource( 25 ), ExtResource( 69 ), ExtResource( 54 ), ExtResource( 21 ), ExtResource( 68 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 87 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 87 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../DiceFlashEffect/Flash2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.075, 0.25, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DiceFlashEffect/Flash2:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceFaces/Face2:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../DiceFaceActions/Label2:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceRoll/Die3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceFlashEffect/Flash3:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceNumbers/Number3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../DiceFaces/Face3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFaces/Face3:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../DiceFaceActions/Label3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DiceFaces/Face3:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceNumbers/Number3:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "play"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceFaces/Face3:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceRoll/Die3:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 121 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceFaceActions/Label3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../DiceRoll/Die3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 144 ), ExtResource( 144 ), ExtResource( 111 ), ExtResource( 117 ), ExtResource( 142 ), ExtResource( 114 ), ExtResource( 127 ), ExtResource( 143 ), ExtResource( 109 ), ExtResource( 134 ), ExtResource( 110 ), ExtResource( 58 ), ExtResource( 40 ), ExtResource( 107 ), ExtResource( 124 ), ExtResource( 113 ), ExtResource( 112 ), ExtResource( 123 ), ExtResource( 108 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 53 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 64 ), ExtResource( 63 ), ExtResource( 47 ), ExtResource( 38 ), ExtResource( 66 ), ExtResource( 119 ), ExtResource( 70 ), ExtResource( 132 ), ExtResource( 24 ), ExtResource( 65 ), ExtResource( 120 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 130 ), ExtResource( 116 ), ExtResource( 133 ), ExtResource( 3 ), ExtResource( 125 ), ExtResource( 62 ), ExtResource( 128 ), ExtResource( 106 ), ExtResource( 45 ), ExtResource( 39 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 115 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 23 ), ExtResource( 32 ), ExtResource( 48 ), ExtResource( 126 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 31 ), ExtResource( 37 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../DiceRoll/Die3:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../DiceNumbers/Number3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../DiceFaces/Face3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../DiceFlashEffect/Flash3:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35, 0.4, 0.45, 0.475, 0.5, 0.525, 0.55, 0.575, 0.6, 0.625, 0.65, 0.675, 0.7, 0.725, 0.75, 0.775, 0.8, 0.825, 0.85, 0.875, 0.9, 0.925, 0.95, 0.975, 1, 1.025, 1.05, 1.075, 1.1, 1.125, 1.15, 1.175, 1.2, 1.225, 1.25, 1.275, 1.3, 1.325, 1.35, 1.375, 1.4, 1.425, 1.45, 1.475, 1.5, 1.525, 1.55, 1.575, 1.6, 1.65, 1.7, 1.75, 1.8, 1.85, 1.9, 1.95, 2, 2.05, 2.1, 2.15, 2.225, 2.325, 2.425, 2.525, 2.675, 2.85, 3.05, 3.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 2.14355, 1, 1, 1, 1, 1, 1, 1, 1.68179, 2.82843, 1, 3.24901, 1.6245, 1.41421, 1, 1, 1, 1, 2.92817, 1, 1, 1, 1, 1, 1.27456, 1, 1, 1, 1, 1, 1, 2.46229, 1, 1, 1, 1, 1, 1.41421, 1, 1, 1.46409, 1, 2.92817, 1.18921, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3.03143, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 131 ), ExtResource( 80 ), ExtResource( 82 ), ExtResource( 19 ), ExtResource( 67 ), ExtResource( 43 ), ExtResource( 60 ), ExtResource( 137 ), ExtResource( 83 ), ExtResource( 36 ), ExtResource( 33 ), ExtResource( 71 ), ExtResource( 140 ), ExtResource( 57 ), ExtResource( 89 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 72 ), ExtResource( 52 ), ExtResource( 61 ), ExtResource( 49 ), ExtResource( 73 ), ExtResource( 141 ), ExtResource( 75 ), ExtResource( 4 ), ExtResource( 79 ), ExtResource( 46 ), ExtResource( 26 ), ExtResource( 5 ), ExtResource( 27 ), ExtResource( 20 ), ExtResource( 88 ), ExtResource( 85 ), ExtResource( 77 ), ExtResource( 50 ), ExtResource( 13 ), ExtResource( 17 ), ExtResource( 59 ), ExtResource( 34 ), ExtResource( 56 ), ExtResource( 55 ), ExtResource( 122 ), ExtResource( 103 ), ExtResource( 25 ), ExtResource( 69 ), ExtResource( 54 ), ExtResource( 21 ), ExtResource( 68 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 87 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ), ExtResource( 81 ), ExtResource( 78 ), ExtResource( 87 ), ExtResource( 30 ), ExtResource( 16 ), ExtResource( 90 ), ExtResource( 93 ), ExtResource( 28 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../DiceFlashEffect/Flash3:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.075, 0.25, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../DiceFlashEffect/Flash3:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25, 0.3, 0.35 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../DiceFaces/Face3:mouse_filter")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 2, 1 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../DiceFaceActions/Label3:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 3.3, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=11]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+use_filter = true
+font_data = ExtResource( 148 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 10
+outline_size = 1
+outline_color = Color( 0.494118, 0.470588, 0.345098, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 148 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 148 )
+
+[sub_resource type="DynamicFont" id=15]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 148 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 6
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 6
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 149 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 24
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.431373 )
+extra_spacing_char = 4
+font_data = ExtResource( 148 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 20
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.431373 )
+font_data = ExtResource( 148 )
+
+[sub_resource type="DynamicFont" id=24]
+outline_size = 1
+outline_color = Color( 1, 1, 1, 0.431373 )
+extra_spacing_char = 4
+font_data = ExtResource( 148 )
+
+[sub_resource type="Animation" id=25]
+resource_name = "fade_in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ReturnBtn:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ReturnBtn:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="Encounter" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource( 105 )
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 0.721569, 0.992157, 0.47451, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 51 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceBar" type="NinePatchRect" parent="CanvasLayer"]
+anchor_left = 0.2
+anchor_top = 0.733
+anchor_right = 0.8
+anchor_bottom = 0.956
+margin_top = 0.119995
+margin_bottom = -0.160004
+texture = ExtResource( 92 )
+region_rect = Rect2( 0, 0, 64, 48 )
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 24
+patch_margin_bottom = 24
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceRoll" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.925
+margin_bottom = -7.62939e-06
+mouse_filter = 2
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceRoll"]
+margin_left = 80.0
+margin_right = 144.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceRoll"]
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceRoll"]
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceNumbers" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.925
+margin_bottom = -7.62939e-06
+mouse_filter = 2
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+margin_left = 80.0
+margin_right = 144.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceNumbers"]
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 121 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceFaces" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.925
+margin_bottom = -7.62939e-06
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Face1" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 95 )]
+modulate = Color( 1, 1, 1, 0 )
+rect_scale = Vector2( 1, 1 )
+mouse_filter = 2
+
+[node name="Face2" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 95 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 160.0
+margin_right = 224.0
+rect_scale = Vector2( 1, 1 )
+mouse_filter = 2
+
+[node name="Face3" parent="CanvasLayer/DiceBar/DiceFaces" instance=ExtResource( 95 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 240.0
+margin_right = 304.0
+rect_scale = Vector2( 1, 1 )
+mouse_filter = 2
+
+[node name="DiceFlashEffect" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
+anchor_top = 0.125
+anchor_right = 1.0
+anchor_bottom = 0.925
+margin_bottom = -7.62939e-06
+mouse_filter = 2
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flash1" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 80.0
+margin_right = 144.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flash2" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 160.0
+margin_right = 224.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Flash3" type="TextureRect" parent="CanvasLayer/DiceBar/DiceFlashEffect"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 240.0
+margin_right = 304.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 32, 32 )
+mouse_filter = 2
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceFaceActions" type="HBoxContainer" parent="CanvasLayer/DiceBar"]
+anchor_right = 1.0
+anchor_bottom = 0.3
+mouse_filter = 2
+custom_constants/separation = 42
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label1" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 94.0
+margin_top = 4.0
+margin_right = 131.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 37, 15 )
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "NO ACTION"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
+margin_left = 173.0
+margin_top = 4.0
+margin_right = 210.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 37, 15 )
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "NO ACTION"
+align = 1
+valign = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/DiceBar/DiceFaceActions"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 252.0
+margin_top = 4.0
+margin_right = 289.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 37, 15 )
+size_flags_horizontal = 0
+custom_fonts/font = SubResource( 1 )
+text = "NO ACTION"
+align = 1
+valign = 1
+
+[node name="DieAnimationPlayers" type="Control" parent="CanvasLayer/DiceBar"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DieAnimationPlayer01" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+anims/play = SubResource( 3 )
+anims/roll = SubResource( 4 )
+
+[node name="DieAnimationPlayer02" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
+autoplay = "idle"
+anims/idle = SubResource( 5 )
+anims/play = SubResource( 6 )
+anims/roll = SubResource( 7 )
+
+[node name="DieAnimationPlayer03" type="AnimationPlayer" parent="CanvasLayer/DiceBar/DieAnimationPlayers"]
+autoplay = "idle"
+anims/idle = SubResource( 8 )
+anims/play = SubResource( 9 )
+anims/roll = SubResource( 10 )
+
+[node name="PlayerInfo" type="Control" parent="CanvasLayer"]
+anchor_left = 0.2
+anchor_top = 0.822
+anchor_right = 0.262
+anchor_bottom = 0.956
+margin_top = -31.92
+margin_right = 0.319977
+margin_bottom = -32.16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="CanvasLayer/PlayerInfo"]
+anchor_left = 0.125
+anchor_right = 0.875
+anchor_bottom = 0.588
+margin_top = 2.0
+margin_right = -3.8147e-06
+margin_bottom = 1.98801
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PlayerInfo/Health"]
+anchor_left = 0.567
+anchor_top = -0.071
+anchor_right = 1.167
+anchor_bottom = 0.935
+margin_left = -0.0100002
+margin_top = -0.396948
+margin_right = -0.0100021
+margin_bottom = -0.587282
+custom_fonts/font = SubResource( 11 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthIcon" type="TextureRect" parent="CanvasLayer/PlayerInfo/Health"]
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.818
+margin_top = -0.2
+margin_right = 16.0
+margin_bottom = 16.004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 91 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Block" type="Control" parent="CanvasLayer/PlayerInfo"]
+anchor_left = 0.125
+anchor_top = 0.417
+anchor_right = 0.875
+anchor_bottom = 1.0
+margin_top = -0.0160007
+margin_right = -3.8147e-06
+margin_bottom = 0.248001
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/PlayerInfo/Block"]
+anchor_left = 0.567
+anchor_top = -0.064
+anchor_right = 1.167
+anchor_bottom = 0.9
+margin_left = -0.0100002
+margin_top = -0.592128
+margin_right = -0.0100021
+margin_bottom = -0.596441
+custom_fonts/font = SubResource( 11 )
+text = "100"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockIcon" type="TextureRect" parent="CanvasLayer/PlayerInfo/Block"]
+anchor_top = 0.1
+anchor_right = 0.4
+anchor_bottom = 0.818
+margin_top = -0.2
+margin_right = 16.0
+margin_bottom = 16.004
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 74 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Statuses" type="HBoxContainer" parent="CanvasLayer/PlayerInfo"]
+anchor_top = -0.354
+anchor_right = 9.6
+anchor_bottom = 0.042
+margin_top = -1.008
+margin_right = 0.000274658
+margin_bottom = -0.0160003
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Favor" type="Control" parent="CanvasLayer"]
+margin_left = 40.0
+margin_top = 270.0
+margin_right = 120.0
+margin_bottom = 302.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoBox" type="NinePatchRect" parent="CanvasLayer/Favor"]
+anchor_top = -0.188
+anchor_right = 0.995
+anchor_bottom = 0.938
+margin_left = -2.0
+margin_top = -5.984
+margin_right = 6.39999
+margin_bottom = 5.984
+rect_scale = Vector2( 0.9, 0.75 )
+rect_pivot_offset = Vector2( 24, 24 )
+texture = ExtResource( 76 )
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FavorIcon" type="TextureRect" parent="CanvasLayer/Favor"]
+anchor_top = 0.062
+anchor_right = 0.3
+anchor_bottom = 0.812
+margin_left = 6.0
+margin_top = -1.984
+margin_right = 30.0
+margin_bottom = 22.016
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FavorLabel" type="Label" parent="CanvasLayer/Favor"]
+anchor_left = 0.375
+anchor_top = 0.312
+anchor_right = 1.012
+anchor_bottom = 0.875
+margin_top = 0.0159998
+margin_right = 0.0399933
+margin_bottom = -1.90735e-06
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "FAVOR"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FavorNum" type="Label" parent="CanvasLayer/Favor"]
+anchor_left = 0.375
+anchor_top = -0.062
+anchor_right = 1.012
+anchor_bottom = 0.5
+margin_top = -0.0159999
+margin_right = 0.0399933
+rect_pivot_offset = Vector2( 25, 9 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RerollBtn" type="Button" parent="CanvasLayer"]
+anchor_left = 0.062
+anchor_top = 0.844
+anchor_right = 0.187
+anchor_bottom = 0.956
+margin_left = 0.32
+margin_top = 0.159973
+margin_right = 0.319992
+margin_bottom = -0.160004
+rect_pivot_offset = Vector2( 40, 28 )
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+enabled_focus_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/RerollBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+custom_constants/line_spacing = -4
+text = "REROLL ALL
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/RerollBtn"]
+anchor_right = 1.0
+anchor_bottom = 1.8
+custom_fonts/font = SubResource( 14 )
+text = "(-1 FAVOR)
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RollBtn" type="Button" parent="CanvasLayer"]
+anchor_left = 0.812
+anchor_top = 0.733
+anchor_right = 0.9
+anchor_bottom = 0.833
+margin_left = 0.320007
+margin_top = 0.119995
+margin_bottom = 0.119995
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "ROLL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayBtn" type="Button" parent="CanvasLayer"]
+anchor_left = 0.812
+anchor_top = 0.856
+anchor_right = 0.9
+anchor_bottom = 0.956
+margin_left = 0.320007
+margin_top = -0.160004
+margin_bottom = -0.160004
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 15 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ActionOptions" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.25
+anchor_top = 0.644
+anchor_right = 0.75
+anchor_bottom = 0.722
+margin_top = 0.159973
+margin_right = -3.05176e-05
+margin_bottom = 0.0799561
+rect_pivot_offset = Vector2( 160, 12 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ActionOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.90735e-06
+custom_constants/separation = 8
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonDiscard" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
+margin_left = 87.0
+margin_right = 135.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "                "
+
+[node name="Label" type="Label" parent="CanvasLayer/ActionOptions/HBoxContainer/ButtonDiscard"]
+anchor_top = -0.042
+anchor_right = 1.0
+anchor_bottom = 0.958
+margin_top = 0.00800014
+margin_bottom = 0.00799942
+custom_fonts/font = SubResource( 17 )
+custom_constants/line_spacing = -8
+text = "DISCARD
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/ActionOptions/HBoxContainer/ButtonDiscard"]
+anchor_right = 1.0
+anchor_bottom = 1.179
+margin_right = 3.8147e-06
+margin_bottom = -0.012001
+custom_fonts/font = SubResource( 18 )
+custom_constants/line_spacing = -8
+text = "
+
+
+(+1 FAVOR)
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonSet" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
+margin_left = 143.0
+margin_right = 179.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "  SET  "
+
+[node name="ButtonReroll" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
+margin_left = 187.0
+margin_right = 231.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "              "
+
+[node name="Label" type="Label" parent="CanvasLayer/ActionOptions/HBoxContainer/ButtonReroll"]
+anchor_top = -0.042
+anchor_right = 1.0
+anchor_bottom = 0.958
+margin_top = 0.00800014
+margin_bottom = 0.00799942
+custom_fonts/font = SubResource( 17 )
+custom_constants/line_spacing = -8
+text = "REROLL
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/ActionOptions/HBoxContainer/ButtonReroll"]
+anchor_right = 1.0
+anchor_bottom = 1.179
+margin_right = 3.8147e-06
+margin_bottom = -0.012001
+custom_fonts/font = SubResource( 18 )
+custom_constants/line_spacing = -8
+text = "
+
+
+(-1 FAVOR)
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/ActionOptions/HBoxContainer"]
+visible = false
+margin_left = 269.0
+margin_right = 311.0
+margin_bottom = 28.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "CANCEL"
+
+[node name="TargetSelection" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 104 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TargetSelection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.345098, 0.345098, 0.345098, 0.560784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelParent" type="Control" parent="CanvasLayer/TargetSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -33.0
+margin_top = -100.0
+margin_right = 33.0
+margin_bottom = -68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/TargetSelection/LabelParent"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -9.0
+margin_right = 35.0
+margin_bottom = 9.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "SELECT TARGET"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/TargetSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = 56.0
+margin_right = 21.0
+margin_bottom = 79.0
+focus_mode = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "CANCEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Enemies" type="HBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.1
+anchor_top = 0.367
+anchor_right = 0.9
+anchor_bottom = 0.55
+margin_top = -12.12
+margin_bottom = -9.96002
+custom_constants/separation = 64
+alignment = 1
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Combat" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LootScreen" parent="CanvasLayer" instance=ExtResource( 100 )]
+visible = false
+
+[node name="DiceBankSelection" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DiceBankSelection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.345098, 0.345098, 0.345098, 0.560784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelParent" type="Control" parent="CanvasLayer/DiceBankSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -109.0
+margin_right = 34.0
+margin_bottom = -77.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/DiceBankSelection/LabelParent"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -9.0
+margin_right = 52.0
+margin_bottom = 9.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "SELECT DIE TO REMOVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/DiceBankSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = -86.0
+margin_right = 21.0
+margin_bottom = -63.0
+focus_mode = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "CANCEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceFaceSelection" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/DiceFaceSelection"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.345098, 0.345098, 0.345098, 0.560784 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelParent" type="Control" parent="CanvasLayer/DiceFaceSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -109.0
+margin_right = 34.0
+margin_bottom = -77.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/DiceFaceSelection/LabelParent"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -52.0
+margin_top = -9.0
+margin_right = 52.0
+margin_bottom = 9.0
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "SELECT FACE TO REPLACE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonCancel" type="Button" parent="CanvasLayer/DiceFaceSelection"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -21.0
+margin_top = -86.0
+margin_right = 21.0
+margin_bottom = -63.0
+focus_mode = 0
+size_flags_vertical = 0
+custom_styles/hover = ExtResource( 147 )
+custom_styles/pressed = ExtResource( 145 )
+custom_styles/disabled = ExtResource( 146 )
+custom_styles/normal = ExtResource( 146 )
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "CANCEL"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiceBank" type="NinePatchRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 0.244
+margin_bottom = 0.159996
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorBG" type="ColorRect" parent="CanvasLayer/DiceBank"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -8.0
+color = Color( 0.164706, 0.164706, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxDice" type="HBoxContainer" parent="CanvasLayer/DiceBank"]
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.808
+margin_top = -0.00800037
+margin_right = 213.0
+margin_bottom = 24.968
+rect_scale = Vector2( 0.75, 0.75 )
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxDice" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
+margin_left = 26.0
+margin_right = 214.0
+margin_bottom = 92.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice" instance=ExtResource( 98 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice" instance=ExtResource( 98 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice" instance=ExtResource( 98 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice2" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
+margin_left = 230.0
+margin_right = 418.0
+margin_bottom = 92.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2" instance=ExtResource( 98 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2" instance=ExtResource( 98 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice2" instance=ExtResource( 98 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice3" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
+margin_left = 434.0
+margin_right = 622.0
+margin_bottom = 92.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3" instance=ExtResource( 98 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3" instance=ExtResource( 98 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice3" instance=ExtResource( 98 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice4" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDice"]
+margin_left = 638.0
+margin_right = 826.0
+margin_bottom = 92.0
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4" instance=ExtResource( 98 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4" instance=ExtResource( 98 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDice/VBoxDice4" instance=ExtResource( 98 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="HBoxDiceSelectedOverlay" type="HBoxContainer" parent="CanvasLayer/DiceBank"]
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.817
+margin_top = -0.00800037
+margin_right = 213.0
+margin_bottom = 26.032
+rect_scale = Vector2( 0.75, 0.75 )
+mouse_filter = 2
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxDice" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
+margin_left = 26.0
+margin_right = 214.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice" instance=ExtResource( 97 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice" instance=ExtResource( 97 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice" instance=ExtResource( 97 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice2" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
+margin_left = 230.0
+margin_right = 418.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2" instance=ExtResource( 97 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2" instance=ExtResource( 97 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice2" instance=ExtResource( 97 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice3" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
+margin_left = 434.0
+margin_right = 622.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3" instance=ExtResource( 97 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3" instance=ExtResource( 97 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice3" instance=ExtResource( 97 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice4" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay"]
+margin_left = 638.0
+margin_right = 826.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4" instance=ExtResource( 97 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4" instance=ExtResource( 97 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceSelectedOverlay/VBoxDice4" instance=ExtResource( 97 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="HBoxDiceUsedOverlay" type="HBoxContainer" parent="CanvasLayer/DiceBank"]
+anchor_top = 0.077
+anchor_right = 1.0
+anchor_bottom = 0.817
+margin_top = -0.00800037
+margin_right = 213.0
+margin_bottom = 26.032
+rect_scale = Vector2( 0.75, 0.75 )
+mouse_filter = 2
+custom_constants/separation = 16
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxDice" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay"]
+margin_left = 26.0
+margin_right = 214.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice" instance=ExtResource( 101 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice" instance=ExtResource( 101 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice" instance=ExtResource( 101 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice2" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay"]
+margin_left = 230.0
+margin_right = 418.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice2" instance=ExtResource( 101 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice2" instance=ExtResource( 101 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice2" instance=ExtResource( 101 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice3" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay"]
+margin_left = 434.0
+margin_right = 622.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice3" instance=ExtResource( 101 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice3" instance=ExtResource( 101 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice3" instance=ExtResource( 101 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="VBoxDice4" type="VBoxContainer" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay"]
+margin_left = 638.0
+margin_right = 826.0
+margin_bottom = 92.0
+mouse_filter = 2
+custom_constants/separation = -2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Die001" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice4" instance=ExtResource( 101 )]
+
+[node name="Die002" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice4" instance=ExtResource( 101 )]
+margin_top = 30.0
+margin_bottom = 62.0
+
+[node name="Die003" parent="CanvasLayer/DiceBank/HBoxDiceUsedOverlay/VBoxDice4" instance=ExtResource( 101 )]
+margin_top = 60.0
+margin_bottom = 92.0
+
+[node name="LMB" type="Control" parent="CanvasLayer/DiceBank"]
+visible = false
+anchor_left = 0.026
+anchor_right = 0.128
+anchor_bottom = 0.182
+margin_left = -2.224
+margin_right = -1.872
+margin_bottom = -0.0159988
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DiceBank/LMB"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 84 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/DiceBank/LMB"]
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.937
+margin_top = 4.0
+margin_bottom = 0.00799942
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "SELECT DIE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RMB" type="Control" parent="CanvasLayer/DiceBank"]
+visible = false
+anchor_left = 0.026
+anchor_right = 0.128
+anchor_bottom = 0.182
+margin_left = 55.776
+margin_right = 56.128
+margin_bottom = -0.0159988
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/DiceBank/RMB"]
+margin_right = 32.0
+margin_bottom = 32.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 86 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/DiceBank/RMB"]
+anchor_left = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.937
+margin_top = 4.0
+margin_bottom = 0.00799942
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "REMOVE DIE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsContainer" parent="CanvasLayer" instance=ExtResource( 96 )]
+
+[node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 94 )]
+
+[node name="NumberPopupPool" parent="CanvasLayer" instance=ExtResource( 102 )]
+
+[node name="DeathScreen" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="CanvasLayer/DeathScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 80.0
+color = Color( 0.164706, 0.164706, 0.164706, 1 )
+
+[node name="DeathText" type="Label" parent="CanvasLayer/DeathScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -67.5
+margin_top = -40.5
+margin_right = 67.5
+margin_bottom = 0.5
+custom_fonts/font = SubResource( 22 )
+text = "YOU DIED!"
+align = 1
+valign = 1
+
+[node name="DepthInfo" type="Control" parent="CanvasLayer/DeathScreen"]
+anchor_left = 0.412
+anchor_top = 0.533
+anchor_right = 0.587
+anchor_bottom = 0.667
+margin_left = 0.319977
+margin_top = -19.88
+margin_right = 0.320007
+margin_bottom = -20.12
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PathIcon" type="TextureRect" parent="CanvasLayer/DeathScreen/DepthInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -16.0
+margin_right = 8.0
+margin_bottom = 24.0
+texture = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="CanvasLayer/DeathScreen/DepthInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 4.0
+margin_top = -16.0
+margin_right = 44.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 23 )
+text = "99"
+
+[node name="ReturnBtn" type="Button" parent="CanvasLayer/DeathScreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -94.0
+margin_top = 73.0
+margin_right = 94.0
+margin_bottom = 107.0
+focus_mode = 0
+custom_fonts/font = SubResource( 24 )
+custom_colors/font_color = Color( 0.776471, 0.776471, 0.776471, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "RETURN TO MENU"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/DeathScreen"]
+anims/fade_in = SubResource( 25 )
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource( 99 )]
+visible = false

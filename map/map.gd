@@ -78,6 +78,7 @@ func enable_buttons():
 	_move_btn.enable_move()
 	_set_path_btn.enable_set_path()
 
+# Reset maps and increases level depth
 func reset_map():
 	_move_btn.disable_move()
 	_set_path_btn.disable_set_path()

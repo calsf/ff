@@ -32,10 +32,19 @@ var t1_minions = [
 	[EnemyData.new(load("res://enemies/Minion01.tscn"), 1.5, 1.5, 1.2)]
 ]
 
+var t1_boss = [
+	[EnemyData.new(load("res://enemies/EliteSamurai.tscn"), 1, 1, 1)]
+]
+
 func get_enemies():
 	if depth <= 5:
 		randomize()
 		return t1_minions[randi() % t1_minions.size()]
+
+func get_enemies_boss():
+	if depth <= 5:
+		randomize()
+		return t1_boss[randi() % t1_boss.size()]
 
 func increase_depth():
 	depth += 1

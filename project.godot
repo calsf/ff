@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://blessing/blessing_option.gd"
 }, {
 "base": "Node2D",
+"class": "CombatBossScene",
+"language": "GDScript",
+"path": "res://combatboss/combat_boss_scene.gd"
+}, {
+"base": "Node2D",
 "class": "CombatScene",
 "language": "GDScript",
 "path": "res://combat/combat_scene.gd"
@@ -474,6 +479,7 @@ _global_script_class_icons={
 "BlessingFavor": "",
 "BlessingHealth": "",
 "BlessingOption": "",
+"CombatBossScene": "",
 "CombatScene": "",
 "Die": "",
 "DieFace": "",

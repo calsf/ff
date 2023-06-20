@@ -49,7 +49,7 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 13 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -64,8 +64,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "ResetMap"
+[sub_resource type="Animation" id=5]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -891,8 +890,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MapFade"]
 autoplay = "FadeOut"
-anims/FadeOut = SubResource( 5 )
-anims/ResetMap = SubResource( 4 )
+anims/FadeOut = SubResource( 4 )
+anims/ResetMap = SubResource( 5 )
 
 [node name="Label" type="Label" parent="CanvasLayer/MapFade"]
 modulate = Color( 1, 1, 1, 0 )
@@ -941,6 +940,7 @@ __meta__ = {
 }
 
 [node name="MapColorBG" type="ColorRect" parent="MapCanvas/MapBG"]
+modulate = Color( 0.721569, 0.992157, 0.47451, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -950,7 +950,7 @@ margin_top = -71.0
 margin_right = 311.0
 margin_bottom = 172.0
 mouse_filter = 2
-color = Color( 0.0823529, 0.141176, 0.188235, 1 )
+color = Color( 0.286275, 0.192157, 0.321569, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

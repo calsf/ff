@@ -18,6 +18,8 @@ onready var _health_num = $CanvasLayer/PlayerInfo/Health/Label
 
 onready var _number_popup_pool = $CanvasLayer/NumberPopupPool
 
+onready var _map_color_bg = $MapCanvas/MapBG/MapColorBG
+
 var _resetting = false
 
 func _ready():
@@ -37,6 +39,8 @@ func _ready():
 	PlayerHealth.connect("health_updated", self, "_on_health_updated")
 	PlayerHealth.connect("health_lost", self, "_on_health_lost")
 	PlayerHealth.connect("health_gain", self, "_on_health_gain")
+	
+	_map_color_bg.modulate = Color(LevelDepth.get_depth_color())
 	
 	# TEMP
 	$CanvasLayer/TEMPRESETBTN.connect("pressed", self, "reset_map")
@@ -113,6 +117,9 @@ func reset_map():
 	
 	# Update level depth
 	LevelDepth.increase_depth()
+	
+	# Update map color
+	_map_color_bg.modulate = Color(LevelDepth.get_depth_color())
 	
 	# Reset buttons after anim is done
 	yield(_map_fade_anim, "animation_finished")

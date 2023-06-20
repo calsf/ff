@@ -3,6 +3,12 @@ extends Node
 
 var depth = 1
 
+var depth_color = [
+	"b8fd79",
+	"79fdd5",
+	"ffffff"
+]
+
 signal depth_updated()
 
 # Class to hold enemy instance/initialization data
@@ -52,3 +58,6 @@ func increase_depth():
 
 func reset_level_depth():
 	depth = 1
+
+func get_depth_color():
+	return depth_color[depth - 1]

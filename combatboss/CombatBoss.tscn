@@ -1,4 +1,4 @@
-[gd_scene load_steps=175 format=2]
+[gd_scene load_steps=176 format=2]
 
 [ext_resource path="res://dice/action_options.gd" type="Script" id=1]
 [ext_resource path="res://dice/die-roll-flash/die-roll-flash1.png" type="Texture" id=2]
@@ -149,6 +149,7 @@
 [ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=147]
 [ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=148]
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=149]
+[ext_resource path="res://combat/background.gd" type="Script" id=150]
 
 [sub_resource type="DynamicFont" id=1]
 size = 8
@@ -1042,6 +1043,7 @@ modulate = Color( 0.721569, 0.992157, 0.47451, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 51 )
+script = ExtResource( 150 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

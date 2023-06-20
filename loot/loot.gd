@@ -38,7 +38,7 @@ func _on_skip_loot():
 	# On loot skip/finish, add new path only if Combat encounter was cleared
 	if get_tree().get_root().get_node("Encounter") is CombatScene:
 		_paths_info.add_paths_avail()
-	
+		
 	# On loot skip/finish, reset map if is CombatBoss encounter
 	if get_tree().get_root().get_node("Encounter") is CombatBossScene:
 		_map.reset_map()

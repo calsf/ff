@@ -18,6 +18,8 @@ onready var _health_num = $CanvasLayer/PlayerInfo/Health/Label
 
 onready var _number_popup_pool = $CanvasLayer/NumberPopupPool
 
+var _resetting = false
+
 func _ready():
 	_on_health_updated()
 	_canvas.layer = 0
@@ -72,7 +74,8 @@ func show_map():
 	_fade.reset_fade()
 	
 	# Make sure to enable buttons upon showing map
-	enable_buttons()
+	if not _resetting:
+		enable_buttons()
 
 func enable_buttons():
 	_move_btn.enable_move()
@@ -80,12 +83,17 @@ func enable_buttons():
 
 # Reset maps and increases level depth
 func reset_map():
+	_resetting = true
+	
 	_move_btn.disable_move()
 	_set_path_btn.disable_set_path()
-	_map_fade_anim.play("FadeInAndOut")
+	
+	yield(get_tree().create_timer(3), "timeout")
+	
+	_map_fade_anim.play("ResetMap")
 	
 	# Wait amount of time until fade fills map area, then reset behind the scenes
-	yield(get_tree().create_timer(.6), "timeout")
+	yield(get_tree().create_timer(1.1), "timeout")
 	
 	# Re-initialize map
 	_map_area.initialize_start()
@@ -110,3 +118,5 @@ func reset_map():
 	yield(_map_fade_anim, "animation_finished")
 	_move_btn.enable_move()
 	_set_path_btn.enable_set_path()
+	
+	_resetting = false

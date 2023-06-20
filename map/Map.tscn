@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://dice/dice-bank/BankDieUsedOverlay.tscn" type="PackedScene" id=2]
@@ -49,22 +49,6 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
 font_data = ExtResource( 13 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "FadeInAndOut"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1.2, 1.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
 [sub_resource type="Animation" id=5]
 resource_name = "FadeOut"
 tracks/0/type = "value"
@@ -79,6 +63,52 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
+
+[sub_resource type="Animation" id=4]
+resource_name = "ResetMap"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8, 4.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 621, 0 ), Vector2( 621, 241 ), Vector2( 621, 241 ), Vector2( 621, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 1.3, 2.9, 4.1, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 13 )
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 14 )
@@ -842,10 +872,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SettingsContainer" parent="CanvasLayer" instance=ExtResource( 27 )]
-
-[node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 6 )]
-
 [node name="NumberPopupPool" parent="CanvasLayer" instance=ExtResource( 28 )]
 
 [node name="MapFade" type="ColorRect" parent="CanvasLayer"]
@@ -858,15 +884,37 @@ margin_top = -70.0
 margin_right = 310.0
 margin_bottom = 171.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 0 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MapFade"]
 autoplay = "FadeOut"
-anims/FadeInAndOut = SubResource( 4 )
 anims/FadeOut = SubResource( 5 )
+anims/ResetMap = SubResource( 4 )
+
+[node name="Label" type="Label" parent="CanvasLayer/MapFade"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -71.5
+margin_top = -30.5
+margin_right = 75.5
+margin_bottom = 10.5
+custom_fonts/font = SubResource( 6 )
+text = "DESCENDING..."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SettingsContainer" parent="CanvasLayer" instance=ExtResource( 27 )]
+
+[node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 6 )]
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 4 )]
 visible = false

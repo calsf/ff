@@ -3,17 +3,16 @@ extends Enemy
 var curr_intent = 0
 
 func _ready():
-	max_health = 5
+	max_health = 70
 	
 	set_health(max_health)
 	reset_block()
 
 	intents = [
-		EnemyFaceAttack.new(10 * offensive_scaling, self),
+		EnemyFaceAttack.new(7 * offensive_scaling, self),
 		EnemyFaceBlock.new(15 * defensive_scaling, self),
-		EnemyFaceAttackBrutal.new(10 * offensive_scaling, self),
-		EnemyFaceBlockReflect.new(10 * defensive_scaling, self),
-		EnemyFaceAttackPerfect.new(10 * offensive_scaling, self)
+		EnemyFaceAttackBrutal.new(7 * offensive_scaling, self),
+		EnemyFaceBlockReflect.new(10 * defensive_scaling, self)
 	]
 	
 	set_next_intent()

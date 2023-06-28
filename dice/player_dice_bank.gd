@@ -3,6 +3,8 @@ extends Node
 
 const DEFAULT_STARTING_FAVOR = 2
 const MAX_OWNED_DICE = 12
+const INCREASE_FAVOR_AMOUNT = 2
+const INCREASE_FACE_AMOUNT = 1
 
 var starting_favor = DEFAULT_STARTING_FAVOR
 var dice = []
@@ -64,7 +66,7 @@ func reset_dice_bank():
 	
 	# TEMP TESTING
 	dice.append(Die.new(number_icon_paths[6], [unload.new(), drain.new(), replay.new(), scramble.new(), heal.new(), dodge.new()]))
-	dice.append(Die.new(number_icon_paths[7], [fortify.new(), fortify.new(), fortify.new(), fortify.new(), strengthen.new(), strengthen.new()]))
+	dice.append(Die.new(number_icon_paths[7], [multi_attack.new(), multi_attack.new(), multi_attack.new(), multi_attack.new(), strengthen.new(), strengthen.new()]))
 	dice.append(Die.new(number_icon_paths[8], [block_reflect.new(), block_reflect.new(), block_reflect.new(), block_charge.new(), block_charge.new(), block_charge.new()]))
 	dice.append(Die.new(number_icon_paths[9], [attack_perfect.new(), attack_perfect.new(),attack_perfect.new(),dodge.new(),dodge.new(),dodge.new()]))
 	
@@ -129,11 +131,11 @@ func upgrade_dice_faces():
 		var die = dice[i]
 		for face in die.faces:
 			if face.num_value > 0:
-				face.num_value += 1
+				face.num_value += INCREASE_FACE_AMOUNT
 		emit_signal("die_bank_updated", i)
 
 # Increase starting favor
 func increase_starting_favor():
-	starting_favor += 1
+	starting_favor += INCREASE_FAVOR_AMOUNT
 	emit_signal("starting_favor_updated")
 	

@@ -6,14 +6,14 @@ var enrage_intents = [
 ]
 
 func _ready():
-	max_health = 5
+	max_health = 166
 	
 	set_health(max_health)
 	reset_block()
 
 	intents = [
-		EnemyFaceAttack.new(10 * offensive_scaling, self),
-		EnemyFaceBlock.new(7 * defensive_scaling, self)
+		EnemyFaceAttack.new(9 * offensive_scaling, self),
+		EnemyFaceBlock.new(15 * defensive_scaling, self)
 	]
 	
 	set_next_intent()

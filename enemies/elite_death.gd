@@ -2,14 +2,14 @@ extends Enemy
 
 var enrage_intents = [
 	EnemyFaceAttack.new(15 * offensive_scaling, self),
-	EnemyFaceBlockReflect.new(10 * defensive_scaling, self),
-	EnemyFaceDrain.new(10 * offensive_scaling, self),
+	EnemyFaceBlockReflect.new(15 * defensive_scaling, self),
+	EnemyFaceDrain.new(15 * offensive_scaling, self),
 	EnemyFaceRage.new(0, self),
 	EnemyFaceAttackPerfect.new(15 * offensive_scaling, self)
 ]
 
 func _ready():
-	max_health = 5
+	max_health = 200
 	
 	set_health(max_health)
 	reset_block()

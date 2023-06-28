@@ -12,4 +12,5 @@ func _init(value=0, enemy=null):
 
 func on_play(combat):
 	for enemy in combat.enemies:
-		enemy.add_block(num_value)
+		if not enemy.is_dead:
+			enemy.add_block(num_value)

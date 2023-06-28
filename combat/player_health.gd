@@ -1,7 +1,7 @@
 # Player health singleton
 extends Node
 
-const DEFAULT_MAX_HP = 5
+const DEFAULT_MAX_HP = 100
 
 var MAX_HP = DEFAULT_MAX_HP
 var curr_hp : int

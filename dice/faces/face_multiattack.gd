@@ -18,6 +18,7 @@ func on_play(combat, target, parent_die=0):
 	var val = num_value + combat.get_strengthen_amount()
 	
 	for enemy in combat.enemies:
-		enemy.deal_blockable_damage(val, combat)
+		if not enemy.is_dead:
+			enemy.deal_blockable_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")
 

@@ -4,7 +4,7 @@ class_name MinionThirteen
 var curr_intent = 0
 
 func _ready():
-	set_max_health(30)
+	set_max_health(25)
 	
 	set_health(max_health)
 	reset_block()

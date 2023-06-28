@@ -8,15 +8,15 @@ var flee_intents = [
 var flee_intent_count = 0
 
 func _ready():
-	set_max_health(6)
+	set_max_health(12)
 	
 	set_health(max_health)
 	reset_block()
 
 	intents = [
 		EnemyFaceExhaust.new(0, self),
-		EnemyFaceAttack.new(5 * offensive_scaling, self),
-		EnemyFaceBlock.new(5 * defensive_scaling, self),
+		EnemyFaceAttack.new(6 * offensive_scaling, self),
+		EnemyFaceBlock.new(6 * defensive_scaling, self),
 	]
 	
 	set_next_intent()

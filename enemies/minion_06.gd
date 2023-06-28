@@ -4,7 +4,7 @@ class_name MinionSix
 var attack = EnemyFaceAttack.new(5, self)
 
 func _ready():
-	set_max_health(30)
+	set_max_health(15)
 	
 	set_health(max_health)
 	reset_block()

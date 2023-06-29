@@ -1,12 +1,19 @@
 # Level depth singleton
 extends Node
 
+# Max depth before looping
+const MAX_DEPTH = 7
+
 var depth = 1
 
 var depth_color = [
 	"b8fd79",
 	"79fdd5",
-	"ffffff"
+	"00dc3c",
+	"d9ff00",
+	"ffffff",
+	"ab0000",
+	"66ab65"
 ]
 
 signal depth_updated()
@@ -485,13 +492,13 @@ var t_bosses = [
 ]
 
 func get_enemies():
-	var enemies = t_minions[depth - 1]
+	var enemies = t_minions[depth - 1 % MAX_DEPTH]
 	
 	randomize()
 	return enemies[randi() % enemies.size()]
 
 func get_enemies_boss():
-	var enemies = t_bosses[depth - 1]
+	var enemies = t_bosses[depth - 1 % MAX_DEPTH]
 	
 	randomize()
 	return enemies[randi() % enemies.size()]
@@ -504,4 +511,4 @@ func reset_level_depth():
 	depth = 1
 
 func get_depth_color():
-	return depth_color[depth - 1]
+	return depth_color[depth - 1 % MAX_DEPTH]

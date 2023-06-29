@@ -1,5 +1,8 @@
 extends Node2D
 
+# Percentage of health to heal player when resetting map
+const HEAL_PERCENTAGE = .25
+
 onready var _map_fade_anim = $CanvasLayer/MapFade/AnimationPlayer
 onready var _fade = $CanvasLayer/Fade
 onready var _canvas = $CanvasLayer
@@ -98,6 +101,9 @@ func reset_map():
 	
 	# Wait amount of time until fade fills map area, then reset behind the scenes
 	yield(get_tree().create_timer(1.1), "timeout")
+	
+	# Heal player
+	PlayerHealth.add_health(PlayerHealth.MAX_HP * HEAL_PERCENTAGE)
 	
 	# Re-initialize map
 	_map_area.initialize_start()

@@ -24,3 +24,7 @@ func on_extra_play(combat, target):
 func scale_num_val(scaling):
 	# Scale every 2 depths
 	num_value += scaling * ((LevelDepth.depth - 1) / 2)
+	update_info()
+
+func update_info():
+	pass

@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "CHEAP FAVOR"
-	face_info = "Deals " + str(num_value) + " damage to a single target. Gain favor for unblocked damage dealt."
+	update_info()
 	icon = load("res://dice/faces/face-cheap-favor.png")
 	
 	require_target = true
@@ -21,3 +21,5 @@ func on_play(combat, target, parent_die=0):
 	combat.add_favor(favor_amount)
 	yield(combat.get_tree(), "idle_frame")
 
+func update_info():
+	face_info = "Deals " + str(num_value) + " damage to a single target. Gain favor for unblocked damage dealt."

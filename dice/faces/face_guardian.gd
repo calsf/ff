@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "GUARDIAN"
-	face_info = "Next fatal hit will be avoided."
+	update_info()
 	icon = load("res://dice/faces/face-guardian.png")
 	
 	require_target = false
@@ -16,3 +16,6 @@ func _init(value=DEFAULT_VAL):
 func on_play(combat, target, parent_die=0):
 	combat.set_guardian(true)
 	yield(combat.get_tree(), "idle_frame")
+
+func update_info():
+	face_info = "Next fatal hit will be avoided."

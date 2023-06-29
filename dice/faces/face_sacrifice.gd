@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "SACRIFICE"
-	face_info = "Spend 50% of current health. Deal damage equal to health lost to a single target."
+	update_info()
 	icon = load("res://dice/faces/face-sacrifice.png")
 	
 	require_target = true
@@ -23,3 +23,5 @@ func on_play(combat, target, parent_die=0):
 	target.deal_blockable_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")
 
+func update_info():
+	face_info = "Spend 50% of current health. Deal damage equal to health lost to a single target."

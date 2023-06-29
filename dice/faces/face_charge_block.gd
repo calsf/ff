@@ -10,7 +10,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "CHARGED BLOCK"
-	face_info = "Blocks " + str(num_value) + " incoming damage. Blocks " + str(num_value * 2) + " incoming damage next turn."
+	update_info()
 	icon = load("res://dice/faces/face-charge-block.png")
 	
 	require_target = false
@@ -32,3 +32,6 @@ func on_extra_play(combat, target):
 	
 	combat.add_player_block(val)
 	yield(combat.get_tree(), "idle_frame")
+
+func update_info():
+	face_info = "Blocks " + str(num_value) + " incoming damage. Blocks " + str(num_value * 2) + " incoming damage next turn."

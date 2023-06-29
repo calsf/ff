@@ -10,7 +10,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "CHARGED ATTACK"
-	face_info = "Deals " + str(num_value) + " damage to a single target. Deals " + str(num_value * 2) + " damage to same target next turn."
+	update_info()
 	icon = load("res://dice/faces/face-charge-attack.png")
 	
 	require_target = true
@@ -32,3 +32,6 @@ func on_extra_play(combat, target):
 	
 	target.deal_blockable_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")
+
+func update_info():
+	face_info = "Deals " + str(num_value) + " damage to a single target. Deals " + str(num_value * 2) + " damage to same target next turn."

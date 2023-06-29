@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "REPLAY"
-	face_info = "Repeat your turn."
+	update_info()
 	icon = load("res://dice/faces/face-replay.png")
 	
 	require_target = false
@@ -16,3 +16,6 @@ func _init(value=DEFAULT_VAL):
 func on_play(combat, target, parent_die=0):
 	combat.set_replay(true)
 	yield(combat.get_tree(), "idle_frame")
+
+func update_info():
+	face_info = "Repeat your turn."

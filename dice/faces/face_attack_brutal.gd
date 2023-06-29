@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "BRUTAL ATTACK"
-	face_info = "Deals " + str(num_value) + " damage to a single target. Ignores block."
+	update_info()
 	icon = load("res://dice/faces/face-attack-brutal.png")
 	
 	require_target = true
@@ -19,3 +19,6 @@ func on_play(combat, target, parent_die=0):
 	
 	target.deal_direct_damage(val, combat)
 	yield(combat.get_tree(), "idle_frame")
+
+func update_info():
+	face_info = "Deals " + str(num_value) + " damage to a single target. Ignores block."

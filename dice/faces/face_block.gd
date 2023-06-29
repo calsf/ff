@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "BLOCK"
-	face_info = "Blocks " + str(num_value) + " incoming damage."
+	update_info()
 	icon = load("res://dice/faces/face-block.png")
 	
 	require_target = false
@@ -19,3 +19,6 @@ func on_play(combat, target, parent_die=0):
 	
 	combat.add_player_block(val)
 	yield(combat.get_tree(), "idle_frame")
+
+func update_info():
+	face_info = "Blocks " + str(num_value) + " incoming damage."

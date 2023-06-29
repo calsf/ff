@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "SCRAMBLE"
-	face_info = "Randomize target's next action."
+	update_info()
 	icon = load("res://dice/faces/face-scramble.png")
 	
 	require_target = true
@@ -23,3 +23,6 @@ func on_play(combat, target, parent_die=0):
 	
 	if anim_to_wait_for != null:
 		yield(anim_to_wait_for, "animation_finished")
+
+func update_info():
+	face_info = "Randomize target's next action."

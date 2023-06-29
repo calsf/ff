@@ -8,7 +8,7 @@ func _init(value=DEFAULT_VAL):
 	num_value = value
 	
 	face_name = "UNLOAD"
-	face_info = "Plays all faces on this die. Excludes UNLOAD."
+	update_info()
 	icon = load("res://dice/faces/face-unload.png")
 	
 	require_target = true
@@ -21,3 +21,6 @@ func on_play(combat, target, parent_die=0):
 		
 		yield(face.on_play(combat, target), "completed")
 		yield(combat.get_tree().create_timer(.3), "timeout")
+
+func update_info():
+	face_info = "Plays all faces on this die. Excludes UNLOAD."

@@ -132,6 +132,7 @@ func upgrade_dice_faces():
 		for face in die.faces:
 			if face.num_value > 0:
 				face.num_value += INCREASE_FACE_AMOUNT
+				face.update_info()
 		emit_signal("die_bank_updated", i)
 
 # Increase starting favor

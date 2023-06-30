@@ -492,13 +492,13 @@ var t_bosses = [
 ]
 
 func get_enemies():
-	var enemies = t_minions[depth - 1 % MAX_DEPTH]
+	var enemies = t_minions[(depth - 1) % MAX_DEPTH]
 	
 	randomize()
 	return enemies[randi() % enemies.size()]
 
 func get_enemies_boss():
-	var enemies = t_bosses[depth - 1 % MAX_DEPTH]
+	var enemies = t_bosses[(depth - 1) % MAX_DEPTH]
 	
 	randomize()
 	return enemies[randi() % enemies.size()]
@@ -511,4 +511,4 @@ func reset_level_depth():
 	depth = 1
 
 func get_depth_color():
-	return depth_color[depth - 1 % MAX_DEPTH]
+	return depth_color[(depth - 1) % MAX_DEPTH]

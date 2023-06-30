@@ -1,6 +1,9 @@
 extends Node
 class_name Enemy
 
+# Additionally scaling once past max depth
+const OVER_SCALING = 0.2
+
 var enemy_num : int
 var max_health : int
 var health : int
@@ -40,6 +43,11 @@ func init_enemy(h_s, o_s, d_s):
 	health_scaling = h_s
 	offensive_scaling = o_s
 	defensive_scaling = d_s
+	
+	if LevelDepth.depth > LevelDepth.MAX_DEPTH:
+		health_scaling += ((LevelDepth.depth - LevelDepth.MAX_DEPTH) * OVER_SCALING)
+		offensive_scaling += ((LevelDepth.depth - LevelDepth.MAX_DEPTH) * OVER_SCALING)
+		defensive_scaling += ((LevelDepth.depth - LevelDepth.MAX_DEPTH) * OVER_SCALING)
 
 func set_max_health(val):
 	max_health = val * health_scaling

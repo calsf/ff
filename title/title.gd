@@ -6,6 +6,7 @@ onready var _play_btn = $CanvasLayer/Buttons/PlayBtn
 onready var _config_btn = $CanvasLayer/Buttons/ConfigBtn
 onready var _quit_btn = $CanvasLayer/Buttons/QuitBtn
 onready var _fade = $CanvasLayer/Fade
+onready var _settings = $CanvasLayer/Settings
 
 var hovered_option = null
 
@@ -27,6 +28,8 @@ func _ready():
 	_quit_btn.connect("mouse_exited", self, "_on_option_exited")
 	
 	_play_btn.connect("pressed", self, "_on_play_pressed")
+	_config_btn.connect("pressed", self, "_on_config_pressed")
+	_quit_btn.connect("pressed", self, "_on_quit_pressed")
 
 func _process(delta):
 	# Override flashing anim by setting modulate each frame when hovered
@@ -41,6 +44,12 @@ func _on_play_pressed():
 	GlobalMusic.stop_all()
 	
 	GlobalSounds.play("ButtonPressed")
+
+func _on_config_pressed():
+	_settings.visible = true
+
+func _on_quit_pressed():
+	get_tree().quit()
 
 func _on_option_entered(option):
 	hovered_option = option

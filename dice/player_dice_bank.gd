@@ -64,17 +64,11 @@ func reset_dice_bank():
 	dice.append(Die.new(number_icon_paths[4], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
 	dice.append(Die.new(number_icon_paths[5], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))
 	
-	# TEMP TESTING
-	dice.append(Die.new(number_icon_paths[6], [unload.new(), drain.new(), replay.new(), scramble.new(), heal.new(), dodge.new()]))
-	dice.append(Die.new(number_icon_paths[7], [multi_attack.new(), multi_attack.new(), multi_attack.new(), multi_attack.new(), strengthen.new(), strengthen.new()]))
-	dice.append(Die.new(number_icon_paths[8], [block_reflect.new(), block_reflect.new(), block_reflect.new(), block_charge.new(), block_charge.new(), block_charge.new()]))
-	dice.append(Die.new(number_icon_paths[9], [attack_perfect.new(), attack_perfect.new(),attack_perfect.new(),dodge.new(),dodge.new(),dodge.new()]))
-	
 	# Empty dice slots
-	#dice.append(Die.new(number_icon_paths[6]))
-	#dice.append(Die.new(number_icon_paths[7]))
-	#dice.append(Die.new(number_icon_paths[8]))
-	#dice.append(Die.new(number_icon_paths[9]))
+	dice.append(Die.new(number_icon_paths[6]))
+	dice.append(Die.new(number_icon_paths[7]))
+	dice.append(Die.new(number_icon_paths[8]))
+	dice.append(Die.new(number_icon_paths[9]))
 	dice.append(Die.new(number_icon_paths[10]))
 	dice.append(Die.new(number_icon_paths[11]))
 

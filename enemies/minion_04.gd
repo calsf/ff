@@ -2,7 +2,7 @@ extends Enemy
 class_name MinionFour
 
 func _ready():
-	set_max_health(10)
+	set_max_health(14)
 	
 	set_health(max_health)
 	reset_block()

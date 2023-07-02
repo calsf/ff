@@ -1,7 +1,7 @@
 extends Node2D
 
 # Percentage of health to heal player when resetting map
-const HEAL_PERCENTAGE = .25
+const HEAL_PERCENTAGE = .20
 
 onready var _map_fade_anim = $CanvasLayer/MapFade/AnimationPlayer
 onready var _fade = $CanvasLayer/Fade

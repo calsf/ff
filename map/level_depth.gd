@@ -48,14 +48,14 @@ var t1_minions = [
 		EnemyData.new(load("res://enemies/Minion02.tscn"), 2.5, 1.5, 1)
 	],
 	[
-		EnemyData.new(load("res://enemies/Minion02.tscn"), .7, .7, 1),
-		EnemyData.new(load("res://enemies/Minion02.tscn"), .7, .7, 1),
+		EnemyData.new(load("res://enemies/Minion02.tscn"), 1, 1, 1),
+		EnemyData.new(load("res://enemies/Minion02.tscn"), 1, 1, 1),
 		EnemyData.new(load("res://enemies/Minion02.tscn"), .7, .7, 1)
 	],
 	[
-		EnemyData.new(load("res://enemies/Minion01.tscn"), .7, 1, 1),
-		EnemyData.new(load("res://enemies/Minion01.tscn"), .7, 1, 1),
-		EnemyData.new(load("res://enemies/Minion01.tscn"), .7, 1, 1)
+		EnemyData.new(load("res://enemies/Minion01.tscn"), 1, 1, 1),
+		EnemyData.new(load("res://enemies/Minion01.tscn"), 1, 1, 1),
+		EnemyData.new(load("res://enemies/Minion01.tscn"), 1, 1, 1)
 	],
 	[
 		EnemyData.new(load("res://enemies/Minion01.tscn"), .5, .5, .5),
@@ -65,7 +65,7 @@ var t1_minions = [
 	[
 		EnemyData.new(load("res://enemies/Minion02.tscn"), .5, .5, .5),
 		EnemyData.new(load("res://enemies/Minion01.tscn"), 1, 1, 1),
-		EnemyData.new(load("res://enemies/Minion02.tscn"), .5, .5, .5)
+		EnemyData.new(load("res://enemies/Minion02.tscn"), 1, 1, 1)
 	],
 	[
 		EnemyData.new(load("res://enemies/Minion02.tscn"), 1, 1, 1),
@@ -85,7 +85,7 @@ var t1_minions = [
 	[
 		EnemyData.new(load("res://enemies/Minion01.tscn"), .8, .8, .8),
 		EnemyData.new(load("res://enemies/Minion03.tscn"), 1, 1, 1),
-		EnemyData.new(load("res://enemies/Minion01.tscn"), .8, .8, .8)
+		EnemyData.new(load("res://enemies/Minion01.tscn"), 1, 1, 1)
 	]
 ]
 
@@ -103,40 +103,40 @@ var t2_minions = [
 		EnemyData.new(load("res://enemies/Minion04.tscn"), 2, 1, 1.5)
 	],
 	[
+		EnemyData.new(load("res://enemies/Minion01.tscn"), 1.2, 1.2, 1.2),
+		EnemyData.new(load("res://enemies/Minion02.tscn"), 1.2, 1.2, 1.2),
+		EnemyData.new(load("res://enemies/Minion03.tscn"), 1.2, 1.2, 1.2)
+	],
+	[
+		EnemyData.new(load("res://enemies/Minion03.tscn"), 1.2, 1.2, 1.2),
+		EnemyData.new(load("res://enemies/Minion03.tscn"), 1.2, 1.2, 1.2),
+		EnemyData.new(load("res://enemies/Minion03.tscn"), 1.2, 1.2, 1.2)
+	],
+	[
 		EnemyData.new(load("res://enemies/Minion01.tscn"), 1, 1, 1),
-		EnemyData.new(load("res://enemies/Minion02.tscn"), 1, 1, 1),
-		EnemyData.new(load("res://enemies/Minion03.tscn"), 1, 1, 1)
-	],
-	[
-		EnemyData.new(load("res://enemies/Minion03.tscn"), 1, 1, 1),
-		EnemyData.new(load("res://enemies/Minion03.tscn"), 1, 1, 1),
-		EnemyData.new(load("res://enemies/Minion03.tscn"), 1, 1, 1)
-	],
-	[
-		EnemyData.new(load("res://enemies/Minion01.tscn"), .7, .7, .7),
 		EnemyData.new(load("res://enemies/Minion04.tscn"), 1, 1, 1),
 		EnemyData.new(load("res://enemies/Minion01.tscn"), .7, .7, .7)
 	],
 	[
-		EnemyData.new(load("res://enemies/Minion02.tscn"), .5, .5, .5),
+		EnemyData.new(load("res://enemies/Minion02.tscn"), 1, 1, 1),
 		EnemyData.new(load("res://enemies/Minion04.tscn"), 1, 1, 1),
 		EnemyData.new(load("res://enemies/Minion02.tscn"), .5, .5, .5)
 	],
 	[
-		EnemyData.new(load("res://enemies/Minion04.tscn"), .7, .7, .7),
+		EnemyData.new(load("res://enemies/Minion04.tscn"), .8, .8, .8),
 		EnemyData.new(load("res://enemies/Minion03.tscn"), 1, 1, 1)
 	],
 	[
-		EnemyData.new(load("res://enemies/Minion03.tscn"), .7, .7, .7),
+		EnemyData.new(load("res://enemies/Minion03.tscn"), .8, .8, .8),
 		EnemyData.new(load("res://enemies/Minion04.tscn"), 1, 1, 1)
 	],
 	[
 		EnemyData.new(load("res://enemies/Minion01.tscn"), 1.5, 1.5, 1.5),
-		EnemyData.new(load("res://enemies/Minion02.tscn"), 1.5, 1, 1)
+		EnemyData.new(load("res://enemies/Minion02.tscn"), 1.5, 1.5, 1.5)
 	],
 	[
 		EnemyData.new(load("res://enemies/Minion04.tscn"), .8, .8, .8),
-		EnemyData.new(load("res://enemies/Minion04.tscn"), .5, .5, .5),
+		EnemyData.new(load("res://enemies/Minion04.tscn"), 1, 1, 1),
 		EnemyData.new(load("res://enemies/Minion04.tscn"), .8, .8, .8)
 	]
 ]
@@ -173,7 +173,7 @@ var t3_minions = [
 		EnemyData.new(load("res://enemies/Minion06.tscn"), 1, 1, 1),
 	],
 	[
-		EnemyData.new(load("res://enemies/Minion06.tscn"), .5, 1, 1),
+		EnemyData.new(load("res://enemies/Minion06.tscn"), 1, 1, 1),
 		EnemyData.new(load("res://enemies/Minion06.tscn"), .5, 1, 1),
 		EnemyData.new(load("res://enemies/Minion04.tscn"), 1.8, 1, 1),
 	],

@@ -4,9 +4,11 @@ const MAP_SCENE_PATH = "res://map/Map.tscn"
 
 onready var _play_btn = $CanvasLayer/Buttons/PlayBtn
 onready var _config_btn = $CanvasLayer/Buttons/ConfigBtn
+onready var _logs_btn = $CanvasLayer/Buttons/LogsBtn
 onready var _quit_btn = $CanvasLayer/Buttons/QuitBtn
 onready var _fade = $CanvasLayer/Fade
 onready var _settings = $CanvasLayer/Settings
+onready var _logs = $CanvasLayer/Logs
 
 var hovered_option = null
 
@@ -21,14 +23,17 @@ func _ready():
 	
 	_play_btn.connect("mouse_entered", self, "_on_option_entered", [_play_btn])
 	_config_btn.connect("mouse_entered", self, "_on_option_entered", [_config_btn])
+	_logs_btn.connect("mouse_entered", self, "_on_option_entered", [_logs_btn])
 	_quit_btn.connect("mouse_entered", self, "_on_option_entered", [_quit_btn])
 	
 	_play_btn.connect("mouse_exited", self, "_on_option_exited")
 	_config_btn.connect("mouse_exited", self, "_on_option_exited")
+	_logs_btn.connect("mouse_exited", self, "_on_option_exited")
 	_quit_btn.connect("mouse_exited", self, "_on_option_exited")
 	
 	_play_btn.connect("pressed", self, "_on_play_pressed")
 	_config_btn.connect("pressed", self, "_on_config_pressed")
+	_logs_btn.connect("pressed", self, "_on_logs_pressed")
 	_quit_btn.connect("pressed", self, "_on_quit_pressed")
 
 func _process(delta):
@@ -47,6 +52,11 @@ func _on_play_pressed():
 
 func _on_config_pressed():
 	_settings.visible = true
+	GlobalSounds.play("ButtonPressed")
+
+func _on_logs_pressed():
+	_logs.init_run_log_screen()
+	GlobalSounds.play("ButtonPressed")
 
 func _on_quit_pressed():
 	get_tree().quit()

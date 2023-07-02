@@ -43,3 +43,15 @@ func on_play(combat, dice_index):
 func on_discard(combat):
 	curr_face.on_discard(combat)
 
+func get_die_data():
+	return {
+		"faces": [
+			faces[0].get_face_data(),
+			faces[1].get_face_data(),
+			faces[2].get_face_data(),
+			faces[3].get_face_data(),
+			faces[4].get_face_data(),
+			faces[5].get_face_data(),
+		]
+	}
+

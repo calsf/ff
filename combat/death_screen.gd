@@ -18,6 +18,8 @@ func on_death():
 	self.visible = true
 	_anim.play("fade_in")
 	
+	SaveLoadManager.save_run()
+	
 	GlobalMusic.stop_all()
 	GlobalMusic.play("Death")
 

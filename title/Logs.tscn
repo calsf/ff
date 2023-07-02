@@ -1,0 +1,437 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=1]
+[ext_resource path="res://buttons/button-hover-01.tres" type="StyleBox" id=2]
+[ext_resource path="res://buttons/button-normal-01.tres" type="StyleBox" id=3]
+[ext_resource path="res://buttons/button-pressed-01.tres" type="StyleBox" id=4]
+[ext_resource path="res://fonts/mukta/Mukta_16.tres" type="DynamicFontData" id=5]
+[ext_resource path="res://dice/dice-bank/BankDie.tscn" type="PackedScene" id=6]
+[ext_resource path="res://combat/health_icon.png" type="Texture" id=7]
+[ext_resource path="res://combat/favor-icon.png" type="Texture" id=8]
+[ext_resource path="res://title/RunLogBtn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://map/depth_icon.png" type="Texture" id=10]
+[ext_resource path="res://title/logs.gd" type="Script" id=11]
+[ext_resource path="res://title/run_log_template.gd" type="Script" id=12]
+[ext_resource path="res://dice/DieFaceInfo.tscn" type="PackedScene" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.431373 )
+font_data = ExtResource( 1 )
+
+[node name="Logs" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -320.0
+margin_top = -180.0
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="LogsInfo" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogsBorder" type="ColorRect" parent="LogsInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -301.0
+margin_top = -151.0
+margin_right = 301.0
+margin_bottom = 151.0
+color = Color( 0.596078, 0.580392, 0.443137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LogsBG" type="ColorRect" parent="LogsInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 150.0
+color = Color( 0.309804, 0.305882, 0.27451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackBtn" type="Button" parent="LogsInfo"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -55.0
+margin_top = -70.0
+margin_right = 55.0
+margin_bottom = -41.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BestDepth" type="Control" parent="LogsInfo"]
+anchor_left = 0.45
+anchor_top = 0.181
+anchor_right = 0.55
+anchor_bottom = 0.269
+margin_top = -0.160004
+margin_bottom = 0.159988
+rect_min_size = Vector2( 64, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="LogsInfo/BestDepth"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LogsInfo/BestDepth"]
+margin_left = 31.0
+margin_top = 4.0
+margin_right = 108.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 2 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunsContainer" type="VBoxContainer" parent="LogsInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -220.0
+margin_top = -80.0
+margin_right = 220.0
+margin_bottom = 105.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Run" parent="LogsInfo/RunsContainer" instance=ExtResource( 9 )]
+margin_top = 17.0
+margin_bottom = 44.0
+
+[node name="Run2" parent="LogsInfo/RunsContainer" instance=ExtResource( 9 )]
+margin_top = 48.0
+margin_bottom = 75.0
+
+[node name="Run3" parent="LogsInfo/RunsContainer" instance=ExtResource( 9 )]
+margin_top = 79.0
+margin_bottom = 106.0
+
+[node name="Run4" parent="LogsInfo/RunsContainer" instance=ExtResource( 9 )]
+margin_top = 110.0
+margin_bottom = 137.0
+
+[node name="Run5" parent="LogsInfo/RunsContainer" instance=ExtResource( 9 )]
+margin_top = 141.0
+margin_bottom = 168.0
+
+[node name="RunLogTemplate" type="Control" parent="LogsInfo"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 150.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="ColorRect" parent="LogsInfo/RunLogTemplate"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = -150.0
+margin_right = 300.0
+margin_bottom = 150.0
+color = Color( 0.254902, 0.254902, 0.254902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RunLabel" type="Label" parent="LogsInfo/RunLogTemplate"]
+anchor_left = 0.318
+anchor_top = 0.093
+anchor_right = 0.682
+anchor_bottom = 0.197
+margin_left = 0.199997
+margin_top = -7.9
+margin_right = -0.200012
+margin_bottom = -8.1
+custom_fonts/font = SubResource( 3 )
+text = "7-2-2023 21:22"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxStats" type="HBoxContainer" parent="LogsInfo/RunLogTemplate"]
+anchor_left = 0.042
+anchor_top = 0.183
+anchor_right = 0.958
+anchor_bottom = 0.287
+margin_left = -0.200001
+margin_top = 10.1
+margin_right = 0.199951
+margin_bottom = 10.9
+custom_constants/separation = 24
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health" type="Control" parent="LogsInfo/RunLogTemplate/HBoxStats"]
+margin_left = 155.0
+margin_right = 219.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="LogsInfo/RunLogTemplate/HBoxStats/Health"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LogsInfo/RunLogTemplate/HBoxStats/Health"]
+margin_left = 31.1132
+margin_top = 4.20448
+margin_right = 52.1132
+margin_bottom = 28.2045
+custom_fonts/font = SubResource( 2 )
+text = "100000"
+
+[node name="StartingFavor" type="Control" parent="LogsInfo/RunLogTemplate/HBoxStats"]
+margin_left = 243.0
+margin_right = 307.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="LogsInfo/RunLogTemplate/HBoxStats/StartingFavor"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LogsInfo/RunLogTemplate/HBoxStats/StartingFavor"]
+margin_left = 31.1132
+margin_top = 4.20448
+margin_right = 52.1132
+margin_bottom = 28.2045
+custom_fonts/font = SubResource( 2 )
+text = "100000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Depth" type="Control" parent="LogsInfo/RunLogTemplate/HBoxStats"]
+margin_left = 331.0
+margin_right = 395.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 64, 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="LogsInfo/RunLogTemplate/HBoxStats/Depth"]
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LogsInfo/RunLogTemplate/HBoxStats/Depth"]
+margin_left = 31.1132
+margin_top = 4.20448
+margin_right = 52.1132
+margin_bottom = 28.2045
+custom_fonts/font = SubResource( 2 )
+text = "100000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxDice" type="HBoxContainer" parent="LogsInfo/RunLogTemplate"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -382.0
+margin_top = -50.0
+margin_right = 382.0
+margin_bottom = 75.0
+rect_scale = Vector2( 0.75, 0.75 )
+rect_pivot_offset = Vector2( 382, 62 )
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxDice" type="VBoxContainer" parent="LogsInfo/RunLogTemplate/HBoxDice"]
+margin_right = 188.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Die001" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice" instance=ExtResource( 6 )]
+margin_top = 10.0
+margin_bottom = 42.0
+
+[node name="Die002" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice" instance=ExtResource( 6 )]
+margin_top = 46.0
+margin_bottom = 78.0
+
+[node name="Die003" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice" instance=ExtResource( 6 )]
+margin_top = 82.0
+margin_bottom = 114.0
+
+[node name="VBoxDice2" type="VBoxContainer" parent="LogsInfo/RunLogTemplate/HBoxDice"]
+margin_left = 192.0
+margin_right = 380.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Die001" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice2" instance=ExtResource( 6 )]
+margin_top = 10.0
+margin_bottom = 42.0
+
+[node name="Die002" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice2" instance=ExtResource( 6 )]
+margin_top = 46.0
+margin_bottom = 78.0
+
+[node name="Die003" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice2" instance=ExtResource( 6 )]
+margin_top = 82.0
+margin_bottom = 114.0
+
+[node name="VBoxDice3" type="VBoxContainer" parent="LogsInfo/RunLogTemplate/HBoxDice"]
+margin_left = 384.0
+margin_right = 572.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Die001" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice3" instance=ExtResource( 6 )]
+margin_top = 10.0
+margin_bottom = 42.0
+
+[node name="Die002" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice3" instance=ExtResource( 6 )]
+margin_top = 46.0
+margin_bottom = 78.0
+
+[node name="Die003" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice3" instance=ExtResource( 6 )]
+margin_top = 82.0
+margin_bottom = 114.0
+
+[node name="VBoxDice4" type="VBoxContainer" parent="LogsInfo/RunLogTemplate/HBoxDice"]
+margin_left = 576.0
+margin_right = 764.0
+margin_bottom = 124.0
+alignment = 1
+
+[node name="Die001" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice4" instance=ExtResource( 6 )]
+margin_top = 10.0
+margin_bottom = 42.0
+
+[node name="Die002" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice4" instance=ExtResource( 6 )]
+margin_top = 46.0
+margin_bottom = 78.0
+
+[node name="Die003" parent="LogsInfo/RunLogTemplate/HBoxDice/VBoxDice4" instance=ExtResource( 6 )]
+margin_top = 82.0
+margin_bottom = 114.0
+
+[node name="BackBtn" type="Button" parent="LogsInfo/RunLogTemplate"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -55.0
+margin_top = -40.0
+margin_right = 55.0
+margin_bottom = -11.0
+focus_mode = 0
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/disabled = ExtResource( 3 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+enabled_focus_mode = 0
+text = "BACK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DieFaceInfo" parent="." instance=ExtResource( 13 )]
+visible = false

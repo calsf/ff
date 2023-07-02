@@ -1,11 +1,19 @@
 # Save load manager singleton
 extends Node
 
+const MAX_RUNS = 5
 const SAVE_PATH = "user://sav.json"
 
 # Default data to be saved with new save file
 var _default_data = {
 	"best_depth" : 0,
+	"runs": [
+		null,
+		null,
+		null,
+		null,
+		null
+	],
 	
 	"fast_mode" : false,
 	"sounds_on" : true,
@@ -45,3 +53,26 @@ func check_save():
 	var dir = Directory.new()
 	var save = dir.file_exists(SAVE_PATH)
 	return save
+
+func save_run():
+	var save_data = SaveLoadManager.load_data()
+	if LevelDepth.depth > save_data["best_depth"]:
+		save_data["best_depth"] = LevelDepth.depth
+	
+	# Get dice and die face data
+	var dice = []
+	for die in PlayerDiceBank.dice:
+		dice.append(die.get_die_data())
+	
+	# Add run info to runs, pushing to back and popping front if over max entries
+	save_data["runs"].push_back({
+		"label": "Run Label",
+		"dice": dice,
+		"health": PlayerHealth.MAX_HP,
+		"starting_favor": PlayerDiceBank.starting_favor,
+		"depth": LevelDepth.depth,
+	})
+	if save_data["runs"].size() > MAX_RUNS:
+		save_data["runs"].pop_front()
+	
+	SaveLoadManager.save_data(save_data)

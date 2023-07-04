@@ -23,7 +23,7 @@ func _ready():
 
 func randomize_intent():
 	# Fear then flee once below half health
-	if health < (max_health / 2):
+	if health <= (max_health / 2):
 		var next_intent = flee_intents[flee_intent_count]
 		flee_intent_count += 1
 		return next_intent

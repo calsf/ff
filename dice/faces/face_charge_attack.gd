@@ -24,6 +24,10 @@ func on_play(combat, target, parent_die=0):
 	yield(combat.get_tree(), "idle_frame")
 
 func on_extra_play(combat, target):
+	if target.is_dead:
+		yield(combat.get_tree(), "idle_frame")
+		return
+	
 	# Apply double damage first
 	var val = num_value * 2
 	

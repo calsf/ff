@@ -44,6 +44,10 @@ onready var _number_popup_pool = get_tree().get_root().get_node("Encounter/Canva
 
 onready var _death_screen = get_tree().get_root().get_node("Encounter/CanvasLayer/DeathScreen")
 
+onready var _fade = get_tree().get_root().get_node("Encounter/CanvasLayer/Fade")
+
+onready var _paths_info = get_tree().get_root().get_node("Map/CanvasLayer/PathsInfo")
+
 func _ready():
 	enemies = get_tree().get_root().get_node("Encounter/CanvasLayer/Enemies").get_children()
 	_favor_num.text = str(favor)
@@ -233,7 +237,7 @@ func enemy_death_check():
 		if not enemy.is_dead:
 			all_dead = false
 	
-	if all_dead:
+	if all_dead or enemy_fled:
 		_dice_bank.disconnect_dice_bank()
 		_dice_bank.reset_dice_bank()
 		
@@ -245,6 +249,11 @@ func enemy_death_check():
 		combat_ended = true
 	
 	yield(get_tree().create_timer(.1), "timeout")
+	if combat_ended and enemy_fled:
+		if get_tree().get_root().get_node("Encounter") is CombatScene:
+			_paths_info.add_paths_avail()
+		yield(get_tree().create_timer(.6), "timeout")
+		_fade.go_to_scene("res://map/Map.tscn")
 
 # Statuses
 func reset_statuses():

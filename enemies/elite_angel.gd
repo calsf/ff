@@ -23,7 +23,7 @@ func _ready():
 
 func randomize_intent():
 	# Use enrage intents once below half
-	if health < (max_health / 2):
+	if health <= (max_health / 2):
 		randomize()
 		return enrage_intents[randi() % enrage_intents.size()]
 	

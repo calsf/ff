@@ -122,7 +122,7 @@ func deselect_face():
 		var action = "SET"
 		
 		# Append enemy number identifier if face has a target
-		if die.target != null:
+		if die.target != null and die.target is Enemy:
 			action += " FACE " + str(die.target.enemy_num)
 		
 		_die_action_labels.get_child(selected_face_index).text = action

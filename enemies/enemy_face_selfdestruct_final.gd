@@ -12,5 +12,5 @@ func _init(value=0, enemy=null):
 
 func on_play(combat):
 	var damage = enemy_owner.health
-	enemy_owner.deal_direct_damage(damage)
+	enemy_owner.deal_direct_damage(damage, combat)
 	combat.deal_blockable_player_damage(damage, enemy_owner)

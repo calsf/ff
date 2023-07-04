@@ -5,7 +5,7 @@ func _init(value=0, enemy=null):
 	num_value = value
 	
 	face_name = "RAGE"
-	face_info = "Deal damage equal to 50% of missing health to a single target."
+	face_info = "Deal damage equal to 0.5x of missing health."
 	icon = load("res://dice/faces/face-rage.png")
 	
 	enemy_owner = enemy

@@ -44,9 +44,6 @@ func _ready():
 	PlayerHealth.connect("health_gain", self, "_on_health_gain")
 	
 	_map_color_bg.modulate = Color(LevelDepth.get_depth_color())
-	
-	# TEMP
-	$CanvasLayer/TEMPRESETBTN.connect("pressed", self, "reset_map")
 
 func _on_health_updated():
 	_health_num.text = str(PlayerHealth.curr_hp)

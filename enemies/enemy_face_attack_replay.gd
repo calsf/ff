@@ -5,7 +5,7 @@ func _init(value=0, enemy=null):
 	num_value = value
 	
 	face_name = "ATTACK REPLAY"
-	face_info = "Deals " + str(num_value) + " damage. Repeats self and ally turns."
+	face_info = "Deal " + str(num_value) + " damage. Repeats self and ally turns."
 	icon = load("res://dice/faces/face-enemy-attack-replay.png")
 	
 	enemy_owner = enemy

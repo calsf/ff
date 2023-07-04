@@ -24,4 +24,4 @@ func on_play(combat, target, parent_die=0):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Spend 50% of current health. Deal damage equal to health lost to a single target."
+	face_info = "Spend half of current health. Deal damage equal to health lost."

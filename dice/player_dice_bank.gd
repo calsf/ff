@@ -1,7 +1,7 @@
 # Player dice bank singleton
 extends Node
 
-const DEFAULT_STARTING_FAVOR = 2
+const DEFAULT_STARTING_FAVOR = 3
 const MAX_OWNED_DICE = 12
 const INCREASE_FAVOR_AMOUNT = 2
 const INCREASE_FACE_AMOUNT = 1
@@ -34,27 +34,27 @@ func reset_dice_bank():
 	
 	var attack = FaceAttack
 	var block = FaceBlock
-	var attack_brutal = FaceAttackBrutal
-	var dodge = FaceDodge
-	var drain = FaceDrain
-	var heal = FaceHeal
-	var replay = FaceReplay
-	var scramble = FaceScramble
-	var unload = FaceUnload
-	var attack_charge = FaceChargeAttack
-	var block_charge = FaceChargeBlock
-	var reload = FaceReload
-	var attack_block = FaceAttackBlock
-	var multi_attack = FaceMultiAttack
-	var block_reflect = FaceBlockReflect
-	var sacrifice = FaceSacrifice
-	var rage = FaceRage
-	var attack_perfect = FaceAttackPerfect
-	var cheap_favor = FaceCheapFavor
-	var favorable_attack = FaceFavorableAttack
-	var guardian = FaceGuardian
-	var strengthen = FaceStrengthen
-	var fortify = FaceFortify
+#	var attack_brutal = FaceAttackBrutal
+#	var dodge = FaceDodge
+#	var drain = FaceDrain
+#	var heal = FaceHeal
+#	var replay = FaceReplay
+#	var scramble = FaceScramble
+#	var unload = FaceUnload
+#	var attack_charge = FaceChargeAttack
+#	var block_charge = FaceChargeBlock
+#	var reload = FaceReload
+#	var attack_block = FaceAttackBlock
+#	var multi_attack = FaceMultiAttack
+#	var block_reflect = FaceBlockReflect
+#	var sacrifice = FaceSacrifice
+#	var rage = FaceRage
+#	var attack_perfect = FaceAttackPerfect
+#	var cheap_favor = FaceCheapFavor
+#	var favorable_attack = FaceFavorableAttack
+#	var guardian = FaceGuardian
+#	var strengthen = FaceStrengthen
+#	var fortify = FaceFortify
 	
 	# Start with 6 die
 	dice.append(Die.new(number_icon_paths[0], [attack.new(), attack.new(), attack.new(), block.new(), block.new(), block.new()]))

@@ -1,7 +1,7 @@
 extends BlessingOption
 class_name BlessingHealth
 
-const INCREASE_AMOUNT = 10
+const INCREASE_AMOUNT = 15
 
 onready var _label = $Label
 

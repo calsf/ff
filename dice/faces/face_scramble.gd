@@ -25,4 +25,4 @@ func on_play(combat, target, parent_die=0):
 		yield(anim_to_wait_for, "animation_finished")
 
 func update_info():
-	face_info = "Randomize target's next action."
+	face_info = "Randomize one enemy's next action."

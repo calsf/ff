@@ -18,4 +18,4 @@ func on_play(combat, target, parent_die=0):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Next fatal hit will be avoided."
+	face_info = "Gain guardian. Guardian will avoid next fatal hit."

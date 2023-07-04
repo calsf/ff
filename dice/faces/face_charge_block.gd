@@ -34,4 +34,4 @@ func on_extra_play(combat, target):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Blocks " + str(num_value) + " incoming damage. Blocks " + str(num_value * 2) + " incoming damage next turn."
+	face_info = "Gain " + str(num_value) + " block. Gain " + str(num_value * 2) + " block next turn."

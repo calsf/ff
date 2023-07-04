@@ -5,7 +5,7 @@ func _init(value=0, enemy=null):
 	num_value = value
 	
 	face_name = "BLOCK REFLECT"
-	face_info = "Blocks " + str(num_value) + " incoming damage. Block will reflect half of damage blocked."
+	face_info = "Gain " + str(num_value) + " block. Block will also reflect half of damage blocked."
 	icon = load("res://dice/faces/face-block-reflect.png")
 	
 	enemy_owner = enemy

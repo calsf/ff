@@ -34,4 +34,4 @@ func on_extra_play(combat, target):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Deals " + str(num_value) + " damage to a single target. Deals " + str(num_value * 2) + " damage to same target next turn."
+	face_info = "Deal " + str(num_value) + " damage. Deal " + str(num_value * 2) + " damage to same enemy next turn."

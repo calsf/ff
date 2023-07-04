@@ -23,4 +23,4 @@ func on_play(combat, target, parent_die=0):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Deal damage equal to 50% of missing health to a single target."
+	face_info = "Deal damage equal to 0.5x of missing health."

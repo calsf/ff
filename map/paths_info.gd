@@ -31,16 +31,6 @@ func _ready():
 	# Determine what path will be the boss path
 	_random.randomize()
 	_boss_path_num = _random.randi_range(MAX_BOSS_PATH_NUM, MIN_BOSS_PATH_NUM)
-	
-	# TEMP
-	print_debug(_boss_path_num)
-	add_paths_avail()
-	add_paths_avail()
-	add_paths_avail()
-	add_paths_avail()
-	add_paths_avail()
-	add_paths_avail()
-	add_paths_avail()
 
 func add_paths_avail():
 	randomize()

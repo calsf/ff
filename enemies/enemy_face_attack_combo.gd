@@ -5,7 +5,7 @@ func _init(value=0, enemy=null):
 	num_value = value
 	
 	face_name = "COMBO ATTACK"
-	face_info = "Deals " + str(num_value) + " damage. Next attack deals +2 damage."
+	face_info = "Deal " + str(num_value) + " damage. Next attack deals +2 damage."
 	icon = load("res://dice/faces/face-enemy-attack-combo.png")
 	
 	enemy_owner = enemy

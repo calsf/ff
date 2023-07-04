@@ -25,4 +25,6 @@ func on_death():
 
 func _on_return_pressed():
 	_fade.go_to_scene(TITLE_SCENE_PATH)
+	
+	GlobalSounds.play("ButtonPressed")
 	GlobalMusic.stop_all()

@@ -2434,4 +2434,3 @@ __meta__ = {
 anims/fade_in = SubResource( 25 )
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 99 )]
-visible = false

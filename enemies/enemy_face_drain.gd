@@ -5,7 +5,7 @@ func _init(value=0, enemy=null):
 	num_value = value
 	
 	face_name = "DRAIN"
-	face_info = "Deals " + str(num_value) + " damage. Heal for unblocked damage dealt."
+	face_info = "Deal " + str(num_value) + " damage. Heal for unblocked damage dealt."
 	icon = load("res://dice/faces/face-drain.png")
 	
 	enemy_owner = enemy

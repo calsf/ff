@@ -21,4 +21,4 @@ func on_play(combat, target, parent_die=0):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Blocks " + str(num_value) + " incoming damage."
+	face_info = "Gain " + str(num_value) + " block. Block reduces incoming damage."

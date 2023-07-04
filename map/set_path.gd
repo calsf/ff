@@ -11,6 +11,7 @@ var next_path = null
 func _ready():
 	_paths_controls.visible = false
 	self.connect("pressed", self, "_on_pressed")
+	enable_set_path()
 
 func _on_pressed():
 	if _paths_info.get_paths_avail().size() <= 0:
@@ -50,6 +51,7 @@ func disable_set_path():
 func enable_set_path():
 	# Do not enable set path if no paths left
 	if _paths_info.get_paths_avail().size() <= 0:
+		disable_set_path()
 		return
 	
 	self.disabled = false

@@ -366,7 +366,6 @@ __meta__ = {
 }
 
 [node name="EnemyDieRoll" type="HBoxContainer" parent="NextAction"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.25
 anchor_right = 0.258
 anchor_bottom = 1.882
@@ -385,8 +384,9 @@ margin_left = 2.0
 margin_right = 34.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 32, 32 )
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 16, 16 )
-texture = ExtResource( 28 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="Label" type="Label" parent="NextAction/EnemyDieRoll"]
@@ -417,6 +417,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="NextAction/EnemyDieFace"]
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 2.0
 margin_right = 34.0
 margin_bottom = 32.0
@@ -426,7 +427,7 @@ texture = ExtResource( 5 )
 expand = true
 
 [node name="Label" type="Label" parent="NextAction/EnemyDieFace"]
-modulate = Color( 1, 1, 1, 0.333333 )
+modulate = Color( 1, 1, 1, 0 )
 margin_left = 33.0
 margin_top = 8.0
 margin_right = 42.0

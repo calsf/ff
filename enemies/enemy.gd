@@ -1,8 +1,8 @@
 extends Node
 class_name Enemy
 
-# Additionally scaling once past max depth
-const OVER_SCALING = 0.2
+# Additional scaling once past max depth
+const OVER_SCALING = 0.3
 
 var enemy_num : int
 var max_health : int

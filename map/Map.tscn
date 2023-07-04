@@ -629,29 +629,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TEMPRESETBTN" type="Button" parent="CanvasLayer"]
-anchor_left = 0.812
-anchor_top = 0.222
-anchor_right = 0.887
-anchor_bottom = 0.286
-margin_left = 72.32
-margin_top = 256.08
-margin_right = 72.32
-margin_bottom = 256.04
-focus_mode = 0
-custom_styles/hover = ExtResource( 18 )
-custom_styles/pressed = ExtResource( 17 )
-custom_styles/disabled = ExtResource( 19 )
-custom_styles/normal = ExtResource( 19 )
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-enabled_focus_mode = 0
-text = "RESET"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="PathsInfo" type="Control" parent="CanvasLayer"]
 anchor_left = 0.742
 anchor_top = 0.222
@@ -916,7 +893,6 @@ __meta__ = {
 [node name="DieFaceInfo" parent="CanvasLayer" instance=ExtResource( 6 )]
 
 [node name="Fade" parent="CanvasLayer" instance=ExtResource( 4 )]
-visible = false
 
 [node name="MapCanvas" type="CanvasLayer" parent="."]
 layer = -10

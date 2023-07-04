@@ -25,4 +25,4 @@ func on_play(combat, target, parent_die=0):
 	yield(combat.get_tree(), "idle_frame")
 
 func update_info():
-	face_info = "Deal " + str(num_value) + " damage and block " + str(num_value) + " incoming damage."
+	face_info = "Deal " + str(num_value) + " damage and gain " + str(num_value) + " block."

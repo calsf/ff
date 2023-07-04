@@ -57,7 +57,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				pass
 			else:
 				if get_tree().current_scene.name == MAP_SCENE_NAME and _next_scene != MAP_SCENE_PATH and _next_scene != TITLE_SCENE_PATH:
-					print_debug("Persisting Map")
+					#print_debug("Persisting Map")
 					_remove_root_nodes()
 					var new_scene = load(_next_scene).instance()
 					get_tree().get_root().add_child(new_scene)
@@ -67,17 +67,17 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 				elif _next_scene == MAP_SCENE_PATH:
 					_remove_root_nodes()
 					if _map_persisted:
-						print_debug("Going to map, map already exists.")
+						#print_debug("Going to map, map already exists.")
 						
 						# Show map
 						get_tree().get_root().get_node("Map").show_map()
 					else:
-						print_debug("Going to map, map does not exist.")
+						#print_debug("Going to map, map does not exist.")
 						
 						_remove_root_nodes()
 						get_tree().change_scene(_next_scene)
 				else:
-					print_debug("Changing scenes.")
+					#print_debug("Changing scenes.")
 					_remove_root_nodes()
 					get_tree().change_scene(_next_scene)
 			

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://fonts/mukta/Mukta_8.tres" type="DynamicFontData" id=1]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 12
 outline_size = 1
 outline_color = Color( 0, 0, 0, 0.431373 )
@@ -54,8 +54,9 @@ margin_left = -126.0
 margin_top = -13.5
 margin_right = 126.0
 margin_bottom = 13.5
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 0.839216, 0, 1 )
 text = "7-2-2023 21:22"
 flat = true
 __meta__ = {

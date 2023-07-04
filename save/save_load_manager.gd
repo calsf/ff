@@ -64,9 +64,18 @@ func save_run():
 	for die in PlayerDiceBank.dice:
 		dice.append(die.get_die_data())
 	
+	var datetime = OS.get_datetime()
+	var run_label = "%02d-%02d-%04d %02d:%02d" % [
+		datetime.month,
+		datetime.day,
+		datetime.year,
+		datetime.hour,
+		datetime.minute
+	]
+	
 	# Add run info to runs, pushing to back and popping front if over max entries
 	save_data["runs"].push_back({
-		"label": "Run Label",
+		"label": run_label,
 		"dice": dice,
 		"health": PlayerHealth.MAX_HP,
 		"starting_favor": PlayerDiceBank.starting_favor,

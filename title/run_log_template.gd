@@ -5,6 +5,7 @@ onready var _dice_col = $HBoxDice
 onready var _health_label = $HBoxStats/Health/Label
 onready var _starting_favor_label = $HBoxStats/StartingFavor/Label
 onready var _depth_label = $HBoxStats/Depth/Label
+onready var _run_label = $RunLabel
 onready var _die_face_info = get_tree().get_root().get_node("Title/CanvasLayer/Logs/DieFaceInfo")
 
 func _ready():
@@ -14,6 +15,7 @@ func set_and_display(data):
 	_health_label.text = str(data["health"])
 	_starting_favor_label.text = str(data["starting_favor"])
 	_depth_label.text = str(data["depth"])
+	_run_label.text = str(data["label"])
 	
 	for i in range(data["dice"].size()):
 		update_dice_index(data["dice"], i)
@@ -22,6 +24,8 @@ func set_and_display(data):
 
 func _on_back_pressed():
 	self.visible = false
+	
+	GlobalSounds.play("ButtonPressed")
 
 ### Copied from DiceBank.gd ###
 func get_dice_nodes():

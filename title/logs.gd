@@ -48,8 +48,12 @@ func _show_run_log_template(count):
 	
 	# Set and display run log with given data
 	_run_log_template.set_and_display(save_data["runs"][count])
+	
+	GlobalSounds.play("ButtonPressed")
 
 func _on_back_pressed():
 	self.visible = false
+	
+	GlobalSounds.play("ButtonPressed")
 
 

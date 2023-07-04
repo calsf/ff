@@ -8,7 +8,7 @@ func _ready():
 	reset_block()
 
 	intents = [
-		EnemyFaceAttackReplay.new(3 * offensive_scaling, self),
+		EnemyFaceAttackReplay.new(10 * offensive_scaling, self),
 		EnemyFaceAttack.new(7 * offensive_scaling, self),
 		EnemyFaceAttack.new(11 * offensive_scaling, self),
 		EnemyFaceAttack.new(14 * offensive_scaling, self),

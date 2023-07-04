@@ -44,6 +44,7 @@ func lose_health(loss):
 
 # Reset player health to max
 func reset_health():
+	MAX_HP = DEFAULT_MAX_HP
 	curr_hp = MAX_HP
 	emit_signal("health_updated")
 	

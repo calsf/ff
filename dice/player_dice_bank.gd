@@ -17,6 +17,8 @@ func _init():
 	reset_dice_bank()
 
 func reset_dice_bank():
+	starting_favor = DEFAULT_STARTING_FAVOR
+	
 	dice = []
 	number_icon_paths = []
 	number_icon_paths.append("res://dice/die-numbers/die-num-1.png")

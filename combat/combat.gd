@@ -138,7 +138,7 @@ func remove_player_block(amount, attacker=null):
 	player_block -= amount
 	_block_num.text = str(player_block)
 	
-	if attacker != null and _reflect:
+	if attacker != null and _reflect and not attacker.is_dead:
 		attacker.deal_blockable_damage(amount / 2, self)
 	
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _block_num)
@@ -221,9 +221,12 @@ func enemy_turn_finished():
 	
 	if enemy_replay:	# Repeat enemy turn and reset enemy_replay
 		enemy_replay = false
+		GlobalSounds.play("Replay")
+		
+		yield(get_tree().create_timer(2), "timeout")
 		player_turn_finished()
 		
-		GlobalSounds.play("Replay")
+		
 	else: # Reset turn normally
 		_dice_bar.reset_dice_bar()
 
@@ -231,7 +234,7 @@ func enemy_death_check():
 	var all_dead = true
 	
 	for enemy in enemies:
-		if enemy_fled or (not enemy.is_dead and enemy.health <= 0):
+		if (enemy_fled and not enemy.is_dead) or (not enemy.is_dead and enemy.health <= 0):
 			yield(enemy.on_death(), "completed")
 		
 		if not enemy.is_dead:

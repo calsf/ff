@@ -56,7 +56,7 @@ func _ready():
 	_on_health_updated()
 
 func _on_health_updated():
-	_health_num.text = str(PlayerHealth.curr_hp)
+	_health_num.text = str(PlayerHealth.curr_hp) + "/" + str(PlayerHealth.MAX_HP)
 
 func add_health(amount):
 	var amount_added = PlayerHealth.add_health(amount)

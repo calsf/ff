@@ -1,13 +1,15 @@
 # Save load manager singleton
 extends Node
 
-const MAX_RUNS = 5
+const MAX_RUNS = 7
 const SAVE_PATH = "user://sav.json"
 
 # Default data to be saved with new save file
 var _default_data = {
 	"best_depth" : 0,
 	"runs": [
+		null,
+		null,
 		null,
 		null,
 		null,

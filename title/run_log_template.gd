@@ -6,10 +6,35 @@ onready var _health_label = $HBoxStats/Health/Label
 onready var _starting_favor_label = $HBoxStats/StartingFavor/Label
 onready var _depth_label = $HBoxStats/Depth/Label
 onready var _run_label = $RunLabel
+onready var _health_icon = $HBoxStats/Health/Icon
+onready var _starting_favor_icon = $HBoxStats/StartingFavor/Icon
+onready var _depth_icon = $HBoxStats/Depth/Icon
+
 onready var _die_face_info = get_tree().get_root().get_node("Title/CanvasLayer/Logs/DieFaceInfo")
 
 func _ready():
 	_back_btn.connect("pressed", self, "_on_back_pressed")
+	
+	_health_icon.connect("mouse_entered", self, "_on_icon_entered", [
+		"MAX HEALTH",
+		"Max health obtained.",
+		_health_icon
+	])
+	_health_icon.connect("mouse_exited", self, "_on_icon_exited")
+	
+	_starting_favor_icon.connect("mouse_entered", self, "_on_icon_entered", [
+		"STARTING FAVOR",
+		"Starting favor obtained.",
+		_starting_favor_icon
+	])
+	_starting_favor_icon.connect("mouse_exited", self, "_on_icon_exited")
+	
+	_depth_icon.connect("mouse_entered", self, "_on_icon_entered", [
+		"DEPTH",
+		"Depth reached.",
+		_depth_icon
+	])
+	_depth_icon.connect("mouse_exited", self, "_on_icon_exited")
 
 func set_and_display(data):
 	_health_label.text = str(data["health"])
@@ -111,4 +136,15 @@ func _on_face_entered(face_node, face_obj):
 
 # Hide info box after exiting a die face node
 func _on_face_exited():
+	_die_face_info.visible = false
+
+func _on_icon_entered(face_name, face_info, icon):
+	var y_offset = Vector2(8, icon.rect_size.y + 30)
+	
+	_die_face_info.set_face_info_directly(face_name, face_info)
+	_die_face_info.set_global_position(icon.get_global_position() - (icon.rect_size / 1.05) + y_offset)
+	
+	_die_face_info.visible = true
+
+func _on_icon_exited():
 	_die_face_info.visible = false

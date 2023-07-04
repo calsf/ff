@@ -46,7 +46,7 @@ func _ready():
 	_map_color_bg.modulate = Color(LevelDepth.get_depth_color())
 
 func _on_health_updated():
-	_health_num.text = str(PlayerHealth.curr_hp)
+	_health_num.text = str(PlayerHealth.curr_hp) + "/" + str(PlayerHealth.MAX_HP)
 
 func _on_health_lost(amount):
 	_number_popup_pool.display_number_popup("-" + str(amount), Color("ff0000"), _health_num)

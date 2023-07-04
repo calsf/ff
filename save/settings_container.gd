@@ -38,6 +38,8 @@ func _on_quit_yes_pressed():
 		fade.show()
 		fade.fade_in()
 	
+	SaveLoadManager.save_run()
+	
 	_fade.go_to_scene(TITLE_SCENE_PATH)
 	GlobalMusic.stop_all()
 	

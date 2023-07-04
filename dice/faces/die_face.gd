@@ -28,3 +28,11 @@ func scale_num_val(scaling):
 
 func update_info():
 	pass
+
+func get_face_data():
+	return {
+		"face_name": face_name,
+		"face_info": face_info,
+		"icon": icon.resource_path,
+		"num_value": num_value
+	}
